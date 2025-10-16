@@ -4,6 +4,7 @@ import 'package:customer/View/Widgets/color.dart';
 import 'package:customer/View/Widgets/elevat_button.dart';
 import 'package:customer/View/Widgets/phone_number_textfield.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 
 class ChangPhoneNumber extends StatelessWidget {
@@ -16,7 +17,6 @@ class ChangPhoneNumber extends StatelessWidget {
         backgroundColor: CustomColor.background,
 
         body: Column(
-
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -31,7 +31,10 @@ class ChangPhoneNumber extends StatelessWidget {
         ),
           height: 30,
           width: 30,
-          child: Icon(Icons.arrow_back_sharp, size: 25, color: Colors.white,)
+          child:IconButton(onPressed: (){
+            Get.back();
+          }, icon:Icon( Icons.arrow_back_sharp, size: 25, color: Colors.white))
+         
       ),
                 SizedBox(width:MediaQuery.of(context).size.width*0.15,),
 

@@ -27,37 +27,97 @@ class _ProfileScreenState extends State<ProfileScreen> {
          key: _scaffoldkey ,
           backgroundColor: CustomColor.background,
           drawerEnableOpenDragGesture: false,
-          drawer:Drawer(
 
-           backgroundColor: Colors.blueGrey,
-          child: Padding(
-            padding: const EdgeInsets.all(12.0),
-            child: ListView(
-              children: [
-                SizedBox(height: 50,),
-                CircleAvatar(
-                  backgroundColor: Colors.amber,
-                  radius: 50,
-                ),
-                SizedBox(height: 40,),
-                ListTile(
-                  title: Text("item1",style: TextStyle(color: Colors.white),),
-                  onTap: (){},
-                ), SizedBox(height: 5,),
 
-                ListTile(
-                  title: Text("item2",style: TextStyle(color: Colors.white),),
-                    onTap: (){}
+          drawer:SizedBox(
+            width : MediaQuery.of(context).size.width*0.6,
+            child: ClipRRect(
+            child: Container(
+              decoration: BoxDecoration(
+                color: Colors.blueGrey, // Background color
+                borderRadius: BorderRadius.only(
+                  topRight: Radius.circular(70),
+                  bottomRight: Radius.circular(70),
                 ),
-                SizedBox(height: 5,),
-                ListTile(
-                  title: Text("item3",style: TextStyle(color: Colors.white),),
-                    onTap: (){}
+
+              ),
+
+              child: Padding(
+                padding: const EdgeInsets.all(12.0),
+                child: ListView(
+                  children: [
+                    SizedBox(height: 50,),
+                    CircleAvatar(
+                      backgroundColor: Colors.white60,
+                      radius: 50,
+                      child: Icon(Icons.person_add_alt,color: Colors.white,size: 50,),
+                    ),
+
+                    //------------------------ name Drawer
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text("MUHAMMAD FAHEEM",style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold,color:CustomColor.Text_Color),),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10.0),
+                      child: Text("Abcasdfghjk@gmai.com",style: TextStyle(fontSize: 15,color:CustomColor.Text_Color),),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10.0),
+                      child: Text("x123456789",style: TextStyle(fontSize: 15,color:CustomColor.Text_Color),),
+                    ),
+                    SizedBox(height: 10,),
+                    Divider(),
+
+                    //------------------------------  Drawer option
+                    SizedBox(height: 5,),
+                    ListTile(
+                      leading: Icon(Icons.home,size: 20,color: Colors.white,),
+                      title: Text("Home",style: TextStyle(color: Colors.white),),
+                      onTap: (){},
+                    ),
+
+                    ListTile(
+                      leading: Icon(Icons.picture_in_picture,size: 20,color: Colors.white,),
+                      title: Text("Your Trip",style: TextStyle(color: Colors.white),),
+                      onTap: (){},
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.payments,size: 20,color: Colors.white,),
+                      title: Text("Payment",style: TextStyle(color: Colors.white),),
+                      onTap: (){},
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.settings,size: 20,color: Colors.white,),
+                      title: Text("User Profile",style: TextStyle(color: Colors.white),),
+                      onTap: (){},
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.send_to_mobile,size: 20,color: Colors.white,),
+                      title: Text("Invite your Friend",style: TextStyle(color: Colors.white),),
+                      onTap: (){},
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.person,size: 20,color: Colors.white,),
+                      title: Text("About",style: TextStyle(color: Colors.white),),
+                      onTap: (){},
+                    ),
+                    SizedBox(height: 15,),
+                    ListTile(
+                      leading: Icon(Icons.logout,size: 20,color: Colors.white,),
+                      title: Text("Logout",style: TextStyle(color: Colors.white),),
+                      onTap: (){},
+                    ),
+
+
+
+                  ],
                 ),
-              ],
+              ),
             ),
+                    ),
           ),
-        ),
+
 
 
           body: Column(
@@ -190,6 +250,7 @@ SizedBox(width: 20,),
     CustomTextButton(
     text: 'NO',
     onPressed: () {
+      Get.back();
     },
     backgroundColor: Colors.black54,
     textColor: Colors.white,

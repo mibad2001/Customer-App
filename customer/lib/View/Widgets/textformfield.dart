@@ -58,11 +58,13 @@ class CustomTextField extends StatelessWidget {
       obscureText: obscureText,
       keyboardType: keyboardType,
       maxLines: obscureText ? 1 : maxLines,
+      style: TextStyle(color: Colors.white),
 
       decoration: InputDecoration(
         label: lable,
         hintText: hintText,
         hintStyle: TextStyle(color: Colors.white, fontSize: FontSize),
+       // labelStyle:  TextStyle(color: CustomColor.Text_Color),
         filled: true,
         fillColor: fillColor,
         contentPadding: contentPadding,
