@@ -5,7 +5,9 @@ import 'package:customer/View/Auth/splash_Screen/spalsh.dart';
 import 'package:customer/View/Deshboard/AddHome/add_home.dart';
 import 'package:customer/View/Deshboard/AddWork/add_work.dart';
 import 'package:customer/View/Deshboard/dashboard.dart';
+import 'package:customer/View/about/aboutscreen.dart';
 import 'package:customer/View/profile/profilescreen.dart';
+import 'package:customer/View/yourtrip/yourtrip.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 
@@ -21,7 +23,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Customer App',
-      initialRoute: '/Splash_Screen',
+      initialRoute: '/Yourtrip',
       transitionDuration: Duration(seconds: 1),
       defaultTransition: Transition.leftToRight,
 
@@ -50,6 +52,16 @@ class MyApp extends StatelessWidget {
           name: '/Deshboard',
           page: () => DeshBoard_Screen(),
           binding: DeshboardBinding(),
+        ),
+        GetPage(
+          name: '/AboutScreen',
+          page: () => Aboutscreen(),
+          //binding: Aboutscreen(),
+        ),
+        GetPage(
+          name: '/Yourtrip',
+          page: () => Yourtrip(),
+          //binding: Yourtrip(),
         ),
       ],
     );

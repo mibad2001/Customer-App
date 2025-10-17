@@ -317,45 +317,6 @@
 
 
 
-                  // ListTile(
-                  // title: Text(
-                  // CustomText.Add_Home,
-                  // style: TextStyle(
-                  // color: CustomColor.textColor,
-                  // fontSize: 18,fontWeight: FontWeight.bold
-                  // ),
-                  // ),
-                  // subtitle: Text("Home Address ",style: TextStyle(
-                  //   color: CustomColor.textColor,
-                  //   fontSize: 15,
-                  // ),),
-                  // leading: const Icon(
-                  // Icons.home,
-                  // color: CustomColor.textColor,size: 25,
-                  // ),
-                  // trailing: IconButton(
-                  //   icon: const Icon(Icons.delete, color: Colors.red,size: 25),
-                  //   onPressed: (){},
-                  // ),
-                  // )
-
-
-                  // Row(
-                  //   children: [Container(
-                  //     height: 80,
-                  //     width: 350,
-                  //     child: ListTile(
-                  //       leading: Icon(Icons.home,size: 25,color: Colors.white,),
-                  //       title: Text(CustomText.Add_Home,style: TextStyle(fontSize: 10,fontWeight: FontWeight.bold,color: CustomColor.textColor),),
-                  //       subtitle: Text("Psot office 12-14 London",style: TextStyle(fontSize: 10,fontWeight: FontWeight.w200,color: CustomColor.textColor),),  //================= Text
-                  //     ),
-                  //   ),
-                  //     SizedBox(width: 10),
-                  //
-                  //
-                  //
-                  //   ],
-                  // )
 
                 ],
               );

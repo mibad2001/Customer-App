@@ -37,6 +37,9 @@ class CustomText {
   static const String Chng_Confirm_pass =  "Enter Current Password";
   static const String Chng_Phone_Num =  "UPDATE NUMBER";
   static const String Mobile_Num =  "Mobile Number";
+  static const String About =  "About";
+  static const String Your_Trip =  "Your Trip";
+
 
 
 
