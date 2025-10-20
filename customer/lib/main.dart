@@ -11,6 +11,8 @@ import 'package:customer/View/yourtrip/yourtrip.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 
+import 'View/yourtrip/tripdetail.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -23,7 +25,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Customer App',
-      initialRoute: '/Yourtrip',
+      initialRoute: '/Splash_Screen',
       transitionDuration: Duration(seconds: 1),
       defaultTransition: Transition.leftToRight,
 
@@ -62,6 +64,11 @@ class MyApp extends StatelessWidget {
           name: '/Yourtrip',
           page: () => Yourtrip(),
           //binding: Yourtrip(),
+        ),
+        GetPage(
+          name: '/TripDetail',
+          page: () => TripDetail(),
+          //binding: TripDetail(),
         ),
       ],
     );

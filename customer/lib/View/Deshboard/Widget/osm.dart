@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:flutter_map_location_marker/flutter_map_location_marker.dart';
 import 'package:latlong2/latlong.dart';
+import 'package:geolocator/geolocator.dart';
 
 class OpenStreetMapWidget extends StatefulWidget {
   const OpenStreetMapWidget({super.key});
@@ -11,15 +12,35 @@ class OpenStreetMapWidget extends StatefulWidget {
 }
 
 class _OpenStreetMapWidgetState extends State<OpenStreetMapWidget> {
-  MapController _controller = MapController();
+  final MapController _controller = MapController();
   LatLng? _currentLocation;
-  Future<void> _userCurrentLocation() async {
+
+  @override
+  void initState() {
+    super.initState();
+    _getCurrentLocation();
+  }
+
+  Future<void> _getCurrentLocation() async {
+    bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
+    if (!serviceEnabled) return;
+
+    LocationPermission permission = await Geolocator.checkPermission();
+    if (permission == LocationPermission.denied) {
+      permission = await Geolocator.requestPermission();
+    }
+
+    if (permission == LocationPermission.deniedForever) return;
+
+    Position position = await Geolocator.getCurrentPosition();
+    setState(() {
+      _currentLocation = LatLng(position.latitude, position.longitude);
+    });
+  }
+
+  Future<void> _moveToCurrentLocation() async {
     if (_currentLocation != null) {
-      _controller.move(_currentLocation!, 10);
-    } else {
-      ScaffoldMessenger.of(
-        context,
-      ).showSnackBar(SnackBar(content: Text("Current Location not available")));
+      _controller.move(_currentLocation!, 15);
     }
   }
 
@@ -31,36 +52,19 @@ class _OpenStreetMapWidgetState extends State<OpenStreetMapWidget> {
         options: MapOptions(
           initialCenter: _currentLocation ?? LatLng(0, 0),
           initialZoom: 5,
-          minZoom: 0,
-          maxZoom: 100,
-
-          interactionOptions: InteractionOptions(
-            flags: InteractiveFlag.doubleTapZoom,
-          ),
         ),
         children: [
           TileLayer(
             urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+            userAgentPackageName: 'com.example.customer',
           ),
-          CurrentLocationLayer(
-            // style: LocationMarkerStyle(
-            //   marker: DefaultLocationMarker(
-            //     child: Icon(Icons.location_pin, color: Colors.red),
-            //   ),
-            //   markerSize: Size(50, 50),
-
-            //   markerDirection: MarkerDirection.heading,
-            // ),
-          ),
+          CurrentLocationLayer(),
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          _userCurrentLocation();
-        },
-        elevation: 0,
+        onPressed: _moveToCurrentLocation,
         backgroundColor: Colors.blue,
-        child: Icon(Icons.my_location, size: 25, color: Colors.white),
+        child: Icon(Icons.my_location, color: Colors.white),
       ),
     );
   }

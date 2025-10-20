@@ -4,6 +4,7 @@ import 'package:customer/View/Widgets/color.dart';
 import 'package:customer/View/Widgets/text_button.dart';
 import 'package:customer/View/profile/changepassword.dart';
 import 'package:customer/View/profile/changephone_number.dart';
+import 'package:customer/View/yourtrip/yourtrip.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl_phone_field/phone_number.dart';
@@ -113,7 +114,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         "Your Trip",
                         style: TextStyle(color: Colors.white),
                       ),
-                      onTap: () {},
+                      onTap: () {
+                        Get.to(Yourtrip());
+                      },
                     ),
                     ListTile(
                       leading: Icon(

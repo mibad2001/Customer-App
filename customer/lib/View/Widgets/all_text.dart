@@ -39,6 +39,7 @@ class CustomText {
   static const String Mobile_Num =  "Mobile Number";
   static const String About =  "About";
   static const String Your_Trip =  "Your Trip";
+  static const String Trip_Detail =  "Trip Detail";
 
 
 
