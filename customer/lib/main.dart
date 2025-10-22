@@ -11,6 +11,7 @@ import 'package:customer/View/yourtrip/yourtrip.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 
+import 'View/Deshboard/pickup.dart';
 import 'View/yourtrip/tripdetail.dart';
 
 void main() {
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Customer App',
-      initialRoute: '/Splash_Screen',
+      initialRoute: '/PickupScreen',
       transitionDuration: Duration(seconds: 1),
       defaultTransition: Transition.leftToRight,
 
@@ -69,7 +70,12 @@ class MyApp extends StatelessWidget {
           name: '/TripDetail',
           page: () => TripDetail(),
           //binding: TripDetail(),
+        ),GetPage(
+          name: '/PickupScreen',
+          page: () => PickupScreen(),
+          //binding: PickupScreen(),
         ),
+
       ],
     );
   }
