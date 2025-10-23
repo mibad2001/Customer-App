@@ -4,6 +4,8 @@ import 'package:customer/View/Widgets/all_text.dart';
 import 'package:customer/View/Widgets/color.dart';
 import 'package:flutter/material.dart';
 
+import '../Deshboard/Widget/openstrretmap.dart';
+
 
 class Aboutscreen extends StatelessWidget {
   const Aboutscreen({super.key});

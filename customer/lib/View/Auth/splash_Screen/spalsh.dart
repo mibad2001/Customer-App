@@ -21,22 +21,20 @@ class _Splash_ScreenState extends State<Splash_Screen> {
   }
   @override
   Widget build(BuildContext context) {
-    final hight = MediaQuery.of(context).size.height;
-    final width = MediaQuery.of(context).size.width;
 
     return Scaffold(
       backgroundColor: CustomColor.background,
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment:MainAxisAlignment.center,
         children: [
-          // Text("data"),
-          Center(
+      Center(
             child: Container(
-              height: hight / 1,
-              width: width / 0.5,
+              height:200,
+              width: 300,
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage(ProductImages.splash_image),
-                  fit: BoxFit.fill,
                 ),
               ),
             ),

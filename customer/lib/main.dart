@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Customer App',
-      initialRoute: '/PickupScreen',
+      initialRoute: '/Deshboard',
       transitionDuration: Duration(seconds: 1),
       defaultTransition: Transition.leftToRight,
 

@@ -8,6 +8,7 @@ class MyElevatedButton extends StatelessWidget {
   final double borderRadius;
   final double elevation;
   final EdgeInsetsGeometry padding;
+  final  double fontSize;
 
   const MyElevatedButton({
     Key? key,
@@ -17,6 +18,8 @@ class MyElevatedButton extends StatelessWidget {
     this.textColor = Colors.white,
     this.borderRadius = 12.0,
     this.elevation = 2.0,
+    this.fontSize =  16,
+
     this.padding = const EdgeInsets.symmetric(vertical: 14, horizontal: 24),
   }) : super(key: key);
 

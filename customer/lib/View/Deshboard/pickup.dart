@@ -3,6 +3,8 @@ import 'package:customer/View/Widgets/color.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../Widgets/elevat_button.dart';
+import 'Widget/openstrretmap.dart';
 import 'Widget/osm.dart';
 
 class PickupScreen extends StatelessWidget {
@@ -21,7 +23,7 @@ class PickupScreen extends StatelessWidget {
               Container(
                 height: 200,
                 decoration: BoxDecoration(
-                  color: Colors.pink,
+                  color: CustomColor.background,
                   borderRadius: BorderRadius.only(bottomLeft: Radius.circular(20),bottomRight: Radius.circular(20)),
                 ),
                 child: Column(
@@ -29,7 +31,7 @@ class PickupScreen extends StatelessWidget {
                   children: [
                     IconButton(
                       onPressed: () {
-                        Get.toNamed('/PickupScreen');
+                        Get.back();
                       },
                       icon: Icon(Icons.arrow_back, color: CustomColor.Icon_Color),
                     ),
@@ -61,6 +63,19 @@ class PickupScreen extends StatelessWidget {
                   ],
                 ),
               ),
+              SizedBox(height: 500,),
+              SizedBox(
+                height: 50,
+                width: 350  ,
+                child: MyElevatedButton(
+                    text: 'DONE',
+                  onPressed: () {  },
+                  backgroundColor: CustomColor.Icon_Color,
+                  textColor: Colors.black,
+                  fontSize: 20,
+                      ),
+              )
+
             ],
           ),
         ],

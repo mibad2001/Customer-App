@@ -2,6 +2,7 @@ import 'package:customer/Controller/Deshboard/deshboard_cont.dart';
 import 'package:customer/View/Deshboard/AddHome/add_home.dart';
 import 'package:customer/View/Deshboard/AddWork/add_work.dart';
 import 'package:customer/View/Deshboard/PreviousTrip/previous_trip.dart';
+import 'package:customer/View/Deshboard/Widget/openstrretmap.dart';
 import 'package:customer/View/Deshboard/Widget/osm.dart';
 import 'package:customer/View/Home/homedriver.dart';
 import 'package:customer/View/Widgets/color.dart';
@@ -24,18 +25,19 @@ class DeshBoard_Screen extends StatelessWidget {
 
     return SafeArea(
       child: Scaffold(
+        backgroundColor:CustomColor.background,
         body: Column(
           children: [
-      
-            Stack(
+           Stack(
               children: [
                 ///////////////////////////////////////// Map
                 Container(
-                height: hight / 1.5,
-                width: width,
-                child: OpenStreetMapWidget(),
-              ),
-                 //=====================================================Profile buttom
+                  height: 600,
+                  child: OpenStreetMapWidget(),
+                ),
+
+
+               // =====================================================Profile buttom
                 Positioned(
                   left: 10,
                   top: 20,
@@ -62,121 +64,121 @@ class DeshBoard_Screen extends StatelessWidget {
                     ),
                   ),
                 )
-      
+
               ],
             ),
-            Expanded(
-              child: Container(
-                color: CustomColor.background,
-                child: Padding(
-                  padding: const EdgeInsets.only(
-                    left: 10.0,
-                    right: 10.0,
-                    top: 10.0,
-                  ),
-                  child: Column(
-                    // mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(left: 15.0),
-                        child: Row(
-                          children: [
-                            Icon(
-                              Icons.person_2_rounded,
-                              size: 27,
-                              color: CustomColor.textColor,
-                            ),
-                            SizedBox(width: 15),
-                            CustomTextStyle(
-                              text: "User Name",
-                              fontSize: 20,
-                              color: CustomColor.textColor,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ],
-                        ),
-                      ),
-                      SizedBox(height: 10),
-      
-                      Container(
-                        height: 50,
-                        width: width,
-                        decoration: BoxDecoration(
-                          color: Colors.grey,
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 15.0, right: 5.0),
-                          child: InkWell(
-                            onTap: () {
-                              Get.to(HomeDriver());
-                            },
-                            child: Row(
-                              children: [
-                                CustomTextStyle(
-                                  text: "Where To",
-                                  color: CustomColor.background,
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                                Spacer(),
-                                Icon(Icons.arrow_right, size: 40),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                      Column(
+
+
+            Container(
+              color: CustomColor.background,
+              child: Padding(
+                padding: const EdgeInsets.only(
+                  left: 10.0,
+                  right: 10.0,
+                  top: 10.0,
+                ),
+                child: Column(
+                  // mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 15.0),
+                      child: Row(
                         children: [
-                          CustomTextButton(
-                            text: "Add Home",
-                            onPressed: () {
-                              Get.to(AddHomeScreen());
-                            },
-                            icon: Icon(Icons.home, color: CustomColor.textColor),
-                            backgroundColor: CustomColor.background,
-                            textColor: CustomColor.textColor,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16.0,
+                          Icon(
+                            Icons.person_2_rounded,
+                            size: 27,
+                            color: CustomColor.textColor,
                           ),
-                          Obx(
-                            () => Text(
-                              hdeshboard_controller.text.isEmpty
-                                  ? ''
-                                  : hdeshboard_controller.text.toString(),
-                              style: const TextStyle(
-                                fontSize: 12,
-                                color: Colors.white,
-                              ),
-                            ),
+                          SizedBox(width: 15),
+                          CustomTextStyle(
+                            text: "User Name",
+                            fontSize: 20,
+                            color: CustomColor.textColor,
+                            fontWeight: FontWeight.bold,
                           ),
                         ],
                       ),
-                      CustomTextButton(
-                        text: "Add Work",
-                        onPressed: () {
-                          Get.to(AddWork_Screen());
-                        },
-                        icon: Icon(Icons.home, color: CustomColor.textColor),
-                        backgroundColor: CustomColor.background,
-                        textColor: CustomColor.textColor,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16.0,
+                    ),
+                    SizedBox(height: 10),
+
+                    Container(
+                      height: 50,
+                      width: width,
+                      decoration: BoxDecoration(
+                        color: Colors.grey,
+                        borderRadius: BorderRadius.circular(15),
                       ),
-                      CustomTextButton(
-                        text: "Previous trip",
-                        onPressed: () {
-                          Get.to(PreviousTrip_Screen());
-                        },
-                        icon: Icon(Icons.home, color: CustomColor.textColor),
-                        backgroundColor: CustomColor.background,
-                        textColor: CustomColor.textColor,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16.0,
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 15.0, right: 5.0),
+                        child: InkWell(
+                          onTap: () {
+                            Get.to(HomeDriver());
+                          },
+                          child: Row(
+                            children: [
+                              CustomTextStyle(
+                                text: "Where To",
+                                color: CustomColor.background,
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                              ),
+                              Spacer(),
+                              Icon(Icons.arrow_right, size: 40),
+                            ],
+                          ),
+                        ),
                       ),
-                    ],
-                  ),
+                    ),
+                    Column(
+                      children: [
+                        CustomTextButton(
+                          text: "Add Home",
+                          onPressed: () {
+                            Get.to(AddHomeScreen());
+                          },
+                          icon: Icon(Icons.home, color: CustomColor.textColor),
+                          backgroundColor: CustomColor.background,
+                          textColor: CustomColor.textColor,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16.0,
+                        ),
+                        Obx(
+                              () => Text(
+                            hdeshboard_controller.text.isEmpty
+                                ? ''
+                                : hdeshboard_controller.text.toString(),
+                            style: const TextStyle(
+                              fontSize: 12,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    CustomTextButton(
+                      text: "Add Work",
+                      onPressed: () {
+                        Get.to(AddWork_Screen());
+                      },
+                      icon: Icon(Icons.home, color: CustomColor.textColor),
+                      backgroundColor: CustomColor.background,
+                      textColor: CustomColor.textColor,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16.0,
+                    ),
+                    CustomTextButton(
+                      text: "Previous trip",
+                      onPressed: () {
+                        Get.to(PreviousTrip_Screen());
+                      },
+                      icon: Icon(Icons.home, color: CustomColor.textColor),
+                      backgroundColor: CustomColor.background,
+                      textColor: CustomColor.textColor,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16.0,
+                    ),
+                  ],
                 ),
               ),
             ),
