@@ -3,9 +3,9 @@ import 'package:customer/View/Widgets/color.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../Widgets/elevat_button.dart';
-import 'Widget/openstrretmap.dart';
-import 'Widget/osm.dart';
+import '../../Widgets/elevat_button.dart';
+import '../Widget/openstrretmap.dart';
+import '../Widget/osm.dart';
 
 class PickupScreen extends StatelessWidget {
   const PickupScreen({super.key});
@@ -63,7 +63,7 @@ class PickupScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(height: 500,),
+              SizedBox(height:600),
               SizedBox(
                 height: 50,
                 width: 350  ,

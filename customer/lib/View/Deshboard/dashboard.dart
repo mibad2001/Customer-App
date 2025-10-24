@@ -11,22 +11,24 @@ import 'package:customer/View/Widgets/textstyle.dart';
 import 'package:customer/View/profile/profilescreen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import '../../globalvariable/globals.dart';
 import '../Widgets/color.dart' show CustomColor;
-
+import 'drawer/drawer.dart';
 class DeshBoard_Screen extends StatelessWidget {
   DeshBoard_Screen({super.key});
 
   final DeshBoardAddHome_Controller hdeshboard_controller = Get.find();
   @override
   Widget build(BuildContext context) {
+    final GlobalKey<ScaffoldState> _scaffoldkey = GlobalKey<ScaffoldState>();
     final hight = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
 
     return SafeArea(
       child: Scaffold(
         backgroundColor:CustomColor.background,
+        drawerEnableOpenDragGesture: false,
+        key: _scaffoldkey,
+        drawer: appDrawer(),
         body: SingleChildScrollView(
           child: Column(
             children: [
@@ -54,7 +56,9 @@ class DeshBoard_Screen extends StatelessWidget {
                       Center(
                         child: IconButton(
                             onPressed: (){
-                              rootScaffoldkey.currentState!.openDrawer();
+                              _scaffoldkey.currentState!.openDrawer();
+
+                             // Get.to(ProfileScreen());
                             },
                                 icon: Icon(Icons.person,size: 30
                                   ,color: Colors.grey,)

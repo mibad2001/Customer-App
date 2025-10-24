@@ -172,9 +172,9 @@ class _OsmState extends State<OpenStreetMapWidget> {
           ),
 
           Container(
-            margin: EdgeInsets.only(left: 350, top: 50),
-            height: 50,
-            width: 50,
+            margin: EdgeInsets.only(left: 350, top: 20),
+            height: 55,
+            width: 55,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
               color: Colors.grey,

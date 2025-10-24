@@ -22,20 +22,24 @@ class ChangPhoneNumber extends StatelessWidget {
           children: [
             Row(
               children: [
+                Padding(
+                  padding: EdgeInsets.only(left: 15),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.blueGrey,
+                      borderRadius: BorderRadius.all(Radius.circular(7)),
+                    ),
+                    height: 40,
+                    width: 40,
+                    child: IconButton(
+                      onPressed: () {
+                        Get.back();
+                      },
+                      icon: Icon(Icons.arrow_back, size: 25, color: Colors.white),
+                    ),
+                  ),
+                ),
 
-        Container(
-          margin: EdgeInsets.only(left: 15),
-        decoration: BoxDecoration(
-            color: Colors.blueGrey,
-            borderRadius: BorderRadius.all(Radius.circular(7))
-        ),
-          height: 30,
-          width: 30,
-          child:IconButton(onPressed: (){
-            Get.back();
-          }, icon:Icon( Icons.arrow_back_sharp, size: 25, color: Colors.white))
-         
-      ),
                 SizedBox(width:MediaQuery.of(context).size.width*0.15,),
 
                 Text(CustomText.Chng_Phone_Num,style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold,color: CustomColor.Text_Color),),

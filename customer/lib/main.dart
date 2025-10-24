@@ -11,7 +11,7 @@ import 'package:customer/View/yourtrip/yourtrip.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 
-import 'View/Deshboard/pickup.dart';
+import 'View/Deshboard/pickup/pickup.dart';
 import 'View/yourtrip/tripdetail.dart';
 
 void main() {
@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Customer App',
       initialRoute: '/Splash_Screen',
-      transitionDuration: Duration(seconds: 1),
+      //transitionDuration: Duration(seconds: ),
       defaultTransition: Transition.leftToRight,
 
       getPages: [

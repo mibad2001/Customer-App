@@ -268,7 +268,7 @@ class HomeDriver extends StatelessWidget {
                             ? Container(
                                 height: 150,
                                 width: 350,
-                                color: Colors.grey,
+                                //color: Colors.grey,
                                 child: Column(
                                   children: [
                                     ListTile(
@@ -298,14 +298,14 @@ class HomeDriver extends StatelessWidget {
                                         color: CustomColor.textColor,
                                         size: 25,
                                       ),
-                                      trailing: IconButton(
-                                        icon: Icon(
-                                          Icons.delete,
-                                          color: Colors.redAccent,
-                                          size: 25,
-                                        ),
-                                        onPressed: () {},
-                                      ),
+                                      // trailing: IconButton(
+                                      //   icon: Icon(
+                                      //     Icons.delete,
+                                      //     color: Colors.redAccent,
+                                      //     size: 25,
+                                      //   ),
+                                    //   onPressed: () {},
+                                    //  ),
                                     ),
                                     ListTile(
                                       title: Text(
@@ -330,14 +330,15 @@ class HomeDriver extends StatelessWidget {
                                         color: CustomColor.textColor,
                                         size: 25,
                                       ),
-                                      trailing: IconButton(
-                                        icon: Icon(
-                                          Icons.delete,
-                                          color: Colors.redAccent,
-                                          size: 25,
-                                        ),
-                                        onPressed: () {},
-                                      ),
+                                      // trailing: IconButton(
+                                      //   icon: Icon(
+                                      //     Icons.delete,
+                                      //     color: Colors.redAccent,
+                                      //     size: 25,
+                                      //   ),
+                                      //   onPressed: () {},
+                                      // ),
+
                                     ),
                                   ],
                                 ),
@@ -372,14 +373,16 @@ class HomeDriver extends StatelessWidget {
                                     color: CustomColor.textColor,
                                     size: 25,
                                   ),
-                                  trailing: IconButton(
-                                    icon: Icon(
-                                      Icons.delete,
-                                      color: Colors.redAccent,
-                                      size: 25,
-                                    ),
-                                    onPressed: () {},
-                                  ),
+                                  // trailing: IconButton(
+                                  //   icon: Icon(
+                                  //     Icons.delete,
+                                  //     color: Colors.redAccent,
+                                  //     size: 25,
+                                  //   ),
+                                  //   onPressed: () {},
+                                  // ),
+                                  //
+
                                 ),
                             ),
                       ],

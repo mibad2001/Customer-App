@@ -36,8 +36,10 @@ class _YourtripState extends State<Yourtrip> {
                       height: 40,
                       width: 40,
                       child: IconButton(
-                        onPressed: () {},
-                        icon: Icon(Icons.menu, size: 25, color: Colors.white),
+                        onPressed: () {
+                          Get.back();
+                        },
+                        icon: Icon(Icons.arrow_back, size: 25, color: Colors.white),
                       ),
                     ),
                 ),
