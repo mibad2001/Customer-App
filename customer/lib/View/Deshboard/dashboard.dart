@@ -12,6 +12,7 @@ import 'package:customer/View/profile/profilescreen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../Widgets/color.dart' show CustomColor;
+import '../yourtrip/yourtrip.dart';
 import 'drawer/drawer.dart';
 class DeshBoard_Screen extends StatelessWidget {
   DeshBoard_Screen({super.key});
@@ -174,7 +175,7 @@ class DeshBoard_Screen extends StatelessWidget {
                       CustomTextButton(
                         text: "Previous trip",
                         onPressed: () {
-                          Get.to(PreviousTrip_Screen());
+                          Get.to(Yourtrip());
                         },
                         icon: Icon(Icons.home, color: CustomColor.textColor),
                         backgroundColor: CustomColor.background,

@@ -8,8 +8,11 @@ class SwapController extends GetxController {
   var selectedItem = (0).obs;
   RxInt selectedIndex = 0.obs;
 
+    RxList<TextEditingController> viaControllers = <TextEditingController>[].obs;
 
-    List<Map<String, dynamic>> iconItems = [
+
+
+  List<Map<String, dynamic>> iconItems = [
       {"name": "Home", "icon": Icons.home},
       {"name": "Bus", "icon":Icons.airplanemode_active_rounded },
       {"name": "Plane", "icon":Icons.directions_bus},
@@ -36,5 +39,18 @@ class SwapController extends GetxController {
     firstController.dispose();
     secondController.dispose();
     super.onClose();
+  }
+
+
+  void addViaField() {
+    if (viaControllers.length < 2) {    // max 2 via stops
+      viaControllers.add(TextEditingController());
+      update();
+    }
+  }
+
+  void removeViaField(int index) {
+    viaControllers.removeAt(index);
+    update();
   }
 }

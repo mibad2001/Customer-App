@@ -18,14 +18,20 @@ class HomeDriver extends StatelessWidget {
 
     return SafeArea(
       child: Scaffold(
-        backgroundColor: CustomColor.background,
+    backgroundColor: CustomColor.background,
+
         body: GetBuilder<SwapController>(
           builder: (controller) {
             return SingleChildScrollView(
               child: Column(
                 children: [
-                  Container(
-                    height: MediaQuery.of(context).size.height*0.3,
+                  Obx(
+                     ()=>Container(
+                    height:  homeC.viaControllers.length == 0
+                        ? MediaQuery.of(context).size.height * 0.3
+                        : homeC.viaControllers.length == 1
+                        ? MediaQuery.of(context).size.height * 0.4
+                        : MediaQuery.of(context).size.height * 0.5,
                     decoration: BoxDecoration(
                       color: CustomColor.textfield_fill,
                       borderRadius: const BorderRadius.only(
@@ -46,11 +52,11 @@ class HomeDriver extends StatelessWidget {
 
                               icon: Icon(
                                 Icons.arrow_back,
-                                color: CustomColor.background,
+                                color: CustomColor.Icon_Color,
                                 size: 30,
                               ),
                             ),
-                            SizedBox(height: 20),
+                            SizedBox(height: 2),
 
                             Padding(
                               padding: const EdgeInsets.only(left: 30),
@@ -58,7 +64,7 @@ class HomeDriver extends StatelessWidget {
                                 width: MediaQuery.of(context).size.width / 1.2,
                                 child: CustomTextField(
                                   controller: homeC.firstController,
-                                  hintText: "ma",
+                                  hintText: "pick up",
                                   fillColor: CustomColor.textfield_fill,
                                   borderRadius: 20,
                                 ),
@@ -76,29 +82,85 @@ class HomeDriver extends StatelessWidget {
                                 icon: const Icon(
                                   Icons.swap_vert,
                                   size: 32,
-                                  color: Colors.blue,
+                                  color: CustomColor.Icon_Color,
                                 ),
                               ),
                             ),
                             SizedBox(height: 15),
 
                             Padding(
-                              padding: const EdgeInsets.only(left: 30),
+                              padding:  EdgeInsets.only(left: 30),
                               child: SizedBox(
                                 width: MediaQuery.of(context).size.width / 1.2,
                                 child: CustomTextField(
                                   controller: homeC.secondController,
-                                  hintText: "ma",
-                                  fillColor: CustomColor.textColor,
+                                  hintText: "Destination",
+                                  fillColor: CustomColor.textfield_fill,
                                   borderRadius: 20,
                                 ),
                               ),
                             ),
+
+                            SizedBox(height: 5,),
+
+
+
+
+                            // ------------------------------- --------------------      VIA button
+                            Row(
+                              children: [  SizedBox(width: MediaQuery.of(context).size.width*0.67,),
+                                TextButton.icon(
+                                  onPressed: () {
+                                    homeC.addViaField();
+                                  },
+                                  icon: const Icon(Icons.add, color: CustomColor.Icon_Color),
+                                  label: const Text(
+                                    "Add Via",
+                                    style: TextStyle(color:CustomColor.Text_Color, fontSize: 16),
+                                  ),
+                                ),],
+                            ),
+
+                            // ---------------------------     add fields
+                            Obx(() {
+                              return Column(
+                                children: List.generate(homeC.viaControllers.length, (index) {
+                                  return Padding(
+                                    padding: const EdgeInsets.only(left: 30, bottom: 10),
+                                    child: Row(
+                                      children: [
+                                        Expanded(
+                                          child: CustomTextField(
+                                            controller: homeC.viaControllers[index],
+                                            hintText: index == 0 ? "1st Stop" : "2nd Stop",
+                                            fillColor: CustomColor.textfield_fill,
+                                            borderRadius: 20,
+                                          ),
+                                        ),
+                                        const SizedBox(width: 8),
+                                        IconButton(
+                                          icon: const Icon(Icons.remove_circle, color: Colors.red),
+                                          onPressed: () {
+                                            homeC.removeViaField(index);
+                                          },
+                                        ),
+                                      ],
+                                    ),
+                                  );
+                                }),
+                              );
+                            }),
+
                           ],
                         ),
                       ),
                     ),
                   ),
+                  ),
+
+
+
+
                   SizedBox(height: 15),
 
                   // ----------- Address / Airoplane / Train  Coloum ------------------

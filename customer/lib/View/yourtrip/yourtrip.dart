@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 import '../../Controller/yourtrip/yourtrip_Controller.dart';
 import '../Widgets/color.dart';
 
-class Yourtrip extends StatefulWidget {
+  class Yourtrip extends StatefulWidget {
   Yourtrip({super.key});
 
   @override

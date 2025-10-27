@@ -2,34 +2,38 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class DeshBoardAddHome_Controller extends GetxController {
+  // Reactive variables
   var text = ''.obs;
+  var homeAddress = ''.obs;
+  final RxnInt editingIndex = RxnInt();
 
+  // TextField controller
   final TextEditingController HomeController = TextEditingController();
-  var items = <String>[].obs;
-  var editingIndex = Rxn(); //null be askta hai isleya
 
-  void addOrUpdateItem() {
-    if (HomeController.text.isNotEmpty) {
-      if (editingIndex.value == null) {
-        items.add(HomeController.text);
-      } else {
-        items[editingIndex.value!] = HomeController.text;
-        editingIndex.value = null;
-      }
-      HomeController.clear();
-    }
+  /// Save or update home address
+  void saveItem() {
+    homeAddress.value = HomeController.text;
+    editingIndex.value = null;
   }
 
-  void editItem(int index) {
-    HomeController.text = items[index];
-    editingIndex.value = index;
+  /// Edit existing address
+  void editItem() {
+    HomeController.text = homeAddress.value;
+    editingIndex.value = 0;
   }
 
-  void deleteItem(int index) {
-    items.removeAt(index);
-    if (editingIndex.value == index) {
+  /// Delete address
+  void deleteItem() {
+    homeAddress.value = '';
+    if (editingIndex.value != null) {
       HomeController.clear();
       editingIndex.value = null;
     }
+  }
+
+  @override
+  void onClose() {
+    HomeController.dispose();
+    super.onClose();
   }
 }
