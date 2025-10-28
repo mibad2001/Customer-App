@@ -8,8 +8,8 @@ import '../Widget/openstrretmap.dart';
 import '../Widget/osm.dart';
 
 class PickupScreen extends StatelessWidget {
-  const PickupScreen({super.key});
-
+ const  PickupScreen({super.key});
+  // final mapWedgit =OpenStreetMapWidget();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -17,7 +17,7 @@ class PickupScreen extends StatelessWidget {
         backgroundColor: CustomColor.background,
         body: Stack(
         children: [
-          OpenStreetMapWidget(),
+          // OpenStreetMapWidget(),//==== map
           Column(
             children: [
               Container(

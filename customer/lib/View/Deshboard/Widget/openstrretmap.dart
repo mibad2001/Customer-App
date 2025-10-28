@@ -8,7 +8,7 @@ import 'package:latlong2/latlong.dart';
 
 
 class OpenStreetMapWidget extends StatefulWidget {
-  OpenStreetMapWidget({super.key});
+  const OpenStreetMapWidget({super.key});
   @override
   State<OpenStreetMapWidget> createState() => _OsmState();
 }
@@ -54,14 +54,16 @@ class _OsmState extends State<OpenStreetMapWidget> {
     Position position = await Geolocator.getCurrentPosition(
       locationSettings: const LocationSettings(accuracy: LocationAccuracy.high),
     );
-
     //  Update map and position
     LatLng latLng = LatLng(position.latitude, position.longitude);
     _updateAddress(latLng);
 
-    setState(() {
-      _currentPosition = latLng;
-    });
+    if (_currentPosition == null) {
+      setState(() {
+        _currentPosition = latLng;
+      });
+    }
+
 
     _mapController.move(_currentPosition!, 15.0);
   }
@@ -96,11 +98,18 @@ class _OsmState extends State<OpenStreetMapWidget> {
   }
 
   // Step 3: Listen to map movements
-  void _onPositionChanged(MapPosition, bool hasGesture) {
+  void _onPositionChanged(MapPosition , bool hasGesture) {
     if (MapPosition.center != null && hasGesture) {
-      _updateAddress(MapPosition.center!);
+      final latLng = MapPosition.center!;
+      if (_currentPosition == null) {
+        setState(() {
+          _currentPosition = latLng; //   Store the map center once
+        });
+      }
+      _updateAddress(latLng);
     }
   }
+
 
   // Move map to current location on button press
   Future<void> _moveCurrentLocation() async {
@@ -148,7 +157,7 @@ class _OsmState extends State<OpenStreetMapWidget> {
                   padding: EdgeInsets.only(top: 5),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(8),
-                    color: Colors.pink,
+                    color: Colors.blue,
                   ),
                   child: Text(
                     _currentAddress ?? "Loading address...",

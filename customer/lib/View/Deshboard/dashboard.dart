@@ -24,6 +24,7 @@ class DeshBoard_Screen extends StatelessWidget {
     final hight = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
 
+
     return SafeArea(
       child: Scaffold(
         backgroundColor:CustomColor.background,
@@ -38,7 +39,7 @@ class DeshBoard_Screen extends StatelessWidget {
                   ///////////////////////////////////////// Map
                   Container(
                     height:550,
-                    child: OpenStreetMapWidget(),
+                     child: const OpenStreetMapWidget(),
                   ),
           
           
@@ -72,7 +73,6 @@ class DeshBoard_Screen extends StatelessWidget {
           
                 ],
               ),
-          
           
               Container(
                 color: CustomColor.background,
@@ -149,15 +149,17 @@ class DeshBoard_Screen extends StatelessWidget {
                             fontSize: 16.0,
                           ),
                           Obx(
-                                () => Text(
-                              hdeshboard_controller.text.isEmpty
-                                  ? ''
-                                  : hdeshboard_controller.text.toString(),
-                              style: const TextStyle(
-                                fontSize: 12,
-                                color: Colors.white,
-                              ),
-                            ),
+                                () => Container(
+                                  child: Text(
+                                    hdeshboard_controller.homeAddress.isEmpty
+                                    ? ''
+                                    : hdeshboard_controller.homeAddress.toString(),
+                                    style: const TextStyle(
+                                  fontSize: 12,
+                                  color: Colors.white,
+                                         ),
+                                        ),
+                                ),
                           ),
                         ],
                       ),

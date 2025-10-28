@@ -25,8 +25,8 @@ class HomeDriver extends StatelessWidget {
             return SingleChildScrollView(
               child: Column(
                 children: [
-                  Obx(
-                     ()=>Container(
+
+                  Container(
                     height:  homeC.viaControllers.length == 0
                         ? MediaQuery.of(context).size.height * 0.3
                         : homeC.viaControllers.length == 1
@@ -122,8 +122,8 @@ class HomeDriver extends StatelessWidget {
                             ),
 
                             // ---------------------------     add fields
-                            Obx(() {
-                              return Column(
+
+                              Column(
                                 children: List.generate(homeC.viaControllers.length, (index) {
                                   return Padding(
                                     padding: const EdgeInsets.only(left: 30, bottom: 10),
@@ -148,15 +148,15 @@ class HomeDriver extends StatelessWidget {
                                     ),
                                   );
                                 }),
-                              );
-                            }),
+                              ),
+
 
                           ],
                         ),
                       ),
                     ),
                   ),
-                  ),
+
 
 
 

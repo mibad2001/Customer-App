@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class DeshBoardAddHome_Controller extends GetxController {
-  // Reactive variables
-  var text = ''.obs;
+
   var homeAddress = ''.obs;
   final RxnInt editingIndex = RxnInt();
 
@@ -22,7 +21,7 @@ class DeshBoardAddHome_Controller extends GetxController {
     editingIndex.value = 0;
   }
 
-  /// Delete address
+  ///Delete address
   void deleteItem() {
     homeAddress.value = '';
     if (editingIndex.value != null) {

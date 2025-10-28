@@ -33,13 +33,13 @@ class SwapController extends GetxController {
   }
 
 
-
-  @override
-  void onClose() {
-    firstController.dispose();
-    secondController.dispose();
-    super.onClose();
-  }
+  //
+  // @override
+  // void onClose() {
+  //   firstController.dispose();
+  //   secondController.dispose();
+  //   super.onClose();
+  // }
 
 
   void addViaField() {

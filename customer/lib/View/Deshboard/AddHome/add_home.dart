@@ -12,18 +12,18 @@ class AddHomeScreen extends StatefulWidget {
 }
 
 class AddHomeScreenState extends State<AddHomeScreen> {
-  final DeshBoardAddHome_Controller mydeshcontroller =
-  Get.put(DeshBoardAddHome_Controller());
+  final DeshBoardAddHome_Controller mydeshcontroller = Get.put(DeshBoardAddHome_Controller());
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: CustomColor.background,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
             children: [
-              // ✅ Top Section
+
               Container(
                 height: MediaQuery.of(context).size.height / 3,
                 decoration: BoxDecoration(
@@ -74,7 +74,7 @@ class AddHomeScreenState extends State<AddHomeScreen> {
 
               const SizedBox(height: 30),
 
-              // ✅ Bottom Section (no Expanded)
+
               Obx(() {
                 final address = mydeshcontroller.homeAddress.value;
 

@@ -10,8 +10,8 @@ import '../Deshboard/Widget/openstrretmap.dart';
 
 
 class Aboutscreen extends StatelessWidget {
-  const Aboutscreen({super.key});
-
+   Aboutscreen({super.key});
+  // final mapWedgit =OpenStreetMapWidget();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -118,7 +118,7 @@ class Aboutscreen extends StatelessWidget {
               //============================================   map
               Container(
                 height:600,
-                child: OpenStreetMapWidget(),
+                 // child: OpenStreetMapWidget(),
               ),
 
 

@@ -48,10 +48,10 @@ class TripDetail extends StatelessWidget {
             ),
 
             //=========================  Map
-            Container(
-              height: 300,
-              child:  OpenStreetMapWidget(),
-            ),
+            // Container(
+            //   height: 300,
+            //   child:  OpenStreetMapWidget(),
+            // ),
 
             SizedBox(height: 10,),
             Row(
