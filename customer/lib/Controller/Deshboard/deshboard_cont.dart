@@ -30,9 +30,13 @@ class DeshBoardAddHome_Controller extends GetxController {
     }
   }
 
-  @override
-  void onClose() {
-    HomeController.dispose();
-    super.onClose();
+  void clearfield(){
+    HomeController.clear();
   }
+
+  // @override
+  // void onClose() {
+  //   HomeController.dispose();
+  //   super.onClose();
+  // }
 }

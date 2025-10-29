@@ -328,125 +328,125 @@ class HomeDriver extends StatelessWidget {
                       children: [
                         controller.selectedIndex.value == 0
                             ? Container(
-                                height: 150,
-                                width: 350,
-                                //color: Colors.grey,
-                                child: Column(
-                                  children: [
-                                    ListTile(
-                                      title: Text(
-                                        controller.Title_Address[controller
-                                            .selectedIndex
-                                            .value],
-                                        style: TextStyle(
-                                          color: CustomColor.textColor,
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
-                                      subtitle: Text(
-                                        controller.Address[controller
-                                            .selectedIndex
-                                            .value],
-                                        style: TextStyle(
-                                          color: CustomColor.textColor,
-                                          fontSize: 15,
-                                        ),
-                                      ),
-                                      leading: Icon(
-                                        controller.iconItems[controller
-                                            .selectedIndex
-                                            .value]["icon"],
-                                        color: CustomColor.textColor,
-                                        size: 25,
-                                      ),
-                                      // trailing: IconButton(
-                                      //   icon: Icon(
-                                      //     Icons.delete,
-                                      //     color: Colors.redAccent,
-                                      //     size: 25,
-                                      //   ),
-                                    //   onPressed: () {},
-                                    //  ),
-                                    ),
-                                    ListTile(
-                                      title: Text(
-                                        "Add_Work",
-                                        style: TextStyle(
-                                          color: CustomColor.textColor,
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
-                                      subtitle: Text(
-                                        "Work Address",
-                                        style: TextStyle(
-                                          color: CustomColor.textColor,
-                                          fontSize: 15,
-                                        ),
-                                      ),
-                                      leading: Icon(
-                                        controller.iconItems[controller
-                                            .selectedIndex
-                                            .value]["icon"],
-                                        color: CustomColor.textColor,
-                                        size: 25,
-                                      ),
-                                      // trailing: IconButton(
-                                      //   icon: Icon(
-                                      //     Icons.delete,
-                                      //     color: Colors.redAccent,
-                                      //     size: 25,
-                                      //   ),
-                                      //   onPressed: () {},
-                                      // ),
-
-                                    ),
-                                  ],
+                          height: 150,
+                          width: 350,
+                          //color: Colors.grey,
+                          child: Column(
+                            children: [
+                              ListTile(
+                                title: Text(
+                                  controller.Title_Address[controller
+                                      .selectedIndex
+                                      .value],
+                                  style: TextStyle(
+                                    color: CustomColor.textColor,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ),
-                              )
+                                subtitle: Text(
+                                  controller.Address[controller
+                                      .selectedIndex
+                                      .value],
+                                  style: TextStyle(
+                                    color: CustomColor.textColor,
+                                    fontSize: 15,
+                                  ),
+                                ),
+                                leading: Icon(
+                                  controller.iconItems[controller
+                                      .selectedIndex
+                                      .value]["icon"],
+                                  color: CustomColor.textColor,
+                                  size: 25,
+                                ),
+                                // trailing: IconButton(
+                                //   icon: Icon(
+                                //     Icons.delete,
+                                //     color: Colors.redAccent,
+                                //     size: 25,
+                                //   ),
+                                //   onPressed: () {},
+                                //  ),
+                              ),
+                              ListTile(
+                                title: Text(
+                                  "Add_Work",
+                                  style: TextStyle(
+                                    color: CustomColor.textColor,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                subtitle: Text(
+                                  "Work Address",
+                                  style: TextStyle(
+                                    color: CustomColor.textColor,
+                                    fontSize: 15,
+                                  ),
+                                ),
+                                leading: Icon(
+                                  controller.iconItems[controller
+                                      .selectedIndex
+                                      .value]["icon"],
+                                  color: CustomColor.textColor,
+                                  size: 25,
+                                ),
+                                // trailing: IconButton(
+                                //   icon: Icon(
+                                //     Icons.delete,
+                                //     color: Colors.redAccent,
+                                //     size: 25,
+                                //   ),
+                                //   onPressed: () {},
+                                // ),
+
+                              ),
+                            ],
+                          ),
+                        )
 
                             : Container(
                           height: 150,
-                              child: ListTile(
-                                  title: Text(
-                                    controller.Title_Address[controller
-                                        .selectedIndex
-                                        .value],
-                                    style: TextStyle(
-                                      color: CustomColor.textColor,
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                  subtitle: Text(
-                                    controller.Address[controller
-                                        .selectedIndex
-                                        .value],
-                                    style: TextStyle(
-                                      color: CustomColor.textColor,
-                                      fontSize: 15,
-                                    ),
-                                  ),
-                                  leading: Icon(
-                                    controller.iconItems[controller
-                                        .selectedIndex
-                                        .value]["icon"],
-                                    color: CustomColor.textColor,
-                                    size: 25,
-                                  ),
-                                  // trailing: IconButton(
-                                  //   icon: Icon(
-                                  //     Icons.delete,
-                                  //     color: Colors.redAccent,
-                                  //     size: 25,
-                                  //   ),
-                                  //   onPressed: () {},
-                                  // ),
-                                  //
-
-                                ),
+                          child: ListTile(
+                            title: Text(
+                              controller.Title_Address[controller
+                                  .selectedIndex
+                                  .value],
+                              style: TextStyle(
+                                color: CustomColor.textColor,
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
+                            subtitle: Text(
+                              controller.Address[controller
+                                  .selectedIndex
+                                  .value],
+                              style: TextStyle(
+                                color: CustomColor.textColor,
+                                fontSize: 15,
+                              ),
+                            ),
+                            leading: Icon(
+                              controller.iconItems[controller
+                                  .selectedIndex
+                                  .value]["icon"],
+                              color: CustomColor.textColor,
+                              size: 25,
+                            ),
+                            // trailing: IconButton(
+                            //   icon: Icon(
+                            //     Icons.delete,
+                            //     color: Colors.redAccent,
+                            //     size: 25,
+                            //   ),
+                            //   onPressed: () {},
+                            // ),
+                            //
+
+                          ),
+                        ),
                       ],
                     ),
                   ),

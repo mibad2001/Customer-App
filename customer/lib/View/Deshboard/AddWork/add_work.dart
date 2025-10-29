@@ -4,6 +4,9 @@ import 'package:customer/View/Widgets/textformfield.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../Widgets/all_text.dart';
+import '../../Widgets/text_button.dart';
+
 class AddWork_Screen extends StatefulWidget {
   const AddWork_Screen({super.key});
 
@@ -66,7 +69,12 @@ class AddWork_ScreenState extends State<AddWork_Screen> {
                                   : Icons.check,
                               color: Colors.white,
                             ),
-                            onPressed: mydeshcontroller.saveItem,
+                            onPressed: ()
+                            {
+                              //mydeshcontroller.clearfield();
+                              mydeshcontroller.saveItem();
+
+                          },
                           )),
                         ],
                       ),
@@ -114,7 +122,91 @@ class AddWork_ScreenState extends State<AddWork_Screen> {
                           ),
                           IconButton(
                             icon: const Icon(Icons.delete, color: Colors.red),
-                            onPressed: mydeshcontroller.deleteItem,
+                            onPressed:(){
+                              Get.dialog(
+                                Dialog(
+                                  backgroundColor: Colors.white,
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.all(Radius.circular(30)),
+                                    ),
+                                    height: 260,
+                                    width: 150,
+                                    child: Column(
+                                      children: [
+                                        SizedBox(height: 10),
+
+                                        Text(
+                                          CustomText.Delete_Account,
+                                          style: TextStyle(
+                                            fontSize: 20,
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                        SizedBox(height: 10),
+                                        Icon(
+                                          Icons.warning_amber,
+                                          color: Colors.amberAccent,
+                                          size: 40,
+                                        ),
+                                        Center(
+                                          child: Container(
+                                            height: 120,
+                                            width: 200,
+                                            child: Text(
+                                              CustomText.Delete_Alert,
+                                              style: TextStyle(color: Colors.black),
+                                            ),
+                                          ),
+                                        ),
+
+                                        Row(
+                                          children: [
+                                            SizedBox(width: 70, height: 5),
+                                            CustomTextButton(
+                                              text: 'Yes',
+                                              onPressed: (){
+                                                mydeshcontroller.deleteItem();
+                                                Get.back();
+                                              },
+                                              backgroundColor: Colors.black54,
+                                              textColor: Colors.white,
+                                              borderRadius: 8,
+                                              elevation: 2,
+                                              fontSize: 10,
+                                              fontWeight: FontWeight.bold,
+                                              padding: EdgeInsets.symmetric(
+                                                horizontal: 16,
+                                                vertical: 10,
+                                              ),
+                                            ),
+                                            SizedBox(width: 20),
+
+                                            CustomTextButton(
+                                              text: 'NO',
+                                              onPressed: () {
+                                                Get.back();
+                                              },
+                                              backgroundColor: Colors.black54,
+                                              textColor: Colors.white,
+                                              borderRadius: 8,
+                                              elevation: 2,
+                                              fontSize: 10,
+                                              fontWeight: FontWeight.bold,
+                                              padding: EdgeInsets.symmetric(
+                                                horizontal: 16,
+                                                vertical: 10,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              );
+                            }
                           ),
                         ],
                       ),

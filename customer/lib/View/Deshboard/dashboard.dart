@@ -17,7 +17,7 @@ import 'drawer/drawer.dart';
 class DeshBoard_Screen extends StatelessWidget {
   DeshBoard_Screen({super.key});
 
-  final DeshBoardAddHome_Controller hdeshboard_controller = Get.find();
+  final DeshBoardAddHome_Controller deshboard_controller = Get.find();
   @override
   Widget build(BuildContext context) {
     final GlobalKey<ScaffoldState> _scaffoldkey = GlobalKey<ScaffoldState>();
@@ -39,7 +39,7 @@ class DeshBoard_Screen extends StatelessWidget {
                   ///////////////////////////////////////// Map
                   Container(
                     height:550,
-                     child: const OpenStreetMapWidget(),
+                     child:  OpenStreetMapWidget(),
                   ),
           
           
@@ -151,9 +151,9 @@ class DeshBoard_Screen extends StatelessWidget {
                           Obx(
                                 () => Container(
                                   child: Text(
-                                    hdeshboard_controller.homeAddress.isEmpty
+                                    deshboard_controller.homeAddress.isEmpty
                                     ? ''
-                                    : hdeshboard_controller.homeAddress.toString(),
+                                    : deshboard_controller.homeAddress.toString(),
                                     style: const TextStyle(
                                   fontSize: 12,
                                   color: Colors.white,
