@@ -26,9 +26,8 @@ class AddHomeScreenState extends State<AddHomeScreen> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-
               Container(
-                height: MediaQuery.of(context).size.height / 3,
+                height: MediaQuery.of(context).size.height*0.25,
                 decoration: BoxDecoration(
                   color: CustomColor.textfield_fill,
                   borderRadius: const BorderRadius.only(
@@ -37,16 +36,29 @@ class AddHomeScreenState extends State<AddHomeScreen> {
                   ),
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.only(top: 50, left: 15, right: 15),
+                  padding: const EdgeInsets.only(top: 20, left: 10,right: 15 ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      IconButton(
-                        onPressed: () => Get.back(),
-                        icon: const Icon(Icons.arrow_back,
-                            color: Colors.white, size: 25),
+                      Row(
+                        children: [
+                          IconButton(
+                            onPressed: () => Get.back(),
+                            icon: const Icon(
+                              Icons.arrow_back,
+                              color: Colors.white,
+                              size: 25,
+                            ),
+                          ),
+                          SizedBox(width: MediaQuery.of(context).size.width*0.17,),
+
+                          Text(
+                            "Home Address",
+                            style: TextStyle(color: Colors.white, fontSize: 25,fontWeight: FontWeight.bold),
+                          ),
+                        ],
                       ),
-                      const SizedBox(height: 20),
+                      const SizedBox(height: 60),
                       Row(
                         children: [
                           Expanded(
@@ -58,8 +70,7 @@ class AddHomeScreenState extends State<AddHomeScreen> {
                             ),
                           ),
                           Obx(() {
-                            final isEditing =
-                                mydeshcontroller.editingIndex.value != null;
+                            final isEditing = mydeshcontroller.editingIndex.value != null;
                             return IconButton(
                               icon: Icon(
                                 isEditing ? Icons.check : Icons.add,
@@ -67,7 +78,7 @@ class AddHomeScreenState extends State<AddHomeScreen> {
                               ),
                               onPressed:()
                               {
-
+                                FocusScope.of(context).unfocus();
                                 mydeshcontroller.saveItem();
                                 mydeshcontroller.clearfield();
 
@@ -133,14 +144,14 @@ class AddHomeScreenState extends State<AddHomeScreen> {
                                     decoration: BoxDecoration(
                                       borderRadius: BorderRadius.all(Radius.circular(30)),
                                     ),
-                                    height: 260,
-                                    width: 150,
+                                    height: 220,
+                                    width: 100,
                                     child: Column(
                                       children: [
                                         SizedBox(height: 10),
 
                                         Text(
-                                          CustomText.Delete_Account,
+                                          CustomText.Delete_address,
                                           style: TextStyle(
                                             fontSize: 20,
                                             color: Colors.black,
@@ -155,10 +166,11 @@ class AddHomeScreenState extends State<AddHomeScreen> {
                                         ),
                                         Center(
                                           child: Container(
-                                            height: 120,
+                                            padding: EdgeInsets.only(left: 20),
+                                            height: 80,
                                             width: 200,
                                             child: Text(
-                                              CustomText.Delete_Alert,
+                                              CustomText.Delete_home_address_Alert,
                                               style: TextStyle(color: Colors.black),
                                             ),
                                           ),
@@ -170,10 +182,12 @@ class AddHomeScreenState extends State<AddHomeScreen> {
                                             CustomTextButton(
                                               text: 'Yes',
                                               onPressed: (){
+
                                                 mydeshcontroller.deleteItem();
+                                                //print("yaha hm ma ");
                                                 Get.back();
                                               },
-                                              backgroundColor: Colors.black54,
+                                              backgroundColor: Colors.red,
                                               textColor: Colors.white,
                                               borderRadius: 8,
                                               elevation: 2,

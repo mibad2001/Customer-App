@@ -38,8 +38,8 @@ class DeshBoard_Screen extends StatelessWidget {
                 children: [
                   ///////////////////////////////////////// Map
                   Container(
-                    height:550,
-                     child:  OpenStreetMapWidget(),
+                    height: 550,
+             //         child: OpenStreetMapWidget(),
                   ),
           
           
