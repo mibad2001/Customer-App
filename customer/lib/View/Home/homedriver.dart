@@ -1,3 +1,4 @@
+import 'package:bot_toast/bot_toast.dart';
 import 'package:customer/Controller/Home/home-controller.dart';
 import 'package:customer/View/Deshboard/AddHome/add_home.dart';
 import 'package:customer/View/Widgets/all_text.dart';
@@ -6,6 +7,8 @@ import 'package:customer/View/Widgets/text_button.dart';
 import 'package:customer/View/Widgets/textformfield.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../Widgets/elevat_button.dart';
 
 class HomeDriver extends StatelessWidget {
   HomeDriver({super.key});
@@ -447,9 +450,98 @@ class HomeDriver extends StatelessWidget {
                     ),
                   ],
                 ),),
-                  Container(height: 250,),
+                  Container(height: 200,),
 
-                  //------------------------------------- set map button
+                       SizedBox(
+                      height: 50,
+                      width: 350  ,
+                      child: MyElevatedButton(
+                        text: 'CONTINUE',
+                        onPressed: () {
+                          //homeC.firstController.text=="" && homeC.secondController.text ==""
+                          // ?
+                          // Get.snackbar("“Missing Fields”", "Pick-up and Drop-off are required.”")
+                          // :
+                          Get.dialog(
+                            Dialog(
+                              backgroundColor: Colors.white,
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.all(Radius.circular(20)),
+                                ),
+                                height: 320,
+                                width: 300,
+                                child: Column(
+                                  children: [
+                                    SizedBox(height: 10),
+                                    Center(
+                                      child: Text(
+                                        CustomText.Pick_Up_Location,
+                                        softWrap: true,
+                                        maxLines: 2,
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                          fontSize: 25,
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                    ),
+                                    SizedBox(height: 10,),
+
+                                    Center(
+                                      child: Container(
+                                        padding: EdgeInsets.only(left: 10),
+                                        height: 80,
+                                        width: 200,
+                                        child: Text(
+                                          CustomText.Pick_Up_Dialog_Text,
+                                          style: TextStyle(color: Colors.black),
+                                        ),
+                                      ),
+                                    ),
+
+                                    SizedBox(
+                                      height: 50,
+                                      width:   250,
+                                      child: MyElevatedButton(
+                                        text: 'Select Current location',
+                                        onPressed: () {  },
+                                        backgroundColor: CustomColor.Icon_Color,
+                                        textColor: CustomColor.textColor,
+                                        fontSize: 3,
+                                      ),
+                                    ),
+                                    SizedBox(height: 10,),
+                                    SizedBox(
+                                      height: 50,
+                                      width:   250,
+                                      child: MyElevatedButton(
+                                        text: 'Select Pick Up location',
+                                        onPressed: () {  },
+                                        backgroundColor: CustomColor.Icon_Color,
+                                        textColor: CustomColor.textColor,
+                                        fontSize: 3,
+                                      ),
+                                    ),
+
+
+                                  ],
+                                ),
+                              ),
+                            ),
+
+                          );
+
+                        },
+                        backgroundColor: CustomColor.Icon_Color,
+                        textColor: Colors.black,
+                        fontSize: 20,
+                      ),
+                    ),
+
+
+                  //------------------------------------- set PIck UP button
                   Center(
                     child: Container(
                       padding: EdgeInsets.only(left: 50,),

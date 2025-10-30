@@ -7,5 +7,6 @@ class CustomColor {
   static const trems = Colors.red;
   static const Text_Color = Colors.white;
   static const Icon_Color = Colors.white;
+  static const dialogBox_Colors = Colors.grey;
 
 }

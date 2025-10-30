@@ -43,7 +43,13 @@ class CustomText {
   static const String Pickup =  "Pick Up";
   static const String Delete_address = "Delete Address";
   static const String Delete_home_address_Alert =  "This will  delete your address."
-      ".Do you really want to continue?";
+                                                    ".Do you really want to continue?";
+  static const String Pick_Up_Location = "Select Pick up Location";
+  static const String Pick_Up_Dialog_Text = "You can choose which is your pick up location";
+  static const String Ride_Info =  "Ride Info";
+  static const String Slect_Suitable_Ride =  "Slect Suitable Ride";
+
+
 
 
 
