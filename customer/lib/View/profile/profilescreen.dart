@@ -136,6 +136,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ),
               onTap: () {
                 Get.dialog(
+                  //============================  Dialog box
                   Dialog(
                     backgroundColor: Colors.white,
                     child: Container(

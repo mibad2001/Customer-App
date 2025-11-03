@@ -13,6 +13,7 @@ import 'package:get/get_navigation/get_navigation.dart';
 
 import 'View/Deshboard/pickup/pickup.dart';
 import 'View/rides/ride_info_screen.dart';
+import 'View/rides/ridesearchscreen.dart';
 import 'View/yourtrip/tripdetail.dart';
 
 void main() {
@@ -81,6 +82,13 @@ class MyApp extends StatelessWidget {
           page: () => RideInfoScreen(),
           //binding: RideInfoScreen(),
         ),
+        GetPage(
+          name: '/RideSearchScreen',
+          page: () => RideSearchScreen(),
+          //binding: RideSearchScreen(),
+        ),
+
+
 
       ],
     );

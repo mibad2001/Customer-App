@@ -48,7 +48,7 @@ class CustomText {
   static const String Pick_Up_Dialog_Text = "You can choose which is your pick up location";
   static const String Ride_Info =  "Ride Info";
   static const String Slect_Suitable_Ride =  "Slect Suitable Ride";
-
+  static const String Schedule_Ride =  "Schedule Ride";
 
 
 
