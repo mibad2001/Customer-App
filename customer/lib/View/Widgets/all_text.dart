@@ -49,6 +49,17 @@ class CustomText {
   static const String Ride_Info =  "Ride Info";
   static const String Slect_Suitable_Ride =  "Slect Suitable Ride";
   static const String Schedule_Ride =  "Schedule Ride";
+  static const String Ride_Cancel_alert =  "Are you sure , Do you want to Cancel ride ? ";
+  static const String Seaching =  "Seaching....";
+  static const String Seaching_Text =  "Your ride is being searched";
+  static const String Seaching_Thnks_Note =  "Thanks for your patience please wait";
+  static const String Payments = "Payments" ;
+  static const String Payments_Method_Choose =  "Choose a payment method" ;
+  static const String Payments_Text=   "This section is just for security reasons and all data will be secure";
+
+
+
+
 
 
 

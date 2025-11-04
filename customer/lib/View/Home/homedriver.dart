@@ -518,13 +518,15 @@ class HomeDriver extends StatelessWidget {
                                       width:   250,
                                       child: MyElevatedButton(
                                         text: 'Select Pick Up location',
-                                        onPressed: () {  },
+                                        onPressed: () {
+                                          Get.toNamed('/RideInfoScreen');
+                                        },
                                         backgroundColor: CustomColor.Icon_Color,
                                         textColor: CustomColor.textColor,
                                         fontSize: 3,
                                       ),
                                     ),
-
+        
 
                                   ],
                                 ),

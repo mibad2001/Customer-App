@@ -188,7 +188,7 @@ class AddWork_ScreenState extends State<AddWork_Screen> {
                                               vertical: 10,
                                             ),
                                           ),
-                                          const SizedBox(width: 20),
+                                           SizedBox(width: 20),
                                           CustomTextButton(
                                             text: 'NO',
                                             onPressed: () {

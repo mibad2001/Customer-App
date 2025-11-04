@@ -12,6 +12,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 
 import 'View/Deshboard/pickup/pickup.dart';
+import 'View/Reebook/promoscreen.dart';
+import 'View/payments/paymentscreen.dart';
 import 'View/rides/ride_info_screen.dart';
 import 'View/rides/ridesearchscreen.dart';
 import 'View/yourtrip/tripdetail.dart';
@@ -28,7 +30,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Customer App',
-      initialRoute: '/RideInfoScreen',
+      initialRoute: '/PromoScreen',
       //transitionDuration: Duration(seconds: ),
       defaultTransition: Transition.leftToRight,
 
@@ -87,6 +89,22 @@ class MyApp extends StatelessWidget {
           page: () => RideSearchScreen(),
           //binding: RideSearchScreen(),
         ),
+
+        GetPage(
+          name: '/PaymentScreen',
+          page: () => PaymentScreen(),
+          //binding: PaymentScreen(),
+        ),
+        GetPage(
+          name: '/PromoScreen',
+          page: () => PromoScreen(),
+          //binding: PromoScreen(),
+        ),
+
+
+
+
+
 
 
 

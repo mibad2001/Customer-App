@@ -1,12 +1,10 @@
-
-
-
 import 'package:customer/View/Widgets/color.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../Widgets/all_text.dart';
 import '../Widgets/elevat_button.dart';
+import '../Widgets/text_button.dart';
 
 class RideSearchScreen extends StatelessWidget {
   const RideSearchScreen({super.key});
@@ -33,7 +31,7 @@ class RideSearchScreen extends StatelessWidget {
                 ),
                 SizedBox(width: 100,),
                   Text(
-                    "Seaching....",
+                    CustomText.Seaching,
                     style: TextStyle(fontSize: 25,
                         fontWeight: FontWeight.bold,
                         color: CustomColor.Text_Color),
@@ -44,7 +42,11 @@ class RideSearchScreen extends StatelessWidget {
 
           Container(
             height: 300,
-            color: Colors.red,
+            //color: Colors.red,
+            decoration: BoxDecoration(
+              //color: Colors.yellow,
+                image:DecorationImage(image: AssetImage("assets/images/map_image.png",), fit: BoxFit.cover)
+            ),
           ),
 
           SizedBox(height: 20,),
@@ -54,7 +56,7 @@ class RideSearchScreen extends StatelessWidget {
               Icon(Icons.location_on,size: 25,color: CustomColor.Icon_Color,),
               SizedBox(width: 30,),
               Text(
-                "Your ride is being searched",
+                CustomText.Seaching_Text,
                 style: TextStyle(fontSize: 20,
                     fontWeight: FontWeight.bold,
                     color: CustomColor.Text_Color),
@@ -65,7 +67,11 @@ class RideSearchScreen extends StatelessWidget {
 
           Container(
             height: 200,
-            color: Colors.yellow,
+
+            decoration: BoxDecoration(
+                //color: Colors.yellow,
+              image:DecorationImage(image: AssetImage("assets/images/ride_search_image.png",), fit: BoxFit.cover)
+            ),
           ),
           SizedBox(height: 10,),
 
@@ -75,7 +81,7 @@ class RideSearchScreen extends StatelessWidget {
                 fontWeight: FontWeight.bold,
                 color: CustomColor.Text_Color),
           ),
-          SizedBox(height: 10,),
+          SizedBox(height: 20,),
 
           SizedBox(
             height: 50,
@@ -83,7 +89,77 @@ class RideSearchScreen extends StatelessWidget {
             child: MyElevatedButton(
               text: 'Cancel Ride',
               onPressed: () {
-                Get.to(RideSearchScreen());
+                Get.dialog(
+                  Dialog(
+                    child: Container(
+                      decoration: const BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(30)),
+                      ),
+                      height: 220,
+                      width: 100,
+                      child: Column(
+                        children: [
+                          const SizedBox(height: 15),
+                          const Icon(
+                            Icons.warning_amber,
+                            color: Colors.amberAccent,
+                            size: 60,
+                          ),
+                          SizedBox(height: 15,),
+                          Center(
+                            child: Container(
+                              padding: const EdgeInsets.only(left: 20),
+                              height: 80,
+                              width: 200,
+                              child: Text(
+                                CustomText.Ride_Cancel_alert,
+                                style: const TextStyle(color: Colors.black),
+                              ),
+                            ),
+                          ),
+                          Row(
+                            children: [
+                              const SizedBox(width: 70,),
+                              CustomTextButton(
+                                text: 'Yes',
+                                onPressed: () {
+                                  Get.back();
+                                },
+                                backgroundColor: Colors.red,
+                                textColor: Colors.white,
+                                borderRadius: 8,
+                                elevation: 2,
+                                fontSize: 10,
+                                fontWeight: FontWeight.bold,
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 16,
+                                  vertical: 10,
+                                ),
+                              ),
+                              const SizedBox(width: 20),
+                              CustomTextButton(
+                                text: 'NO',
+                                onPressed: () {
+                                  Get.back();
+                                },
+                                backgroundColor: Colors.black54,
+                                textColor: Colors.white,
+                                borderRadius: 8,
+                                elevation: 2,
+                                fontSize: 10,
+                                fontWeight: FontWeight.bold,
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 16,
+                                  vertical: 10,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  )
+                );
               },
               backgroundColor: CustomColor.Icon_Color,
               textColor: Colors.black,
@@ -95,6 +171,7 @@ class RideSearchScreen extends StatelessWidget {
 
         ],
       ),
-    ));
+    )
+    );
   }
 }
