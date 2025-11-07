@@ -17,6 +17,7 @@ class PromoScreen extends StatelessWidget {
       body:Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          SizedBox(height: 15,),
           Padding(
             padding: EdgeInsets.only(left: 15),
             child: Container(

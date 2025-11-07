@@ -10,9 +10,10 @@ import 'package:customer/View/profile/profilescreen.dart';
 import 'package:customer/View/yourtrip/yourtrip.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/get_navigation.dart';
-
 import 'View/Deshboard/pickup/pickup.dart';
+import 'View/Reebook/extras.dart';
 import 'View/Reebook/promoscreen.dart';
+import 'View/Reebook/Reebookingscreen.dart';
 import 'View/payments/paymentscreen.dart';
 import 'View/rides/ride_info_screen.dart';
 import 'View/rides/ridesearchscreen.dart';
@@ -30,7 +31,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Customer App',
-      initialRoute: '/PromoScreen',
+      initialRoute:  '/Splash_Screen',
       //transitionDuration: Duration(seconds: ),
       defaultTransition: Transition.leftToRight,
 
@@ -101,8 +102,16 @@ class MyApp extends StatelessWidget {
           //binding: PromoScreen(),
         ),
 
-
-
+        GetPage(
+          name: '/ReebookingScreen',
+          page: () => ReebookingScreen(),
+          //binding: ReebookingScreen(),
+        ),
+        GetPage(
+          name: '/PaymentReschedule',
+          page: () => ExtrasScreen(),
+          //binding: PaymentReschedule(),
+        ),
 
 
 

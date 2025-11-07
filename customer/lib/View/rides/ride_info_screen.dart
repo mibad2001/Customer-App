@@ -457,7 +457,7 @@ class _RideInfoScreenState extends State<RideInfoScreen> {
 
 
 
-                  //===============================  bottom sheet previous
+
 
                   //==========================================  Bottom Sheet
                   //   Get.bottomSheet(

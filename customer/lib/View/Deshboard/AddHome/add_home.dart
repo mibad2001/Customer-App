@@ -58,7 +58,7 @@ class AddHomeScreenState extends State<AddHomeScreen> {
                           ),
                         ],
                       ),
-                      const SizedBox(height: 60),
+                       SizedBox(height: 60),
                       Row(
                         children: [
                           Expanded(

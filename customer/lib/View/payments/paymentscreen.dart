@@ -38,7 +38,7 @@ class PaymentScreen extends StatelessWidget {
 
            const SizedBox(height: 40),
 
-           // ---------- Payment Options ----------
+           // ========================================        Payment Options
            Obx(() => Column(
              children: [
                _buildPaymentOption(
