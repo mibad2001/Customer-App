@@ -63,22 +63,26 @@ class PickupScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(height:600),
-              SizedBox(
-                height: 50,
-                width: 350  ,
-                child: MyElevatedButton(
-                    text: 'DONE',
-                  onPressed: () {  },
-                  backgroundColor: CustomColor.Icon_Color,
-                  textColor: Colors.black,
-                  fontSize: 20,
-                      ),
-              )
+
+
 
             ],
           ),
         ],
+        ),
+        bottomNavigationBar:  Padding(
+          padding: const EdgeInsets.all(15.0),
+          child: SizedBox(
+            height: 50,
+            width: 350  ,
+            child: MyElevatedButton(
+              text: 'DONE',
+              onPressed: () {  },
+              backgroundColor: CustomColor.Icon_Color,
+              textColor: Colors.black,
+              fontSize: 20,
+            ),
+          ),
         ),
       ),
     );

@@ -16,7 +16,7 @@ class _Splash_ScreenState extends State<Splash_Screen> {
     super.initState();
 
     Future.delayed(const Duration(seconds: 5), () {
-     Get.toNamed('/SignIn');
+     Get.toNamed('/SigIn_Screen');
     });
   }
   @override

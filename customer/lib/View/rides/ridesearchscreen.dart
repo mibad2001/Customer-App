@@ -16,29 +16,75 @@ class RideSearchScreen extends StatelessWidget {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
+
+
           Container(
-            height: MediaQuery.of(context).size.height*0.1,
-            padding: EdgeInsets.all(10),
+            height: MediaQuery.of(context).size.height * 0.1,
+            padding: const EdgeInsets.symmetric(horizontal: 10),
             decoration: BoxDecoration(
-                color: CustomColor.textColor,
-                borderRadius: BorderRadius.only(bottomLeft: Radius.circular(20),bottomRight: Radius.circular(20))
+              color: CustomColor.textColor,
+              borderRadius: const BorderRadius.only(
+                bottomLeft: Radius.circular(20),
+                bottomRight: Radius.circular(20),
+              ),
             ),
             child: Row(
               children: [
-                IconButton(onPressed: (){
-                  Get.back();
-                }, icon: Icon(Icons.arrow_back,size: 25,color: CustomColor.Icon_Color,)
-                ),
-                SizedBox(width: 100,),
-                  Text(
-                    CustomText.Seaching,
-                    style: TextStyle(fontSize: 25,
-                        fontWeight: FontWeight.bold,
-                        color: CustomColor.Text_Color),
+                // Back button
+                IconButton(
+                  onPressed: () {
+                    Get.back();
+                  },
+                  icon: Icon(
+                    Icons.arrow_back,
+                    size: MediaQuery.of(context).size.width * 0.06, // responsive icon size
+                    color: CustomColor.Icon_Color,
                   ),
+                ),
+
+                // Title centered
+                Expanded(
+                  child: Center(
+                    child: Text(
+                      CustomText.Seaching,
+                      style: TextStyle(
+                        fontSize: MediaQuery.of(context).size.width * 0.06, // responsive font
+                        fontWeight: FontWeight.bold,
+                        color: CustomColor.Text_Color,
+                      ),
+                    ),
+                  ),
+                ),
+
+                // Optional: add empty space or another icon here if needed
+                SizedBox(width: MediaQuery.of(context).size.width * 0.06),
               ],
             ),
           ),
+
+          // Container(
+          //   height: MediaQuery.of(context).size.height*0.1,
+          //   padding: EdgeInsets.all(10),
+          //   decoration: BoxDecoration(
+          //       color: CustomColor.textColor,
+          //       borderRadius: BorderRadius.only(bottomLeft: Radius.circular(20),bottomRight: Radius.circular(20))
+          //   ),
+          //   child: Row(
+          //     children: [
+          //       IconButton(onPressed: (){
+          //         Get.back();
+          //       }, icon: Icon(Icons.arrow_back,size: 25,color: CustomColor.Icon_Color,)
+          //       ),
+          //       SizedBox(width: 100,),
+          //         Text(
+          //           CustomText.Seaching,
+          //           style: TextStyle(fontSize: 25,
+          //               fontWeight: FontWeight.bold,
+          //               color: CustomColor.Text_Color),
+          //         ),
+          //     ],
+          //   ),
+          // ),
 
           Container(
             height: 300,
@@ -123,7 +169,7 @@ class RideSearchScreen extends StatelessWidget {
                               CustomTextButton(
                                 text: 'Yes',
                                 onPressed: () {
-                                  Get.back();
+                                  Get.toNamed('/Deshboard');
                                 },
                                 backgroundColor: Colors.red,
                                 textColor: Colors.white,

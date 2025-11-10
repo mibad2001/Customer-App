@@ -165,7 +165,7 @@ class _SigUp_ScreenState extends State<SigUp_Screen> {
                 ),
                 TextButton(
                   onPressed: () {
-                    Get.toNamed('/SignIn');
+                    Get.toNamed('/SigIn_Screen');
                   },
                   child: Text(
                     "Log In",

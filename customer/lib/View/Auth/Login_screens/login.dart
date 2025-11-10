@@ -90,7 +90,7 @@ class _SigIn_ScreenState extends State<SigIn_Screen> {
                     child: MyElevatedButton(
                       text: "Log In",
                       onPressed: () {
-                        Get.toNamed('/Deshboard');
+                        Get.toNamed('/DeshBoard_Screen');
                       },
                       backgroundColor: Colors.white,
                       textColor: CustomColor.textColor,

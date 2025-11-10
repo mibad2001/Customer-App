@@ -25,37 +25,82 @@ class _YourtripState extends State<Yourtrip> {
         body: Column(
           children: [
             SizedBox(height: 10),
+
+
             Row(
               children: [
-                Padding(
-                  padding: EdgeInsets.only(left: 15),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: Colors.blueGrey,
-                        borderRadius: BorderRadius.all(Radius.circular(7)),
-                      ),
-                      height: 40,
-                      width: 40,
-                      child: IconButton(
-                        onPressed: () {
-                          Get.back();
-                        },
-                        icon: Icon(Icons.arrow_back, size: 25, color: Colors.white),
-                      ),
-                    ),
-                ),
-                SizedBox(width: MediaQuery.of(context).size.width * 0.26),
 
-                Text(
-                  CustomText.Your_Trip,
-                  style: TextStyle(
-                    fontSize: 28,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
+                Padding(
+                  padding: const EdgeInsets.only(left: 15),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.blueGrey,
+                      borderRadius: BorderRadius.circular(7),
+                    ),
+                    height: 40,
+                    width: 40,
+                    child: IconButton(
+                      onPressed: () {
+                        Get.back();
+                      },
+                      icon: const Icon(Icons.arrow_back, size: 25, color: Colors.white),
+                    ),
                   ),
                 ),
+
+
+                 SizedBox(width: 10),
+
+
+                Expanded(
+                  child: Center(
+                    child: Text(
+                      CustomText.Your_Trip,
+                      style: TextStyle(
+                        fontSize: MediaQuery.of(context).size.width * 0.07, // responsive font
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ),
+
+
               ],
             ),
+
+            // Row(
+            //   children: [
+            //     Padding(
+            //       padding: EdgeInsets.only(left: 15),
+            //         child: Container(
+            //           decoration: BoxDecoration(
+            //             color: Colors.blueGrey,
+            //             borderRadius: BorderRadius.all(Radius.circular(7)),
+            //           ),
+            //           height: 40,
+            //           width: 40,
+            //           child: IconButton(
+            //             onPressed: () {
+            //               Get.back();
+            //             },
+            //             icon: Icon(Icons.arrow_back, size: 25, color: Colors.white),
+            //           ),
+            //         ),
+            //     ),
+            //     SizedBox(width: MediaQuery.of(context).size.width * 0.26),
+            //
+            //     Text(
+            //       CustomText.Your_Trip,
+            //       style: TextStyle(
+            //         fontSize: 28,
+            //         color: Colors.white,
+            //         fontWeight: FontWeight.bold,
+            //       ),
+            //     ),
+            //   ],
+            // ),
+
             SizedBox(height: 10),
 
             Obx(
@@ -281,40 +326,37 @@ class _YourtripState extends State<Yourtrip> {
                           ],
                         ),
                       ),
-
                       Container(
                         height: 48,
+                        width: double.infinity,
                         child: Row(
                           children: [
-                            Container(
-                              width: MediaQuery.of(context).size.width * 0.4,
+                            Expanded(
                               child: TextButton(
                                 onPressed: () {
                                   Get.to(ReebookingScreen());
                                 },
-                                child: Text(
+                                child: const Text(
                                   "Rebook Now",
                                   style: TextStyle(
                                     fontWeight: FontWeight.bold,
-                                    fontSize: 20,
-                                    color: CustomColor.Text_Color,
+                                    fontSize: 18,
+                                    color: Colors.white,
                                   ),
                                 ),
                               ),
                             ),
-
-                            Container(
-                              width: MediaQuery.of(context).size.width * 0.407,
+                            Expanded(
                               child: TextButton(
                                 onPressed: () {
                                   Get.toNamed('/TripDetail');
                                 },
-                                child: Text(
+                                child: const Text(
                                   "Show Detail",
                                   style: TextStyle(
                                     fontWeight: FontWeight.bold,
-                                    fontSize: 20,
-                                    color: CustomColor.Text_Color,
+                                    fontSize: 18,
+                                    color: Colors.white,
                                   ),
                                 ),
                               ),
@@ -322,6 +364,51 @@ class _YourtripState extends State<Yourtrip> {
                           ],
                         ),
                       ),
+
+
+
+
+
+                      // Container(
+                      //   height: 48,
+                      //   child: Row(
+                      //     children: [
+                      //       Container(
+                      //         width: MediaQuery.of(context).size.width * 0.4,
+                      //         child: TextButton(
+                      //           onPressed: () {
+                      //             Get.to(ReebookingScreen());
+                      //           },
+                      //           child: Text(
+                      //             "Rebook Now",
+                      //             style: TextStyle(
+                      //               fontWeight: FontWeight.bold,
+                      //               fontSize: 20,
+                      //               color: CustomColor.Text_Color,
+                      //             ),
+                      //           ),
+                      //         ),
+                      //       ),
+                      //
+                      //       Container(
+                      //         width: MediaQuery.of(context).size.width * 0.407,
+                      //         child: TextButton(
+                      //           onPressed: () {
+                      //             Get.toNamed('/TripDetail');
+                      //           },
+                      //           child: Text(
+                      //             "Show Detail",
+                      //             style: TextStyle(
+                      //               fontWeight: FontWeight.bold,
+                      //               fontSize: 20,
+                      //               color: CustomColor.Text_Color,
+                      //             ),
+                      //           ),
+                      //         ),
+                      //       ),
+                      //     ],
+                      //   ),
+                      // ),
                     ],
                   ),
                 ),

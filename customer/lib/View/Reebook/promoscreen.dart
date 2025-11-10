@@ -59,17 +59,19 @@ class PromoScreen extends StatelessWidget {
           ),
 
           SizedBox(height: 10,),
-          Container(
-            padding: EdgeInsets.only(left: 20),
-            margin: EdgeInsets.only(left: 20),
-            height: 50,
-            width: 350  ,
-            child: MyElevatedButton(
-              text: 'DONE',
-              onPressed: () {  },
-              backgroundColor: CustomColor.Icon_Color,
-              textColor: Colors.black,
-              fontSize: 20,
+          Center(
+            child: Container(
+              padding: EdgeInsets.only(left: 20),
+              margin: EdgeInsets.only(left: 20),
+              height: 50,
+              width: 350  ,
+              child: MyElevatedButton(
+                text: 'DONE',
+                onPressed: () {  },
+                backgroundColor: CustomColor.Icon_Color,
+                textColor: Colors.black,
+                fontSize: 20,
+              ),
             ),
           )
 

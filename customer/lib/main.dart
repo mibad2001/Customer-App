@@ -10,6 +10,7 @@ import 'package:customer/View/profile/profilescreen.dart';
 import 'package:customer/View/yourtrip/yourtrip.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/get_navigation.dart';
+import 'Routing/routes.dart';
 import 'View/Deshboard/pickup/pickup.dart';
 import 'View/Reebook/extras.dart';
 import 'View/Reebook/promoscreen.dart';
@@ -35,89 +36,92 @@ class MyApp extends StatelessWidget {
       //transitionDuration: Duration(seconds: ),
       defaultTransition: Transition.leftToRight,
 
-      getPages: [
-        GetPage(
-          name: '/Splash_Screen',
-          page: () =>Splash_Screen(),
-          // binding: Splash_Screen(),
-        ),
-        GetPage(
-          name: '/ProfileScreen',
-          page: () =>ProfileScreen(),
-         // binding: ProfileScreen(),
-        ),
-        GetPage(
-          name: '/SignUp',
-          page: () => SigUp_Screen(),
-          binding: SingUpBinding(),
-        ),
-        GetPage(
-          name: '/SignIn',
-          page: () => SigIn_Screen(),
-          binding: SingUpBinding(),
-        ),
-        GetPage(
-          name: '/Deshboard',
-          page: () => DeshBoard_Screen(),
-          binding: DeshboardBinding(),
-        ),
-        GetPage(
-          name: '/AboutScreen',
-          page: () => Aboutscreen(),
-          //binding: Aboutscreen(),
-        ),
-        GetPage(
-          name: '/Yourtrip',
-          page: () => Yourtrip(),
-          //binding: Yourtrip(),
-        ),
-        GetPage(
-          name: '/TripDetail',
-          page: () => TripDetail(),
-          //binding: TripDetail(),
-        ),GetPage(
-          name: '/PickupScreen',
-          page: () => PickupScreen(),
-          //binding: PickupScreen(),
-        ),
-        GetPage(
-          name: '/RideInfoScreen',
-          page: () => RideInfoScreen(),
-          //binding: RideInfoScreen(),
-        ),
-        GetPage(
-          name: '/RideSearchScreen',
-          page: () => RideSearchScreen(),
-          //binding: RideSearchScreen(),
-        ),
+      getPages: AppRoutes.appRoutes(),
 
-        GetPage(
-          name: '/PaymentScreen',
-          page: () => PaymentScreen(),
-          //binding: PaymentScreen(),
-        ),
-        GetPage(
-          name: '/PromoScreen',
-          page: () => PromoScreen(),
-          //binding: PromoScreen(),
-        ),
-
-        GetPage(
-          name: '/ReebookingScreen',
-          page: () => ReebookingScreen(),
-          //binding: ReebookingScreen(),
-        ),
-        GetPage(
-          name: '/PaymentReschedule',
-          page: () => ExtrasScreen(),
-          //binding: PaymentReschedule(),
-        ),
-
-
-
-
-
-      ],
+      // getPages: [
+      //
+      //   GetPage(
+      //     name: '/Splash_Screen',
+      //     page: () =>Splash_Screen(),
+      //     // binding: Splash_Screen(),
+      //   ),
+      //   GetPage(
+      //     name: '/ProfileScreen',
+      //     page: () =>ProfileScreen(),
+      //    // binding: ProfileScreen(),
+      //   ),
+      //   GetPage(
+      //     name: '/SignUp',
+      //     page: () => SigUp_Screen(),
+      //     binding: SingUpBinding(),
+      //   ),
+      //   GetPage(
+      //     name: '/SignIn',
+      //     page: () => SigIn_Screen(),
+      //     binding: SingUpBinding(),
+      //   ),
+      //   GetPage(
+      //     name: '/Deshboard',
+      //     page: () => DeshBoard_Screen(),
+      //     binding: DeshboardBinding(),
+      //   ),
+      //   GetPage(
+      //     name: '/AboutScreen',
+      //     page: () => Aboutscreen(),
+      //     //binding: Aboutscreen(),
+      //   ),
+      //   GetPage(
+      //     name: '/Yourtrip',
+      //     page: () => Yourtrip(),
+      //     //binding: Yourtrip(),
+      //   ),
+      //   GetPage(
+      //     name: '/TripDetail',
+      //     page: () => TripDetail(),
+      //     //binding: TripDetail(),
+      //   ),GetPage(
+      //     name: '/PickupScreen',
+      //     page: () => PickupScreen(),
+      //     //binding: PickupScreen(),
+      //   ),
+      //   GetPage(
+      //     name: '/RideInfoScreen',
+      //     page: () => RideInfoScreen(),
+      //     //binding: RideInfoScreen(),
+      //   ),
+      //   GetPage(
+      //     name: '/RideSearchScreen',
+      //     page: () => RideSearchScreen(),
+      //     //binding: RideSearchScreen(),
+      //   ),
+      //
+      //   GetPage(
+      //     name: '/PaymentScreen',
+      //     page: () => PaymentScreen(),
+      //     //binding: PaymentScreen(),
+      //   ),
+      //   GetPage(
+      //     name: '/PromoScreen',
+      //     page: () => PromoScreen(),
+      //     //binding: PromoScreen(),
+      //   ),
+      //
+      //   GetPage(
+      //     name: '/ReebookingScreen',
+      //     page: () => ReebookingScreen(),
+      //     //binding: ReebookingScreen(),
+      //   ),
+      //   GetPage(
+      //     name: '/PaymentReschedule',
+      //     page: () => ExtrasScreen(),
+      //     //binding: PaymentReschedule(),
+      //   ),
+      //
+      //
+      //
+      //
+      //
+      // ],
     );
   }
 }

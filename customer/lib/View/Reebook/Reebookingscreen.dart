@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import '../../Controller/reebooking/reebookingcontroller.dart';
 import '../Widgets/color.dart';
 import '../Widgets/elevat_button.dart';
+import '../Widgets/textformfield.dart';
 import '../payments/paymentscreen.dart';
 import 'extras.dart';
 
@@ -181,7 +182,6 @@ class ReebookingScreen extends StatelessWidget {
                                       ),
                                     ),
                                     height: 350,
-                                    width: double.infinity,
                                     child: Column(
                                       crossAxisAlignment: CrossAxisAlignment.center,
                                       children: [
@@ -395,7 +395,217 @@ class ReebookingScreen extends StatelessWidget {
                               },
                               child: BottomButton(icon: Icons.schedule, button_name: "Schedule")),
                           InkWell(
-                              onTap:(){},
+                              onTap:(){
+
+                                Get.bottomSheet(
+                                  Container(
+                                    decoration: const BoxDecoration(
+                                      color: Colors.grey,
+                                      borderRadius: BorderRadius.only(
+                                        topLeft: Radius.circular(30),
+                                        topRight: Radius.circular(30),
+                                      ),
+                                    ),
+                                    width: double.infinity,
+                                    height: MediaQuery.of(context).size.height * 0.45,
+                                    padding: const EdgeInsets.all(10),
+                                    child: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        SizedBox(height: MediaQuery.of(context).size.height * 0.02),
+
+
+                                        Row(
+                                          children: [
+
+                                            SizedBox(width: 20,),
+
+                                            IconButton(
+                                              icon: Icon(Icons.cancel_outlined, color: CustomColor.Icon_Color),
+                                              iconSize: 35,
+                                              onPressed: () => Get.back(),
+                                            ),
+
+
+                                            Expanded(
+                                              child: Center(
+                                                child: Text(
+                                                  "ADD ORDER DETAILS",
+                                                  style: const TextStyle(
+                                                    color: Colors.white,
+                                                    fontSize: 25,
+                                                    fontWeight: FontWeight.bold,
+                                                  ),
+                                                  textAlign: TextAlign.center,
+                                                ),
+                                              ),
+                                            ),
+
+
+                                            const SizedBox(width: 48),
+                                          ]
+                                        ),
+
+                                        SizedBox(height: MediaQuery.of(context).size.height * 0.03),
+
+
+                                        const Text(
+                                          "Order number",
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                        const SizedBox(height: 3),
+                                        CustomTextField(
+                                          hintText: "Type your order number",
+                                          borderRadius: 15,
+                                          fillColor: CustomColor.textfield_fill,
+                                        ),
+
+                                        SizedBox(height: MediaQuery.of(context).size.height * 0.015),
+                                        const Text(
+                                          "Name on order",
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                        const SizedBox(height: 3),
+                                        CustomTextField(
+                                          hintText: "Type name on order",
+                                          borderRadius: 15,
+                                          fillColor: CustomColor.textfield_fill,
+                                        ),
+
+                                        SizedBox(height: MediaQuery.of(context).size.height * 0.025),
+
+
+                                        Center(
+                                          child: SizedBox(
+                                            height: MediaQuery.of(context).size.height * 0.05,
+                                            width: MediaQuery.of(context).size.width * 0.5,
+                                            child: MyElevatedButton(
+                                              text: 'DONE',
+                                              onPressed: () {},
+                                              backgroundColor: Colors.black,
+                                              textColor: CustomColor.Icon_Color,
+                                              fontSize: MediaQuery.of(context).size.width * 0.035,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                // Get.bottomSheet(
+                                //   Container(
+                                //     decoration: const BoxDecoration(
+                                //       color: Colors.grey,
+                                //       borderRadius: BorderRadius.only(
+                                //         topLeft: Radius.circular(30),
+                                //         topRight: Radius.circular(30),
+                                //       ),
+                                //     ),
+                                //     height: 400,
+                                //     width: MediaQuery.of(context).size.width*1,
+                                //     child:Padding(
+                                //       padding: const EdgeInsets.all(10.0),
+                                //       child: Column(
+                                //         crossAxisAlignment: CrossAxisAlignment.start,
+                                //         children: [
+                                //           SizedBox(height: 10,),
+                                //           Row(
+                                //             children: [
+                                //               IconButton(
+                                //                 icon:  Icon(Icons.cancel_outlined, color:CustomColor.Icon_Color),
+                                //                 onPressed: () {
+                                //                   Get.back();
+                                //                 },
+                                //               ),
+                                //               SizedBox(width: 10,),
+                                //               Text(
+                                //                 "ADD ORDER DETAILS",
+                                //                 style: TextStyle(color: Colors.white, fontSize: 18,fontWeight: FontWeight.bold),
+                                //               ),
+                                //               SizedBox(width: 20,),
+                                //               SizedBox(
+                                //                 height: 50,
+                                //                 width:   100,
+                                //                 child: MyElevatedButton(
+                                //                   text: 'DONE',
+                                //                   onPressed: () {  },
+                                //                   backgroundColor: Colors.black,
+                                //                   textColor: CustomColor.Icon_Color,
+                                //                   fontSize: 15,
+                                //                 ),
+                                //               ),
+                                //
+                                //
+                                //             ],
+                                //           ),
+                                //           SizedBox(height: 10,),
+                                //           Text(
+                                //             "Oder number",
+                                //             style: TextStyle(color: Colors.white, fontSize: 18,fontWeight: FontWeight.bold),
+                                //           ),
+                                //           SizedBox(height: 3),
+                                //
+                                //           Padding(
+                                //             padding: const EdgeInsets.all(15.0),
+                                //             child: CustomTextField(
+                                //               // controller: ,
+                                //               hintText: "Type your order number",
+                                //               borderRadius: 15,
+                                //               fillColor: CustomColor.textfield_fill,
+                                //             ),
+                                //           ),
+                                //           SizedBox(height: 5,),
+                                //           Text(
+                                //             "Name on oder",
+                                //             style: TextStyle(color: Colors.white, fontSize: 18,fontWeight: FontWeight.bold),
+                                //           ),
+                                //           SizedBox(height: 3),
+                                //
+                                //           Padding(
+                                //             padding: const EdgeInsets.all(15.0),
+                                //             child: CustomTextField(
+                                //               // controller: ,
+                                //               hintText: "Type name on Oder",
+                                //               borderRadius: 15,
+                                //               fillColor: CustomColor.textfield_fill,
+                                //             ),
+                                //           ),
+                                //
+                                //
+                                //
+                                //
+                                //         ],
+                                //       ),
+                                //     ),
+                                //   )
+                                // );
+
+                              },
                               child: BottomButton(icon: Icons.shopping_cart_outlined, button_name: "Shopping")),
                           InkWell(
                               onTap:(){Get.toNamed('/PromoScreen');},

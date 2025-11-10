@@ -452,122 +452,134 @@ class HomeDriver extends StatelessWidget {
                 ),),
                   Container(height: 200,),
 
-                       SizedBox(
-                      height: 50,
-                      width: 350  ,
-                      child: MyElevatedButton(
-                        text: 'CONTINUE',
-                        onPressed: () {
-                          //homeC.firstController.text=="" && homeC.secondController.text ==""
-                          // ?
-                          // Get.snackbar("“Missing Fields”", "Pick-up and Drop-off are required.”")
-                          // :
-                          Get.dialog(
-                            Dialog(
-                              backgroundColor: Colors.white,
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.all(Radius.circular(20)),
-                                ),
-                                height: 320,
-                                width: 300,
-                                child: Column(
-                                  children: [
-                                    SizedBox(height: 10),
-                                    Center(
-                                      child: Text(
-                                        CustomText.Pick_Up_Location,
-                                        softWrap: true,
-                                        maxLines: 2,
-                                        textAlign: TextAlign.center,
-                                        style: TextStyle(
-                                          fontSize: 25,
-                                          color: Colors.black,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(height: 10,),
 
-                                    Center(
-                                      child: Container(
-                                        padding: EdgeInsets.only(left: 10),
-                                        height: 80,
-                                        width: 200,
-                                        child: Text(
-                                          CustomText.Pick_Up_Dialog_Text,
-                                          style: TextStyle(color: Colors.black),
-                                        ),
-                                      ),
-                                    ),
-
-                                    SizedBox(
-                                      height: 50,
-                                      width:   250,
-                                      child: MyElevatedButton(
-                                        text: 'Select Current location',
-                                        onPressed: () {  },
-                                        backgroundColor: CustomColor.Icon_Color,
-                                        textColor: CustomColor.textColor,
-                                        fontSize: 3,
-                                      ),
-                                    ),
-                                    SizedBox(height: 10,),
-                                    SizedBox(
-                                      height: 50,
-                                      width:   250,
-                                      child: MyElevatedButton(
-                                        text: 'Select Pick Up location',
-                                        onPressed: () {
-                                          Get.toNamed('/RideInfoScreen');
-                                        },
-                                        backgroundColor: CustomColor.Icon_Color,
-                                        textColor: CustomColor.textColor,
-                                        fontSize: 3,
-                                      ),
-                                    ),
-        
-
-                                  ],
-                                ),
-                              ),
-                            ),
-
-                          );
-
-                        },
-                        backgroundColor: CustomColor.Icon_Color,
-                        textColor: Colors.black,
-                        fontSize: 20,
-                      ),
-                    ),
-
-
-                  //------------------------------------- set PIck UP button
-                  Center(
-                    child: Container(
-                      padding: EdgeInsets.only(left: 50,),
-                      child: Row(children: [
-                        Icon(Icons.location_on,size: 20,color: CustomColor.Icon_Color,),
-                        SizedBox(width: 10,),
-                        TextButton(onPressed: (){
-                          Get.toNamed('/PickupScreen');
-                        },
-                            child: Text("SET LOCATION ON MAP",
-                          style: TextStyle(fontSize: 20,
-                              color: CustomColor.Text_Color,
-                              fontWeight: FontWeight.bold),
-                            )
-                        ),
-                      ],
-                      ),
-                    ),
-                  )
                 ],
               ),
             );
           },
         ),
+
+        bottomNavigationBar: Container(
+          padding:  EdgeInsets.symmetric(vertical: 15),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+
+              SizedBox(
+                height: 50,
+                width: 350,
+                child: MyElevatedButton(
+                  text: 'CONTINUE',
+                  onPressed: () {
+                    Get.dialog(
+                      Dialog(
+                        backgroundColor: Colors.white,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          height: 320,
+                          width: 300,
+                          child: Column(
+                            children: [
+                              const SizedBox(height: 10),
+                              Center(
+                                child: Text(
+                                  CustomText.Pick_Up_Location,
+                                  softWrap: true,
+                                  maxLines: 2,
+                                  textAlign: TextAlign.center,
+                                  style: const TextStyle(
+                                    fontSize: 25,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(height: 10),
+                              Center(
+                                child: Container(
+                                  padding: const EdgeInsets.only(left: 10),
+                                  height: 80,
+                                  width: 200,
+                                  child: Text(
+                                    CustomText.Pick_Up_Dialog_Text,
+                                    style: const TextStyle(color: Colors.black),
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(height: 10),
+                              SizedBox(
+                                height: 50,
+                                width: 250,
+                                child: MyElevatedButton(
+                                  text: 'Select Current location',
+                                  onPressed: () {},
+                                  backgroundColor: CustomColor.Icon_Color,
+                                  textColor: CustomColor.textColor,
+                                  fontSize: 3,
+                                ),
+                              ),
+                              const SizedBox(height: 10),
+                              SizedBox(
+                                height: 50,
+                                width: 250,
+                                child: MyElevatedButton(
+                                  text: 'Select Pick Up location',
+                                  onPressed: () {
+                                    Get.toNamed('/RideInfoScreen');
+                                  },
+                                  backgroundColor: CustomColor.Icon_Color,
+                                  textColor: CustomColor.textColor,
+                                  fontSize: 3,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    );
+                  },
+                  backgroundColor: CustomColor.Icon_Color,
+                  textColor: Colors.black,
+                  fontSize: 20,
+                ),
+              ),
+
+              const SizedBox(height: 10),
+
+              // SET LOCATION ON MAP
+              Center(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Icon(
+                      Icons.location_on,
+                      size: 20,
+                      color: CustomColor.Icon_Color,
+                    ),
+                    const SizedBox(width: 10),
+                    TextButton(
+                      onPressed: () {
+                        Get.toNamed('/PickupScreen');
+                      },
+                      child: Text(
+                        "SET LOCATION ON MAP",
+                        style: TextStyle(
+                          fontSize: 18,
+                          color: CustomColor.Text_Color,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+
+
       ),
     );
   }
