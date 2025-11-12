@@ -17,6 +17,10 @@ class routesName {
   static const String ReebookingScreen = '/ReebookingScreen';
   static const String PaymentReschedule = '/PaymentReschedule';
   static const String ExtrasScreen = '/ExtrasScreen';
+  static const String ThanksScreen = '/ThanksScreen';
+  static const String RideComplete = '/RideComplete';
+  static const String Driverdetailscreen = '/Driverdetailscreen';
+
 
 
 

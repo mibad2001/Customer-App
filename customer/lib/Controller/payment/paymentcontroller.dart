@@ -2,6 +2,7 @@ import 'package:get/get.dart';
 
 class PaymentController extends GetxController {
   var selectedMethod = 0.obs;
+  var paymentMethod = 'Cash'.obs;
 
   void selectMethod(int index) {
     selectedMethod.value = index;
@@ -19,4 +20,23 @@ class PaymentController extends GetxController {
         return "Unknown";
     }
   }
+
+
+
+  void setPaymentMethod(String? value) {
+    if (value != null) {
+      paymentMethod.value = value;
+    }
+  }
+
+  void payNow() {
+    if (paymentMethod.value == 'Credit Card') {
+
+      Get.snackbar("Payment", "Processing Credit Card Payment...");
+    } else {
+
+      Get.snackbar("Payment", "Please pay driver in cash (36€)");
+    }
+  }
 }
+

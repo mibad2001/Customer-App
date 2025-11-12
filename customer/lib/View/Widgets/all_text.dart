@@ -56,6 +56,18 @@ class CustomText {
   static const String Payments = "Payments" ;
   static const String Payments_Method_Choose =  "Choose a payment method" ;
   static const String Payments_Text=   "This section is just for security reasons and all data will be secure";
+  static const String PaymentsDone = "Payments Done" ;
+  static const String Thanks_caption =  "Thanks for choosing us, will love to serve you again !!";
+  static const String Name_thnks_scr =  "Name ";
+  static const String Payments_Method = "Payments Method" ;
+  static const String Status = "Status" ;
+  static const String Ride_Complete = "Ride Complete" ;
+  static const String Reached_Destination = "Reached at your destination" ;
+  static const String Driver_Info = "Driver Info";
+  static const String Vechile_Color = "Driver Info";
+  static const String vechicle_number = "Driver Info";
+
+
 
 
 

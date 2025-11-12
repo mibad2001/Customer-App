@@ -12,8 +12,11 @@ import '../View/Reebook/promoscreen.dart';
 import '../View/about/aboutscreen.dart';
 import '../View/payments/paymentscreen.dart';
 import '../View/profile/profilescreen.dart';
+import '../View/rides/DriverDetailscreen.dart';
 import '../View/rides/ride_info_screen.dart';
+import '../View/rides/ridecomplete.dart';
 import '../View/rides/ridesearchscreen.dart';
+import '../View/thanks/thanksscreen.dart';
 import '../View/yourtrip/tripdetail.dart';
 import '../View/yourtrip/yourtrip.dart';
 
@@ -96,6 +99,21 @@ class AppRoutes{
     GetPage(
       name: routesName.ExtrasScreen,
       page: () => ExtrasScreen(),
+      //binding: PaymentReschedule(),
+    ),
+    GetPage(
+      name: routesName.ThanksScreen ,
+      page: () => ThanksScreen(),
+      //binding: PaymentReschedule(),
+    ),
+    GetPage(
+      name: routesName.RideComplete ,
+      page: () => RideComplete(),
+      //binding: PaymentReschedule(),
+    ),
+    GetPage(
+      name: routesName.Driverdetailscreen ,
+      page: () => Driverdetailscreen(),
       //binding: PaymentReschedule(),
     ),
 

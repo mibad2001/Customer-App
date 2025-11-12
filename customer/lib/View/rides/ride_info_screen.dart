@@ -53,7 +53,7 @@ class _RideInfoScreenState extends State<RideInfoScreen> {
                     },
                     icon: Icon(
                       Icons.arrow_back,
-                      size: MediaQuery.of(context).size.width * 0.06, // responsive siz
+                      size: MediaQuery.of(context).size.width * 0.06,
                       color: CustomColor.Icon_Color,
                     ),
                   ),
@@ -73,7 +73,7 @@ class _RideInfoScreenState extends State<RideInfoScreen> {
                     ),
                   ),
 
-                  // Notification icon
+
                   IconButton(
                     onPressed: () {
                       Get.back();
@@ -100,7 +100,7 @@ class _RideInfoScreenState extends State<RideInfoScreen> {
             SizedBox(height: 10,),
 
       Container(
-        height: 750,
+        height: 620,
         child: ListView.builder(
           shrinkWrap: true,
           itemCount: rideController.CarName.length,
@@ -113,7 +113,7 @@ class _RideInfoScreenState extends State<RideInfoScreen> {
                   rideController.selectItem(index);
                 },
                 child: Container(
-                  height: 150,
+                  height: 120,
                   width: 380,
                   margin:  EdgeInsets.all(8),
                   padding:  EdgeInsets.all(10),
