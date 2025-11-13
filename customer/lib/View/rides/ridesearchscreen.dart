@@ -1,4 +1,6 @@
 import 'package:customer/View/Widgets/color.dart';
+import 'package:customer/View/rides/ride_info_screen.dart';
+import 'package:customer/View/rides/ridecomplete.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -186,7 +188,7 @@ class RideSearchScreen extends StatelessWidget {
                               CustomTextButton(
                                 text: 'NO',
                                 onPressed: () {
-                                  Get.back();
+                                  Get.to(RideInfoScreen());
                                 },
                                 backgroundColor: Colors.black54,
                                 textColor: Colors.white,

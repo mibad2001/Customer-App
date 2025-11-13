@@ -1,5 +1,6 @@
 import 'package:customer/View/Widgets/color.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_emoji_feedback/flutter_emoji_feedback.dart';
 import 'package:get/get.dart';
 
 import '../Widgets/all_text.dart';
@@ -17,7 +18,6 @@ class ThanksScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              
               height: MediaQuery.of(context).size.height * 0.1,
               padding: EdgeInsets.symmetric(horizontal: 10),
               decoration: BoxDecoration(
@@ -75,7 +75,6 @@ class ThanksScreen extends StatelessWidget {
                 height: MediaQuery.of(context).size.height * 0.2,
                 width: MediaQuery.of(context).size.width * 0.8,
 
-
                 decoration: BoxDecoration(
                   color: Colors.green,
                   borderRadius: BorderRadius.all(Radius.circular(25)),
@@ -88,7 +87,7 @@ class ThanksScreen extends StatelessWidget {
                     children: [
                       SizedBox(height: 10),
                       Text(
-                       CustomText.Thanks_caption,
+                        CustomText.Thanks_caption,
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 18,
@@ -103,49 +102,51 @@ class ThanksScreen extends StatelessWidget {
               ),
             ),
 
-            SizedBox(height: 15,),
-
+            SizedBox(height: 15),
 
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Row(
-               children: [
-                 Text(
-                   CustomText.Name_thnks_scr+  "  :  ",
-                   textAlign: TextAlign.center,
-                   style: TextStyle(
-                     fontSize: 18,
-                     color: CustomColor.Text_Color,
-                     fontWeight: FontWeight.bold
-                   ),
-                 ),
+                children: [
+                  Text(
+                    CustomText.Name_thnks_scr + "  :  ",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: CustomColor.Text_Color,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
 
-                 Text(
-                  "Muhammad Ibad Ullah Qureshi",
-                   textAlign: TextAlign.center,
-                   style: TextStyle(
-                     fontSize: 18,
-                     color: CustomColor.Text_Color,
-                   ),
-                 ),
-
-               ],
+                  Text(
+                    "Muhammad Ibad Ullah Qureshi",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: CustomColor.Text_Color,
+                    ),
+                  ),
+                ],
               ),
             ),
 
-            SizedBox(height: 10,),
+            SizedBox(height: 10),
 
-             Padding(
-               padding: const EdgeInsets.all(8.0),
-               child: Row(
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
                 children: [
-                  Icon(Icons.location_on,size: 25,color: CustomColor.Icon_Color,),
-                  SizedBox(width: 5,),
+                  Icon(
+                    Icons.location_on,
+                    size: 25,
+                    color: CustomColor.Icon_Color,
+                  ),
+                  SizedBox(width: 5),
 
                   Expanded(
                     child: Text(
                       "1A Worrior Garden St.LEO "
-                          " Worrior Garden St.LEO TN36eb",
+                      " Worrior Garden St.LEO TN36eb",
                       softWrap: true,
                       textAlign: TextAlign.center,
                       style: TextStyle(
@@ -154,14 +155,11 @@ class ThanksScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-
-
-
                 ],
-               ),
-             ),
+              ),
+            ),
 
-            SizedBox(height: 5,),
+            SizedBox(height: 5),
 
             Padding(
               padding: const EdgeInsets.all(8.0),
@@ -169,9 +167,9 @@ class ThanksScreen extends StatelessWidget {
                 CustomText.Payments_Method,
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                    fontSize: 20,
-                    color: CustomColor.Text_Color,
-                    fontWeight: FontWeight.bold
+                  fontSize: 20,
+                  color: CustomColor.Text_Color,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
             ),
@@ -181,10 +179,7 @@ class ThanksScreen extends StatelessWidget {
               child: Text(
                 "Cash",
                 textAlign: TextAlign.center,
-                style: TextStyle(
-                    fontSize: 20,
-                    color: CustomColor.Text_Color,
-                ),
+                style: TextStyle(fontSize: 20, color: CustomColor.Text_Color),
               ),
             ),
 
@@ -192,17 +187,16 @@ class ThanksScreen extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: Row(
                 children: [
-
                   Text(
                     CustomText.Status + "  ",
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                        fontSize: 20,
-                        color: CustomColor.Text_Color,
-                        fontWeight: FontWeight.bold
+                      fontSize: 20,
+                      color: CustomColor.Text_Color,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
-                  SizedBox(width: 5,),
+                  SizedBox(width: 5),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
@@ -214,24 +208,35 @@ class ThanksScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-
-
-
                 ],
               ),
             ),
-            SizedBox(height: 20,),
 
-            Center(
-              child: SizedBox(
-                height: 50,
-                width: 350  ,
-                child: MyElevatedButton(
-                  text: 'DONE',
-                  onPressed: () {  },
-                  backgroundColor: CustomColor.Icon_Color,
-                  textColor: Colors.black,
-                  fontSize: 20,
+
+
+        Center(
+              child: Container(
+                height: 120, // 👈 height set
+                width: MediaQuery.of(context).size.width* 0.9, // 👈 full width
+                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+
+
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+
+                    EmojiFeedback(
+                      initialRating: 4,
+                      animDuration: const Duration(milliseconds: 300),
+                      curve: Curves.bounceIn,
+                      labelTextStyle: TextStyle(color: CustomColor.Text_Color),
+                      inactiveElementScale: .5,
+                      onChanged: (value) {
+                      },
+                      onChangeWaitForAnimation: true,
+                    ),
+                  ],
                 ),
               ),
             ),
@@ -240,10 +245,20 @@ class ThanksScreen extends StatelessWidget {
 
 
 
-
-
-
-
+            SizedBox(height: 15),
+            Center(
+              child: SizedBox(
+                height: 50,
+                width: 300,
+                child: MyElevatedButton(
+                  text: 'DONE',
+                  onPressed: () {},
+                  backgroundColor: CustomColor.Icon_Color,
+                  textColor: Colors.black,
+                  fontSize: 20,
+                ),
+              ),
+            ),
           ],
         ),
       ),

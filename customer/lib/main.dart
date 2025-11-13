@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Customer App',
-      initialRoute:  routesName.Driverdetailscreen,
+      initialRoute:  routesName.Splash_Screen,
       //transitionDuration: Duration(seconds: ),
       defaultTransition: Transition.leftToRight,
 

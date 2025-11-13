@@ -18,7 +18,7 @@ class routesName {
   static const String PaymentReschedule = '/PaymentReschedule';
   static const String ExtrasScreen = '/ExtrasScreen';
   static const String ThanksScreen = '/ThanksScreen';
-  static const String RideComplete = '/RideComplete';
+  static const String RideCompleteScreen = '/RideCompleteScreen';
   static const String Driverdetailscreen = '/Driverdetailscreen';
 
 

@@ -64,8 +64,10 @@ class CustomText {
   static const String Ride_Complete = "Ride Complete" ;
   static const String Reached_Destination = "Reached at your destination" ;
   static const String Driver_Info = "Driver Info";
-  static const String Vechile_Color = "Driver Info";
-  static const String vechicle_number = "Driver Info";
+  static const String Vehicle_Color = "Vehicle Color";
+  static const String Vehicle_number = "Vehicle No";
+  static const String Vehicle_Image = "vehicle Image";
+  static const String Vehicle_Status = "Status";
 
 
 

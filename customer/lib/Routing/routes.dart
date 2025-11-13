@@ -107,8 +107,8 @@ class AppRoutes{
       //binding: PaymentReschedule(),
     ),
     GetPage(
-      name: routesName.RideComplete ,
-      page: () => RideComplete(),
+      name: routesName.RideCompleteScreen ,
+      page: () => RideCompleteScreen(),
       //binding: PaymentReschedule(),
     ),
     GetPage(

@@ -48,6 +48,7 @@ dependencies:
   timezone:
   intl:
   stepper_touch: ^1.0.0
+  flutter_emoji_feedback:
 
 
 

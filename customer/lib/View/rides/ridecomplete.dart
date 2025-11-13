@@ -6,11 +6,12 @@ import '../../Controller/payment/paymentcontroller.dart';
 import '../Widgets/all_text.dart';
 import '../Widgets/color.dart';
 import '../Widgets/elevat_button.dart';
+import 'DriverDetailscreen.dart';
 
-class RideComplete extends StatelessWidget {
+class RideCompleteScreen extends StatelessWidget {
 
   final PaymentController  paymentController= Get.put(PaymentController());
-   RideComplete({super.key});
+  RideCompleteScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -219,7 +220,9 @@ class RideComplete extends StatelessWidget {
                   width: 350  ,
                   child: MyElevatedButton(
                     text: 'DONE',
-                    onPressed: () {  },
+                    onPressed: () {
+                      Get.to(Driverdetailscreen());
+                    },
                     backgroundColor: CustomColor.Icon_Color,
                     textColor: Colors.black,
                     fontSize: 20,
