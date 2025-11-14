@@ -485,7 +485,7 @@ class ReebookingScreen extends StatelessWidget {
 
                                         Center(
                                           child: SizedBox(
-                                            height: MediaQuery.of(context).size.height * 0.05,
+                                            height: MediaQuery.of(context).size.height * 0.053,
                                             width: MediaQuery.of(context).size.width * 0.5,
                                             child: MyElevatedButton(
                                               text: 'DONE',
@@ -500,9 +500,6 @@ class ReebookingScreen extends StatelessWidget {
                                     ),
                                   ),
                                 );
-
-
-
 
 
 

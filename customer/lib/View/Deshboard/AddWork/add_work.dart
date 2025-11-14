@@ -111,7 +111,7 @@ class AddWork_ScreenState extends State<AddWork_Screen> {
                     title: Text(
                       mydeshcontroller.workAddress.value,
                       style: TextStyle(
-                        color: CustomColor.textColor,
+                        color: CustomColor.Text_Color,
                         fontSize: 18,
                       ),
                     ),

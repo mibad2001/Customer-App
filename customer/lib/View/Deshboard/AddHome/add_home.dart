@@ -121,7 +121,7 @@ class AddHomeScreenState extends State<AddHomeScreen> {
                       title: Text(
                         address,
                         style: TextStyle(
-                          color: CustomColor.textColor,
+                          color: CustomColor.Text_Color,
                           fontSize: 20,
                         ),
                       ),

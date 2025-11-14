@@ -1,6 +1,7 @@
 
 import 'package:customer/View/Widgets/color.dart';
 import 'package:customer/View/rides/ride_info_screen.dart';
+import 'package:customer/View/rides/ridecomplete.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -298,12 +299,12 @@ class Driverdetailscreen extends StatelessWidget {
 
               ],
             ),
-            
+
             ElevatedButton(onPressed: (){
-              Get.to(RideInfoScreen());
+
+              Get.to(RideCompleteScreen());
             }, child: Text("move to feedback screen"))
 
-           
           ],
         ),
 

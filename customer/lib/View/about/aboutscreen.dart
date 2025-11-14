@@ -150,11 +150,10 @@ class Aboutscreen extends StatelessWidget {
 
               //============================================   map
               Container(
-                height:600,
-                 // child: OpenStreetMapWidget(),
+                height: 600,
+                child: Image(image: AssetImage("assets/images/map2.png"),fit: BoxFit.cover,),
+                //         child: OpenStreetMapWidget(),
               ),
-
-
 
 
             ],

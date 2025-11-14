@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../Widgets/color.dart';
+import '../../payments/paymentscreen.dart';
 import '../../yourtrip/yourtrip.dart';
 
 class appDrawer extends StatelessWidget {
@@ -98,7 +99,10 @@ class appDrawer extends StatelessWidget {
                 ListTile(
                   leading: Icon(Icons.payments, size: 20, color: Colors.white),
                   title: Text("Payment", style: TextStyle(color: Colors.white)),
-                  onTap: () {},
+                  onTap: () {
+
+                    Get.to(PaymentScreen());
+                  },
                 ),
                 ListTile(
                   leading: Icon(Icons.settings, size: 20, color: Colors.white),
@@ -134,7 +138,7 @@ class appDrawer extends StatelessWidget {
                   leading: Icon(Icons.logout, size: 20, color: Colors.white),
                   title: Text("Logout", style: TextStyle(color: Colors.white)),
                   onTap: () {
-                    Get.offAllNamed('/SignIn');
+                    Get.offAllNamed('/SigIn_Screen');
                   },
                 ),
               ],

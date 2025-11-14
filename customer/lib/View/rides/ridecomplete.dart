@@ -6,6 +6,7 @@ import '../../Controller/payment/paymentcontroller.dart';
 import '../Widgets/all_text.dart';
 import '../Widgets/color.dart';
 import '../Widgets/elevat_button.dart';
+import '../thanks/thanksscreen.dart';
 import 'DriverDetailscreen.dart';
 
 class RideCompleteScreen extends StatelessWidget {
@@ -221,7 +222,7 @@ class RideCompleteScreen extends StatelessWidget {
                   child: MyElevatedButton(
                     text: 'DONE',
                     onPressed: () {
-                      Get.to(Driverdetailscreen());
+                      Get.to(ThanksScreen());
                     },
                     backgroundColor: CustomColor.Icon_Color,
                     textColor: Colors.black,

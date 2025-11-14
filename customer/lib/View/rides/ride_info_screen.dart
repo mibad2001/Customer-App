@@ -100,7 +100,7 @@ class _RideInfoScreenState extends State<RideInfoScreen> {
             SizedBox(height: 10,),
 
       Container(
-        height: 620,
+        height: MediaQuery.of(context).size.height*0.74,
         child: ListView.builder(
           shrinkWrap: true,
           itemCount: rideController.CarName.length,
@@ -121,9 +121,10 @@ class _RideInfoScreenState extends State<RideInfoScreen> {
                     borderRadius:  BorderRadius.all(Radius.circular(20)),
                     color: isSelected
                         ? Colors.blueAccent
-                        : CustomColor.textColor,
+                        : Colors.black,
                     border: Border.all(
-                      color: isSelected ? Colors.blue : Colors.grey.shade400,
+                      color: isSelected ? Colors.blue
+                          : Colors.grey.shade400,
                       width: 2,
                     ),
                   ),
@@ -201,7 +202,7 @@ class _RideInfoScreenState extends State<RideInfoScreen> {
         ),
 
         bottomNavigationBar:  Padding(
-          padding: const EdgeInsets.all(15.0),
+          padding: const EdgeInsets.all(10.0),
           child: SizedBox(
             height: 50,
             width: 350  ,
@@ -407,7 +408,7 @@ class _RideInfoScreenState extends State<RideInfoScreen> {
 
                         const SizedBox(height: 35),
 
-                        // ---------- Book Ride Button ----------
+                        // ========================================================== Book Ride Button
                         SizedBox(
                             width: 220,
                             height: 50,
@@ -429,130 +430,6 @@ class _RideInfoScreenState extends State<RideInfoScreen> {
                     ),
                   ),
                 );
-
-
-
-
-
-
-                //==========================================  Bottom Sheet
-                //   Get.bottomSheet(
-                //     Container(
-                //       decoration:BoxDecoration(
-                //         color: Colors.grey,
-                //         borderRadius: BorderRadius.only(topLeft: Radius.circular(30),topRight: Radius.circular(30))
-                //       ) ,
-                //       height: 350,
-                //       width: MediaQuery.of(context).size.width,
-                //       child: Column(
-                //         children: [
-                //
-                //
-                //           SizedBox(height: 10,),
-                //           Text(
-                //             CustomText.Schedule_Ride,
-                //             style: TextStyle(fontSize: 25,
-                //                 fontWeight: FontWeight.bold,
-                //                 color: CustomColor.Text_Color),
-                //           ),
-                //           SizedBox(height: 20,),
-                //           Row(
-                //             children: [
-                //               SizedBox(
-                //                 width: 50,
-                //               ),
-                //               SizedBox(
-                //                 width: 100,
-                //                 height: 50,
-                //                 child: CustomTextButton(
-                //                   text: 'ASAP',
-                //                   onPressed: () {},
-                //                   backgroundColor: Colors.black54,
-                //                   textColor: Colors.white,
-                //                   borderRadius: 8,
-                //                   elevation: 2,
-                //                   fontSize: 15,
-                //                   fontWeight: FontWeight.bold,
-                //                   padding: EdgeInsets.symmetric(
-                //                     horizontal: 16,
-                //                     vertical: 10,
-                //                   ),
-                //                 ),
-                //               ),
-                //               SizedBox(width: 10,),
-                //               SizedBox(
-                //                 width: 100,
-                //                 height: 50,
-                //                 child: CustomTextButton(
-                //                   text: '15 min',
-                //                   onPressed: () {},
-                //                   backgroundColor: Colors.black54,
-                //                   textColor: Colors.white,
-                //                   borderRadius: 8,
-                //                   elevation: 2,
-                //                   fontSize: 15,
-                //                   fontWeight: FontWeight.bold,
-                //                   padding: EdgeInsets.symmetric(
-                //                     horizontal: 16,
-                //                     vertical: 10,
-                //                   ),
-                //                 ),
-                //               ),
-                //               SizedBox(width: 10,),
-                //               SizedBox(
-                //                 width: 100,
-                //                 height: 50,
-                //                 child: CustomTextButton(
-                //                   text: '30 min',
-                //                   onPressed: () {},
-                //                   backgroundColor: Colors.black54,
-                //                   textColor: Colors.white,
-                //                   borderRadius: 8,
-                //                   elevation: 2,
-                //                   fontSize: 15,
-                //                   fontWeight: FontWeight.bold,
-                //                   padding: EdgeInsets.symmetric(
-                //                     horizontal: 16,
-                //                     vertical: 10,
-                //                   ),
-                //                 ),
-                //               )
-                //               ],
-                //           ),
-                //
-                //
-                //           SizedBox(height: 10,),
-                //           // Reactive Date Field
-                //           Row(
-                //             children: [
-                //               SizedBox(width: 40,),
-                //               Obx(() => GestureDetector(
-                //                 onTap: () => rideController.pickDate(context),
-                //                 child: Container(
-                //                   padding: const EdgeInsets.symmetric(
-                //                       horizontal: 15, vertical: 18),
-                //                   child:  Text(
-                //                     "${rideController.selectedDate.value.toLocal().toString().split(' ')[0]}",
-                //                     style: const TextStyle(
-                //                         fontSize: 18, fontWeight: FontWeight.bold,color: CustomColor.Text_Color),
-                //                   ),
-                //                 ),
-                //               )
-                //               ),
-                //
-                //
-                //
-                //             ],
-                //           ),
-                //
-                //
-                //
-                //
-                //
-                //         ],
-                //       ),
-                //     )
-                //   );
               },
               backgroundColor: CustomColor.Icon_Color,
               textColor: Colors.black,

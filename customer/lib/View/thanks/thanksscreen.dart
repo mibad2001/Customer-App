@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_emoji_feedback/flutter_emoji_feedback.dart';
 import 'package:get/get.dart';
 
+import '../Deshboard/dashboard.dart' show DeshBoard_Screen;
 import '../Widgets/all_text.dart';
 import '../Widgets/elevat_button.dart';
 
@@ -216,8 +217,8 @@ class ThanksScreen extends StatelessWidget {
 
         Center(
               child: Container(
-                height: 120, // 👈 height set
-                width: MediaQuery.of(context).size.width* 0.9, // 👈 full width
+                height: 120,
+                width: MediaQuery.of(context).size.width* 0.9,
                 padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                 margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
 
@@ -252,7 +253,9 @@ class ThanksScreen extends StatelessWidget {
                 width: 300,
                 child: MyElevatedButton(
                   text: 'DONE',
-                  onPressed: () {},
+                  onPressed: () {
+                   Get.to(DeshBoard_Screen()) ;
+                  },
                   backgroundColor: CustomColor.Icon_Color,
                   textColor: Colors.black,
                   fontSize: 20,

@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 import '../Widgets/all_text.dart';
 import '../Widgets/elevat_button.dart';
 import '../Widgets/text_button.dart';
+import 'DriverDetailscreen.dart';
 
 class RideSearchScreen extends StatelessWidget {
   const RideSearchScreen({super.key});
@@ -188,7 +189,7 @@ class RideSearchScreen extends StatelessWidget {
                               CustomTextButton(
                                 text: 'NO',
                                 onPressed: () {
-                                  Get.to(RideInfoScreen());
+                                  Get.to(  Driverdetailscreen() );
                                 },
                                 backgroundColor: Colors.black54,
                                 textColor: Colors.white,

@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import '../../Widgets/elevat_button.dart';
 import '../Widget/openstrretmap.dart';
 import '../Widget/osm.dart';
+import '../dashboard.dart';
 
 class PickupScreen extends StatelessWidget {
  const  PickupScreen({super.key});
@@ -18,6 +19,11 @@ class PickupScreen extends StatelessWidget {
         body: Stack(
         children: [
           // OpenStreetMapWidget(),//==== map
+          Container(
+            height: MediaQuery.of(context).size.height,
+            child: Image(image: AssetImage("assets/images/map2.png"),fit: BoxFit.cover,),
+            //         child: OpenStreetMapWidget(),
+          ),
           Column(
             children: [
               Container(
@@ -74,10 +80,12 @@ class PickupScreen extends StatelessWidget {
           padding: const EdgeInsets.all(15.0),
           child: SizedBox(
             height: 50,
-            width: 350  ,
+            width: 300  ,
             child: MyElevatedButton(
               text: 'DONE',
-              onPressed: () {  },
+              onPressed: () { 
+                Get.to(DeshBoard_Screen());
+              },
               backgroundColor: CustomColor.Icon_Color,
               textColor: Colors.black,
               fontSize: 20,

@@ -111,15 +111,20 @@ class HomeDriver extends StatelessWidget {
 
                             // ------------------------------- --------------------      VIA button
                             Row(
-                              children: [  SizedBox(width: MediaQuery.of(context).size.width*0.67,),
-                                TextButton.icon(
-                                  onPressed: () {
-                                    homeC.addViaField();
-                                  },
-                                  icon: const Icon(Icons.add, color: CustomColor.Icon_Color),
-                                  label: const Text(
-                                    "Add Via",
-                                    style: TextStyle(color:CustomColor.Text_Color, fontSize: 16),
+                              children: [
+                                //SizedBox(width: MediaQuery.of(context).size.width*0.67,),
+                                Spacer(),
+                                Padding(
+                                  padding: const EdgeInsets.only(right: 8.0),
+                                  child: TextButton.icon(
+                                    onPressed: () {
+                                      homeC.addViaField();
+                                    },
+                                    icon: const Icon(Icons.add, color: CustomColor.Icon_Color),
+                                    label: const Text(
+                                      "Add Via",
+                                      style: TextStyle(color:CustomColor.Text_Color, fontSize: 16),
+                                    ),
                                   ),
                                 ),],
                             ),
@@ -135,7 +140,9 @@ class HomeDriver extends StatelessWidget {
                                         Expanded(
                                           child: CustomTextField(
                                             controller: homeC.viaControllers[index],
-                                            hintText: index == 0 ? "1st Stop" : "2nd Stop",
+                                            hintText: index == 0
+                                                ? "1st Stop"
+                                                : "2nd Stop",
                                             fillColor: CustomColor.textfield_fill,
                                             borderRadius: 20,
                                           ),
@@ -166,7 +173,7 @@ class HomeDriver extends StatelessWidget {
 
                   SizedBox(height: 15),
 
-                  // ----------- Address / Airoplane / Train  Coloum ------------------
+                  // ================================================ Address / Airoplane / Train  Coloum
 
                   Container(
                     height: 100,
@@ -180,7 +187,7 @@ class HomeDriver extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        // =================== Address ===================
+                        // ==========================================================       Address
 
                         Obx(()=>GestureDetector(
                           onTap: () {
@@ -333,6 +340,7 @@ class HomeDriver extends StatelessWidget {
                       width: 350,
                       //color: Colors.grey,
                       child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           ListTile(
                             title: Text(
@@ -449,7 +457,8 @@ class HomeDriver extends StatelessWidget {
                       ),
                     ),
                   ],
-                ),),
+                ),
+                ),
                   Container(height: 200,),
 
 
