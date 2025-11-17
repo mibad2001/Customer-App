@@ -38,7 +38,7 @@ class _RideInfoScreenState extends State<RideInfoScreen> {
               height: MediaQuery.of(context).size.height * 0.1,
               padding: const EdgeInsets.symmetric(horizontal: 10),
               decoration: BoxDecoration(
-                color: CustomColor.textColor,
+                color: CustomColor.textfield_fill,
                 borderRadius: const BorderRadius.only(
                   bottomLeft: Radius.circular(20),
                   bottomRight: Radius.circular(20),
@@ -100,7 +100,7 @@ class _RideInfoScreenState extends State<RideInfoScreen> {
             SizedBox(height: 10,),
 
       Container(
-        height: MediaQuery.of(context).size.height*0.74,
+        height: MediaQuery.of(context).size.height*0.72,
         child: ListView.builder(
           shrinkWrap: true,
           itemCount: rideController.CarName.length,
@@ -121,7 +121,7 @@ class _RideInfoScreenState extends State<RideInfoScreen> {
                     borderRadius:  BorderRadius.all(Radius.circular(20)),
                     color: isSelected
                         ? Colors.blueAccent
-                        : Colors.black,
+                        : CustomColor.background,
                     border: Border.all(
                       color: isSelected ? Colors.blue
                           : Colors.grey.shade400,
@@ -202,17 +202,17 @@ class _RideInfoScreenState extends State<RideInfoScreen> {
         ),
 
         bottomNavigationBar:  Padding(
-          padding: const EdgeInsets.all(10.0),
+          padding: const EdgeInsets.only(top: 5.0,bottom:20 ,left: 10,right: 10),
           child: SizedBox(
             height: 50,
-            width: 350  ,
+            width: 300  ,
             child: MyElevatedButton(
               text: 'Schedule Booking',
               onPressed: () {
                 Get.bottomSheet(
                   Container(
                     decoration: const BoxDecoration(
-                      color: Colors.grey,
+                      color: CustomColor.textfield_fill,
                       borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(30),
                         topRight: Radius.circular(30),
@@ -231,7 +231,7 @@ class _RideInfoScreenState extends State<RideInfoScreen> {
                           style: TextStyle(
                             fontSize: 25,
                             fontWeight: FontWeight.bold,
-                            color: Colors.white,
+                            color: CustomColor.Text_Color,
                           ),
                         ),
 
@@ -420,8 +420,7 @@ class _RideInfoScreenState extends State<RideInfoScreen> {
                                 onPressed: () {
                                   Get.to(RideSearchScreen());
                                 },
-                                backgroundColor: CustomColor.Icon_Color,
-                                textColor: Colors.black,
+
                                 fontSize: 20,
                               ),
                             )
@@ -431,8 +430,7 @@ class _RideInfoScreenState extends State<RideInfoScreen> {
                   ),
                 );
               },
-              backgroundColor: CustomColor.Icon_Color,
-              textColor: Colors.black,
+
               fontSize: 20,
             ),
           ),

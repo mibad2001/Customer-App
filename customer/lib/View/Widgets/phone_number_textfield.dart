@@ -12,15 +12,17 @@ class PhoneNumber_TextField extends StatelessWidget {
       decoration: InputDecoration(
 
           border: OutlineInputBorder(
-              borderSide: const BorderSide(color: const Color.fromARGB(255, 172, 171, 171)), // default
+              borderSide: const BorderSide(
+                  //color: const Color.fromARGB(255, 172, 171, 171)
+                ), // default
               borderRadius: BorderRadius.circular(15),
             ),
                enabledBorder: OutlineInputBorder(
-              borderSide: const BorderSide(color: Colors.white, width: 0.5), // unfocused
+              borderSide: const BorderSide(color: Color(0xFF4F46E5), width: 0.5), // unfocused
               borderRadius: BorderRadius.circular(15),
             ),
             focusedBorder: OutlineInputBorder(
-              borderSide: const BorderSide(color: Color(0xFF4F46E5), width: 1), // focused
+              borderSide: const BorderSide(color: CustomColor.Text_Color, width: 1), // focused
               borderRadius: BorderRadius.circular(15),
             ),
           

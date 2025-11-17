@@ -25,48 +25,48 @@ class _YourtripState extends State<Yourtrip> {
         body: Column(
           children: [
             SizedBox(height: 10),
-            Row(
-              children: [
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
 
-                Padding(
-                  padding: const EdgeInsets.only(left: 15),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Colors.blueGrey,
-                      borderRadius: BorderRadius.circular(7),
-                    ),
-                    height: 40,
-                    width: 40,
-                    child: IconButton(
-                      onPressed: () {
-                        Get.back();
-                      },
-                      icon: const Icon(Icons.arrow_back, size: 25, color: Colors.white),
+              // Back Button
+              Padding(
+                padding: const EdgeInsets.only(left: 15),
+                child: IconButton(
+                  onPressed: () {
+                    Get.back();
+                  },
+                  icon: const Icon(Icons.arrow_back, color: Colors.white),
+                  iconSize: MediaQuery.of(context).size.width * 0.06, // responsive icon
+                ),
+              ),
+
+              // Gap
+              SizedBox(width: MediaQuery.of(context).size.width * 0.03),
+
+              // Title (Perfectly Centered)
+              Expanded(
+                child: Center(
+                  child: Text(
+                    CustomText.Your_Trip,
+                    style: TextStyle(
+                      fontSize: MediaQuery.of(context).size.width * 0.065,
+                      fontWeight: FontWeight.bold,
+                      color: CustomColor.Text_Color,
                     ),
                   ),
                 ),
+              ),
+
+              // 👇 Balance Container (EMPTY) to keep TITLE centered
+              SizedBox(
+                width: MediaQuery.of(context).size.width * 0.11 + 15, // equal to back button width
+              ),
+            ],
+          ),
 
 
-                 SizedBox(width: 10),
-
-
-                Expanded(
-                  child: Center(
-                    child: Text(
-                      CustomText.Your_Trip,
-                      style: TextStyle(
-                        fontSize: MediaQuery.of(context).size.width * 0.07,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                ),
-
-
-              ],
-            ),
-
-            // Row(
+          // Row(
             //   children: [
             //     Padding(
             //       padding: EdgeInsets.only(left: 15),

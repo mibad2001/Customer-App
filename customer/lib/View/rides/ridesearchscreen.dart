@@ -4,6 +4,7 @@ import 'package:customer/View/rides/ridecomplete.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../Deshboard/dashboard.dart';
 import '../Widgets/all_text.dart';
 import '../Widgets/elevat_button.dart';
 import '../Widgets/text_button.dart';
@@ -25,7 +26,7 @@ class RideSearchScreen extends StatelessWidget {
             height: MediaQuery.of(context).size.height * 0.1,
             padding: const EdgeInsets.symmetric(horizontal: 10),
             decoration: BoxDecoration(
-              color: CustomColor.textColor,
+              color: CustomColor.textfield_fill,
               borderRadius: const BorderRadius.only(
                 bottomLeft: Radius.circular(20),
                 bottomRight: Radius.circular(20),
@@ -140,11 +141,12 @@ class RideSearchScreen extends StatelessWidget {
               onPressed: () {
                 Get.dialog(
                   Dialog(
+                    backgroundColor: CustomColor.textfield_fill,
                     child: Container(
                       decoration: const BoxDecoration(
                         borderRadius: BorderRadius.all(Radius.circular(30)),
                       ),
-                      height: 220,
+                      height: 210,
                       width: 100,
                       child: Column(
                         children: [
@@ -154,15 +156,16 @@ class RideSearchScreen extends StatelessWidget {
                             color: Colors.amberAccent,
                             size: 60,
                           ),
-                          SizedBox(height: 15,),
+                          SizedBox(height: 10,),
                           Center(
                             child: Container(
-                              padding: const EdgeInsets.only(left: 20),
+                              padding: const EdgeInsets.only(left: 10),
                               height: 80,
                               width: 200,
                               child: Text(
                                 CustomText.Ride_Cancel_alert,
-                                style: const TextStyle(color: Colors.black),
+                                textAlign: TextAlign.center,
+                                style: const TextStyle(color: CustomColor.Text_Color),
                               ),
                             ),
                           ),
@@ -172,7 +175,7 @@ class RideSearchScreen extends StatelessWidget {
                               CustomTextButton(
                                 text: 'Yes',
                                 onPressed: () {
-                                  Get.toNamed('/Deshboard');
+                                  Get.to(DeshBoard_Screen());
                                 },
                                 backgroundColor: Colors.red,
                                 textColor: Colors.white,
@@ -210,8 +213,7 @@ class RideSearchScreen extends StatelessWidget {
                   )
                 );
               },
-              backgroundColor: CustomColor.Icon_Color,
-              textColor: Colors.black,
+
               fontSize: 20,
             ),
           )

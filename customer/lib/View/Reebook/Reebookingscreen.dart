@@ -59,7 +59,7 @@ class ReebookingScreen extends StatelessWidget {
               child: Container(
                 width: double.infinity,
                 decoration:  BoxDecoration(
-                  color: Colors.black,
+                  color: CustomColor.background,
                 ),
                 child: Column(
                   children: [
@@ -175,7 +175,7 @@ class ReebookingScreen extends StatelessWidget {
                                 Get.bottomSheet(
                                   Container(
                                     decoration: const BoxDecoration(
-                                      color: Colors.grey,
+                                      color: CustomColor.textfield_fill,
                                       borderRadius: BorderRadius.only(
                                         topLeft: Radius.circular(30),
                                         topRight: Radius.circular(30),
@@ -193,7 +193,7 @@ class ReebookingScreen extends StatelessWidget {
                                           style: TextStyle(
                                             fontSize: 25,
                                             fontWeight: FontWeight.bold,
-                                            color: Colors.white,
+                                            color: CustomColor.Text_Color,
                                           ),
                                         ),
 
@@ -382,8 +382,7 @@ class ReebookingScreen extends StatelessWidget {
                                                 onPressed: () {
                                                  // Get.to();
                                                 },
-                                                backgroundColor: CustomColor.Icon_Color,
-                                                textColor: Colors.black,
+
                                                 fontSize: 20,
                                               ),
                                             )
@@ -400,7 +399,7 @@ class ReebookingScreen extends StatelessWidget {
                                 Get.bottomSheet(
                                   Container(
                                     decoration: const BoxDecoration(
-                                      color: Colors.grey,
+                                      color: CustomColor.background,
                                       borderRadius: BorderRadius.only(
                                         topLeft: Radius.circular(30),
                                         topRight: Radius.circular(30),
@@ -490,8 +489,7 @@ class ReebookingScreen extends StatelessWidget {
                                             child: MyElevatedButton(
                                               text: 'DONE',
                                               onPressed: () {},
-                                              backgroundColor: Colors.black,
-                                              textColor: CustomColor.Icon_Color,
+
                                               fontSize: MediaQuery.of(context).size.width * 0.035,
                                             ),
                                           ),
@@ -500,16 +498,6 @@ class ReebookingScreen extends StatelessWidget {
                                     ),
                                   ),
                                 );
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -619,8 +607,7 @@ class ReebookingScreen extends StatelessWidget {
                       child: MyElevatedButton(
                         text: 'Confirm Booking',
                         onPressed: () {  },
-                        backgroundColor: CustomColor.Icon_Color,
-                        textColor: Colors.black,
+
                         fontSize: 20,
                       ),
                     )
@@ -646,10 +633,10 @@ class BottomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Icon(icon, color: Colors.white70, size: 22),
+        Icon(icon, color: CustomColor.Text_Color, size: 22),
          SizedBox(height: 3),
         Text(button_name,
-            style:  TextStyle(color: Colors.white70, fontSize: 12)),
+            style:  TextStyle(color: CustomColor.Text_Color, fontSize: 12)),
       ],
     );
   }

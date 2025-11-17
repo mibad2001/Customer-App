@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'color.dart';
+
 class MyElevatedButton extends StatelessWidget {
   final String text;
   final VoidCallback onPressed;
@@ -14,8 +16,8 @@ class MyElevatedButton extends StatelessWidget {
     Key? key,
     required this.text,
     required this.onPressed,
-    this.backgroundColor = Colors.blue,
-    this.textColor = Colors.white,
+    this.backgroundColor = CustomColor.Button_background_Color,
+    this.textColor = CustomColor.Button_Text_Color,
     this.borderRadius = 12.0,
     this.elevation = 2.0,
     this.fontSize =  16,

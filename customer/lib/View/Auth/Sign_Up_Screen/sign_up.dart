@@ -29,8 +29,8 @@ class _SigUp_ScreenState extends State<SigUp_Screen> {
       backgroundColor: CustomColor.background,
       body: SingleChildScrollView(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
-          crossAxisAlignment: CrossAxisAlignment.end,
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Padding(
               padding: const EdgeInsets.only(
@@ -143,25 +143,25 @@ class _SigUp_ScreenState extends State<SigUp_Screen> {
               padding: const EdgeInsets.all(12.0),
               child: SizedBox(
                 height: 50,
-                width: width,
+                width: 350,
                 child: MyElevatedButton(
                   text: "Sign Up",
                   onPressed: () {
                     Get.to(SigIn_Screen());
                   },
-                  backgroundColor: Colors.white,
-                  textColor: CustomColor.textfield_fill,
+                  backgroundColor: CustomColor.Button_background_Color,
+                  textColor: CustomColor.Button_Text_Color,
                 ),
               ),
             ),
 
-            // Forget Password---------------------------
+            // ==============================================   ==============   Forget
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 CustomTextStyle(
                   text: CustomText.Already_Account_Text,
-                  color: CustomColor.textColor,
+                  color: Color(0xFF96ACDD),
                 ),
                 TextButton(
                   onPressed: () {
@@ -171,7 +171,7 @@ class _SigUp_ScreenState extends State<SigUp_Screen> {
                     "Log In",
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      color: Colors.white70,
+                      color: CustomColor.Text_Color,
                     ),
                   ),
                 ),

@@ -11,7 +11,7 @@ class CustomTextStyle extends StatelessWidget {
     required this.text,
     this.color = Colors.white,
     this.fontSize = 13.0,
-this.fontWeight
+    this.fontWeight
   });
 
   @override

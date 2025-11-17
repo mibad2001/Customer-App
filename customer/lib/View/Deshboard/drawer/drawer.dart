@@ -15,7 +15,7 @@ class appDrawer extends StatelessWidget {
       child: ClipRRect(
         child: Container(
           decoration: BoxDecoration(
-            color: Colors.blueGrey, // Background color
+            color: CustomColor.textfield_fill,
             borderRadius: BorderRadius.only(
               topRight: Radius.circular(70),
               bottomRight: Radius.circular(70),

@@ -23,7 +23,7 @@ class Driverdetailscreen extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.1,
               padding: const EdgeInsets.symmetric(horizontal: 10),
               decoration: BoxDecoration(
-                color: CustomColor.textColor,
+                color: CustomColor.textfield_fill,
                 borderRadius: const BorderRadius.only(
                   bottomLeft: Radius.circular(20),
                   bottomRight: Radius.circular(20),
@@ -125,7 +125,7 @@ class Driverdetailscreen extends StatelessWidget {
       bottomNavigationBar:  Container(
         height: MediaQuery.of(context).size.height*0.3,
         decoration: BoxDecoration(
-          color: Colors.grey,
+          color: CustomColor.textfield_fill,
             borderRadius: BorderRadius.only(topRight: Radius.circular(40),topLeft: Radius.circular(40))
         ),
         //===========================================================  Driver name
@@ -136,6 +136,7 @@ class Driverdetailscreen extends StatelessWidget {
               padding:  EdgeInsets.all(8.0),
               child: Row(
                 children: [
+                  SizedBox(width: 10,),
                   CircleAvatar(backgroundColor: Colors.blue,radius: 25,),
                   SizedBox(width: 10,),
                   // Text(

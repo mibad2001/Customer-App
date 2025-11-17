@@ -22,7 +22,6 @@ class TripDetail extends StatelessWidget {
               children: [
                 Container(
                   decoration: BoxDecoration(
-                    color: Colors.blueGrey,
                     borderRadius: BorderRadius.all(Radius.circular(7)),
                   ),
                   height: 40,

@@ -401,6 +401,7 @@ class HomeDriver extends StatelessWidget {
                               color: CustomColor.textColor,
                               size: 25,
                             ),
+
                             // trailing: IconButton(
                             //   icon: Icon(
                             //     Icons.delete,
@@ -482,7 +483,7 @@ class HomeDriver extends StatelessWidget {
                   onPressed: () {
                     Get.dialog(
                       Dialog(
-                        backgroundColor: Colors.white,
+                        backgroundColor: CustomColor.textfield_fill,
                         child: Container(
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
@@ -491,7 +492,7 @@ class HomeDriver extends StatelessWidget {
                           width: 300,
                           child: Column(
                             children: [
-                              const SizedBox(height: 10),
+                              const SizedBox(height: 25),
                               Center(
                                 child: Text(
                                   CustomText.Pick_Up_Location,
@@ -499,8 +500,8 @@ class HomeDriver extends StatelessWidget {
                                   maxLines: 2,
                                   textAlign: TextAlign.center,
                                   style: const TextStyle(
-                                    fontSize: 25,
-                                    color: Colors.black,
+                                    fontSize: 22,
+                                    color: CustomColor.Text_Color,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
@@ -513,23 +514,24 @@ class HomeDriver extends StatelessWidget {
                                   width: 200,
                                   child: Text(
                                     CustomText.Pick_Up_Dialog_Text,
-                                    style: const TextStyle(color: Colors.black),
+                                    textAlign: TextAlign.center,
+                                    style:  TextStyle(
+                                      color: CustomColor.Text_Color,
+                                    ),
                                   ),
                                 ),
                               ),
-                              const SizedBox(height: 10),
+                              //const SizedBox(height: 10),
                               SizedBox(
                                 height: 50,
                                 width: 250,
                                 child: MyElevatedButton(
                                   text: 'Select Current location',
                                   onPressed: () {},
-                                  backgroundColor: CustomColor.Icon_Color,
-                                  textColor: CustomColor.textColor,
                                   fontSize: 3,
                                 ),
                               ),
-                              const SizedBox(height: 10),
+                              const SizedBox(height: 15),
                               SizedBox(
                                 height: 50,
                                 width: 250,
@@ -538,8 +540,6 @@ class HomeDriver extends StatelessWidget {
                                   onPressed: () {
                                     Get.toNamed('/RideInfoScreen');
                                   },
-                                  backgroundColor: CustomColor.Icon_Color,
-                                  textColor: CustomColor.textColor,
                                   fontSize: 3,
                                 ),
                               ),
@@ -549,8 +549,6 @@ class HomeDriver extends StatelessWidget {
                       ),
                     );
                   },
-                  backgroundColor: CustomColor.Icon_Color,
-                  textColor: Colors.black,
                   fontSize: 20,
                 ),
               ),

@@ -27,7 +27,7 @@ class RideCompleteScreen extends StatelessWidget {
                 height: MediaQuery.of(context).size.height * 0.1,
                 padding: EdgeInsets.symmetric(horizontal: 10),
                 decoration: BoxDecoration(
-                  color: CustomColor.textColor,
+                  color: CustomColor.textfield_fill,
                   borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(20),
                     bottomRight: Radius.circular(20),
@@ -224,8 +224,6 @@ class RideCompleteScreen extends StatelessWidget {
                     onPressed: () {
                       Get.to(ThanksScreen());
                     },
-                    backgroundColor: CustomColor.Icon_Color,
-                    textColor: Colors.black,
                     fontSize: 20,
                   ),
                 ),

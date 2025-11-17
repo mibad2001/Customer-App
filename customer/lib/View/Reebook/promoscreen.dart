@@ -20,19 +20,11 @@ class PromoScreen extends StatelessWidget {
           SizedBox(height: 15,),
           Padding(
             padding: EdgeInsets.only(left: 15),
-            child: Container(
-              decoration: BoxDecoration(
-                color: Colors.blueGrey,
-                borderRadius: BorderRadius.all(Radius.circular(7)),
-              ),
-              height: 40,
-              width: 40,
-              child: IconButton(
-                onPressed: () {
-                  Get.back();
-                },
-                icon: Icon(Icons.arrow_back, size: 25, color: Colors.white),
-              ),
+            child:  IconButton(
+              onPressed: () {
+                Get.back();
+              },
+              icon: Icon(Icons.arrow_back, size: 25, color: CustomColor.Icon_Color  ),
             ),
           ),
           SizedBox(height: 20,),
@@ -61,15 +53,11 @@ class PromoScreen extends StatelessWidget {
           SizedBox(height: 10,),
           Center(
             child: Container(
-              padding: EdgeInsets.only(left: 20),
-              margin: EdgeInsets.only(left: 20),
               height: 50,
               width: 350  ,
               child: MyElevatedButton(
                 text: 'DONE',
                 onPressed: () {  },
-                backgroundColor: CustomColor.Icon_Color,
-                textColor: Colors.black,
                 fontSize: 20,
               ),
             ),

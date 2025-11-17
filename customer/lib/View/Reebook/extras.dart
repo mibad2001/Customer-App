@@ -18,8 +18,9 @@ class ExtrasScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // 🔙 Back + Title Row
               Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   IconButton(
                     onPressed: () => Get.back(),
@@ -29,7 +30,7 @@ class ExtrasScreen extends StatelessWidget {
                       size: 25,
                     ),
                   ),
-                  const Spacer(),
+
                   const Text(
                     "Extras",
                     style: TextStyle(
@@ -200,8 +201,6 @@ class ExtrasScreen extends StatelessWidget {
                 child: MyElevatedButton(
                   text: 'DONE',
                   onPressed: () {},
-                  backgroundColor: CustomColor.Icon_Color,
-                  textColor: Colors.black,
                   fontSize: 20,
                 ),
               ),

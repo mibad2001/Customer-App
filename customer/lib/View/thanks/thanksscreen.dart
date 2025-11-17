@@ -22,7 +22,7 @@ class ThanksScreen extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.1,
               padding: EdgeInsets.symmetric(horizontal: 10),
               decoration: BoxDecoration(
-                color: CustomColor.textColor,
+                color: CustomColor.textfield_fill,
                 borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(20),
                   bottomRight: Radius.circular(20),
@@ -73,7 +73,7 @@ class ThanksScreen extends StatelessWidget {
 
             Center(
               child: Container(
-                height: MediaQuery.of(context).size.height * 0.2,
+                height: MediaQuery.of(context).size.height * 0.15,
                 width: MediaQuery.of(context).size.width * 0.8,
 
                 decoration: BoxDecoration(
@@ -131,7 +131,7 @@ class ThanksScreen extends StatelessWidget {
               ),
             ),
 
-            SizedBox(height: 10),
+            SizedBox(height: 8),
 
             Padding(
               padding: const EdgeInsets.all(8.0),
@@ -185,7 +185,7 @@ class ThanksScreen extends StatelessWidget {
             ),
 
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.only(left: 7.0),
               child: Row(
                 children: [
                   Text(
@@ -256,8 +256,7 @@ class ThanksScreen extends StatelessWidget {
                   onPressed: () {
                    Get.to(DeshBoard_Screen()) ;
                   },
-                  backgroundColor: CustomColor.Icon_Color,
-                  textColor: Colors.black,
+
                   fontSize: 20,
                 ),
               ),

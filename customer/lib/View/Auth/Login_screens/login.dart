@@ -7,6 +7,7 @@ import 'package:customer/View/Widgets/textformfield.dart';
 import 'package:customer/View/Widgets/textstyle.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:get/get_core/src/get_main.dart';
 
 class SigIn_Screen extends StatefulWidget {
@@ -24,103 +25,113 @@ class _SigIn_ScreenState extends State<SigIn_Screen> {
 
     return Scaffold(
       backgroundColor: CustomColor.background,
-      body: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(
-                left: 12.0,
-                right: 12.0,
-                top: 150.0,
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  CustomTextStyle(text: CustomText.Login_text, fontSize: 40),
-                  SizedBox(height: 5),
-                  CustomTextStyle(
-                    text: CustomText.Login_text_description,
-                    fontSize: 17,
-                  ),
-                  SizedBox(height: 40),
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(
+                  left: 12.0,
+                  right: 12.0,
+                  top: 150.0,
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
 
-                  CustomTextField(
-                    hintText: CustomText.hint_text_email,
-                    FontSize: 14,
-                    prefixIcon: Icon(Icons.email, color: CustomColor.textColor),
-                    borderRadius: 15,
-                    fillColor: CustomColor.textfield_fill,
-                  ),
+                    CustomTextStyle(text: CustomText.Login_text, fontSize: 40),
+                    SizedBox(height: 5),
+                    CustomTextStyle(
+                      text: CustomText.Login_text_description,
+                      fontSize: 17,
+                    ),
+                    SizedBox(height: 40),
 
-                  SizedBox(height: 25),
-                  CustomTextField(
-                    suffixIcon: IconButton(
-                      onPressed: () {},
-                      icon: Icon(
-                        Icons.remove_red_eye,
-                        color: CustomColor.textColor,
+                    CustomTextField(
+                      hintText: CustomText.hint_text_email,
+                      FontSize: 14,
+                      prefixIcon: Icon(Icons.email,
+                          color: CustomColor.textField_Icon_Color
                       ),
+                      borderRadius: 15,
+                      ////////////////////////////////////////////////////////////////////////////////////////
+                      fillColor: CustomColor.textfield_fill,
                     ),
-                    hintText: CustomText.hint_password,
-                    FontSize: 14,
-                    prefixIcon: Icon(
-                      Icons.password,
-                      color: CustomColor.textColor,
-                    ),
-                    borderRadius: 15,
-                    fillColor: CustomColor.textfield_fill,
-                  ),
-                  SizedBox(height: 5),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      TextButton(
+
+                    SizedBox(height: 25),
+                    CustomTextField(
+                      suffixIcon: IconButton(
                         onPressed: () {},
-                        child: Text("Forget Password"),
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: 30),
-                  SizedBox(
-                    height: 50,
-                    width: width,
-                    child: MyElevatedButton(
-                      text: "Log In",
-                      onPressed: () {
-                        Get.toNamed('/DeshBoard_Screen');
-                      },
-                      backgroundColor: Colors.white,
-                      textColor: CustomColor.textColor,
-                    ),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      CustomTextStyle(
-                        text: CustomText.Already_Account_Text,
-                        color: CustomColor.textColor,
-                      ),
-                      TextButton(
-                        onPressed: () {
-                          Get.off(SigUp_Screen());
-                        },
-                        child: Text(
-                          "Sign Up",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white70,
-                          ),
+                        icon: Icon(
+                          Icons.remove_red_eye,
+                          color: CustomColor.textField_Icon_Color,
                         ),
                       ),
-                    ],
-                  ),
-                ],
+                      hintText: CustomText.hint_password,
+                      FontSize: 14,
+                      prefixIcon: Icon(
+                        Icons.password,
+                        color: CustomColor.textField_Icon_Color,
+                      ),
+                      borderRadius: 15,
+                      /////////////////////////////////////////////////////////////////////////////////////
+                      fillColor: CustomColor.textfield_fill,
+                    ),
+                    SizedBox(height: 5),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        TextButton(
+                          onPressed: () {},
+                          child: Text("Forget Password",style: TextStyle(
+                            color: Color(0xFF96ACDD),
+                          ),),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 30),
+                    SizedBox(
+                      height: 50,
+                      width: width,
+                      child: MyElevatedButton(
+                        text: "Log In",
+                        onPressed: () {
+                          Get.toNamed('/DeshBoard_Screen');
+                        },
+                        backgroundColor: CustomColor.Button_background_Color,
+                        textColor: CustomColor.Button_Text_Color,
+                      ),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        CustomTextStyle(
+                          text: CustomText.Already_Account_Text,
+                        ),
+                        TextButton(
+                          onPressed: () {
+                            Get.off(SigUp_Screen());
+                          },
+                          child: Text(
+                            "Sign Up",
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: CustomColor.Text_Color
+                             // Colors.white70,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
