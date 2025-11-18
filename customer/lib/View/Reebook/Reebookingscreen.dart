@@ -39,11 +39,11 @@ class ReebookingScreen extends StatelessWidget {
                   left: 10,
                   child: Container(
                     decoration: BoxDecoration(
-                      color: Colors.grey,
+                      color: Colors.blueGrey,
                       borderRadius: BorderRadius.circular(30),
                     ),
                     child: IconButton(
-                      icon:  Icon(Icons.arrow_back, color:CustomColor.Icon_Color),
+                      icon:  Icon(Icons.arrow_back, color:CustomColor.textfield_fill  ),
                       onPressed: () {
                         Get.back();
                       },
@@ -68,7 +68,7 @@ class ReebookingScreen extends StatelessWidget {
                       height: 5,
                       width: 40,
                       decoration: BoxDecoration(
-                        color: Colors.white24,
+                        color: CustomColor.Icon_Color,
                         borderRadius: BorderRadius.circular(10),
                       ),
                     ),
@@ -97,7 +97,8 @@ class ReebookingScreen extends StatelessWidget {
                                   color: isSelected ? Colors.white10 : Colors.transparent,
                                   borderRadius: BorderRadius.circular(15),
                                   border: Border.all(
-                                    color: isSelected ? Colors.white : Colors.white30,
+                                    color: isSelected ? CustomColor.Container_Colors :  CustomColor.textField_Icon_Color,
+                                    width: 2
                                   ),
                                 ),
                                 child: Row(
@@ -139,7 +140,7 @@ class ReebookingScreen extends StatelessWidget {
                                         Text(
                                           "£${vehicle["price"]}",
                                           style:  TextStyle(
-                                              color: Colors.white, fontSize: 16),
+                                              color: CustomColor.Text_Color, fontSize: 16),
                                         ),
                                       ],
                                     ),
@@ -175,7 +176,7 @@ class ReebookingScreen extends StatelessWidget {
                                 Get.bottomSheet(
                                   Container(
                                     decoration: const BoxDecoration(
-                                      color: CustomColor.textfield_fill,
+                                      color: CustomColor.background,
                                       borderRadius: BorderRadius.only(
                                         topLeft: Radius.circular(30),
                                         topRight: Radius.circular(30),
@@ -185,7 +186,17 @@ class ReebookingScreen extends StatelessWidget {
                                     child: Column(
                                       crossAxisAlignment: CrossAxisAlignment.center,
                                       children: [
-                                        const SizedBox(height: 15),
+                                        SizedBox(height: 8),
+                                        Container(
+                                          height: 5,
+                                          width: 40,
+                                          decoration: BoxDecoration(
+                                            color: CustomColor.Icon_Color,
+                                            borderRadius: BorderRadius.circular(10),
+                                          ),
+                                        ),
+                                        SizedBox(height: 10),
+
 
                                         // ---------- Heading ----------
                                         const Text(
@@ -211,7 +222,7 @@ class ReebookingScreen extends StatelessWidget {
                                                 onPressed: () => reebookingController.setASAP(),
                                                 style: ElevatedButton.styleFrom(
                                                   backgroundColor: reebookingController.selectedTimeOption.value == "ASAP"
-                                                      ? Colors.blueAccent
+                                                      ? CustomColor.Container_Colors
                                                       : Colors.black54,
                                                   elevation: 2,
                                                   shape: RoundedRectangleBorder(
@@ -411,7 +422,18 @@ class ReebookingScreen extends StatelessWidget {
                                     child: Column(
                                       crossAxisAlignment: CrossAxisAlignment.start,
                                       children: [
-                                        SizedBox(height: MediaQuery.of(context).size.height * 0.02),
+                                        SizedBox(height: 8),
+                                        Center(
+                                          child: Container(
+                                            height: 5,
+                                            width: 40,
+                                            decoration: BoxDecoration(
+                                              color: CustomColor.Icon_Color,
+                                              borderRadius: BorderRadius.circular(10),
+                                            ),
+                                          ),
+                                        ),
+                                        SizedBox(height: 10),
 
 
                                         Row(
@@ -431,7 +453,7 @@ class ReebookingScreen extends StatelessWidget {
                                                 child: Text(
                                                   "ADD ORDER DETAILS",
                                                   style: const TextStyle(
-                                                    color: Colors.white,
+                                                    color: CustomColor.Text_Color,
                                                     fontSize: 25,
                                                     fontWeight: FontWeight.bold,
                                                   ),
@@ -451,7 +473,7 @@ class ReebookingScreen extends StatelessWidget {
                                         const Text(
                                           "Order number",
                                           style: TextStyle(
-                                            color: Colors.white,
+                                            color: CustomColor.textColor,
                                             fontSize: 18,
                                             fontWeight: FontWeight.bold,
                                           ),
@@ -467,7 +489,7 @@ class ReebookingScreen extends StatelessWidget {
                                         const Text(
                                           "Name on order",
                                           style: TextStyle(
-                                            color: Colors.white,
+                                            color: CustomColor.Text_Color,
                                             fontSize: 18,
                                             fontWeight: FontWeight.bold,
                                           ),
@@ -601,21 +623,25 @@ class ReebookingScreen extends StatelessWidget {
                      SizedBox(height: 10),
                     //==========================================      Confirm Button
       
-                    SizedBox(
-                      height: 50,
-                      width: 350  ,
-                      child: MyElevatedButton(
-                        text: 'Confirm Booking',
-                        onPressed: () {  },
 
-                        fontSize: 20,
-                      ),
-                    )
                   ],
                 ),
               ),
             ),
           ],
+
+        ),
+        bottomNavigationBar:  Container(padding:
+          EdgeInsets.all(10),
+          margin: EdgeInsets.only(bottom: 10),
+          height: 60,
+          width: 300  ,
+          child: MyElevatedButton(
+            text: 'Confirm Booking',
+            onPressed: () {  },
+
+            fontSize: 20,
+          ),
         ),
       ),
     );

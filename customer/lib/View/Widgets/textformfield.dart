@@ -37,7 +37,9 @@ class CustomTextField extends StatelessWidget {
       horizontal: 14,
       vertical: 14,
     ),
-    this.fillColor = const Color(0xFF324DA1),
+    // this.fillColor = const Color(0xFF324DA1),
+    //this.fillColor = const Color(0xFF324DA1),
+    this.fillColor =   Colors.white,
     this.borderRadius = 5,
     this.enabled = true,
   });
@@ -46,7 +48,8 @@ class CustomTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     final border = OutlineInputBorder(
       borderRadius: BorderRadius.circular(borderRadius),
-      borderSide: BorderSide(color: Color(0xFF4F46E5)),
+      //borderSide: BorderSide(color: Color(0xFF4F46E5)),
+      borderSide: BorderSide(color: Colors.blueGrey),
     );
 
     return TextFormField(
@@ -58,12 +61,13 @@ class CustomTextField extends StatelessWidget {
       obscureText: obscureText,
       keyboardType: keyboardType,
       maxLines: obscureText ? 1 : maxLines,
-      style: TextStyle(color: Colors.white),
+      style: TextStyle(color: Colors.black),
 
       decoration: InputDecoration(
         label: lable,
         hintText: hintText,
-        hintStyle: TextStyle(color: Colors.white, fontSize: FontSize),
+        //hintStyle: TextStyle(color: Colors.white, fontSize: FontSize),
+        hintStyle: TextStyle(color: Colors.blueGrey, fontSize: FontSize),
         // labelStyle:  TextStyle(color: CustomColor.Text_Color),
         filled: true,
         fillColor: fillColor,
@@ -75,7 +79,9 @@ class CustomTextField extends StatelessWidget {
         enabledBorder: border,
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(borderRadius),
-          borderSide: const BorderSide(color: Colors.white, width: 1.2),
+         // borderSide: const BorderSide(color: Colors.white, width: 1.2),
+            borderSide: const BorderSide(color: Color(0xFF4F46E5), width: 1.2),
+
         ),
         disabledBorder: border,
       ),

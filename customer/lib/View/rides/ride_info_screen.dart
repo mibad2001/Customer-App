@@ -38,7 +38,7 @@ class _RideInfoScreenState extends State<RideInfoScreen> {
               height: MediaQuery.of(context).size.height * 0.1,
               padding: const EdgeInsets.symmetric(horizontal: 10),
               decoration: BoxDecoration(
-                color: CustomColor.textfield_fill,
+                color: CustomColor.Container_Colors,
                 borderRadius: const BorderRadius.only(
                   bottomLeft: Radius.circular(20),
                   bottomRight: Radius.circular(20),
@@ -54,7 +54,7 @@ class _RideInfoScreenState extends State<RideInfoScreen> {
                     icon: Icon(
                       Icons.arrow_back,
                       size: MediaQuery.of(context).size.width * 0.06,
-                      color: CustomColor.Icon_Color,
+                      color: CustomColor.textfield_fill,
                     ),
                   ),
 
@@ -67,7 +67,7 @@ class _RideInfoScreenState extends State<RideInfoScreen> {
                         style: TextStyle(
                           fontSize: MediaQuery.of(context).size.width * 0.06,
                           fontWeight: FontWeight.bold,
-                          color: CustomColor.Text_Color,
+                          color: CustomColor.textfield_fill,
                         ),
                       ),
                     ),
@@ -120,10 +120,10 @@ class _RideInfoScreenState extends State<RideInfoScreen> {
                   decoration: BoxDecoration(
                     borderRadius:  BorderRadius.all(Radius.circular(20)),
                     color: isSelected
-                        ? Colors.blueAccent
+                        ?  CustomColor.Container_Colors
                         : CustomColor.background,
                     border: Border.all(
-                      color: isSelected ? Colors.blue
+                      color: isSelected ?  CustomColor.Container_Colors
                           : Colors.grey.shade400,
                       width: 2,
                     ),
@@ -249,7 +249,7 @@ class _RideInfoScreenState extends State<RideInfoScreen> {
                                 onPressed: () => rideController.setASAP(),
                                 style: ElevatedButton.styleFrom(
                                   backgroundColor: rideController.selectedTimeOption.value == "ASAP"
-                                      ? Colors.blueAccent
+                                      ? CustomColor.Container_Colors
                                       : Colors.black54,
                                   elevation: 2,
                                   shape: RoundedRectangleBorder(
@@ -278,7 +278,7 @@ class _RideInfoScreenState extends State<RideInfoScreen> {
                                 onPressed: () => rideController.addMinutes(15),
                                 style: ElevatedButton.styleFrom(
                                   backgroundColor: rideController.selectedTimeOption.value == "15 min"
-                                      ? Colors.blueAccent
+                                      ?  CustomColor.Container_Colors
                                       : Colors.black54,
                                   elevation: 2,
                                   shape: RoundedRectangleBorder(
@@ -307,7 +307,7 @@ class _RideInfoScreenState extends State<RideInfoScreen> {
                                 onPressed: () => rideController.addMinutes(30),
                                 style: ElevatedButton.styleFrom(
                                   backgroundColor: rideController.selectedTimeOption.value == "30 min"
-                                      ? Colors.blueAccent
+                                      ?  CustomColor.Container_Colors
                                       : Colors.black54,
                                   elevation: 2,
                                   shape: RoundedRectangleBorder(

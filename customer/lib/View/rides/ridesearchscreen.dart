@@ -26,7 +26,7 @@ class RideSearchScreen extends StatelessWidget {
             height: MediaQuery.of(context).size.height * 0.1,
             padding: const EdgeInsets.symmetric(horizontal: 10),
             decoration: BoxDecoration(
-              color: CustomColor.textfield_fill,
+              color: CustomColor.Container_Colors,
               borderRadius: const BorderRadius.only(
                 bottomLeft: Radius.circular(20),
                 bottomRight: Radius.circular(20),
@@ -42,7 +42,7 @@ class RideSearchScreen extends StatelessWidget {
                   icon: Icon(
                     Icons.arrow_back,
                     size: MediaQuery.of(context).size.width * 0.06, // responsive icon size
-                    color: CustomColor.Icon_Color,
+                    color: CustomColor.textfield_fill,
                   ),
                 ),
 
@@ -54,7 +54,7 @@ class RideSearchScreen extends StatelessWidget {
                       style: TextStyle(
                         fontSize: MediaQuery.of(context).size.width * 0.06, // responsive font
                         fontWeight: FontWeight.bold,
-                        color: CustomColor.Text_Color,
+                        color: CustomColor.textfield_fill,
                       ),
                     ),
                   ),

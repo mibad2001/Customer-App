@@ -24,79 +24,101 @@ class _YourtripState extends State<Yourtrip> {
         backgroundColor: CustomColor.background,
         body: Column(
           children: [
-            SizedBox(height: 10),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
 
-              // Back Button
-              Padding(
-                padding: const EdgeInsets.only(left: 15),
-                child: IconButton(
-                  onPressed: () {
-                    Get.back();
-                  },
-                  icon: const Icon(Icons.arrow_back, color: Colors.white),
-                  iconSize: MediaQuery.of(context).size.width * 0.06, // responsive icon
+            Container(
+
+              height: MediaQuery.of(context).size.height * 0.1,
+              padding: EdgeInsets.symmetric(horizontal: 10),
+              decoration: BoxDecoration(
+                color: CustomColor.Container_Colors,
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(20),
+                  bottomRight: Radius.circular(20),
                 ),
               ),
-
-              // Gap
-              SizedBox(width: MediaQuery.of(context).size.width * 0.03),
-
-              // Title (Perfectly Centered)
-              Expanded(
-                child: Center(
-                  child: Text(
-                    CustomText.Your_Trip,
-                    style: TextStyle(
-                      fontSize: MediaQuery.of(context).size.width * 0.065,
-                      fontWeight: FontWeight.bold,
-                      color: CustomColor.Text_Color,
+              child: Row(
+                children: [
+                  IconButton(
+                    onPressed: () {
+                      Get.back();
+                    },
+                    icon: Icon(
+                      Icons.arrow_back,
+                      size: MediaQuery.of(context).size.width * 0.06,
+                      color: CustomColor.textfield_fill,
                     ),
                   ),
-                ),
+
+                  SizedBox(width: 5),
+
+                  Expanded(
+                    child: Center(
+                      child: Text(
+                        CustomText.Your_Trip,
+                        style: TextStyle(
+                          fontSize: MediaQuery.of(context).size.width * 0.06,
+                          fontWeight: FontWeight.bold,
+                          color: CustomColor.textfield_fill,
+                        ),
+                      ),
+                    ),
+                  ),
+
+                  IconButton(
+                    onPressed: () {
+                      Get.back();
+                    },
+                    icon: Icon(
+                      Icons.edit_notifications_sharp,
+                      size: MediaQuery.of(context).size.width * 0.06,
+                      color: Colors.yellow,
+                    ),
+                  ),
+                ],
               ),
-
-              // 👇 Balance Container (EMPTY) to keep TITLE centered
-              SizedBox(
-                width: MediaQuery.of(context).size.width * 0.11 + 15, // equal to back button width
-              ),
-            ],
-          ),
-
-
+            ),
           // Row(
-            //   children: [
-            //     Padding(
-            //       padding: EdgeInsets.only(left: 15),
-            //         child: Container(
-            //           decoration: BoxDecoration(
-            //             color: Colors.blueGrey,
-            //             borderRadius: BorderRadius.all(Radius.circular(7)),
-            //           ),
-            //           height: 40,
-            //           width: 40,
-            //           child: IconButton(
-            //             onPressed: () {
-            //               Get.back();
-            //             },
-            //             icon: Icon(Icons.arrow_back, size: 25, color: Colors.white),
-            //           ),
-            //         ),
-            //     ),
-            //     SizedBox(width: MediaQuery.of(context).size.width * 0.26),
-            //
-            //     Text(
-            //       CustomText.Your_Trip,
-            //       style: TextStyle(
-            //         fontSize: 28,
-            //         color: Colors.white,
-            //         fontWeight: FontWeight.bold,
-            //       ),
-            //     ),
-            //   ],
-            // ),
+          //   crossAxisAlignment: CrossAxisAlignment.center,
+          //   children: [
+          //
+          //     // Back Button
+          //     Padding(
+          //       padding: const EdgeInsets.only(left: 15),
+          //       child: IconButton(
+          //         onPressed: () {
+          //           Get.back();
+          //         },
+          //         icon: const Icon(Icons.arrow_back, color: CustomColor.Icon_Color),
+          //         iconSize: MediaQuery.of(context).size.width * 0.06,
+          //       ),
+          //     ),
+          //
+          //     // Gap
+          //     SizedBox(width: MediaQuery.of(context).size.width * 0.03),
+          //
+          //     // Title (Perfectly Centered)
+          //     Expanded(
+          //       child: Center(
+          //         child: Text(
+          //           CustomText.Your_Trip,
+          //           style: TextStyle(
+          //             fontSize: MediaQuery.of(context).size.width * 0.065,
+          //             fontWeight: FontWeight.bold,
+          //             color: CustomColor.Text_Color,
+          //           ),
+          //         ),
+          //       ),
+          //     ),
+          //
+          //
+          //     SizedBox(
+          //       width: MediaQuery.of(context).size.width * 0.11 + 15, // equal to back button width
+          //     ),
+          //   ],
+          // ),
+          //
+
+
 
             SizedBox(height: 10),
 
@@ -108,7 +130,7 @@ class _YourtripState extends State<Yourtrip> {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(15)),
                       color: tripControl.selectedIndex.value == 0
-                    ? Colors.white60
+                    ? CustomColor.Container_Colors
                       : CustomColor.background,
 
                     ),
@@ -121,7 +143,9 @@ class _YourtripState extends State<Yourtrip> {
                         "SCHEDULED",
                         style: TextStyle(
                           fontSize: 20,
-                          color: CustomColor.Text_Color,
+                          color: tripControl.selectedIndex.value == 0?
+                              CustomColor.Button_Text_Color
+                              :CustomColor.Text_Color,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -132,7 +156,7 @@ class _YourtripState extends State<Yourtrip> {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(15)),
                       color: tripControl.selectedIndex.value == 1
-                          ? Colors.white60
+                          ? CustomColor.Container_Colors
                           : CustomColor.background,
 
                     ),
@@ -144,7 +168,9 @@ class _YourtripState extends State<Yourtrip> {
                         "HISTORY",
                         style: TextStyle(
                           fontSize: 20,
-                          color: CustomColor.Text_Color,
+                          color: tripControl.selectedIndex.value == 1?
+                          CustomColor.Button_Text_Color
+                              :CustomColor.Text_Color,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -161,29 +187,31 @@ class _YourtripState extends State<Yourtrip> {
               height: 250,
               width: 350,
               decoration: BoxDecoration(
+                color: CustomColor.Container_Colors,
                 borderRadius: BorderRadius.all(
-                  Radius.circular(10),
+                  Radius.circular(15),
+
                 ),
                 border: Border.all(
-                  color: Colors.white60,
+                  color: CustomColor.Container_Colors,
                   width: 4,
                 ),
-                color: Colors.black,
+                //color: Colors.black,
               ),
               child: Column(
                 children: [
                   //====================================     card header
                   Container(
-                    padding: EdgeInsets.only(left: 5),
-                    color: Colors.white60,
+                    padding: EdgeInsets.only(left: 10,right: 10, top: 3),
+                    color: CustomColor.Container_Colors,
                     height: 20,
                     child: Row(
                       children: [
                         Text(
                           "Ref: 123456",
-                          style: TextStyle(color: CustomColor.Text_Color,),
+                          style: TextStyle(color: CustomColor.Button_Text_Color,),
                         ),
-                        SizedBox(width: 85),
+                       Spacer(),
                         Icon(
                           Icons.access_time,
                           color: Colors.white,
@@ -191,12 +219,12 @@ class _YourtripState extends State<Yourtrip> {
                         ),
                         Text(
                           "00/00/2001",
-                          style: TextStyle(color:  CustomColor.Text_Color,),
+                          style: TextStyle(color:  CustomColor.Button_Text_Color,),
                         ),
                         SizedBox(width: 10),
                         Text(
                           "00:00",
-                          style: TextStyle(color: CustomColor.Text_Color,),
+                          style: TextStyle(color: CustomColor.Button_Text_Color,),
                         ),
                       ],
                     ),
@@ -207,13 +235,12 @@ class _YourtripState extends State<Yourtrip> {
                   //==========================        Addresses to Address
                   Container(
                     height: 90,
-
+                    color: CustomColor.background,
                     child: Row(
                       children: [
                         Container(
                           margin: EdgeInsets.only(left: 10),
-                          color: Colors.black,
-                          padding: EdgeInsets.all(10),
+                          padding: EdgeInsets.only(left: 10,right: 10,bottom: 0,top: 10),
                           height: 80,
                           width: 130,
 
@@ -238,14 +265,14 @@ class _YourtripState extends State<Yourtrip> {
                         Icon(
                           Icons.arrow_forward_rounded,
                           size: 30,
-                          color: Colors.white,
+                          color: CustomColor.Text_Color,
                         ),
 
                         SizedBox(width: 10),
 
                         Container(
                           margin: EdgeInsets.only(left: 10),
-                          color: Colors.black,
+
                           padding: EdgeInsets.all(10),
                           height: 80,
                           width: 130,
@@ -268,15 +295,16 @@ class _YourtripState extends State<Yourtrip> {
                       ],
                     ),
                   ),
-                  SizedBox(height: 2),
+                  //SizedBox(height: 2),
                   //=======================================     Rate and status
-                  Container(
-                    padding: EdgeInsets.only(left: 14),
+                  Container  (
+                    color: CustomColor.background,
+                    padding: EdgeInsets.only(left: 14 ,top: 0),
                     height: 70,
                     child: Row(
                       children: [
                         Icon(Icons.car_repair,
-                          color: Colors.white,),
+                          color: CustomColor.Text_Color,),
                         Container(
                           height: 60,
                           padding: EdgeInsets.only(top: 2),
@@ -303,7 +331,7 @@ class _YourtripState extends State<Yourtrip> {
                             ],
                           ),
                         ),
-                        SizedBox(width: 60),
+                        SizedBox(width: 70),
                         //====================================   Status text
                         Container(
                           height: 30,
@@ -331,6 +359,12 @@ class _YourtripState extends State<Yourtrip> {
                   Container(
                     height: 48,
                     width: double.infinity,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.only(bottomLeft: Radius.circular(15),bottomRight:Radius.circular(15)
+                       ),
+
+                      color: CustomColor.background,
+                    ),
                     child: Row(
                       children: [
                         Expanded(
@@ -343,7 +377,7 @@ class _YourtripState extends State<Yourtrip> {
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 18,
-                                color: Colors.white,
+                                color: CustomColor.Text_Color,
                               ),
                             ),
                           ),
@@ -358,7 +392,7 @@ class _YourtripState extends State<Yourtrip> {
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 18,
-                                color: Colors.white,
+                                color: CustomColor.Text_Color,
                               ),
                             ),
                           ),

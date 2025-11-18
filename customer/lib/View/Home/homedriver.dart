@@ -180,7 +180,8 @@ class HomeDriver extends StatelessWidget {
                     width: MediaQuery.of(context).size.width * 0.93,
                     decoration: BoxDecoration(
                       border: Border.all(color: Colors.white),
-                      color: const Color.fromARGB(255, 54, 54, 54),
+                      // color: const Color.fromARGB(255, 54, 54, 54),
+                      color: CustomColor.Button_background_Color,
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child: Row(

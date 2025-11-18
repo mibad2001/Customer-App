@@ -9,7 +9,7 @@ class CustomText {
   static const String hint_text_phone_number = 'Phone Number';
   static const String hint_password = 'Enter password';
   static const String Login_text = 'Welcome Back';
-  static const String Login_text_description = 'Enter your credential to log in';
+  static const String Login_text_description = 'Enter your credential to login';
   static const String SigUp_TremsAndCondition = 'Trems & Condition';
   static const String SigUp_Trems_Text = 'By creating an account, I accept the';
   static const String Terms_text_1 = "Before  you create an account, please read and accept our Terms & Conditions";

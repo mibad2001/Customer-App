@@ -12,7 +12,8 @@ class TripDetail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(child: Scaffold(
+    return SafeArea(
+        child: Scaffold(
       backgroundColor: CustomColor.background,
       body: Padding(
         padding: EdgeInsets.all(12),
@@ -30,7 +31,7 @@ class TripDetail extends StatelessWidget {
                     onPressed: () {
                       Get.back();
                     },
-                    icon: Icon(Icons.arrow_back, size: 25, color: Colors.white),
+                    icon: Icon(Icons.arrow_back, size: 25, color:CustomColor.Icon_Color ),
                   ),
                 ),
                 SizedBox(width: MediaQuery.of(context).size.width*0.22,),
@@ -38,7 +39,7 @@ class TripDetail extends StatelessWidget {
                   CustomText.Trip_Detail,
                   style: TextStyle(
                     fontSize: 28,
-                    color: Colors.white,
+                    color: CustomColor.Text_Color,
                     fontWeight: FontWeight.bold,
                   ),
                 ),

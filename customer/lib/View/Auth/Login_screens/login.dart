@@ -87,8 +87,10 @@ class _SigIn_ScreenState extends State<SigIn_Screen> {
                       children: [
                         TextButton(
                           onPressed: () {},
-                          child: Text("Forget Password",style: TextStyle(
-                            color: Color(0xFF96ACDD),
+                          child: Text("Forget Password"
+                            ,style: TextStyle(
+                            // color: Color(0xFF96ACDD),
+                            color:CustomColor.Button_background_Color,
                           ),),
                         ),
                       ],
@@ -106,11 +108,14 @@ class _SigIn_ScreenState extends State<SigIn_Screen> {
                         textColor: CustomColor.Button_Text_Color,
                       ),
                     ),
+
+                    SizedBox(height: 15,),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         CustomTextStyle(
                           text: CustomText.Already_Account_Text,
+
                         ),
                         TextButton(
                           onPressed: () {
@@ -120,7 +125,8 @@ class _SigIn_ScreenState extends State<SigIn_Screen> {
                             "Sign Up",
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
-                              color: CustomColor.Text_Color
+                              color:CustomColor.Button_background_Color,
+                              //color: CustomColor.Text_Color
                              // Colors.white70,
                             ),
                           ),

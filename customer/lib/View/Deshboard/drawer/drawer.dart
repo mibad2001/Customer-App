@@ -15,7 +15,7 @@ class appDrawer extends StatelessWidget {
       child: ClipRRect(
         child: Container(
           decoration: BoxDecoration(
-            color: CustomColor.textfield_fill,
+            color: CustomColor.Container_Colors,
             borderRadius: BorderRadius.only(
               topRight: Radius.circular(70),
               bottomRight: Radius.circular(70),
@@ -45,7 +45,7 @@ class appDrawer extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 25,
                       fontWeight: FontWeight.bold,
-                      color: CustomColor.Text_Color,
+                      color: CustomColor.textfield_fill,
                     ),
                   ),
                 ),
@@ -55,7 +55,7 @@ class appDrawer extends StatelessWidget {
                     "Abcasdfghjk@gmai.com",
                     style: TextStyle(
                       fontSize: 15,
-                      color: CustomColor.Text_Color,
+                      color: CustomColor.textfield_fill,
                     ),
                   ),
                 ),
@@ -65,7 +65,7 @@ class appDrawer extends StatelessWidget {
                     "x123456789",
                     style: TextStyle(
                       fontSize: 15,
-                      color: CustomColor.Text_Color,
+                      color: CustomColor.textfield_fill,
                     ),
                   ),
                 ),

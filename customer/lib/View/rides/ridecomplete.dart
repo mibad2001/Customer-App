@@ -22,67 +22,65 @@ class RideCompleteScreen extends StatelessWidget {
           body: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(
+                Container(
 
-                height: MediaQuery.of(context).size.height * 0.1,
-                padding: EdgeInsets.symmetric(horizontal: 10),
-                decoration: BoxDecoration(
-                  color: CustomColor.textfield_fill,
-                  borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(20),
-                    bottomRight: Radius.circular(20),
-                  ),
-                ),
-                child: Row(
-                  children: [
-                    IconButton(
-                      onPressed: () {
-                        Get.back();
-                      },
-                      icon: Icon(
-                        Icons.arrow_back,
-                        size: MediaQuery.of(context).size.width * 0.06,
-                        color: CustomColor.Icon_Color,
-                      ),
+                  height: MediaQuery.of(context).size.height * 0.1,
+                  padding: EdgeInsets.symmetric(horizontal: 10),
+                  decoration: BoxDecoration(
+                    color: CustomColor.Container_Colors,
+                    borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(20),
+                      bottomRight: Radius.circular(20),
                     ),
+                  ),
+                  child: Row(
+                    children: [
+                      IconButton(
+                        onPressed: () {
+                          Get.back();
+                        },
+                        icon: Icon(
+                          Icons.arrow_back,
+                          size: MediaQuery.of(context).size.width * 0.06,
+                          color: CustomColor.textfield_fill,
+                        ),
+                      ),
 
-                    SizedBox(width: 5),
+                      SizedBox(width: 5),
 
-                    Expanded(
-                      child: Center(
-                        child: Text(
-                          CustomText.Ride_Complete,
-                          style: TextStyle(
-                            fontSize: MediaQuery.of(context).size.width * 0.06,
-                            fontWeight: FontWeight.bold,
-                            color: CustomColor.Text_Color,
+                      Expanded(
+                        child: Center(
+                          child: Text(
+                            CustomText.Ride_Complete,
+                            style: TextStyle(
+                              fontSize: MediaQuery.of(context).size.width * 0.06,
+                              fontWeight: FontWeight.bold,
+                              color: CustomColor.textfield_fill,
+                            ),
                           ),
                         ),
                       ),
-                    ),
 
-                    IconButton(
-                      onPressed: () {
-                        Get.back();
-                      },
-                      icon: Icon(
-                        Icons.edit_notifications_sharp,
-                        size: MediaQuery.of(context).size.width * 0.06,
-                        color: Colors.yellow,
+                      IconButton(
+                        onPressed: () {
+                          Get.back();
+                        },
+                        icon: Icon(
+                          Icons.edit_notifications_sharp,
+                          size: MediaQuery.of(context).size.width * 0.06,
+                          color: Colors.yellow,
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
 
               SizedBox(height: 30,),
 
               Center(
                 child: Container(
-                  height: MediaQuery.of(context).size.height * 0.15,
+                  height: MediaQuery.of(context).size.height * 0.13,
                   width: MediaQuery.of(context).size.width * 0.9,
-
-
                   decoration: BoxDecoration(
                     color: Colors.green,
                     borderRadius: BorderRadius.all(Radius.circular(25)),
