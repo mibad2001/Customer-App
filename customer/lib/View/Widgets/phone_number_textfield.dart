@@ -30,9 +30,9 @@ class PhoneNumber_TextField extends StatelessWidget {
 
         labelText: hintText,
         prefixIcon: Icon(Icons.call, color: CustomColor.textColor, size: 50),
-        labelStyle: TextStyle(color: CustomColor.Text_Color),
+        labelStyle: TextStyle(color: Colors.blueGrey),
         filled: true,
-        fillColor: CustomColor.textfield_fill,
+        fillColor: Colors.white70,
     
       ),
       initialCountryCode: 'GB',

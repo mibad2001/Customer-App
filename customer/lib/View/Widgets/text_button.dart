@@ -29,7 +29,7 @@ class CustomTextButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: backgroundColor,
+      color: Colors.transparent,
       elevation: elevation,
       borderRadius: BorderRadius.circular(borderRadius),
       child: InkWell(

@@ -39,7 +39,7 @@ class CustomTextField extends StatelessWidget {
     ),
     // this.fillColor = const Color(0xFF324DA1),
     //this.fillColor = const Color(0xFF324DA1),
-    this.fillColor =   Colors.white,
+    this.fillColor = Colors.white70,
     this.borderRadius = 5,
     this.enabled = true,
   });
@@ -49,6 +49,7 @@ class CustomTextField extends StatelessWidget {
     final border = OutlineInputBorder(
       borderRadius: BorderRadius.circular(borderRadius),
       //borderSide: BorderSide(color: Color(0xFF4F46E5)),
+        //borderSide: BorderSide(color: Colors.blueGrey),
       borderSide: BorderSide(color: Colors.blueGrey),
     );
 
@@ -61,7 +62,8 @@ class CustomTextField extends StatelessWidget {
       obscureText: obscureText,
       keyboardType: keyboardType,
       maxLines: obscureText ? 1 : maxLines,
-      style: TextStyle(color: Colors.black),
+      style: TextStyle(color: Colors.black
+        ),
 
       decoration: InputDecoration(
         label: lable,
@@ -80,7 +82,12 @@ class CustomTextField extends StatelessWidget {
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(borderRadius),
          // borderSide: const BorderSide(color: Colors.white, width: 1.2),
-            borderSide: const BorderSide(color: Color(0xFF4F46E5), width: 1.2),
+            borderSide: const BorderSide(
+              //color: Color(0xFF4F46E5),
+              color: Colors.white,
+
+                //color: Color(0xFF4F46E5),
+                width: 2),
 
         ),
         disabledBorder: border,

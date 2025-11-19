@@ -24,22 +24,36 @@ class _Splash_ScreenState extends State<Splash_Screen> {
 
     return Scaffold(
       backgroundColor: CustomColor.background,
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment:MainAxisAlignment.center,
-        children: [
-      Center(
-            child: Container(
-              height:200,
-              width: 300,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage(ProductImages.splash_image),
+      body: Container(
+      //   height:MediaQuery.of(context).size.height,
+      //   width:MediaQuery.of(context).size.width,
+      //   decoration: BoxDecoration(
+      //     gradient: LinearGradient(
+      //       colors: [
+      //         Color.fromARGB(255, 30, 1, 44),
+      //         Color.fromARGB(255, 129, 75, 154),
+      //       ],
+      //       begin: Alignment.topCenter,
+      //       end: Alignment.bottomCenter,
+      //     ),
+      //   ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment:MainAxisAlignment.center,
+          children: [
+        Center(
+              child: Container(
+                height:200,
+                width: 300,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage(ProductImages.splash_image),
+                  ),
                 ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

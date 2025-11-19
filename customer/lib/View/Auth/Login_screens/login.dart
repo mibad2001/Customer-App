@@ -24,8 +24,21 @@ class _SigIn_ScreenState extends State<SigIn_Screen> {
     final width = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      backgroundColor: CustomColor.background,
-      body: Padding(
+      //backgroundColor: CustomColor.background,
+      body: Container(
+        height:MediaQuery.of(context).size.height,
+        width:MediaQuery.of(context).size.width,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [
+              Color.fromARGB(255, 30, 1, 44),
+              Color.fromARGB(255, 227, 194, 242)
+            ],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+          ),
+        ),
+
         padding: const EdgeInsets.all(8.0),
         child: SingleChildScrollView(
           child: Column(
@@ -59,7 +72,7 @@ class _SigIn_ScreenState extends State<SigIn_Screen> {
                       ),
                       borderRadius: 15,
                       ////////////////////////////////////////////////////////////////////////////////////////
-                      fillColor: CustomColor.textfield_fill,
+                      //fillColor: CustomColor.textfield_fill,
                     ),
 
                     SizedBox(height: 25),
@@ -71,15 +84,16 @@ class _SigIn_ScreenState extends State<SigIn_Screen> {
                           color: CustomColor.textField_Icon_Color,
                         ),
                       ),
+
                       hintText: CustomText.hint_password,
                       FontSize: 14,
                       prefixIcon: Icon(
                         Icons.password,
-                        color: CustomColor.textField_Icon_Color,
+                       color: CustomColor.textField_Icon_Color,
                       ),
                       borderRadius: 15,
                       /////////////////////////////////////////////////////////////////////////////////////
-                      fillColor: CustomColor.textfield_fill,
+                     // fillColor: CustomColor.textfield_fill,
                     ),
                     SizedBox(height: 5),
                     Row(
@@ -89,13 +103,14 @@ class _SigIn_ScreenState extends State<SigIn_Screen> {
                           onPressed: () {},
                           child: Text("Forget Password"
                             ,style: TextStyle(
-                            // color: Color(0xFF96ACDD),
-                            color:CustomColor.Button_background_Color,
+                            color: Colors.black,
+                            fontSize: 15
+                            //color:CustomColor.Button_background_Color,
                           ),),
                         ),
                       ],
                     ),
-                    SizedBox(height: 30),
+                    SizedBox(height: 10),
                     SizedBox(
                       height: 50,
                       width: width,
@@ -109,7 +124,7 @@ class _SigIn_ScreenState extends State<SigIn_Screen> {
                       ),
                     ),
 
-                    SizedBox(height: 15,),
+                    SizedBox(height: 5,),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
