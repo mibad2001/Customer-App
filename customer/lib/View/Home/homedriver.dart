@@ -504,7 +504,7 @@ class HomeDriver extends StatelessWidget {
                             onPressed: () {
                               Get.dialog(
                                 Dialog(
-                                  backgroundColor: CustomColor.textfield_fill,
+                                  backgroundColor: Color(0xFF231F20),
                                   child: Container(
                                     decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(20),

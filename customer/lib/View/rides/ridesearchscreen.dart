@@ -17,210 +17,225 @@ class RideSearchScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(child: Scaffold(
       backgroundColor: CustomColor.background,
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
+      body: Container(
+        height:MediaQuery.of(context).size.height,
+        width:MediaQuery.of(context).size.width,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [
+              Color.fromARGB(255, 30, 1, 44),
+              Color.fromARGB(255, 227, 194, 242)
+            ],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+          ),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
 
 
-          Container(
-            height: MediaQuery.of(context).size.height * 0.1,
-            padding: const EdgeInsets.symmetric(horizontal: 10),
-            decoration: BoxDecoration(
-              color: CustomColor.Container_Colors,
-              borderRadius: const BorderRadius.only(
-                bottomLeft: Radius.circular(20),
-                bottomRight: Radius.circular(20),
-              ),
-            ),
-            child: Row(
-              children: [
-                // Back button
-                IconButton(
-                  onPressed: () {
-                    Get.back();
-                  },
-                  icon: Icon(
-                    Icons.arrow_back,
-                    size: MediaQuery.of(context).size.width * 0.06, // responsive icon size
-                    color: CustomColor.textfield_fill,
-                  ),
+            Container(
+              height: MediaQuery.of(context).size.height * 0.1,
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              decoration: BoxDecoration(
+               // color: CustomColor.Container_Colors,
+                borderRadius: const BorderRadius.only(
+                  bottomLeft: Radius.circular(20),
+                  bottomRight: Radius.circular(20),
                 ),
+              ),
+              child: Row(
+                children: [
+                  // Back button
+                  IconButton(
+                    onPressed: () {
+                      Get.back();
+                    },
+                    icon: Icon(
+                      Icons.arrow_back,
+                      size: MediaQuery.of(context).size.width * 0.06, // responsive icon size
+                      color: CustomColor.textfield_fill,
+                    ),
+                  ),
 
-                // Title centered
-                Expanded(
-                  child: Center(
-                    child: Text(
-                      CustomText.Seaching,
-                      style: TextStyle(
-                        fontSize: MediaQuery.of(context).size.width * 0.06, // responsive font
-                        fontWeight: FontWeight.bold,
-                        color: CustomColor.textfield_fill,
+                  // Title centered
+                  Expanded(
+                    child: Center(
+                      child: Text(
+                        CustomText.Seaching,
+                        style: TextStyle(
+                          fontSize: MediaQuery.of(context).size.width * 0.06, // responsive font
+                          fontWeight: FontWeight.bold,
+                          color: CustomColor.textfield_fill,
+                        ),
                       ),
                     ),
                   ),
-                ),
 
-                // Optional: add empty space or another icon here if needed
-                SizedBox(width: MediaQuery.of(context).size.width * 0.06),
+                  // Optional: add empty space or another icon here if needed
+                  SizedBox(width: MediaQuery.of(context).size.width * 0.06),
+                ],
+              ),
+            ),
+
+            // Container(
+            //   height: MediaQuery.of(context).size.height*0.1,
+            //   padding: EdgeInsets.all(10),
+            //   decoration: BoxDecoration(
+            //       color: CustomColor.textColor,
+            //       borderRadius: BorderRadius.only(bottomLeft: Radius.circular(20),bottomRight: Radius.circular(20))
+            //   ),
+            //   child: Row(
+            //     children: [
+            //       IconButton(onPressed: (){
+            //         Get.back();
+            //       }, icon: Icon(Icons.arrow_back,size: 25,color: CustomColor.Icon_Color,)
+            //       ),
+            //       SizedBox(width: 100,),
+            //         Text(
+            //           CustomText.Seaching,
+            //           style: TextStyle(fontSize: 25,
+            //               fontWeight: FontWeight.bold,
+            //               color: CustomColor.Text_Color),
+            //         ),
+            //     ],
+            //   ),
+            // ),
+
+            Container(
+              height: 300,
+              //color: Colors.red,
+              decoration: BoxDecoration(
+                //color: Colors.yellow,
+                  image:DecorationImage(image: AssetImage("assets/images/map_image.png",), fit: BoxFit.cover)
+              ),
+            ),
+
+            SizedBox(height: 20,),
+            Row(
+              children: [
+                SizedBox(width: 10,),
+                Icon(Icons.location_on,size: 25,color: CustomColor.Icon_Color,),
+                SizedBox(width: 30,),
+                Text(
+                  CustomText.Seaching_Text,
+                  style: TextStyle(fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: CustomColor.Text_Color),
+                ),
               ],
             ),
-          ),
+            SizedBox(height: 10,),
 
-          // Container(
-          //   height: MediaQuery.of(context).size.height*0.1,
-          //   padding: EdgeInsets.all(10),
-          //   decoration: BoxDecoration(
-          //       color: CustomColor.textColor,
-          //       borderRadius: BorderRadius.only(bottomLeft: Radius.circular(20),bottomRight: Radius.circular(20))
-          //   ),
-          //   child: Row(
-          //     children: [
-          //       IconButton(onPressed: (){
-          //         Get.back();
-          //       }, icon: Icon(Icons.arrow_back,size: 25,color: CustomColor.Icon_Color,)
-          //       ),
-          //       SizedBox(width: 100,),
-          //         Text(
-          //           CustomText.Seaching,
-          //           style: TextStyle(fontSize: 25,
-          //               fontWeight: FontWeight.bold,
-          //               color: CustomColor.Text_Color),
-          //         ),
-          //     ],
-          //   ),
-          // ),
+            Container(
+              height: 200,
 
-          Container(
-            height: 300,
-            //color: Colors.red,
-            decoration: BoxDecoration(
-              //color: Colors.yellow,
-                image:DecorationImage(image: AssetImage("assets/images/map_image.png",), fit: BoxFit.cover)
-            ),
-          ),
-
-          SizedBox(height: 20,),
-          Row(
-            children: [
-              SizedBox(width: 10,),
-              Icon(Icons.location_on,size: 25,color: CustomColor.Icon_Color,),
-              SizedBox(width: 30,),
-              Text(
-                CustomText.Seaching_Text,
-                style: TextStyle(fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                    color: CustomColor.Text_Color),
+              decoration: BoxDecoration(
+                  //color: Colors.yellow,
+                image:DecorationImage(image: AssetImage("assets/images/ride_search_image.png",), fit: BoxFit.cover)
               ),
-            ],
-          ),
-          SizedBox(height: 10,),
-
-          Container(
-            height: 200,
-
-            decoration: BoxDecoration(
-                //color: Colors.yellow,
-              image:DecorationImage(image: AssetImage("assets/images/ride_search_image.png",), fit: BoxFit.cover)
             ),
-          ),
-          SizedBox(height: 10,),
+            SizedBox(height: 10,),
 
-          Text(
-            "Thanks for your patience please wait",
-            style: TextStyle(fontSize: 15,
-                fontWeight: FontWeight.bold,
-                color: CustomColor.Text_Color),
-          ),
-          SizedBox(height: 20,),
+            Text(
+              "Thanks for your patience please wait",
+              style: TextStyle(fontSize: 15,
+                  fontWeight: FontWeight.bold,
+                  color: CustomColor.Text_Color),
+            ),
+            SizedBox(height: 20,),
 
-          SizedBox(
-            height: 50,
-            width: 350  ,
-            child: MyElevatedButton(
-              text: 'Cancel Ride',
-              onPressed: () {
-                Get.dialog(
-                  Dialog(
-                    backgroundColor: CustomColor.textfield_fill,
-                    child: Container(
-                      decoration: const BoxDecoration(
+            SizedBox(
+              height: 50,
+              width: 350  ,
+              child: MyElevatedButton(
+                text: 'Cancel Ride',
+                onPressed: () {
+                  Get.dialog(
+                    Dialog(
+                      backgroundColor: CustomColor.Container_Colors,
+                      shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(Radius.circular(30)),
                       ),
-                      height: 210,
-                      width: 100,
-                      child: Column(
-                        children: [
-                          const SizedBox(height: 15),
-                          const Icon(
-                            Icons.warning_amber,
-                            color: Colors.amberAccent,
-                            size: 60,
-                          ),
-                          SizedBox(height: 10,),
-                          Center(
-                            child: Container(
-                              padding: const EdgeInsets.only(left: 10),
-                              height: 80,
-                              width: 200,
-                              child: Text(
-                                CustomText.Ride_Cancel_alert,
-                                textAlign: TextAlign.center,
-                                style: const TextStyle(color: CustomColor.Text_Color),
+                      child: SizedBox(
+                        height: 210,
+                        width: 100,
+                        child: Column(
+                          children: [
+                            const SizedBox(height: 15),
+                            const Icon(
+                              Icons.warning_amber,
+                              color: Colors.amberAccent,
+                              size: 60,
+                            ),
+                            SizedBox(height: 10,),
+                            Center(
+                              child: Container(
+                                padding: const EdgeInsets.only(left: 10),
+                                height: 80,
+                                width: 200,
+                                child: Text(
+                                  CustomText.Ride_Cancel_alert,
+                                  textAlign: TextAlign.center,
+                                  style: const TextStyle(color: CustomColor.Text_Color),
+                                ),
                               ),
                             ),
-                          ),
-                          Row(
-                            children: [
-                              const SizedBox(width: 70,),
-                              CustomTextButton(
-                                text: 'Yes',
-                                onPressed: () {
-                                  Get.to(DeshBoard_Screen());
-                                },
-                                backgroundColor: Colors.red,
-                                textColor: Colors.white,
-                                borderRadius: 8,
-                                elevation: 2,
-                                fontSize: 10,
-                                fontWeight: FontWeight.bold,
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: 16,
-                                  vertical: 10,
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                CustomTextButton(
+                                  text: 'Yes',
+                                  onPressed: () {
+                                    Get.to(DeshBoard_Screen());
+                                  },
+                                  backgroundColor: Colors.red,
+                                  textColor: Colors.white,
+                                  borderRadius: 8,
+                                  elevation: 2,
+                                  fontSize: 10,
+                                  fontWeight: FontWeight.bold,
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: 16,
+                                    vertical: 10,
+                                  ),
                                 ),
-                              ),
-                              const SizedBox(width: 20),
-                              CustomTextButton(
-                                text: 'NO',
-                                onPressed: () {
-                                  Get.to(  Driverdetailscreen() );
-                                },
-                                backgroundColor: Colors.black54,
-                                textColor: Colors.white,
-                                borderRadius: 8,
-                                elevation: 2,
-                                fontSize: 10,
-                                fontWeight: FontWeight.bold,
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: 16,
-                                  vertical: 10,
+                                const SizedBox(width: 20),
+                                CustomTextButton(
+                                  text: "No ",
+                                  onPressed: () {
+                                    Get.to(  Driverdetailscreen() );
+                                  },
+                                  backgroundColor: Colors.lightBlue,
+                                  textColor: Colors.white,
+                                  borderRadius: 8,
+                                  elevation: 2,
+                                  fontSize: 10,
+                                  fontWeight: FontWeight.bold,
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: 16,
+                                    vertical: 10,
+                                  ),
                                 ),
-                              ),
-                            ],
-                          ),
-                        ],
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                  )
-                );
-              },
+                    )
+                  );
+                },
 
-              fontSize: 20,
-            ),
-          )
-
+                fontSize: 20,
+              ),
+            )
 
 
-        ],
+
+          ],
+        ),
       ),
     )
     );

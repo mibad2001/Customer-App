@@ -29,14 +29,14 @@ class PaymentController extends GetxController {
     }
   }
 
-  void payNow() {
-    if (paymentMethod.value == 'Credit Card') {
-
-      Get.snackbar("Payment", "Processing Credit Card Payment...");
-    } else {
-
-      Get.snackbar("Payment", "Please pay driver in cash (36€)");
-    }
+    // void payNow() {
+    //   if (paymentMethod.value == 'Credit Card') {
+    //
+    //     Get.snackbar("Payment", "Processing Credit Card Payment...");
+    //   } else {
+    //
+    //     Get.snackbar("Payment", "Please pay driver in cash (36€)");
+    //   }
+    // }
   }
-}
 

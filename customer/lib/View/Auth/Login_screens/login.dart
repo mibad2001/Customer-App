@@ -5,6 +5,7 @@ import 'package:customer/View/Widgets/color.dart';
 import 'package:customer/View/Widgets/elevat_button.dart';
 import 'package:customer/View/Widgets/textformfield.dart';
 import 'package:customer/View/Widgets/textstyle.dart';
+import 'package:customer/View/textstyle/apptextstyle.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_connect/http/src/utils/utils.dart';
@@ -56,11 +57,12 @@ class _SigIn_ScreenState extends State<SigIn_Screen> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
 
-                    CustomTextStyle(text: CustomText.Login_text, fontSize: 40),
+                    Text( CustomText.Login_text,style: AppTextStyles.heading(size:40),),
+                    //fontSize: 40
                     SizedBox(height: 5),
-                    CustomTextStyle(
-                      text: CustomText.Login_text_description,
-                      fontSize: 17,
+                    Text(
+                    CustomText.Login_text_description,
+                      style: AppTextStyles.regular(),
                     ),
                     SizedBox(height: 40),
 

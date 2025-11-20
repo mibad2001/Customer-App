@@ -13,7 +13,7 @@ class CustomColor {
   static const black = Colors.black;
   static const Text_Color = Colors.white;
   static const Icon_Color = Colors.white;
-  static const Container_Colors = Color(0xFF5559D4);
+  static const Container_Colors = Color(0xFF231F20);
 
 
   //static const Button_background_Color = Color(0xFF3173FB);

@@ -35,8 +35,12 @@ class CustomTextButton extends StatelessWidget {
       child: InkWell(
         borderRadius: BorderRadius.circular(borderRadius),
         onTap: onPressed,
-        child: Padding(
+        child: Container(
           padding: padding,
+          decoration: BoxDecoration(
+              color: backgroundColor,
+              borderRadius: BorderRadius.all(Radius.circular(15))
+          ),
           child: Row(
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.center,
