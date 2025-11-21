@@ -7,8 +7,10 @@ import 'package:customer/View/Widgets/elevat_button.dart';
 import 'package:customer/View/Widgets/phone_number_textfield.dart';
 import 'package:customer/View/Widgets/textformfield.dart';
 import 'package:customer/View/Widgets/textstyle.dart';
+import 'package:customer/View/textstyle/apptextstyle.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:get/get_core/src/get_main.dart';
 
 class SigUp_Screen extends StatefulWidget {
@@ -47,19 +49,19 @@ class _SigUp_ScreenState extends State<SigUp_Screen> {
             children: [
               Padding(
                 padding: const EdgeInsets.only(
-                  left: 12.0,
-                  right: 12.0,
+                  left: 15.0,
+                  right: 15.0,
                   top: 150.0,
                 ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    CustomTextStyle(text: CustomText.Sig_up, fontSize: 40),
+                    Text( CustomText.Sig_up, style: AppTextStyles.heading(size: 40),),
                     SizedBox(height: 5),
-                    CustomTextStyle(
-                      text: CustomText.Sigup_Description_text,
-                      fontSize: 17,
+                    Text(
+                      CustomText.Sigup_Description_text,
+                        style: AppTextStyles.medium(),
                     ),
                     SizedBox(height: 40),
                     CustomTextField(
@@ -129,17 +131,18 @@ class _SigUp_ScreenState extends State<SigUp_Screen> {
                             },
                             activeColor: CustomColor.textField_Icon_Color,
                           ),
-                          CustomTextStyle(
-                            text: "${CustomText.SigUp_Trems_Text} ",
+                          Text(
+                           "${CustomText.SigUp_Trems_Text} ",style: AppTextStyles.small(),
                           ),
                           Expanded(
                             child: InkWell(
                               onTap: () {
                                 Get.to(TremsAndCondition_Screen());
                               },
-                              child: CustomTextStyle(
-                                text: CustomText.SigUp_TremsAndCondition,
+                              child: Text(
+                              CustomText.SigUp_TremsAndCondition,style: AppTextStyles.small(
                                 color: CustomColor.trems,
+                              ),
                               ),
                             ),
                           ),
@@ -156,7 +159,7 @@ class _SigUp_ScreenState extends State<SigUp_Screen> {
               Center(
                 child:  SizedBox(
                   height: 50,
-                  width: 350,
+                  width: 250,
                   child: MyElevatedButton(
                     text: "Sign Up",
                     onPressed: () {
@@ -172,9 +175,8 @@ class _SigUp_ScreenState extends State<SigUp_Screen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  CustomTextStyle(
-                    text: CustomText.Already_Account_Text,
-                    color:CustomColor.Text_Color,
+                  Text(
+                    CustomText.Already_Account_Text,style: AppTextStyles.small(),
                   ),
                   TextButton(
                     onPressed: () {
@@ -182,12 +184,11 @@ class _SigUp_ScreenState extends State<SigUp_Screen> {
                     },
                     child: Text(
                       "Log In",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: CustomColor.Button_background_Color,
+                      style: AppTextStyles.small( weight: FontWeight.bold,
+                        color: CustomColor.Button_background_Color,)
+
                       ),
                     ),
-                  ),
                 ],
               ),
 

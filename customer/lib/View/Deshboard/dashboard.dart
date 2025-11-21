@@ -9,6 +9,7 @@ import 'package:customer/View/Widgets/color.dart';
 import 'package:customer/View/Widgets/text_button.dart';
 import 'package:customer/View/Widgets/textstyle.dart';
 import 'package:customer/View/profile/profilescreen.dart';
+import 'package:customer/View/textstyle/apptextstyle.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../Widgets/color.dart' show CustomColor;
@@ -120,11 +121,11 @@ class DeshBoard_Screen extends StatelessWidget {
                                 color: CustomColor.textColor,
                               ),
                               SizedBox(width: 10),
-                              CustomTextStyle(
-                                text: "User Name",
-                                fontSize: 20,
-                                color: CustomColor.textColor,
-                                fontWeight: FontWeight.bold,
+                              Text(
+                                "User Name",
+                                style: AppTextStyles.medium(
+                                weight: FontWeight.bold,),
+
                               ),
                             ],
                           ),
@@ -147,11 +148,10 @@ class DeshBoard_Screen extends StatelessWidget {
                               },
                               child: Row(
                                 children: [
-                                  CustomTextStyle(
-                                    text: "Where To",
-                                    color: CustomColor.textColor,
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold,
+                                  Text(
+                                     "Where To",style: AppTextStyles.medium(
+                                    weight: FontWeight.bold,),
+
                                   ),
                                   Spacer(),
                                   Icon(Icons.arrow_right, size: 40,color: CustomColor.Icon_Color,),
@@ -169,10 +169,9 @@ class DeshBoard_Screen extends StatelessWidget {
                                 Get.to(AddHomeScreen());
                               },
                               icon: Icon(
-                                  Icons.home, color: CustomColor.textColor),
-                              textColor: CustomColor.textColor,
+                                  Icons.home, color: CustomColor.Icon_Color),
                               fontWeight: FontWeight.bold,
-                              fontSize: 16.0,
+                              fontSize: 16,
                             ),
                             Obx(
                                   () => Container(
@@ -180,9 +179,8 @@ class DeshBoard_Screen extends StatelessWidget {
                                   deshboard_controller.homeAddress.isEmpty
                                       ? ''
                                       : deshboard_controller.homeAddress.toString(),
-                                  style: const TextStyle(
-                                    fontSize: 12,
-                                    color: Colors.white,
+                                  style:  AppTextStyles.small(
+                                  size  : 12,
                                   ),
                                 ),
                               ),
@@ -194,11 +192,9 @@ class DeshBoard_Screen extends StatelessWidget {
                           onPressed: () {
                             Get.to(AddWork_Screen());
                           },
-                          icon: Icon(Icons.home, color: CustomColor.textColor),
-
-                          textColor: CustomColor.textColor,
+                          icon: Icon(Icons.home, color: CustomColor.Icon_Color),
                           fontWeight: FontWeight.bold,
-                          fontSize: 16.0,
+                          fontSize: 16,
                         ),
                         SizedBox(height: 10,),
                         CustomTextButton(
@@ -206,10 +202,9 @@ class DeshBoard_Screen extends StatelessWidget {
                           onPressed: () {
                             Get.to(Yourtrip());
                           },
-                          icon: Icon(Icons.home, color: CustomColor.textColor),
-                          textColor: CustomColor.textColor,
+                          icon: Icon(Icons.home, color: CustomColor.Icon_Color),
                           fontWeight: FontWeight.bold,
-                          fontSize: 16.0,
+                          fontSize: 16,
                         ),
                       ],
                     ),

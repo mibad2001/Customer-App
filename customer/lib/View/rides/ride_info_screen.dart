@@ -2,6 +2,7 @@
 import 'package:customer/Controller/Ride/RideController.dart';
 import 'package:customer/View/Widgets/all_text.dart';
 import 'package:customer/View/Widgets/color.dart';
+import 'package:customer/View/textstyle/apptextstyle.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -68,20 +69,19 @@ class _RideInfoScreenState extends State<RideInfoScreen> {
                             icon: Icon(
                               Icons.arrow_back,
                               size: MediaQuery.of(context).size.width * 0.06,
-                              color: CustomColor.textfield_fill,
+                              color: CustomColor.Icon_Color,
                             ),
                           ),
 
                           const SizedBox(width: 5),
-                          // Title centered
+
                           Expanded(
                             child: Center(
                               child: Text(
                                 CustomText.Ride_Info,
-                                style: TextStyle(
-                                  fontSize: MediaQuery.of(context).size.width * 0.06,
-                                  fontWeight: FontWeight.bold,
-                                  color: CustomColor.textfield_fill,
+                                style: AppTextStyles.heading(
+                                  size: MediaQuery.of(context).size.width * 0.06,
+                                  weight: FontWeight.bold,
                                 ),
                               ),
                             ),
@@ -107,9 +107,9 @@ class _RideInfoScreenState extends State<RideInfoScreen> {
                     //SizedBox(height: 10,),
                     Text(
                       CustomText.Slect_Suitable_Ride,
-                      style: TextStyle(fontSize: 25,
-                          fontWeight: FontWeight.bold,
-                          color: CustomColor.Text_Color),
+                      style: AppTextStyles.heading(
+                          weight: FontWeight.bold,
+                      ),
                     ),
                     SizedBox(height: 10,),
 
@@ -148,12 +148,10 @@ class _RideInfoScreenState extends State<RideInfoScreen> {
                             children: [
                               Text(
                                 rideController.CarName[index],
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
-                                  color: isSelected
-                                      ? Colors.white
-                                      : CustomColor.Text_Color,
+                                style: AppTextStyles.medium(
+                                  //fontSize: 20,
+                                  weight: FontWeight.bold,
+                                  color:  CustomColor.Text_Color,
                                 ),
                               ),
                                SizedBox(height: 15),
@@ -163,35 +161,26 @@ class _RideInfoScreenState extends State<RideInfoScreen> {
                                   Icon(
                                     Icons.car_repair,
                                     size: 30,
-                                    color: isSelected
-                                        ? Colors.white
-                                        : CustomColor.Icon_Color,
+                                    color:CustomColor.Icon_Color,
                                   ),
                                    SizedBox(width: 5),
                                   Icon(
                                     Icons.person,
                                     size: 18,
-                                    color: isSelected
-                                        ? Colors.white
-                                        : CustomColor.Icon_Color,
+                                    color:  CustomColor.Icon_Color,
                                   ),
                                    SizedBox(width: 5),
                                   Icon(
                                     Icons.arrow_forward_outlined,
                                     size: 18,
-                                    color: isSelected
-                                        ? Colors.white
-                                        : CustomColor.Icon_Color,
+                                    color:  CustomColor.Icon_Color,
                                   ),
                                    SizedBox(width: 5),
                                   Text(
                                     rideController.seats[index],
-                                    style: TextStyle(
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.bold,
-                                      color: isSelected
-                                          ? Colors.white
-                                          : CustomColor.Text_Color,
+                                    style: AppTextStyles.medium(
+                                      weight: FontWeight.bold,
+                                      color: CustomColor.Text_Color,
                                     ),
                                   ),
                                 ],
@@ -239,14 +228,14 @@ class _RideInfoScreenState extends State<RideInfoScreen> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              const SizedBox(height: 15),
+                               SizedBox(height: 15),
 
                               // ---------- Heading ----------
-                              const Text(
+                               Text(
                                 "Schedule Ride",
-                                style: TextStyle(
-                                  fontSize: 25,
-                                  fontWeight: FontWeight.bold,
+                                style: AppTextStyles.medium(
+                                  size: 25,
+                                  weight: FontWeight.bold,
                                   color: CustomColor.Text_Color,
                                 ),
                               ),
@@ -274,12 +263,12 @@ class _RideInfoScreenState extends State<RideInfoScreen> {
                                       ),
                                       child: Text(
                                         "ASAP",
-                                        style: TextStyle(
-                                          fontSize: 15,
-                                          fontWeight: rideController.selectedTimeOption.value == "ASAP"
+                                        style: AppTextStyles.regular(
+
+                                          weight: rideController.selectedTimeOption.value == "ASAP"
                                               ? FontWeight.bold
                                               : FontWeight.normal,
-                                          color: Colors.white,
+
                                         ),
                                       ),
                                     ),
@@ -303,12 +292,11 @@ class _RideInfoScreenState extends State<RideInfoScreen> {
                                       ),
                                       child: Text(
                                         "15 min",
-                                        style: TextStyle(
-                                          fontSize: 15,
-                                          fontWeight: rideController.selectedTimeOption.value == "15 min"
+                                        style: AppTextStyles.regular(
+                                          weight: rideController.selectedTimeOption.value == "15 min"
                                               ? FontWeight.bold
                                               : FontWeight.normal,
-                                          color: Colors.white,
+
                                         ),
                                       ),
                                     ),
@@ -332,9 +320,9 @@ class _RideInfoScreenState extends State<RideInfoScreen> {
                                       ),
                                       child: Text(
                                         "30 min",
-                                        style: TextStyle(
-                                          fontSize: 15,
-                                          fontWeight: rideController.selectedTimeOption.value == "30 min"
+                                        style: AppTextStyles.regular(
+
+                                          weight: rideController.selectedTimeOption.value == "30 min"
                                               ? FontWeight.bold
                                               : FontWeight.normal,
                                           color: Colors.white,
@@ -406,10 +394,8 @@ class _RideInfoScreenState extends State<RideInfoScreen> {
                                             Flexible(
                                               child: Text(
                                                 rideController.formattedTime(context),
-                                                style: const TextStyle(
-                                                  fontSize: 15,
-                                                  fontWeight: FontWeight.bold,
-                                                  color: Colors.white,
+                                                style:  AppTextStyles.regular(
+                                                  weight: FontWeight.bold,
                                                 ),
                                                 overflow: TextOverflow.ellipsis,
                                               ),

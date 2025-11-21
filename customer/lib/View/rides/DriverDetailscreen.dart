@@ -2,6 +2,7 @@
 import 'package:customer/View/Widgets/color.dart';
 import 'package:customer/View/rides/ride_info_screen.dart';
 import 'package:customer/View/rides/ridecomplete.dart';
+import 'package:customer/View/textstyle/apptextstyle.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -56,7 +57,7 @@ class Driverdetailscreen extends StatelessWidget {
                             icon: Icon(
                               Icons.arrow_back,
                               size: MediaQuery.of(context).size.width * 0.06,
-                              color: CustomColor.textfield_fill,
+                              color: CustomColor.Icon_Color,
                             ),
                           ),
 
@@ -65,10 +66,8 @@ class Driverdetailscreen extends StatelessWidget {
                             child: Center(
                               child: Text(
                                 CustomText.Driver_Info,
-                                style: TextStyle(
-                                  fontSize: MediaQuery.of(context).size.width * 0.06,
-                                  fontWeight: FontWeight.bold,
-                                  color: CustomColor.textfield_fill,
+                                style: AppTextStyles.heading(
+                                  size: MediaQuery.of(context).size.width * 0.06,
                                 ),
                               ),
                             ),
@@ -177,10 +176,9 @@ class Driverdetailscreen extends StatelessWidget {
                           child: Text(
                             "Muhammad Ibad Ullah Qureshi",
                             textAlign: TextAlign.center,
-                            style: TextStyle(
-                                fontSize:20 ,
-                                color: CustomColor.Text_Color,
-                                fontWeight: FontWeight.bold
+                            style: AppTextStyles.medium(
+                                //color: CustomColor.Text_Color,
+                                //weight: FontWeight.bold
                             ),
                           ),
                         ),
@@ -200,10 +198,7 @@ class Driverdetailscreen extends StatelessWidget {
                         Text(
                           CustomText.Status+  "  :  ",
                           textAlign: TextAlign.center,
-                          style: TextStyle(
-                              fontSize: 18,
-                              color: CustomColor.Text_Color,
-                              fontWeight: FontWeight.bold
+                          style: AppTextStyles.medium(
                           ),
                         ),
                         Container(
@@ -218,11 +213,7 @@ class Driverdetailscreen extends StatelessWidget {
                             child: Text(
                               "Ride Accepted",
                               textAlign: TextAlign.center,
-                              style: TextStyle(
-                                  fontSize: 10,
-                                  color: CustomColor.Text_Color,
-                                  fontWeight: FontWeight.bold
-
+                              style:  AppTextStyles.small(
                               ),
                             ),
                           ),
@@ -248,11 +239,7 @@ class Driverdetailscreen extends StatelessWidget {
                                 Text(
                                   CustomText.Vehicle_Color+  "  :  ",
                                   textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                      fontSize: 18,
-                                      color: CustomColor.Text_Color,
-                                      fontWeight: FontWeight.bold
-                                  ),
+                                  style:  AppTextStyles.medium(),
                                 ),
 
                                 Text(
@@ -279,19 +266,14 @@ class Driverdetailscreen extends StatelessWidget {
                                 Text(
                                   CustomText.Vehicle_number+  "  :  ",
                                   textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                      fontSize: 18,
-                                      color: CustomColor.Text_Color,
-                                      fontWeight: FontWeight.bold
-                                  ),
+                                  style:  AppTextStyles.medium(),
                                 ),
 
                                 Text(
                                   "ABC-1234",
                                   textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                    fontSize: 18,
-                                    color: CustomColor.Text_Color,
+                                  style:  AppTextStyles.medium(
+
                                   ),
                                 ),
 

@@ -1,5 +1,6 @@
 
 import 'package:customer/View/Widgets/color.dart';
+import 'package:customer/View/textstyle/apptextstyle.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -14,8 +15,20 @@ class TripDetail extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-      backgroundColor: CustomColor.background,
-      body: Padding(
+      //backgroundColor: CustomColor.background,
+      body: Container(
+          height:MediaQuery.of(context).size.height,
+          width:MediaQuery.of(context).size.width,
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [
+                Color.fromARGB(255, 30, 1, 44),
+                Color.fromARGB(255, 227, 194, 242)
+              ],
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+            ),
+          ),
         padding: EdgeInsets.all(12),
         child: Column(
           children: [
@@ -37,10 +50,7 @@ class TripDetail extends StatelessWidget {
                 SizedBox(width: MediaQuery.of(context).size.width*0.22,),
                 Text(
                   CustomText.Trip_Detail,
-                  style: TextStyle(
-                    fontSize: 28,
-                    color: CustomColor.Text_Color,
-                    fontWeight: FontWeight.bold,
+                  style: AppTextStyles.heading(
                   ),
                 ),
 
@@ -53,7 +63,7 @@ class TripDetail extends StatelessWidget {
             //   child:  OpenStreetMapWidget(),
             // ),
 
-            SizedBox(height: 10,),
+            SizedBox(height: 20,),
             Row(
               children: [
                 Container(
@@ -64,22 +74,19 @@ class TripDetail extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text("Booking Status",
-                        style: TextStyle(
-                        fontSize: 14  ,
+                        style: AppTextStyles.regular(
                           color: Colors.blueGrey
                       ),
                       ),
                       Text("Cancelled",
-                        style: TextStyle(
-                            fontSize: 20,
+                        style: AppTextStyles.medium(
                             color: Colors.red,
-                          fontWeight: FontWeight.bold
                         ),
                       ),
                       Text("Booking REF : 123456",
-                        style: TextStyle(
-                            fontSize: 14,
-                            color: Colors.blueGrey
+                        style: AppTextStyles.regular(
+
+                            color: CustomColor.blueGrey
                         ),
                       ),
 
@@ -95,18 +102,15 @@ class TripDetail extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       Text("CASH",
-                        style: TextStyle(
-                            fontSize: 15,
+                        style: AppTextStyles.regular(
                             color: Colors.blueGrey
                         ),
                       ),
                       Text(
                         "&177.00",
                         softWrap: true,
-                        style: TextStyle(
-                          fontSize: 20,
-                          color: CustomColor.Text_Color,
-                          fontWeight: FontWeight.bold,
+                        style: AppTextStyles.medium(
+                          size: 20,
                         ),
                       ),
                     ],
@@ -121,16 +125,15 @@ class TripDetail extends StatelessWidget {
               children: [
 
                 Text("00/00/2025 00:00",
-                  style: TextStyle(
-                      fontSize: 15,
+                  style: AppTextStyles.regular(
+
                       color: Colors.blueGrey
                   ),
                 ),
-                SizedBox(width: MediaQuery.of(context).size.width*0.33,),
+                SizedBox(width: MediaQuery.of(context).size.width*0.36,),
 
                 Text("ESTATE CAR",
-                  style: TextStyle(
-                      fontSize: 15,
+                  style: AppTextStyles.regular(
                       color: Colors.blueGrey
                   ),
                 ),
@@ -156,11 +159,7 @@ class TripDetail extends StatelessWidget {
                         maxLines: 2,
                         softWrap: true,
                         overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
-                          fontSize: 15,
-                          color: CustomColor.Text_Color,
-                          fontWeight: FontWeight.bold,
-                        ),
+                        style:AppTextStyles.regular(),
                       ),
                     ],
                   ),
@@ -181,10 +180,7 @@ class TripDetail extends StatelessWidget {
                             "Bland fold"
                             " London Nw6",
                         overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
-                          fontSize: 15,
-                          color: CustomColor.Text_Color,
-                          fontWeight: FontWeight.bold,
+                        style: AppTextStyles.regular(
                         ),
                       ),
                     ],

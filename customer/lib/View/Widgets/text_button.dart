@@ -1,3 +1,4 @@
+import 'package:customer/View/textstyle/apptextstyle.dart';
 import 'package:flutter/material.dart';
 
 class CustomTextButton extends StatelessWidget {
@@ -48,10 +49,10 @@ class CustomTextButton extends StatelessWidget {
               if (icon != null) ...[icon!, const SizedBox(width: 8)],
               Text(
                 text,
-                style: TextStyle(
+                style: AppTextStyles.medium(
                   color: textColor,
-                  fontSize: fontSize,
-                  fontWeight: fontWeight,
+                  size: fontSize,
+                  weight: fontWeight,
                 ),
               ),
             ],

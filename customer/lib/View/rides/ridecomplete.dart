@@ -1,4 +1,5 @@
 
+import 'package:customer/View/textstyle/apptextstyle.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -59,7 +60,7 @@ class RideCompleteScreen extends StatelessWidget {
                                 icon: Icon(
                                   Icons.arrow_back,
                                   size: MediaQuery.of(context).size.width * 0.06,
-                                  color: CustomColor.textfield_fill,
+                                  color: CustomColor.Icon_Color,
                                 ),
                               ),
 
@@ -69,10 +70,9 @@ class RideCompleteScreen extends StatelessWidget {
                                 child: Center(
                                   child: Text(
                                     CustomText.Ride_Complete,
-                                    style: TextStyle(
-                                      fontSize: MediaQuery.of(context).size.width * 0.06,
-                                      fontWeight: FontWeight.bold,
-                                      color: CustomColor.textfield_fill,
+                                    style: AppTextStyles.heading(
+                                      size: MediaQuery.of(context).size.width * 0.06,
+
                                     ),
                                   ),
                                 ),
@@ -112,10 +112,7 @@ class RideCompleteScreen extends StatelessWidget {
                                 Text(
                                   CustomText.Reached_Destination,
                                   textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                    fontSize: 18,
-                                    color: CustomColor.Text_Color,
-                                  ),
+                                  style: AppTextStyles.medium(),
                                 ),
                                 SizedBox(height: 10),
                                 Icon(Icons.favorite,color: CustomColor.Icon_Color,),
@@ -142,10 +139,7 @@ class RideCompleteScreen extends StatelessWidget {
                                     " Worrior Garden St.LEO TN36eb",
                                 softWrap: true,
                                 textAlign: TextAlign.center,
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  color: CustomColor.Text_Color,
-                                ),
+                                style: AppTextStyles.medium(),
                               ),
                             ),
                           ],
@@ -164,10 +158,7 @@ class RideCompleteScreen extends StatelessWidget {
                             Text(
                               "3.000",
                               textAlign: TextAlign.center,
-                              style: TextStyle(
-                                fontSize: 18,
-                                color: CustomColor.Text_Color,
-                              ),
+                              style: AppTextStyles.medium(),
                             ),
                             Icon(Icons.currency_pound_sharp,size: 25,color: CustomColor.Icon_Color,),
 
@@ -182,10 +173,7 @@ class RideCompleteScreen extends StatelessWidget {
                         padding:  EdgeInsets.all(8.0),
                         child: Text(
                           "Payment Method",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16,
-                            color: CustomColor.Text_Color,
+                          style: AppTextStyles.medium(
                           ),
                         ),
                       ),
@@ -207,9 +195,8 @@ class RideCompleteScreen extends StatelessWidget {
                           Text(
                             "Cash",
                             textAlign: TextAlign.center,
-                            style: TextStyle(
-                              fontSize: 20,
-                              color: CustomColor.Text_Color,
+                            style: AppTextStyles.medium(
+
                             ),
                           ),
 
@@ -225,10 +212,7 @@ class RideCompleteScreen extends StatelessWidget {
                           Text(
                             "Credit Card",
                             textAlign: TextAlign.center,
-                            style: TextStyle(
-                              fontSize: 20,
-                              color: CustomColor.Text_Color,
-                            ),
+                            style:  AppTextStyles.medium()
                           ),
                         ],
                       )),
@@ -272,11 +256,7 @@ class RideCompleteScreen extends StatelessWidget {
                           child: Text(
                             "Help and Support please call",
                             textAlign: TextAlign.center,
-                            style: TextStyle(
-                                fontSize: 18,
-                                color: CustomColor.Text_Color,
-                                fontWeight: FontWeight.bold
-                            ),
+                            style: AppTextStyles.medium(),
                           ),
                         ),
                       ),

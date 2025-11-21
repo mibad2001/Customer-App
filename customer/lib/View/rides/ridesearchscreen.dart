@@ -1,6 +1,7 @@
 import 'package:customer/View/Widgets/color.dart';
 import 'package:customer/View/rides/ride_info_screen.dart';
 import 'package:customer/View/rides/ridecomplete.dart';
+import 'package:customer/View/textstyle/apptextstyle.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -16,7 +17,7 @@ class RideSearchScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(child: Scaffold(
-      backgroundColor: CustomColor.background,
+      //backgroundColor: CustomColor.background,
       body: Container(
         height:MediaQuery.of(context).size.height,
         width:MediaQuery.of(context).size.width,
@@ -55,7 +56,7 @@ class RideSearchScreen extends StatelessWidget {
                     icon: Icon(
                       Icons.arrow_back,
                       size: MediaQuery.of(context).size.width * 0.06, // responsive icon size
-                      color: CustomColor.textfield_fill,
+                      color: CustomColor.Icon_Color,
                     ),
                   ),
 
@@ -64,10 +65,10 @@ class RideSearchScreen extends StatelessWidget {
                     child: Center(
                       child: Text(
                         CustomText.Seaching,
-                        style: TextStyle(
-                          fontSize: MediaQuery.of(context).size.width * 0.06, // responsive font
-                          fontWeight: FontWeight.bold,
-                          color: CustomColor.textfield_fill,
+                        style: AppTextStyles.heading(
+                          size: MediaQuery.of(context).size.width * 0.06, // responsive font
+                          //weight: FontWeight.bold,
+
                         ),
                       ),
                     ),
@@ -120,9 +121,9 @@ class RideSearchScreen extends StatelessWidget {
                 SizedBox(width: 30,),
                 Text(
                   CustomText.Seaching_Text,
-                  style: TextStyle(fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      color: CustomColor.Text_Color),
+                  style: AppTextStyles.medium(
+                      weight: FontWeight.bold,
+                  ),
                 ),
               ],
             ),
@@ -133,16 +134,16 @@ class RideSearchScreen extends StatelessWidget {
 
               decoration: BoxDecoration(
                   //color: Colors.yellow,
-                image:DecorationImage(image: AssetImage("assets/images/ride_search_image.png",), fit: BoxFit.cover)
+                image:DecorationImage(image: AssetImage("assets/images/map_ride.gif",), fit: BoxFit.cover)
               ),
             ),
             SizedBox(height: 10,),
 
             Text(
               "Thanks for your patience please wait",
-              style: TextStyle(fontSize: 15,
-                  fontWeight: FontWeight.bold,
-                  color: CustomColor.Text_Color),
+              style: AppTextStyles.regular(
+                  weight: FontWeight.bold,
+                  ),
             ),
             SizedBox(height: 20,),
 
@@ -178,7 +179,7 @@ class RideSearchScreen extends StatelessWidget {
                                 child: Text(
                                   CustomText.Ride_Cancel_alert,
                                   textAlign: TextAlign.center,
-                                  style: const TextStyle(color: CustomColor.Text_Color),
+                                  style: AppTextStyles.small(),
                                 ),
                               ),
                             ),
@@ -192,7 +193,7 @@ class RideSearchScreen extends StatelessWidget {
                                     Get.to(DeshBoard_Screen());
                                   },
                                   backgroundColor: Colors.red,
-                                  textColor: Colors.white,
+                                  textColor: CustomColor.Button_Text_Color,
                                   borderRadius: 8,
                                   elevation: 2,
                                   fontSize: 10,
@@ -203,12 +204,13 @@ class RideSearchScreen extends StatelessWidget {
                                   ),
                                 ),
                                 const SizedBox(width: 20),
+
                                 CustomTextButton(
-                                  text: "No ",
+                                  text: " No ",
                                   onPressed: () {
                                     Get.to(  Driverdetailscreen() );
                                   },
-                                  backgroundColor: Colors.lightBlue,
+                                  backgroundColor: CustomColor.Button_background_Color,
                                   textColor: Colors.white,
                                   borderRadius: 8,
                                   elevation: 2,

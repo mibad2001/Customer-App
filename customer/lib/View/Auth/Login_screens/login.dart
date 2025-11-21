@@ -104,9 +104,8 @@ class _SigIn_ScreenState extends State<SigIn_Screen> {
                         TextButton(
                           onPressed: () {},
                           child: Text("Forget Password"
-                            ,style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 15
+                            ,style: AppTextStyles.regular(
+                            color: CustomColor.black,
                             //color:CustomColor.Button_background_Color,
                           ),),
                         ),
@@ -115,7 +114,7 @@ class _SigIn_ScreenState extends State<SigIn_Screen> {
                     SizedBox(height: 10),
                     SizedBox(
                       height: 50,
-                      width: width,
+                      width: 250,
                       child: MyElevatedButton(
                         text: "Log In",
                         onPressed: () {
@@ -130,8 +129,8 @@ class _SigIn_ScreenState extends State<SigIn_Screen> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        CustomTextStyle(
-                          text: CustomText.Already_Account_Text,
+                        Text(
+                           CustomText.Already_Account_Text,style: AppTextStyles.small(),
 
                         ),
                         TextButton(
@@ -140,8 +139,8 @@ class _SigIn_ScreenState extends State<SigIn_Screen> {
                           },
                           child: Text(
                             "Sign Up",
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
+                            style: AppTextStyles.regular(
+                              weight: FontWeight.bold,
                               color:CustomColor.Button_background_Color,
                               //color: CustomColor.Text_Color
                              // Colors.white70,

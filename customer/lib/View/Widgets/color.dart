@@ -25,6 +25,7 @@ class CustomColor {
   //static const textField_Icon_Color = Color(0xFF5A82F1);
   // const textField_Icon_Color = Colors.blueGrey;
   static const textField_Icon_Color =  Color(0xFF333333);
+  static const blueGrey =  Colors.blueGrey;
 
 
 

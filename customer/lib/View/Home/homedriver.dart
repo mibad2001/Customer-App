@@ -5,6 +5,7 @@ import 'package:customer/View/Widgets/all_text.dart';
 import 'package:customer/View/Widgets/color.dart';
 import 'package:customer/View/Widgets/text_button.dart';
 import 'package:customer/View/Widgets/textformfield.dart';
+import 'package:customer/View/textstyle/apptextstyle.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -133,15 +134,17 @@ class HomeDriver extends StatelessWidget {
                                         //SizedBox(width: MediaQuery.of(context).size.width*0.67,),
                                         Spacer(),
                                         Padding(
-                                          padding: const EdgeInsets.only(right: 8.0),
+                                          padding: EdgeInsets.only(right: 8.0),
                                           child: TextButton.icon(
                                             onPressed: () {
                                               homeC.addViaField();
                                             },
-                                            icon: const Icon(Icons.add, color: CustomColor.Icon_Color),
-                                            label: const Text(
+                                            icon:  Icon(Icons.add, color: CustomColor.Icon_Color),
+                                            label:  Text(
                                               "Add Via",
-                                              style: TextStyle(color:CustomColor.Text_Color, fontSize: 16),
+                                              style: AppTextStyles.regular(
+                                                  weight: FontWeight.bold
+                                              ),
                                             ),
                                           ),
                                         ),],
@@ -239,9 +242,8 @@ class HomeDriver extends StatelessWidget {
                                         const SizedBox(height: 5),
                                         Text(
                                           "Address",
-                                          style: TextStyle(
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 13,
+                                          style: AppTextStyles.small(
+                                            weight: FontWeight.bold,
                                             color: homeC.selectedItem.value == 0
                                                 ? Colors.black
                                                 : Colors.white,
@@ -286,9 +288,8 @@ class HomeDriver extends StatelessWidget {
                                            const SizedBox(height: 5),
                                            Text(
                                              "Airport",
-                                             style: TextStyle(
-                                               fontWeight: FontWeight.bold,
-                                               fontSize: 14,
+                                             style: AppTextStyles.small(
+                                               weight: FontWeight.bold,
                                                color: homeC.selectedItem.value == 1
                                                    ? Colors.black
                                                    : Colors.white,
@@ -332,9 +333,9 @@ class HomeDriver extends StatelessWidget {
                                            const SizedBox(height: 5),
                                            Text(
                                              "Train",
-                                             style: TextStyle(
-                                               fontWeight: FontWeight.bold,
-                                               fontSize: 14,
+                                             style: AppTextStyles.small(
+                                               weight: FontWeight.bold,
+
                                                color: homeC.selectedItem.value == 2
                                                    ? Colors.black
                                                    : Colors.white,
@@ -520,10 +521,9 @@ class HomeDriver extends StatelessWidget {
                                             softWrap: true,
                                             maxLines: 2,
                                             textAlign: TextAlign.center,
-                                            style: const TextStyle(
-                                              fontSize: 22,
-                                              color: CustomColor.Text_Color,
-                                              fontWeight: FontWeight.bold,
+                                            style: AppTextStyles.heading(
+                                              size: 20
+                                              //fontWeight: FontWeight.bold,
                                             ),
                                           ),
                                         ),
@@ -536,8 +536,8 @@ class HomeDriver extends StatelessWidget {
                                             child: Text(
                                               CustomText.Pick_Up_Dialog_Text,
                                               textAlign: TextAlign.center,
-                                              style:  TextStyle(
-                                                color: CustomColor.Text_Color,
+                                              style: AppTextStyles.regular(
+
                                               ),
                                             ),
                                           ),
@@ -549,7 +549,7 @@ class HomeDriver extends StatelessWidget {
                                           child: MyElevatedButton(
                                             text: 'Select Current location',
                                             onPressed: () {},
-                                            fontSize: 3,
+
                                           ),
                                         ),
                                         const SizedBox(height: 15),
@@ -561,7 +561,7 @@ class HomeDriver extends StatelessWidget {
                                             onPressed: () {
                                               Get.toNamed('/RideInfoScreen');
                                             },
-                                            fontSize: 3,
+
                                           ),
                                         ),
                                       ],
@@ -593,10 +593,8 @@ class HomeDriver extends StatelessWidget {
                                 },
                                 child: Text(
                                   "SET LOCATION ON MAP",
-                                  style: TextStyle(
-                                    fontSize: 18,
-                                    color: CustomColor.Text_Color,
-                                    fontWeight: FontWeight.bold,
+                                  style: AppTextStyles.medium(
+                                    weight: FontWeight.bold,
                                   ),
                                 ),
                               ),
