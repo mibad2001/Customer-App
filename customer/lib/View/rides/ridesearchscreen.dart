@@ -122,19 +122,18 @@ class RideSearchScreen extends StatelessWidget {
                 Text(
                   CustomText.Seaching_Text,
                   style: AppTextStyles.medium(
-                      weight: FontWeight.bold,
-                  ),
+                            weight: FontWeight.bold,
+                        ),
                 ),
               ],
             ),
-            SizedBox(height: 10,),
-
+            SizedBox(height: 10),
             Container(
               height: 200,
 
               decoration: BoxDecoration(
                   //color: Colors.yellow,
-                image:DecorationImage(image: AssetImage("assets/images/map_ride.gif",), fit: BoxFit.cover)
+                image:DecorationImage(image: AssetImage("assets/images/map_ride.gif ",), fit: BoxFit.cover)
               ),
             ),
             SizedBox(height: 10,),

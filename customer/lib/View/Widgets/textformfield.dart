@@ -1,4 +1,5 @@
 import 'package:customer/View/Widgets/color.dart';
+import 'package:customer/View/textstyle/apptextstyle.dart';
 import 'package:flutter/material.dart';
 
 class CustomTextField extends StatelessWidget {
@@ -62,14 +63,13 @@ class CustomTextField extends StatelessWidget {
       obscureText: obscureText,
       keyboardType: keyboardType,
       maxLines: obscureText ? 1 : maxLines,
-      style: TextStyle(color: Colors.black
-        ),
+      style: AppTextStyles.regular(color: Colors.black),
 
       decoration: InputDecoration(
         label: lable,
         hintText: hintText,
         //hintStyle: TextStyle(color: Colors.white, fontSize: FontSize),
-        hintStyle: TextStyle(color: Colors.blueGrey, fontSize: FontSize),
+        hintStyle: AppTextStyles.regular(color: Colors.blueGrey, size: FontSize),
         // labelStyle:  TextStyle(color: CustomColor.Text_Color),
         filled: true,
         fillColor: fillColor,

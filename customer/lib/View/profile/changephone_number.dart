@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 
+import '../textstyle/apptextstyle.dart';
+
 class ChangPhoneNumber extends StatelessWidget {
   const ChangPhoneNumber({super.key});
 
@@ -14,70 +16,116 @@ class ChangPhoneNumber extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: CustomColor.background,
+       // backgroundColor: CustomColor.background,
 
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              children: [
-                Padding(
-                  padding: EdgeInsets.only(left: 15),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Colors.blueGrey,
-                      borderRadius: BorderRadius.all(Radius.circular(7)),
-                    ),
-                    height: 40,
-                    width: 40,
-                    child: IconButton(
-                      onPressed: () {
-                        Get.back();
-                      },
-                      icon: Icon(Icons.arrow_back, size: 25, color: Colors.white),
+        body: Container(
+          height:MediaQuery.of(context).size.height,
+          width:MediaQuery.of(context).size.width,
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [
+                Color.fromARGB(255, 30, 1, 44),
+                Color.fromARGB(255, 227, 194, 242)
+              ],
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+            ),
+          ),
+          child: Column(
+          //mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+           Row(
+                children: [
+
+                  IconButton(
+                    onPressed: () {
+                      Get.back();
+                    },
+                    icon: Icon(
+                      Icons.arrow_back,
+                      size: MediaQuery.of(context).size.width * 0.06,
+                      color: CustomColor.Icon_Color,
                     ),
                   ),
-                ),
 
-                SizedBox(width:MediaQuery.of(context).size.width*0.15,),
+                  const SizedBox(width: 5),
 
-                Text(CustomText.Chng_Phone_Num,style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold,color: CustomColor.Text_Color),),
-              ],
-            ),
+                  Expanded(
+                    child: Center(
+                      child: Text(
+                        CustomText.Chng_Phone_Num,
+                        style: AppTextStyles.heading(
+                          size: MediaQuery.of(context).size.width * 0.06,
+                          weight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ),
 
 
-            SizedBox(height: 15,),
-            Padding(
-              padding: const EdgeInsets.only(left: 10.0),
-              child: Text(CustomText.Chng_Phone_Num,style: TextStyle(fontSize: 20,color: CustomColor.Text_Color),),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 10.0),
-              child: Text(CustomText.Mobile_Num,style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold,color: CustomColor.Text_Color),),
-            ),
-            SizedBox(height: 10,),
-
-            Padding(
-              padding: EdgeInsetsGeometry.all(10),
-              child: PhoneNumber_TextField( hintText: CustomText.Mobile_Num,
+                ],
               ),
-            ),
-            SizedBox(height: 10,),
+              // Row(
+              //   children: [
+              //     Padding(
+              //       padding: EdgeInsets.only(left: 15),
+              //       child:       IconButton(
+              //         onPressed: () {
+              //           Get.back();
+              //         },
+              //         icon: Icon(
+              //           Icons.arrow_back,
+              //           size: MediaQuery.of(context).size.width * 0.06,
+              //           color: CustomColor.Icon_Color,
+              //         ),
+              //       ),
+              //     ),
+              //
+              //     SizedBox(width:MediaQuery.of(context).size.width*0.15,),
+              //
+              //     Text(CustomText.Chng_Phone_Num,style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold,color: CustomColor.Text_Color),),
+              //   ],
+              // ),
 
-            Container(padding: EdgeInsets.only(left: 15),
-                height: 50,width: 400,
-                child: MyElevatedButton(text: 'NEXT',
-                  onPressed: () { },
-                  backgroundColor: Colors.white,
-                  textColor: Colors.black,
-                  borderRadius: 20,
-                  elevation: 5.0,
-                ))
+
+              SizedBox(height: 15,),
+              Padding(
+                padding:  EdgeInsets.only(left: 10.0),
+                child: Text(CustomText.Chng_Phone_Num,style: AppTextStyles.medium(),
+                ),
+              ),
+              Padding(
+                padding:  EdgeInsets.only(left: 10.0),
+                child: Text(CustomText.Mobile_Num,style: AppTextStyles.medium(),),
+              ),
+              SizedBox(height: 10,),
+
+              Padding(
+                padding: EdgeInsetsGeometry.all(10),
+                child: PhoneNumber_TextField( hintText: CustomText.Mobile_Num,
+                ),
+              ),
+              SizedBox(height: 10,),
+
+              Center(
+                child: SizedBox(
+                  height: 50,
+                  width: 250  ,
+                  child: MyElevatedButton(
+                    text: 'Next',
+                    onPressed: () {
+
+                    },
+                    fontSize: 20,
+                  ),
+                ),
+              ),
 
 
 
-          ],
+            ],
+          ),
         ),
       ),
     );

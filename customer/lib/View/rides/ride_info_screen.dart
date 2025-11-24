@@ -134,7 +134,7 @@ class _RideInfoScreenState extends State<RideInfoScreen> {
                           decoration: BoxDecoration(
                             borderRadius:  BorderRadius.all(Radius.circular(20)),
                             color: isSelected
-                                ?  Colors.white70.withOpacity(0.4)
+                                ?  CustomColor.Container_Colors.withOpacity(0.4)
                                 : Colors.transparent,
                             border: Border.all(
                               color: isSelected ?

@@ -1,3 +1,4 @@
+import 'package:customer/View/textstyle/apptextstyle.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -42,10 +43,9 @@ class appDrawer extends StatelessWidget {
                   padding: const EdgeInsets.all(8.0),
                   child: Text(
                     "MUHAMMAD FAHEEM",
-                    style: TextStyle(
-                      fontSize: 25,
-                      fontWeight: FontWeight.bold,
-                      color: CustomColor.textfield_fill,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    style: AppTextStyles.medium(
                     ),
                   ),
                 ),
@@ -53,9 +53,8 @@ class appDrawer extends StatelessWidget {
                   padding: const EdgeInsets.only(left: 10.0),
                   child: Text(
                     "Abcasdfghjk@gmai.com",
-                    style: TextStyle(
-                      fontSize: 15,
-                      color: CustomColor.textfield_fill,
+                    style: AppTextStyles.regular(
+
                     ),
                   ),
                 ),
@@ -63,9 +62,8 @@ class appDrawer extends StatelessWidget {
                   padding: const EdgeInsets.only(left: 10.0),
                   child: Text(
                     "x123456789",
-                    style: TextStyle(
-                      fontSize: 15,
-                      color: CustomColor.textfield_fill,
+                    style: AppTextStyles.regular(
+
                     ),
                   ),
                 ),
@@ -76,7 +74,7 @@ class appDrawer extends StatelessWidget {
                 SizedBox(height: 5),
                 ListTile(
                   leading: Icon(Icons.home, size: 20, color: Colors.white),
-                  title: Text("Home", style: TextStyle(color: Colors.white)),
+                  title: Text("Home", style: AppTextStyles.small()),
                   onTap: () {
                     Get.toNamed('/Deshboard');
                   },
@@ -90,7 +88,7 @@ class appDrawer extends StatelessWidget {
                   ),
                   title: Text(
                     "Your Trip",
-                    style: TextStyle(color: Colors.white),
+                    style: AppTextStyles.small(),
                   ),
                   onTap: () {
                     Get.to(Yourtrip());
@@ -98,7 +96,7 @@ class appDrawer extends StatelessWidget {
                 ),
                 ListTile(
                   leading: Icon(Icons.payments, size: 20, color: Colors.white),
-                  title: Text("Payment", style: TextStyle(color: Colors.white)),
+                  title: Text("Payment",style:  AppTextStyles.small()),
                   onTap: () {
 
                     Get.to(PaymentScreen());
@@ -108,7 +106,7 @@ class appDrawer extends StatelessWidget {
                   leading: Icon(Icons.settings, size: 20, color: Colors.white),
                   title: Text(
                     "User Profile",
-                    style: TextStyle(color: Colors.white),
+                    style: AppTextStyles.small(),
                   ),
                   onTap: () {
                     Get.toNamed('/ProfileScreen');
@@ -122,13 +120,13 @@ class appDrawer extends StatelessWidget {
                   ),
                   title: Text(
                     "Invite your Friend",
-                    style: TextStyle(color: Colors.white),
+                    style: AppTextStyles.small(),
                   ),
                   onTap: () {},
                 ),
                 ListTile(
                   leading: Icon(Icons.person, size: 20, color: Colors.white),
-                  title: Text("About", style: TextStyle(color: Colors.white)),
+                  title: Text("About", style: AppTextStyles.small(),),
                   onTap: () {
                     Get.toNamed('/AboutScreen');
                   },
@@ -136,7 +134,7 @@ class appDrawer extends StatelessWidget {
                 SizedBox(height: 15),
                 ListTile(
                   leading: Icon(Icons.logout, size: 20, color: Colors.white),
-                  title: Text("Logout", style: TextStyle(color: Colors.white)),
+                  title: Text("Logout", style:AppTextStyles.small(),),
                   onTap: () {
                     Get.offAllNamed('/SigIn_Screen');
                   },

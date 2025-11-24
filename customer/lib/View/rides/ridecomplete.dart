@@ -222,7 +222,7 @@ class RideCompleteScreen extends StatelessWidget {
                       Center(
                         child: SizedBox(
                           height: 50,
-                          width: 350  ,
+                          width: 250  ,
                           child: MyElevatedButton(
                             text: 'DONE',
                             onPressed: () {

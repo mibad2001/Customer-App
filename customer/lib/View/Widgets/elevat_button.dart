@@ -1,3 +1,4 @@
+import 'package:customer/View/textstyle/apptextstyle.dart';
 import 'package:flutter/material.dart';
 
 import 'color.dart';
@@ -40,10 +41,8 @@ class MyElevatedButton extends StatelessWidget {
       onPressed: onPressed,
       child: Text(
         text,
-        style: TextStyle(
-          fontSize: 16,
-          fontWeight: FontWeight.bold,
-          color: textColor,
+        style: AppTextStyles.medium(
+          size: 16,
         ),
       ),
     );

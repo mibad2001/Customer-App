@@ -10,8 +10,20 @@ class TremsAndCondition_Screen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: CustomColor.background,
-      body: Padding(
+      body: Container(
         padding: const EdgeInsets.all(18.0),
+        height:MediaQuery.of(context).size.height,
+        width:MediaQuery.of(context).size.width,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [
+              Color.fromARGB(255, 30, 1, 44),
+              Color.fromARGB(255, 227, 194, 242)
+            ],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+          ),
+        ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,

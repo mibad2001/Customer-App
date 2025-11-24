@@ -1,4 +1,5 @@
 import 'package:customer/View/Widgets/color.dart';
+import 'package:customer/View/textstyle/apptextstyle.dart';
 import 'package:flutter/material.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 
@@ -26,11 +27,11 @@ class PhoneNumber_TextField extends StatelessWidget {
               borderRadius: BorderRadius.circular(15),
             ),
           
-        prefixIconColor: CustomColor.textColor,
+        prefixIconColor: CustomColor.Text_Color,
 
         labelText: hintText,
-        prefixIcon: Icon(Icons.call, color: CustomColor.textColor, size: 50),
-        labelStyle: TextStyle(color: Colors.blueGrey),
+        prefixIcon: Icon(Icons.call, color: CustomColor.Text_Color, size: 50),
+        labelStyle: AppTextStyles.medium(color: CustomColor.blueGrey),
         filled: true,
         fillColor: Colors.white70,
     
