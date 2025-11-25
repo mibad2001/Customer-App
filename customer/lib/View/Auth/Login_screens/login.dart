@@ -29,6 +29,7 @@ class _SigIn_ScreenState extends State<SigIn_Screen> {
       body: Container(
         height:MediaQuery.of(context).size.height,
         width:MediaQuery.of(context).size.width,
+        padding: EdgeInsets.symmetric(horizontal: 15),
         decoration: BoxDecoration(
           gradient: LinearGradient(
             colors: [
@@ -40,7 +41,7 @@ class _SigIn_ScreenState extends State<SigIn_Screen> {
           ),
         ),
 
-        padding: const EdgeInsets.all(8.0),
+
         child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -129,6 +130,7 @@ class _SigIn_ScreenState extends State<SigIn_Screen> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
+                       SizedBox(width:17,),
                         Text(
                            CustomText.Already_Account_Text,style: AppTextStyles.small(),
 

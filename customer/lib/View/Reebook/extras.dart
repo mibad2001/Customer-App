@@ -20,6 +20,7 @@ class ExtrasScreen extends StatelessWidget {
           child: Container(
             height:MediaQuery.of(context).size.height,
             width:MediaQuery.of(context).size.width,
+            padding: EdgeInsetsGeometry.symmetric(horizontal: 15),
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 colors: [
@@ -34,10 +35,6 @@ class ExtrasScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-
-
-
-
 
                 Container(
                   height: MediaQuery.of(context).size.height * 0.1,
@@ -113,7 +110,7 @@ class ExtrasScreen extends StatelessWidget {
 
                       // 📝 TextField Section
                       Container(
-                        margin: const EdgeInsets.all(12),
+                        //margin: const EdgeInsets.all(12),
                         child: CustomTextField(
                           hintText: "Enter ",
                           borderRadius: 15,
@@ -273,9 +270,9 @@ class ExtrasScreen extends StatelessWidget {
 
 
                       Container(
-                        padding: const EdgeInsets.only(left: 20, right: 20),
+
                         height: 50,
-                        width: double.infinity,
+                        width: 250,
                         child: MyElevatedButton(
                           text: 'DONE',
                           onPressed: () {},

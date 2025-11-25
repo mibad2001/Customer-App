@@ -21,6 +21,7 @@ class RideSearchScreen extends StatelessWidget {
       body: Container(
         height:MediaQuery.of(context).size.height,
         width:MediaQuery.of(context).size.width,
+        padding: EdgeInsets.symmetric(horizontal: 15),
         decoration: BoxDecoration(
           gradient: LinearGradient(
             colors: [
@@ -106,19 +107,26 @@ class RideSearchScreen extends StatelessWidget {
 
             Container(
               height: 300,
-              //color: Colors.red,
               decoration: BoxDecoration(
-                //color: Colors.yellow,
-                  image:DecorationImage(image: AssetImage("assets/images/map_image.png",), fit: BoxFit.cover)
+                borderRadius: BorderRadius.all(Radius.circular(20)),
+                border: Border.all(
+                  color: Colors.grey, // border color
+                  width: 2,           // optional: thickness
+                ),
+                image: DecorationImage(
+                  image: AssetImage("assets/images/map_image.png"),
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
+
 
             SizedBox(height: 20,),
             Row(
               children: [
-                SizedBox(width: 10,),
+                SizedBox(width: 25,),
                 Icon(Icons.location_on,size: 25,color: CustomColor.Icon_Color,),
-                SizedBox(width: 30,),
+                SizedBox(width: 10,),
                 Text(
                   CustomText.Seaching_Text,
                   style: AppTextStyles.medium(
@@ -133,7 +141,7 @@ class RideSearchScreen extends StatelessWidget {
 
               decoration: BoxDecoration(
                   //color: Colors.yellow,
-                image:DecorationImage(image: AssetImage("assets/images/map_ride.gif ",), fit: BoxFit.cover)
+                image:DecorationImage(image: AssetImage("assets/images/map_search.gif",), fit: BoxFit.contain)
               ),
             ),
             SizedBox(height: 10,),
@@ -148,7 +156,7 @@ class RideSearchScreen extends StatelessWidget {
 
             SizedBox(
               height: 50,
-              width: 350  ,
+              width: 250  ,
               child: MyElevatedButton(
                 text: 'Cancel Ride',
                 onPressed: () {

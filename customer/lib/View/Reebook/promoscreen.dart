@@ -17,6 +17,7 @@ class PromoScreen extends StatelessWidget {
       body:Container(
         height:MediaQuery.of(context).size.height,
         width:MediaQuery.of(context).size.width,
+        padding: EdgeInsetsGeometry.symmetric(horizontal: 15),
         decoration: BoxDecoration(
           gradient: LinearGradient(
             colors: [

@@ -23,6 +23,7 @@ class RideCompleteScreen extends StatelessWidget {
           body: Container(
             height:MediaQuery.of(context).size.height,
             width:MediaQuery.of(context).size.width,
+
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 colors: [
@@ -36,14 +37,16 @@ class RideCompleteScreen extends StatelessWidget {
 
             child: Column(
               children: [
-                Container(height: MediaQuery.of(context).size.height*0.917 ,
+                Container(
+                  padding: EdgeInsets.symmetric(horizontal: 15),
+                  height: MediaQuery.of(context).size.height*0.9 ,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                         Container(
 
                           height: MediaQuery.of(context).size.height * 0.1,
-                          padding: EdgeInsets.symmetric(horizontal: 10),
+                         //padding: EdgeInsets.symmetric(horizontal: 10),
                           decoration: BoxDecoration(
                            // color: CustomColor.Container_Colors,
                             borderRadius: BorderRadius.only(
@@ -97,13 +100,13 @@ class RideCompleteScreen extends StatelessWidget {
                       Center(
                         child: Container(
                           height: MediaQuery.of(context).size.height * 0.13,
-                          width: MediaQuery.of(context).size.width * 0.9,
+                          width: MediaQuery.of(context).size.width ,
                           decoration: BoxDecoration(
                             color: Colors.green,
                             borderRadius: BorderRadius.all(Radius.circular(25)),
                           ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                            //padding: const EdgeInsets.all(8.0),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.center,
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -126,58 +129,46 @@ class RideCompleteScreen extends StatelessWidget {
 
 
 
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Row(
-                          children: [
-                            Icon(Icons.location_on,size: 25,color: CustomColor.Icon_Color,),
-                            SizedBox(width: 3,),
+                     Row(
+                        children: [
+                          Icon(Icons.location_on,size: 25,color: CustomColor.Icon_Color,),
+                          SizedBox(width: 3,),
 
-                            Expanded(
-                              child: Text(
-                                "1A Worrior Garden St.LEO "
-                                    " Worrior Garden St.LEO TN36eb",
-                                softWrap: true,
-                                textAlign: TextAlign.center,
-                                style: AppTextStyles.medium(),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-
-                      SizedBox(height: 10,),
-
-                      Padding(
-                        padding:  EdgeInsets.all(8.0),
-                        child: Row(
-                          children: [
-                            Icon(Icons.money,size: 25,color: CustomColor.Icon_Color,),
-                            SizedBox(width: 3,),
-
-                            Text(
-                              "3.000",
+                          Expanded(
+                            child: Text(
+                              "1A Worrior Garden St.LEO "
+                                  " Worrior Garden St.LEO TN36eb",
+                              softWrap: true,
                               textAlign: TextAlign.center,
                               style: AppTextStyles.medium(),
                             ),
-                            Icon(Icons.currency_pound_sharp,size: 25,color: CustomColor.Icon_Color,),
-
-
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
-
                       SizedBox(height: 10,),
 
-                      Padding(
-                        padding:  EdgeInsets.all(8.0),
-                        child: Text(
-                          "Payment Method",
-                          style: AppTextStyles.medium(
+                    Row(
+                        children: [
+                          Icon(Icons.money,size: 25,color: CustomColor.Icon_Color,),
+                          SizedBox(width: 3,),
+
+                          Text(
+                            "3.000",
+                            textAlign: TextAlign.center,
+                            style: AppTextStyles.medium(),
                           ),
+                          Icon(Icons.currency_pound_sharp,size: 25,color: CustomColor.Icon_Color,),
+
+
+                        ],
+                      ),
+                      SizedBox(height: 10,),
+
+                      Text(
+                        "Payment Method",
+                        style: AppTextStyles.medium(
                         ),
                       ),
-
 
                       Obx(() => Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -244,8 +235,7 @@ class RideCompleteScreen extends StatelessWidget {
                    color: CustomColor.Container_Colors,
                    borderRadius: BorderRadius.only(topLeft: Radius.circular(20),topRight: Radius.circular(20))
                  ),
-                 
-                  height: 70,
+                  height: MediaQuery.of(context).size.height*0.1,
                   child:   Row(
                     mainAxisAlignment:MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,

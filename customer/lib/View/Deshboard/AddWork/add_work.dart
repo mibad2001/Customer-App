@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 
 import '../../Widgets/all_text.dart';
 import '../../Widgets/text_button.dart';
+import '../../textstyle/apptextstyle.dart';
 
 class AddWork_Screen extends StatefulWidget {
   const AddWork_Screen({super.key});
@@ -67,7 +68,7 @@ class AddWork_ScreenState extends State<AddWork_Screen> {
       
                           Text(
                             "Work Address",
-                            style: TextStyle(color: Colors.white, fontSize: 25,fontWeight: FontWeight.bold),
+                            style: AppTextStyles.heading(),
                           ),
                         ],
                       ),
@@ -104,12 +105,12 @@ class AddWork_ScreenState extends State<AddWork_Screen> {
                 // ===================== Address Display Section =====================
                 Obx(() {
                   if (mydeshcontroller.workAddress.value.isEmpty) {
-                    return const Center(
+                    return  Center(
                       child: Padding(
                         padding: EdgeInsets.only(top: 60),
                         child: Text(
                           "No data",
-                          style: TextStyle(color: Colors.white, fontSize: 25),
+                          style: AppTextStyles.heading(),
                         ),
                       ),
                     );
@@ -118,15 +119,13 @@ class AddWork_ScreenState extends State<AddWork_Screen> {
                   return Container(
                     margin: const EdgeInsets.only(top: 20),
                     decoration: BoxDecoration(
-                      color: CustomColor.textfield_fill,
+                      color: CustomColor.Container_Colors,
                       borderRadius: BorderRadius.circular(15),
                     ),
                     child: ListTile(
                       title: Text(
                         mydeshcontroller.workAddress.value,
-                        style: TextStyle(
-                          color: CustomColor.Text_Color,
-                          fontSize: 18,
+                        style: AppTextStyles.medium(
                         ),
                       ),
                       leading: const Icon(Icons.work, color: Colors.white),
@@ -147,48 +146,50 @@ class AddWork_ScreenState extends State<AddWork_Screen> {
                             onPressed: () {
                               Get.dialog(
                                 Dialog(
-                                  backgroundColor: Colors.white,
+                                  backgroundColor: CustomColor.Container_Colors,
                                   child: Container(
-                                    decoration: const BoxDecoration(
+                                    decoration: BoxDecoration(
                                       borderRadius: BorderRadius.all(Radius.circular(30)),
                                     ),
                                     height: 220,
                                     width: 100,
                                     child: Column(
                                       children: [
-                                        const SizedBox(height: 10),
+                                        SizedBox(height: 10),
+
                                         Text(
                                           CustomText.Delete_address,
-                                          style: const TextStyle(
-                                            fontSize: 20,
-                                            color: Colors.black,
-                                            fontWeight: FontWeight.bold,
+                                          style: AppTextStyles.heading(
+
                                           ),
                                         ),
-                                        const SizedBox(height: 10),
-                                        const Icon(
+                                        SizedBox(height: 10),
+                                        Icon(
                                           Icons.warning_amber,
                                           color: Colors.amberAccent,
                                           size: 40,
                                         ),
                                         Center(
                                           child: Container(
-                                            padding: const EdgeInsets.only(left: 20),
+                                            padding: EdgeInsets.only(left: 20),
                                             height: 80,
                                             width: 200,
                                             child: Text(
                                               CustomText.Delete_home_address_Alert,
-                                              style: const TextStyle(color: Colors.black),
+                                              style: AppTextStyles.regular(),
                                             ),
                                           ),
                                         ),
+
                                         Row(
                                           children: [
-                                            const SizedBox(width: 70, height: 5),
+                                            SizedBox(width: 70, height: 5),
                                             CustomTextButton(
                                               text: 'Yes',
-                                              onPressed: () {
-                                                mydeshcontroller.deleteWorkAddress();
+                                              onPressed: (){
+
+                                                mydeshcontroller.deleteItem();
+                                                //print("yaha hm ma ");
                                                 Get.back();
                                               },
                                               backgroundColor: Colors.red,
@@ -197,24 +198,25 @@ class AddWork_ScreenState extends State<AddWork_Screen> {
                                               elevation: 2,
                                               fontSize: 10,
                                               fontWeight: FontWeight.bold,
-                                              padding: const EdgeInsets.symmetric(
+                                              padding: EdgeInsets.symmetric(
                                                 horizontal: 16,
                                                 vertical: 10,
                                               ),
                                             ),
                                             SizedBox(width: 20),
+
                                             CustomTextButton(
                                               text: 'NO',
                                               onPressed: () {
                                                 Get.back();
                                               },
-                                              backgroundColor: Colors.black54,
+                                              backgroundColor: CustomColor.Button_background_Color,
                                               textColor: Colors.white,
                                               borderRadius: 8,
                                               elevation: 2,
                                               fontSize: 10,
                                               fontWeight: FontWeight.bold,
-                                              padding: const EdgeInsets.symmetric(
+                                              padding: EdgeInsets.symmetric(
                                                 horizontal: 16,
                                                 vertical: 10,
                                               ),

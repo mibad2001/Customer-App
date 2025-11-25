@@ -1,6 +1,7 @@
 import 'package:customer/Controller/Deshboard/deshboard_cont.dart';
 import 'package:customer/View/Widgets/color.dart';
 import 'package:customer/View/Widgets/textformfield.dart';
+import 'package:customer/View/textstyle/apptextstyle.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -106,28 +107,28 @@ class AddHomeScreenState extends State<AddHomeScreen> {
                   ),
                 ),
 
-                const SizedBox(height: 30),
+                const SizedBox(height: 10),
 
 
                 Obx(() {
                   final address = mydeshcontroller.homeAddress.value;
 
                   if (address.isEmpty) {
-                    return const Center(
+                    return  Center(
                       child: Padding(
                         padding: EdgeInsets.all(40.0),
                         child: Text(
                           "No data",
-                          style: TextStyle(color: Colors.white, fontSize: 30),
+                          style: AppTextStyles.heading(),
                         ),
                       ),
                     );
                   }
 
-                  return Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                  return Container(
+                    //padding: const EdgeInsets.symmetric(horizontal: 10),
                     child: Card(
-                      color: CustomColor.textfield_fill,
+                      color: CustomColor.Container_Colors,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(15),
                       ),
@@ -153,7 +154,7 @@ class AddHomeScreenState extends State<AddHomeScreen> {
                                 onPressed:(){
                                   Get.dialog(
                                     Dialog(
-                                      backgroundColor: Colors.white,
+                                      backgroundColor: CustomColor.Container_Colors,
                                       child: Container(
                                         decoration: BoxDecoration(
                                           borderRadius: BorderRadius.all(Radius.circular(30)),
@@ -166,10 +167,8 @@ class AddHomeScreenState extends State<AddHomeScreen> {
 
                                             Text(
                                               CustomText.Delete_address,
-                                              style: TextStyle(
-                                                fontSize: 20,
-                                                color: Colors.black,
-                                                fontWeight: FontWeight.bold,
+                                              style: AppTextStyles.heading(
+
                                               ),
                                             ),
                                             SizedBox(height: 10),
@@ -185,7 +184,7 @@ class AddHomeScreenState extends State<AddHomeScreen> {
                                                 width: 200,
                                                 child: Text(
                                                   CustomText.Delete_home_address_Alert,
-                                                  style: TextStyle(color: Colors.black),
+                                                  style: AppTextStyles.regular(),
                                                 ),
                                               ),
                                             ),
@@ -219,7 +218,7 @@ class AddHomeScreenState extends State<AddHomeScreen> {
                                                   onPressed: () {
                                                     Get.back();
                                                   },
-                                                  backgroundColor: Colors.black54,
+                                                  backgroundColor: CustomColor.Button_background_Color,
                                                   textColor: Colors.white,
                                                   borderRadius: 8,
                                                   elevation: 2,

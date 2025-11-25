@@ -31,6 +31,7 @@ class _RideInfoScreenState extends State<RideInfoScreen> {
         body: Container(
           height:MediaQuery.of(context).size.height,
           width:MediaQuery.of(context).size.width,
+          padding: EdgeInsets.symmetric(horizontal: 15),
           decoration: BoxDecoration(
             gradient: LinearGradient(
               colors: [
@@ -114,7 +115,7 @@ class _RideInfoScreenState extends State<RideInfoScreen> {
                     SizedBox(height: 10,),
 
                       Container(
-                height: MediaQuery.of(context).size.height*0.72,
+                height: MediaQuery.of(context).size.height*0.7,
                 child: ListView.builder(
                   shrinkWrap: true,
                   itemCount: rideController.CarName.length,
@@ -321,7 +322,7 @@ class _RideInfoScreenState extends State<RideInfoScreen> {
                                       child: Text(
                                         "30 min",
                                         style: AppTextStyles.regular(
-
+                                          size: 14,
                                           weight: rideController.selectedTimeOption.value == "30 min"
                                               ? FontWeight.bold
                                               : FontWeight.normal,

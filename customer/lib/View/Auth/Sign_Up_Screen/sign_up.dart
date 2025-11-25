@@ -24,14 +24,12 @@ class _SigUp_ScreenState extends State<SigUp_Screen> {
   final SignUp_Controller controller = Get.find();
   @override
   Widget build(BuildContext context) {
-    final hight = MediaQuery.of(context).size.height;
-    final width = MediaQuery.of(context).size.width;
-
     return Scaffold(
       backgroundColor: CustomColor.background,
       body: Container(
         height:MediaQuery.of(context).size.height,
         width:MediaQuery.of(context).size.width,
+        padding: EdgeInsets.symmetric(horizontal: 15),
         decoration: BoxDecoration(
           gradient: LinearGradient(
             colors: [
@@ -137,7 +135,7 @@ class _SigUp_ScreenState extends State<SigUp_Screen> {
                           Expanded(
                             child: InkWell(
                               onTap: () {
-                                Get.to(TremsAndCondition_Screen());
+                                Get.to(TermsAndConditionsScreen());
                               },
                               child: Text(
                               CustomText.SigUp_TremsAndCondition,style: AppTextStyles.small(

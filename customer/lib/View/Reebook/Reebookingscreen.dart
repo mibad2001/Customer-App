@@ -448,6 +448,7 @@ class ReebookingScreen extends StatelessWidget {
 
                                 Get.bottomSheet(
                                   Container(
+
                                     decoration: const BoxDecoration(
                                       color: CustomColor.Container_Colors,
                                       borderRadius: BorderRadius.only(
@@ -457,7 +458,7 @@ class ReebookingScreen extends StatelessWidget {
                                     ),
                                     width: double.infinity,
                                     height: MediaQuery.of(context).size.height * 0.45,
-                                    padding: const EdgeInsets.all(10),
+                                    padding: const EdgeInsets.symmetric(horizontal: 20),
                                     child: Column(
                                       crossAxisAlignment: CrossAxisAlignment.start,
                                       children: [

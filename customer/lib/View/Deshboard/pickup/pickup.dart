@@ -1,5 +1,6 @@
 import 'package:customer/View/Widgets/all_text.dart';
 import 'package:customer/View/Widgets/color.dart';
+import 'package:customer/View/textstyle/apptextstyle.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -15,81 +16,89 @@ class PickupScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: CustomColor.background,
-        body: Stack(
-        children: [
-          // OpenStreetMapWidget(),//==== map
-          Container(
-            height: MediaQuery.of(context).size.height,
-            child: Image(image: AssetImage("assets/images/map2.png"),fit: BoxFit.cover,),
-            //         child: OpenStreetMapWidget(),
+       // backgroundColor: CustomColor.background,
+        body: Container(
+          height:MediaQuery.of(context).size.height,
+          width:MediaQuery.of(context).size.width,
+          padding: EdgeInsets.symmetric(horizontal: 10),
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [
+                Color.fromARGB(255, 30, 1, 44),
+                Color.fromARGB(255, 227, 194, 242)
+              ],
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+            ),
           ),
-          Column(
+          child: Column(
             children: [
               Container(
-                height: 200,
+                height: MediaQuery.of(context).size.height*0.9,
                 decoration: BoxDecoration(
-                  color: CustomColor.background,
+                  //color: CustomColor.background,
                   borderRadius: BorderRadius.only(bottomLeft: Radius.circular(20),bottomRight: Radius.circular(20)),
                 ),
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    IconButton(
-                      onPressed: () {
-                        Get.back();
-                      },
-                      icon: Icon(Icons.arrow_back, color: CustomColor.Icon_Color),
-                    ),
-                    Row(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Icon(
-                            Icons.location_on,
-                            size: 15,
-                            color: CustomColor.Icon_Color,
-                          ),
-                        ),
-                        Text(CustomText.Pickup,style: TextStyle(
-                            fontSize:12,
-                            color: CustomColor.Text_Color
-                        ),)
-                      ],
-                    ),
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            IconButton(
+              onPressed: () {
+                Get.back();
+              },
+              icon: Icon(Icons.arrow_back, color: CustomColor.Icon_Color),
+            ),
+            Row(
+              children: [
+                Container(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Icon(
+                    Icons.location_on,
+                    size: 15,
+                    color: CustomColor.Icon_Color,
+                  ),
+                ),
+                Text(CustomText.Pickup,style: AppTextStyles.medium(
+                ),)
+              ],
+            ),
 
-                    Padding(
-                      padding: const EdgeInsets.only(left: 25.0,right: 10),
-                      child: Text("123 Green Valley Street""Springfield, IL 62704 United States",
-                        style: TextStyle(
-                            fontSize:20,
-                            color: CustomColor.Text_Color,fontWeight: FontWeight.bold
-                        ),),
-                    )
-                  ],
+            Container(
+              padding: const EdgeInsets.only(left: 20.0,right: 10),
+              child: Text("123 Green Valley Street""Springfield, IL 62704 United States",
+                style: AppTextStyles.medium(
+                ),),
+            ),
+
+            SizedBox(height: 10,),
+            // OpenStreetMapWidget(),//==== map
+            //  Container(
+            //                    height: MediaQuery.of(context).size.height*0.74,
+            //                    child: Image(image: AssetImage("assets/images/map2.png"),fit: BoxFit.cover,),
+            // //                  child: OpenStreetMapWidget(),
+            //                  ),
+          ],
+        ),
+              ),
+              Container(
+                height: MediaQuery.of(context).size.height*0.1,
+                padding: const EdgeInsets.all(20.0),
+                child: SizedBox(
+                  height: 50,
+                  width: 250  ,
+                  child: MyElevatedButton(
+                    text: 'DONE',
+                    onPressed: () {
+                      Get.to(DeshBoard_Screen());
+                    },
+                    fontSize: 20,
+                  ),
                 ),
               ),
 
 
 
             ],
-          ),
-        ],
-        ),
-        bottomNavigationBar:  Padding(
-          padding: const EdgeInsets.all(15.0),
-          child: SizedBox(
-            height: 50,
-            width: 300  ,
-            child: MyElevatedButton(
-              text: 'DONE',
-              onPressed: () { 
-                Get.to(DeshBoard_Screen());
-              },
-              backgroundColor: CustomColor.Icon_Color,
-              textColor: Colors.black,
-              fontSize: 20,
-            ),
           ),
         ),
       ),

@@ -21,6 +21,7 @@ class ChangPhoneNumber extends StatelessWidget {
         body: Container(
           height:MediaQuery.of(context).size.height,
           width:MediaQuery.of(context).size.width,
+          padding: EdgeInsets.symmetric(horizontal: 15),
           decoration: BoxDecoration(
             gradient: LinearGradient(
               colors: [

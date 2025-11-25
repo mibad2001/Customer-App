@@ -4,6 +4,7 @@ import '../Binding/auth_binding.dart';
 import '../View/Auth/Login_screens/login.dart';
 import '../View/Auth/Sign_Up_Screen/sign_up.dart';
 import '../View/Auth/splash_Screen/spalsh.dart';
+import '../View/Auth/trems.dart';
 import '../View/Deshboard/dashboard.dart';
 import '../View/Deshboard/pickup/pickup.dart';
 import '../View/Reebook/Reebookingscreen.dart';
@@ -28,6 +29,11 @@ class AppRoutes{
     GetPage(
       name: routesName.Splash_Screen,
       page: () =>Splash_Screen(),
+      // binding: Splash_Screen(),
+    ),
+    GetPage(
+      name: routesName.TermsAndConditionsScreen,
+      page: () => TermsAndConditionsScreen(),
       // binding: Splash_Screen(),
     ),
     GetPage(

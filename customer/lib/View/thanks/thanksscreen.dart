@@ -19,6 +19,7 @@ class ThanksScreen extends StatelessWidget {
         body: Container(
           height:MediaQuery.of(context).size.height,
           width:MediaQuery.of(context).size.width,
+          padding: EdgeInsets.symmetric(horizontal: 15),
           decoration: BoxDecoration(
             gradient: LinearGradient(
               colors: [
@@ -87,7 +88,7 @@ class ThanksScreen extends StatelessWidget {
               Center(
                 child: Container(
                   height: MediaQuery.of(context).size.height * 0.15,
-                  width: MediaQuery.of(context).size.width * 0.8,
+                  width: MediaQuery.of(context).size.width,
 
                   decoration: BoxDecoration(
                     color: Colors.green,
@@ -127,10 +128,14 @@ class ThanksScreen extends StatelessWidget {
                       style: AppTextStyles.medium(),
                     ),
 
-                    Text(
-                      "Muhammad Ibad Ullah Qureshi",
-                      textAlign: TextAlign.center,
-                      style: AppTextStyles.medium(),
+                    Expanded(
+                      child: Text(
+                        "Muhammad Ibad Ullah Qureshi",
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        textAlign: TextAlign.center,
+                        style: AppTextStyles.medium(),
+                      ),
                     ),
                   ],
                 ),
@@ -237,11 +242,11 @@ class ThanksScreen extends StatelessWidget {
 
 
 
-              SizedBox(height: 15),
+              SizedBox(height: 5),
               Center(
                 child: SizedBox(
                   height: 50,
-                  width: 300,
+                  width: 250,
                   child: MyElevatedButton(
                     text: 'DONE',
                     onPressed: () {

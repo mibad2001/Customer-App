@@ -29,7 +29,7 @@ class TripDetail extends StatelessWidget {
               end: Alignment.bottomCenter,
             ),
           ),
-        padding: EdgeInsets.all(12),
+        padding: EdgeInsets.all(10),
         child: Column(
           children: [
             Row(
@@ -44,7 +44,7 @@ class TripDetail extends StatelessWidget {
                     onPressed: () {
                       Get.back();
                     },
-                    icon: Icon(Icons.arrow_back, size: 25, color:CustomColor.Icon_Color ),
+                    icon: Icon(Icons.arrow_back, size: 25, color:CustomColor.Icon_Color),
                   ),
                 ),
                 SizedBox(width: MediaQuery.of(context).size.width*0.22,),
@@ -69,7 +69,7 @@ class TripDetail extends StatelessWidget {
                 Container(
                   width: MediaQuery.of(context).size.width*0.5,
                   height: 100,
-                  padding: const EdgeInsets.only(left: 15),
+                  padding: const EdgeInsets.only(left: 10),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -121,23 +121,29 @@ class TripDetail extends StatelessWidget {
 
             SizedBox(height: 10,),
 
-            Row(
-              children: [
+            Container(
+              padding: EdgeInsets.only(right: 10),
+              child: Row(
+                children: [
 
-                Text("00/00/2025 00:00",
-                  style: AppTextStyles.regular(
+                  Padding(
+                    padding: EdgeInsetsGeometry.symmetric(horizontal: 10),
+                    child: Text("00/00/2025 00:00",
+                      style: AppTextStyles.regular(
 
-                      color: Colors.blueGrey
+                          color: Colors.blueGrey
+                      ),
+                    ),
                   ),
-                ),
-                SizedBox(width: MediaQuery.of(context).size.width*0.36,),
+                  Spacer(),
 
-                Text("ESTATE CAR",
-                  style: AppTextStyles.regular(
-                      color: Colors.blueGrey
+                  Text("ESTATE CAR",
+                    style: AppTextStyles.regular(
+                        color: Colors.blueGrey
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
 
             SizedBox(height: 15,),
@@ -152,14 +158,16 @@ class TripDetail extends StatelessWidget {
                     children: [
                       Icon(Icons.circle_sharp,size: 20,color: Colors.blue),
                       SizedBox(width: 10,),
-                      Text(
-                        "1A Worrior "
-                            "Garden St.LEO"
-                            " TN36eb",
-                        maxLines: 2,
-                        softWrap: true,
-                        overflow: TextOverflow.ellipsis,
-                        style:AppTextStyles.regular(),
+                      Expanded(
+                        child: Text(
+                          "1A Worrior "
+                              "Garden St.LEO"
+                              " TN36eb",
+                          maxLines: 2,
+                          softWrap: true,
+                          overflow: TextOverflow.ellipsis,
+                          style:AppTextStyles.regular(),
+                        ),
                       ),
                     ],
                   ),
@@ -175,12 +183,14 @@ class TripDetail extends StatelessWidget {
                     children: [
                       Icon(Icons.location_on,size: 20,color: Colors.red,),
                       SizedBox(width: 10,),
-                      Text(
-                        "Flat  1 "
-                            "Bland fold"
-                            " London Nw6",
-                        overflow: TextOverflow.ellipsis,
-                        style: AppTextStyles.regular(
+                      Expanded(
+                        child: Text(
+                          "Flat  1 "
+                              "Bland fold"
+                              " London Nw6",
+                          overflow: TextOverflow.ellipsis,
+                          style: AppTextStyles.regular(
+                          ),
                         ),
                       ),
                     ],

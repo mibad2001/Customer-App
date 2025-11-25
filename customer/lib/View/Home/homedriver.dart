@@ -27,6 +27,7 @@ class HomeDriver extends StatelessWidget {
         body: Container(
           height:MediaQuery.of(context).size.height,
           width:MediaQuery.of(context).size.width,
+          //padding: EdgeInsets.symmetric(horizontal: 15),
           decoration: BoxDecoration(
             gradient: LinearGradient(
               colors: [
@@ -50,19 +51,18 @@ class HomeDriver extends StatelessWidget {
 
                           Container(
                             height:  homeC.viaControllers.length == 0
-                                ? MediaQuery.of(context).size.height * 0.32
+                                ? MediaQuery.of(context).size.height * 0.35
                                 : homeC.viaControllers.length == 1
-                                ? MediaQuery.of(context).size.height * 0.4
-                                : MediaQuery.of(context).size.height * 0.5,
+                                ? MediaQuery.of(context).size.height * 0.38
+                                : MediaQuery.of(context).size.height * 0.43,
                             decoration: BoxDecoration(
-
                               borderRadius: const BorderRadius.only(
                                 bottomLeft: Radius.circular(30),
                                 bottomRight: Radius.circular(30),
                               ),
                             ),
-                            child: Padding(
-                              padding: const EdgeInsets.all(12.0),
+                            child: Container(
+                              //padding: const EdgeInsets.all(12.0),
                               child: SingleChildScrollView(
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -197,6 +197,7 @@ class HomeDriver extends StatelessWidget {
                           // ================================================ Address / Airoplane / Train  Coloum
 
                           Container(
+                            margin: EdgeInsets.symmetric(horizontal: 15),
                             height: 100,
                             width: MediaQuery.of(context).size.width * 0.93,
                             decoration: BoxDecoration(
@@ -265,10 +266,7 @@ class HomeDriver extends StatelessWidget {
                                      child: Container(
                                        height: 70,
                                        width: 70,
-                                       padding: const EdgeInsets.symmetric(
-                                         vertical: 8,
-                                         horizontal: 5,
-                                       ),
+
                                        decoration: BoxDecoration(
                                          borderRadius: BorderRadius.circular(10),
                                          color: homeC.selectedItem.value == 1
@@ -352,8 +350,11 @@ class HomeDriver extends StatelessWidget {
                           SizedBox(height: 20),
                           //===========================  list show addresses
 
-                        Obx(()=>  Column(
-                          children: [
+                        Obx(()=>
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+
                             controller.selectedIndex.value == 0
                                 ? Container(
                               height: 150,
@@ -367,19 +368,14 @@ class HomeDriver extends StatelessWidget {
                                       controller.Title_Address[controller
                                           .selectedIndex
                                           .value],
-                                      style: TextStyle(
-                                        color: CustomColor.textColor,
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.bold,
-                                      ),
+                                      style: AppTextStyles.medium(
+                                      )
                                     ),
                                     subtitle: Text(
                                       controller.Address[controller
                                           .selectedIndex
                                           .value],
-                                      style: TextStyle(
-                                        color: CustomColor.textColor,
-                                        fontSize: 15,
+                                      style: AppTextStyles.regular(
                                       ),
                                     ),
                                     leading: Icon(
@@ -401,17 +397,12 @@ class HomeDriver extends StatelessWidget {
                                   ListTile(
                                     title: Text(
                                       "Add_Work",
-                                      style: TextStyle(
-                                        color: CustomColor.textColor,
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.bold,
+                                      style: AppTextStyles.medium(
                                       ),
                                     ),
                                     subtitle: Text(
                                       "Work Address",
-                                      style: TextStyle(
-                                        color: CustomColor.textColor,
-                                        fontSize: 15,
+                                      style: AppTextStyles.regular(
                                       ),
                                     ),
                                     leading: Icon(
@@ -499,7 +490,7 @@ class HomeDriver extends StatelessWidget {
 
                         SizedBox(
                           height: 50,
-                          width: 350,
+                          width: 250,
                           child: MyElevatedButton(
                             text: 'CONTINUE',
                             onPressed: () {

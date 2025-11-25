@@ -1,7 +1,9 @@
 
 class routesName {
 
+
   static const String Splash_Screen = '/Splash_Screen';
+  static const String TermsAndConditionsScreen =  '/TermsAndConditionsScreen';
   static const String ProfileScreen =  '/ProfileScreen';
   static const String SigUp_Screen =  '/SigUp_Screen';
   static const String SigIn_Screen = '/SigIn_Screen';
