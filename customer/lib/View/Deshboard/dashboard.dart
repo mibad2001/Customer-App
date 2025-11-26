@@ -52,12 +52,12 @@ class DeshBoard_Screen extends StatelessWidget {
             child: Column(
               children: [
                 Container(
-                  height: 550,
+                  height: MediaQuery.of(context).size.height*0.6,
                   child: Stack(
                     children: [
                       ///////////////////////////////////////// Map
                       Container(
-                        height: 550,
+                        height: MediaQuery.of(context).size.height*0.6,
                         child: Image(image: AssetImage("assets/images/map2.png"),fit: BoxFit.cover,),
                         //         child: OpenStreetMapWidget(),
                       ),
@@ -192,7 +192,7 @@ class DeshBoard_Screen extends StatelessWidget {
                           onPressed: () {
                             Get.to(AddWork_Screen());
                           },
-                          icon: Icon(Icons.home, color: CustomColor.Icon_Color),
+                          icon: Icon(Icons.work, color: CustomColor.Icon_Color),
                           fontWeight: FontWeight.bold,
                           fontSize: 16,
                         ),
@@ -202,7 +202,7 @@ class DeshBoard_Screen extends StatelessWidget {
                           onPressed: () {
                             Get.to(Yourtrip());
                           },
-                          icon: Icon(Icons.home, color: CustomColor.Icon_Color),
+                          icon: Icon(Icons.picture_in_picture, color: CustomColor.Icon_Color),
                           fontWeight: FontWeight.bold,
                           fontSize: 16,
                         ),

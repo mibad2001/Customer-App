@@ -43,231 +43,234 @@ class _ProfileScreenState extends State<ProfileScreen> {
               end: Alignment.bottomCenter,
             ),
           ),
-          child: Column(
-            children: [
-              Container(
-                height: MediaQuery.of(context).size.height * 0.1,
-                padding: const EdgeInsets.symmetric(horizontal: 10),
-                decoration: BoxDecoration(
-                  //color: CustomColor.Container_Colors,
-                  borderRadius: const BorderRadius.only(
-                    bottomLeft: Radius.circular(20),
-                    bottomRight: Radius.circular(20),
+          child: SingleChildScrollView(
+            child: Column
+              (
+              children: [
+                Container(
+                  height: MediaQuery.of(context).size.height * 0.1,
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  decoration: BoxDecoration(
+                    //color: CustomColor.Container_Colors,
+                    borderRadius: const BorderRadius.only(
+                      bottomLeft: Radius.circular(20),
+                      bottomRight: Radius.circular(20),
+                    ),
                   ),
-                ),
-                  child: Row(
-                    children: [
-
-                      IconButton(
-                        onPressed: () {
-                          Get.back();
-                        },
-                        icon: Icon(
-                          Icons.arrow_back,
-                          size: MediaQuery.of(context).size.width * 0.06,
-                          color: CustomColor.Icon_Color,
+                    child: Row(
+                      children: [
+            
+                        IconButton(
+                          onPressed: () {
+                            Get.back();
+                          },
+                          icon: Icon(
+                            Icons.arrow_back,
+                            size: MediaQuery.of(context).size.width * 0.06,
+                            color: CustomColor.Icon_Color,
+                          ),
                         ),
-                      ),
-
-                      const SizedBox(width: 5),
-
-                      Expanded(
-                        child: Center(
-                          child: Text(
-                            CustomText.User_Profile,
-                            style: AppTextStyles.heading(
-                              size: MediaQuery.of(context).size.width * 0.06,
-                              weight: FontWeight.bold,
+            
+                        const SizedBox(width: 5),
+            
+                        Expanded(
+                          child: Center(
+                            child: Text(
+                              CustomText.User_Profile,
+                              style: AppTextStyles.heading(
+                                size: MediaQuery.of(context).size.width * 0.06,
+                                weight: FontWeight.bold,
+                              ),
                             ),
                           ),
                         ),
-                      ),
-
-
-                    ],
+            
+            
+                      ],
+                    ),
+                ),
+            
+                SizedBox(height: 40),
+            
+                CircleAvatar(radius: 45, backgroundColor: Colors.blue),
+            
+                ListTile(
+                  leading: Icon(Icons.person, size: 25, color: Colors.white),
+                  title: Text(
+                    CustomText.Name,
+                    style: AppTextStyles.regular(),
                   ),
-              ),
-
-              SizedBox(height: 40),
-
-              CircleAvatar(radius: 45, backgroundColor: Colors.blue),
-
-              ListTile(
-                leading: Icon(Icons.person, size: 25, color: Colors.white),
-                title: Text(
-                  CustomText.Name,
-                  style: AppTextStyles.regular(),
+                  subtitle: Text(
+                    "Muhammad Faheem",
+                    style: AppTextStyles.regular(),
+                  ),
                 ),
-                subtitle: Text(
-                  "Muhammad Faheem",
-                  style: AppTextStyles.regular(),
+            
+                ListTile(
+                  leading: Icon(Icons.phone, size: 25, color: Colors.white),
+                  title: Text(
+                    CustomText.Mobile,
+                    style: AppTextStyles.regular(),
+                  ),
+                  subtitle: Text(
+                    "+9234567896",
+                    style: AppTextStyles.regular(),
+                  ),
+                  trailing: Icon(Icons.edit, color: Colors.white),
+                  onTap: () {
+                    Get.to(() => ChangPhoneNumber());
+                  },
                 ),
-              ),
-
-              ListTile(
-                leading: Icon(Icons.phone, size: 25, color: Colors.white),
-                title: Text(
-                  CustomText.Mobile,
-                  style: AppTextStyles.regular(),
+            
+                ListTile(
+                  leading: Icon(
+                    Icons.email_outlined,
+                    size: 25,
+                    color: Colors.white,
+                  ),
+                  title: Text(
+                    CustomText.Email,
+                    style: AppTextStyles.regular(),
+                  ),
+                  subtitle: Text(
+                    "abc@gmail.com",
+                    style: AppTextStyles.regular(),
+                  ),
                 ),
-                subtitle: Text(
-                  "+9234567896",
-                  style: AppTextStyles.regular(),
+            
+                ListTile(
+                  leading: Icon(Icons.password, size: 25, color: Colors.white),
+                  title: Text(
+                    CustomText.Change_password,
+                    style: AppTextStyles.regular(),
+                  ),
+                  subtitle: Text(
+                    CustomText.Password_tab_Text,
+                    style: AppTextStyles.regular(),
+                  ),
+                  trailing: Icon(Icons.edit, size: 25, color: Colors.white),
+                  onTap: () {
+                    Get.to(Changepassword());
+                  },
                 ),
-                trailing: Icon(Icons.edit, color: Colors.white),
-                onTap: () {
-                  Get.to(() => ChangPhoneNumber());
-                },
-              ),
-
-              ListTile(
-                leading: Icon(
-                  Icons.email_outlined,
-                  size: 25,
-                  color: Colors.white,
-                ),
-                title: Text(
-                  CustomText.Email,
-                  style: AppTextStyles.regular(),
-                ),
-                subtitle: Text(
-                  "abc@gmail.com",
-                  style: AppTextStyles.regular(),
-                ),
-              ),
-
-              ListTile(
-                leading: Icon(Icons.password, size: 25, color: Colors.white),
-                title: Text(
-                  CustomText.Change_password,
-                  style: AppTextStyles.regular(),
-                ),
-                subtitle: Text(
-                  CustomText.Password_tab_Text,
-                  style: AppTextStyles.regular(),
-                ),
-                trailing: Icon(Icons.edit, size: 25, color: Colors.white),
-                onTap: () {
-                  Get.to(Changepassword());
-                },
-              ),
-
-              ListTile(
-                leading: Icon(Icons.delete, size: 25, color: Colors.white),
-                title: Text(
-                  CustomText.Delete_Account,
-                  style: AppTextStyles.regular(),
-                ),
-                onTap: () {
-                  Get.dialog(
-                    //============================  Dialog box
-                    Dialog(
-                        backgroundColor: CustomColor.Container_Colors,
-                      child: Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(30)),
-                          color: CustomColor.Container_Colors
-                      ),
-                        height: 260,
-                        width: 150,
-                        child: Column(
-                          children: [
-                            SizedBox(height: 25),
-
-                            Text(
-                              CustomText.Delete_Account,
-                              style: AppTextStyles.heading(
-                                size: 20,
-                              ),
-                            ),
-                            SizedBox(height: 12),
-                            Icon(
-                              Icons.warning_amber,
-                              color: Colors.amberAccent,
-                              size: 40,
-                            ),
-                            SizedBox(height: 12),
-                            Center(
-                              child: Container(
-                                height: 80,
-                                width: 200,
-                                child: Text(
-                                  CustomText.Delete_Alert,
-                                  textAlign: TextAlign.center,
-                                  style: AppTextStyles.small(),
+            
+                ListTile(
+                  leading: Icon(Icons.delete, size: 25, color: Colors.white),
+                  title: Text(
+                    CustomText.Delete_Account,
+                    style: AppTextStyles.regular(),
+                  ),
+                  onTap: () {
+                    Get.dialog(
+                      //============================  Dialog box
+                      Dialog(
+                          backgroundColor: CustomColor.Container_Colors,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.all(Radius.circular(30)),
+                            color: CustomColor.Container_Colors
+                        ),
+                          height: 260,
+                          width: 150,
+                          child: Column(
+                            children: [
+                              SizedBox(height: 25),
+            
+                              Text(
+                                CustomText.Delete_Account,
+                                style: AppTextStyles.heading(
+                                  size: 20,
                                 ),
                               ),
-                            ),
-
-                            //SizedBox(height: 10,),
-
-                            Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-
-                                CustomTextButton(
-                                  text: 'Yes',
-                                  onPressed: () {},
-                                  backgroundColor: Colors.red,
-                                  textColor: CustomColor.Text_Color,
-                                  borderRadius: 8,
-                                  elevation: 2,
-                                  fontSize: 10,
-                                  fontWeight: FontWeight.bold,
-                                  padding: EdgeInsets.symmetric(
-                                    horizontal: 16,
-                                    vertical: 10,
+                              SizedBox(height: 12),
+                              Icon(
+                                Icons.warning_amber,
+                                color: Colors.amberAccent,
+                                size: 40,
+                              ),
+                              SizedBox(height: 12),
+                              Center(
+                                child: Container(
+                                  height: 80,
+                                  width: 200,
+                                  child: Text(
+                                    CustomText.Delete_Alert,
+                                    textAlign: TextAlign.center,
+                                    style: AppTextStyles.small(),
                                   ),
                                 ),
-                                SizedBox(width: 20),
-
-                                CustomTextButton(
-                                  text: 'NO',
-                                  onPressed: () {
-                                    Get.back();
-                                  },
-                                  backgroundColor: CustomColor.Button_background_Color,
-                                  textColor: CustomColor.Text_Color,
-                                  borderRadius: 8,
-                                  elevation: 2,
-                                  fontSize: 10,
-                                  fontWeight: FontWeight.bold,
-                                  padding: EdgeInsets.symmetric(
-                                    horizontal: 16,
-                                    vertical: 10,
+                              ),
+            
+                              //SizedBox(height: 10,),
+            
+                              Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+            
+                                  CustomTextButton(
+                                    text: 'Yes',
+                                    onPressed: () {},
+                                    backgroundColor: Colors.red,
+                                    textColor: CustomColor.Text_Color,
+                                    borderRadius: 8,
+                                    elevation: 2,
+                                    fontSize: 10,
+                                    fontWeight: FontWeight.bold,
+                                    padding: EdgeInsets.symmetric(
+                                      horizontal: 16,
+                                      vertical: 10,
+                                    ),
                                   ),
-                                ),
-                              ],
-                            ),
-                          ],
+                                  SizedBox(width: 20),
+            
+                                  CustomTextButton(
+                                    text: 'NO',
+                                    onPressed: () {
+                                      Get.back();
+                                    },
+                                    backgroundColor: CustomColor.Button_background_Color,
+                                    textColor: CustomColor.Text_Color,
+                                    borderRadius: 8,
+                                    elevation: 2,
+                                    fontSize: 10,
+                                    fontWeight: FontWeight.bold,
+                                    padding: EdgeInsets.symmetric(
+                                      horizontal: 16,
+                                      vertical: 10,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
                         ),
                       ),
-                    ),
-                  );
-                },
-              ),
-              ListTile(
-                leading: Icon(Icons.home, size: 25, color: Colors.white),
-                title: Text(
-                  CustomText.Add_Home,
-                  style: AppTextStyles.small(),
+                    );
+                  },
                 ),
-                onTap: () {
-                  Get.to(() => AddHomeScreen());
-                },
-              ),
-              ListTile(
-                leading: Icon(Icons.home_work, size: 25, color: Colors.white),
-                title: Text(
-                  CustomText.Add_Work,
-                  style: AppTextStyles.small(),
+                ListTile(
+                  leading: Icon(Icons.home, size: 25, color: Colors.white),
+                  title: Text(
+                    CustomText.Add_Home,
+                    style: AppTextStyles.small(),
+                  ),
+                  onTap: () {
+                    Get.to(() => AddHomeScreen());
+                  },
                 ),
-                onTap: () {
-                  Get.to(() => AddWork_Screen());
-                },
-              ),
-            ],
+                ListTile(
+                  leading: Icon(Icons.home_work, size: 25, color: Colors.white),
+                  title: Text(
+                    CustomText.Add_Work,
+                    style: AppTextStyles.small(),
+                  ),
+                  onTap: () {
+                    Get.to(() => AddWork_Screen());
+                  },
+                ),
+              ],
+            ),
           ),
         ),
       ),

@@ -17,8 +17,30 @@ class SwapController extends GetxController {
       {"name": "Bus", "icon":Icons.airplanemode_active_rounded },
       {"name": "Plane", "icon":Icons.directions_bus},
     ];
-    final List<String> Title_Address = ["Home", "Airport", "bus"];
-    final List<String> Address = [ "Address 1","Address 2", "Address 3"];
+
+
+  List<String> busStops = [
+    "Korangi 2 No. Bus Stop",
+    "Nagan Chowrangi Bus Stop",
+    "Gulshan Chowrangi Bus Stop",
+    "Sohrab Goth Bus Stop",
+    "Johar Mor Bus Stop",
+    "Kala Pul Bus Stop",
+    "PIDC Bus Stop",
+    "Tariq Road Bus Stop",
+    "Clifton Teen Talwar Bus Stop",
+    "Shah Faisal Colony Stop",
+    "Saddar Mobile Market Stop",
+    "Cantt Station Bus Stop",
+    "Lahore Thokar Niaz Baig Stop",
+    "Kalma Chowk Bus Stop",
+    "Model Town Link Road Stop",
+    "Anarkali Stop",
+    "Rawalpindi Faizabad Bus Stop",
+    "Murree Road Committee Chowk Stop",
+    "Peshawar Khyber Bazaar Stop",
+    "Faisalabad D Ground Bus Stop"
+  ];
 
   void changeIndex(int index) {
     selectedIndex.value = index;

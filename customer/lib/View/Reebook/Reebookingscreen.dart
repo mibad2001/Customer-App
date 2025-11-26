@@ -239,7 +239,16 @@ class ReebookingScreen extends StatelessWidget {
                                     child: Column(
                                       crossAxisAlignment: CrossAxisAlignment.center,
                                       children: [
-                                        SizedBox(height: 15),
+                                        SizedBox(height: 8),
+                                        Container(
+                                          height: 5,
+                                          width: 40,
+                                          decoration: BoxDecoration(
+                                            color: CustomColor.Icon_Color,
+                                            borderRadius: BorderRadius.circular(10),
+                                          ),
+                                        ),
+                                        SizedBox(height: 10),
 
                                         // ---------- Heading ----------
                                         Text(

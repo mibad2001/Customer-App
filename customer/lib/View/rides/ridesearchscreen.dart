@@ -39,7 +39,7 @@ class RideSearchScreen extends StatelessWidget {
 
             Container(
               height: MediaQuery.of(context).size.height * 0.1,
-              padding: const EdgeInsets.symmetric(horizontal: 10),
+              //padding: const EdgeInsets.symmetric(horizontal: 10),
               decoration: BoxDecoration(
                // color: CustomColor.Container_Colors,
                 borderRadius: const BorderRadius.only(
@@ -75,8 +75,7 @@ class RideSearchScreen extends StatelessWidget {
                     ),
                   ),
 
-                  // Optional: add empty space or another icon here if needed
-                  SizedBox(width: MediaQuery.of(context).size.width * 0.06),
+
                 ],
               ),
             ),
@@ -137,7 +136,7 @@ class RideSearchScreen extends StatelessWidget {
             ),
             SizedBox(height: 10),
             Container(
-              height: 200,
+              height: MediaQuery.of(context).size.height*0.2,
 
               decoration: BoxDecoration(
                   //color: Colors.yellow,

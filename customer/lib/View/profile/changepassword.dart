@@ -3,6 +3,8 @@ import 'package:customer/View/Widgets/color.dart';
 import 'package:customer/View/Widgets/elevat_button.dart';
 import 'package:customer/View/Widgets/textformfield.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
 
 class Changepassword extends StatelessWidget {
   const Changepassword({super.key});
@@ -27,15 +29,27 @@ class Changepassword extends StatelessWidget {
             ),
           ),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
+           // mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                "Change Password",
-                style: TextStyle(
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
+              Container(
+                //padding: const EdgeInsets.all(15.0),
+                child: IconButton(
+                  onPressed: () {
+                    Get.back();
+                  },
+                  icon: Icon(Icons.arrow_back, color: CustomColor.Icon_Color),
+                ),
+              ),
+              SizedBox(height: MediaQuery.of(context).size.height*0.25,),
+              Center(
+                child: Text(
+                  "Change Password",
+                  style: TextStyle(
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
                 ),
               ),
               SizedBox(height: 20),
@@ -138,15 +152,17 @@ class Changepassword extends StatelessWidget {
               //
               SizedBox(height: 15),
 
-              SizedBox(
-                height: 50,
-                width: 250  ,
-                child: MyElevatedButton(
-                  text: 'Next',
-                  onPressed: () {
+              Center(
+                child: SizedBox(
+                  height: 50,
+                  width: 250  ,
+                  child: MyElevatedButton(
+                    text: 'Next',
+                    onPressed: () {
 
-                  },
-                  fontSize: 20,
+                    },
+                    fontSize: 20,
+                  ),
                 ),
               ),
             ],

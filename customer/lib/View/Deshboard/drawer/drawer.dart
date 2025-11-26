@@ -42,7 +42,7 @@ class appDrawer extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Text(
-                    "MUHAMMAD FAHEEM",
+                    "MUHAMMAD IBAD ULLAH QURESHI",
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                     style: AppTextStyles.medium(
@@ -52,16 +52,16 @@ class appDrawer extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(left: 10.0),
                   child: Text(
-                    "Abcasdfghjk@gmai.com",
-                    style: AppTextStyles.regular(
-
-                    ),
+                    "mibadulalhqureshi@gmail.com",
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: AppTextStyles.regular(),
                   ),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(left: 10.0),
                   child: Text(
-                    "x123456789",
+                    "0123456789",
                     style: AppTextStyles.regular(
 
                     ),

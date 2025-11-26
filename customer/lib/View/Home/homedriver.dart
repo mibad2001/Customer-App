@@ -9,6 +9,7 @@ import 'package:customer/View/textstyle/apptextstyle.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../Deshboard/AddWork/add_work.dart';
 import '../Widgets/elevat_button.dart';
 
 class HomeDriver extends StatelessWidget {
@@ -51,139 +52,140 @@ class HomeDriver extends StatelessWidget {
 
                           Container(
                             height:  homeC.viaControllers.length == 0
-                                ? MediaQuery.of(context).size.height * 0.35
+                                ? MediaQuery.of(context).size.height * 0.3
                                 : homeC.viaControllers.length == 1
-                                ? MediaQuery.of(context).size.height * 0.38
-                                : MediaQuery.of(context).size.height * 0.43,
+                                ? MediaQuery.of(context).size.height * 0.35
+                                : MediaQuery.of(context).size.height * 0.4,
+                            width: MediaQuery.of(context).size.height * 0.7    ,
                             decoration: BoxDecoration(
                               borderRadius: const BorderRadius.only(
                                 bottomLeft: Radius.circular(30),
                                 bottomRight: Radius.circular(30),
                               ),
                             ),
+
                             child: Container(
                               //padding: const EdgeInsets.all(12.0),
-                              child: SingleChildScrollView(
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    IconButton(
-                                      onPressed: () {
-                                        Get.back();
-                                      },
 
-                                      icon: Icon(
-                                        Icons.arrow_back,
-                                        color: CustomColor.Icon_Color,
-                                        size: 30,
-                                      ),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  IconButton(
+                                    onPressed: () {
+                                      Get.back();
+                                    },
+
+                                    icon: Icon(
+                                      Icons.arrow_back,
+                                      color: CustomColor.Icon_Color,
+                                      size: 30,
                                     ),
-                                    SizedBox(height: 2),
+                                  ),
+                                  SizedBox(height: 2),
 
-                                    Padding(
-                                      padding: const EdgeInsets.only(left: 30),
-                                      child: Container(
-                                        width: MediaQuery.of(context).size.width / 1.2,
-                                        child: CustomTextField(
-                                          controller: homeC.firstController,
-                                          hintText: "pick up",
+                                  Row(
+                                    children: [
+                                      Container(
+                                        width:MediaQuery.of(context).size.width*0.88,
+                                        child: Column(
+                                          children: [
+                                            Padding(
+                                              padding: const EdgeInsets.only(left: 30),
+                                              child: Container(width: MediaQuery.of(context).size.width*0.75,
+                                                child: CustomTextField(
+                                                  controller: homeC.firstController,
+                                                  hintText: "pick up",
 
-                                          borderRadius: 20,
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(height: 5),
-
-                                    // -----------swap Button-------------------
-                                    Container(
-                                      height: 25,
-                                      width: MediaQuery.of(context).size.width,
-                                      alignment: Alignment.centerRight,
-                                      child: IconButton(
-                                        onPressed: homeC.swapValues,
-                                        icon: const Icon(
-                                          Icons.swap_vert,
-                                          size: 32,
-                                          color: CustomColor.Icon_Color,
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(height: 15),
-
-                                    Padding(
-                                      padding:  EdgeInsets.only(left: 30),
-                                      child: SizedBox(
-                                        width: MediaQuery.of(context).size.width / 1.2,
-                                        child: CustomTextField(
-                                          controller: homeC.secondController,
-                                          hintText: "Destination",
-
-                                          borderRadius: 20,
-                                        ),
-                                      ),
-                                    ),
-
-                                    SizedBox(height: 5,),
-
-
-
-
-                                    // ------------------------------- --------------------      VIA button
-                                    Row(
-                                      children: [
-                                        //SizedBox(width: MediaQuery.of(context).size.width*0.67,),
-                                        Spacer(),
-                                        Padding(
-                                          padding: EdgeInsets.only(right: 8.0),
-                                          child: TextButton.icon(
-                                            onPressed: () {
-                                              homeC.addViaField();
-                                            },
-                                            icon:  Icon(Icons.add, color: CustomColor.Icon_Color),
-                                            label:  Text(
-                                              "Add Via",
-                                              style: AppTextStyles.regular(
-                                                  weight: FontWeight.bold
+                                                  borderRadius: 20,
+                                                ),
                                               ),
                                             ),
-                                          ),
-                                        ),],
-                                    ),
+                                            SizedBox(height: 15),
+                                            Column(
+                                              children: List.generate(homeC.viaControllers.length, (index) {
+                                                return Container(
+                                                  padding: const EdgeInsets.only(left: 30,bottom: 10),
+                                                  child: Row(
+                                                    children: [
+                                                      Expanded(
+                                                        child: CustomTextField(
+                                                          controller: homeC.viaControllers[index],
+                                                          hintText: index == 0
+                                                              ? "1st Stop"
+                                                              : "2nd Stop",
 
-                                    // ---------------------------     add fields
-
-                                      Column(
-                                        children: List.generate(homeC.viaControllers.length, (index) {
-                                          return Padding(
-                                            padding: const EdgeInsets.only(left: 30, bottom: 10),
-                                            child: Row(
-                                              children: [
-                                                Expanded(
-                                                  child: CustomTextField(
-                                                    controller: homeC.viaControllers[index],
-                                                    hintText: index == 0
-                                                        ? "1st Stop"
-                                                        : "2nd Stop",
-
-                                                    borderRadius: 20,
+                                                          borderRadius: 20,
+                                                        ),
+                                                      ),
+                                                      const SizedBox(width: 8),
+                                                      IconButton(
+                                                        icon: const Icon(Icons.remove_circle, color: Colors.red),
+                                                        onPressed: () {
+                                                          homeC.removeViaField(index);
+                                                        },
+                                                      ),
+                                                    ],
                                                   ),
-                                                ),
-                                                const SizedBox(width: 8),
-                                                IconButton(
-                                                  icon: const Icon(Icons.remove_circle, color: Colors.red),
-                                                  onPressed: () {
-                                                    homeC.removeViaField(index);
-                                                  },
-                                                ),
-                                              ],
+                                                );
+                                              }),
                                             ),
-                                          );
-                                        }),
+
+                                            Padding(
+                                              padding:  EdgeInsets.only(left: 30),
+                                              child: SizedBox(
+                                                width: MediaQuery.of(context).size.width *0.75,
+                                                child: CustomTextField(
+                                                  controller: homeC.secondController,
+                                                  hintText: "Destination",
+
+                                                  borderRadius: 20,
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
                                       ),
 
 
-                                  ],
-                                ),
+
+                                        ],
+                                  ),
+
+                                  SizedBox(height: 5,),
+                                  // -----------swap Button-------------------
+
+
+
+
+
+                                  // ------------------------------- --------------------      VIA button
+                                  Row(
+                                    children: [
+                                      //SizedBox(width: MediaQuery.of(context).size.width*0.67,),
+                                      Spacer(),
+                                      Padding(
+                                        padding: EdgeInsets.only(right: 8.0),
+                                        child: TextButton.icon(
+                                          onPressed: () {
+                                            homeC.addViaField();
+                                          },
+                                          icon:  Icon(Icons.add, color: CustomColor.Icon_Color),
+                                          label:  Text(
+                                            "Add Via",
+                                            style: AppTextStyles.regular(
+                                                weight: FontWeight.bold
+                                            ),
+                                          ),
+                                        ),
+                                      ),],
+                                  ),
+
+                                  // ---------------------------     add fields
+
+
+
+
+                                ],
                               ),
                             ),
                           ),
@@ -358,23 +360,23 @@ class HomeDriver extends StatelessWidget {
                             controller.selectedIndex.value == 0
                                 ? Container(
                               height: 150,
-                              width: 350,
+
                               //color: Colors.grey,
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
                                   ListTile(
+                                    onTap: (){
+                                      Get.to(AddHomeScreen());
+                                    },
                                     title: Text(
-                                      controller.Title_Address[controller
-                                          .selectedIndex
-                                          .value],
+                                    "Home",
                                       style: AppTextStyles.medium(
                                       )
                                     ),
                                     subtitle: Text(
-                                      controller.Address[controller
-                                          .selectedIndex
-                                          .value],
+                                      "Address",
                                       style: AppTextStyles.regular(
                                       ),
                                     ),
@@ -395,6 +397,9 @@ class HomeDriver extends StatelessWidget {
                                     //  ),
                                   ),
                                   ListTile(
+                                    onTap: (){
+                                      Get.to(AddWork_Screen());
+                                    },
                                     title: Text(
                                       "Add_Work",
                                       style: AppTextStyles.medium(
@@ -428,43 +433,45 @@ class HomeDriver extends StatelessWidget {
                             )
 
                                 : Container(
-                              height: 150,
-                              child: ListTile(
-                                title: Text(
-                                  controller.Title_Address[controller
-                                      .selectedIndex
-                                      .value],
-                                  style: TextStyle(
-                                    color: CustomColor.textColor,
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                                subtitle: Text(
-                                  controller.Address[controller
-                                      .selectedIndex
-                                      .value],
-                                  style: TextStyle(
-                                    color: CustomColor.textColor,
-                                    fontSize: 15,
-                                  ),
-                                ),
-                                leading: Icon(
-                                  controller.iconItems[controller
-                                      .selectedIndex
-                                      .value]["icon"],
-                                  color: CustomColor.textColor,
-                                  size: 25,
-                                ),
-                                // trailing: IconButton(
-                                //   icon: Icon(
-                                //     Icons.delete,
-                                //     color: Colors.redAccent,
-                                //     size: 25,
-                                //   ),
-                                //   onPressed: () {},
-                                // ),
-                                //
+                              height: 450,
+                              child: ListView.builder(
+                                itemCount: homeC.busStops.length,
+                                itemBuilder: (context,index){
+                                  return    ListTile(
+                                    title: Text(
+                                      homeC.busStops[index ]  ,
+                                      style: AppTextStyles.regular(
+
+                                      ),
+                                    ),
+                                    // subtitle: Text(
+                                    //   controller.Address[controller
+                                    //       .selectedIndex
+                                    //       .value],
+                                    //   style: TextStyle(
+                                    //     color: CustomColor.textColor,
+                                    //     fontSize: 15,
+                                    //   ),
+                                    // ),
+                                    leading: Icon(
+                                      controller.iconItems[controller
+                                          .selectedIndex
+                                          .value]["icon"],
+                                      color: CustomColor.textColor,
+                                      size: 25,
+                                    ),
+                                    // trailing: IconButton(
+                                    //   icon: Icon(
+                                    //     Icons.delete,
+                                    //     color: Colors.redAccent,
+                                    //     size: 25,
+                                    //   ),
+                                    //   onPressed: () {},
+                                    // ),
+                                    //
+
+                                  );
+                                }
 
                               ),
                             ),

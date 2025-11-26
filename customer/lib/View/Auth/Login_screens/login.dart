@@ -154,6 +154,18 @@ class _SigIn_ScreenState extends State<SigIn_Screen> {
                   ],
                 ),
               ),
+              SizedBox(height:MediaQuery.of(context).size.height*0.12 ,),
+              Container(
+                margin: EdgeInsets.only(right: 100),
+                height: 350,
+                decoration: BoxDecoration(
+                    image: DecorationImage(image: AssetImage( "assets/images/car_login.png"),fit: BoxFit.contain)
+                ),
+
+              )
+
+
+
             ],
           ),
         ),

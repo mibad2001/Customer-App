@@ -152,7 +152,20 @@ class Driverdetailscreen extends StatelessWidget {
               child:  Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(height: 15,),
+
+                  SizedBox(height: 8),
+                  Center(
+                    child: Container(
+                      height: 5,
+                      width: 40,
+                      decoration: BoxDecoration(
+                        color: CustomColor.Icon_Color,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 10),
+
                   Container(
                     padding:  EdgeInsets.all(8.0),
                     child: Row(
@@ -171,18 +184,18 @@ class Driverdetailscreen extends StatelessWidget {
                         //   ),
                         // ),
 
-                        Container(
-                          // padding: EdgeInsets.only(top: 20),
+                        Expanded(
                           child: Text(
                             "Muhammad Ibad Ullah Qureshi",
                             textAlign: TextAlign.center,
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
                             style: AppTextStyles.medium(
-                                //color: CustomColor.Text_Color,
-                                //weight: FontWeight.bold
+                              //color: CustomColor.Text_Color,
+                              //weight: FontWeight.bold
                             ),
                           ),
                         ),
-
                       ],
                     ),
                   ),
@@ -289,15 +302,15 @@ class Driverdetailscreen extends StatelessWidget {
 
                       SizedBox(width: MediaQuery.of(context).size.width*0.1,),
                       Container(
-                        margin : EdgeInsets.only(right: 3,top: 4),
-                        padding: EdgeInsets.all(6),
+                        //margin : EdgeInsets.only(right: 3,top: 4),
+                        //padding: EdgeInsets.all(6),
                         height:60,
                         width: 120,
                         decoration: BoxDecoration(
                           //color: Colors.green,
                             borderRadius: BorderRadius.all(Radius.circular(30))
                         ),
-                        child: Image(image: AssetImage("assets/images/carimage.jpg",),fit: BoxFit.cover,),
+                        child: Image(image: AssetImage("assets/images/carimage.jpg",),fit: BoxFit.contain,),
                       ),
 
                     ],

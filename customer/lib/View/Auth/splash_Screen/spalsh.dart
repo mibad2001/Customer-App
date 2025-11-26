@@ -25,18 +25,18 @@ class _Splash_ScreenState extends State<Splash_Screen> {
     return Scaffold(
       backgroundColor: CustomColor.background,
       body: Container(
-      //   height:MediaQuery.of(context).size.height,
-      //   width:MediaQuery.of(context).size.width,
-      //   decoration: BoxDecoration(
-      //     gradient: LinearGradient(
-      //       colors: [
-      //         Color.fromARGB(255, 30, 1, 44),
-      //         Color.fromARGB(255, 129, 75, 154),
-      //       ],
-      //       begin: Alignment.topCenter,
-      //       end: Alignment.bottomCenter,
-      //     ),
-      //   ),
+        height:MediaQuery.of(context).size.height,
+        width:MediaQuery.of(context).size.width,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [
+              Color.fromARGB(255, 30, 1, 44),
+              Color.fromARGB(255, 129, 75, 154),
+            ],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+          ),
+        ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment:MainAxisAlignment.center,
@@ -52,6 +52,8 @@ class _Splash_ScreenState extends State<Splash_Screen> {
                 ),
               ),
             ),
+
+
           ],
         ),
       ),
