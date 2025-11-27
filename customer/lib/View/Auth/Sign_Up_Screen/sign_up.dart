@@ -49,7 +49,7 @@ class _SigUp_ScreenState extends State<SigUp_Screen> {
                 padding: const EdgeInsets.only(
                   left: 15.0,
                   right: 15.0,
-                  top: 150.0,
+                  top: 100.0,
                 ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -94,6 +94,7 @@ class _SigUp_ScreenState extends State<SigUp_Screen> {
 
                     SizedBox(height: 25),
                     Container(
+                      padding: EdgeInsets.symmetric(vertical: 4),
                       child: PhoneNumber_TextField(
                         hintText: CustomText.hint_text_phone_number,
                       ),

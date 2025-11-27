@@ -3,20 +3,21 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
 class SwapController extends GetxController {
-  final firstController = TextEditingController();
-  final secondController = TextEditingController();
+  // final firstController = TextEditingController();
+  // final secondController = TextEditingController();
   var selectedItem = (0).obs;
   RxInt selectedIndex = 0.obs;
 
-    RxList<TextEditingController> viaControllers = <TextEditingController>[].obs;
-
+  // // var showInterchange = true.obs;
+  //   RxList<TextEditingController> viaControllers = <TextEditingController>[].obs;
+  //
 
 
   List<Map<String, dynamic>> iconItems = [
-      {"name": "Home", "icon": Icons.home},
-      {"name": "Bus", "icon":Icons.airplanemode_active_rounded },
-      {"name": "Plane", "icon":Icons.directions_bus},
-    ];
+    {"name": "Home", "icon": Icons.home},
+    {"name": "Bus", "icon": Icons.airplanemode_active_rounded},
+    {"name": "Plane", "icon": Icons.directions_bus},
+  ];
 
 
   List<String> busStops = [
@@ -46,13 +47,13 @@ class SwapController extends GetxController {
     selectedIndex.value = index;
   }
 
-  swapValues() {
-    final temp = firstController.text;
-    firstController.text = secondController.text;
-    secondController.text = temp;
-
-    update();
-  }
+  // swapValues() {
+  //   final temp = firstController.text;
+  //   firstController.text = secondController.text;
+  //   secondController.text = temp;
+  //
+  //   update();
+  // }
 
 
   //
@@ -64,15 +65,94 @@ class SwapController extends GetxController {
   // }
 
 
-  void addViaField() {
-    if (viaControllers.length < 2) {    // max 2 via stops
-      viaControllers.add(TextEditingController());
-      update();
+  // void addViaField() {
+  //   if (viaControllers.length < 2) {    // max 2 via stops
+  //     viaControllers.add(TextEditingController());
+  //     update();
+  //   }
+  // }
+  //
+  // void removeViaField(int index) {
+  //   viaControllers.removeAt(index);
+  //   update();
+  // }
+
+
+  //var selectedItem =(0).obs;
+  var showInterchange = true.obs;
+  var controllers = <TextEditingController>[].obs;
+  final TextEditingController pickUp = TextEditingController(); // observable list
+  final TextEditingController dropOff = TextEditingController(); // observable list
+
+
+
+
+
+  void selectedContainer(int index) {
+    selectedItem.value = index;
+  }
+
+
+  void swapField() {
+    String temp = pickUp.text;
+    pickUp.text = dropOff.text;
+    dropOff.text = temp;
+  }
+
+
+  void addField() {
+    showInterchange.value = false;
+    if (controllers.length < 2) {
+      controllers.add(TextEditingController());
+
+    }
+    //else {
+    //   Get.snackbar(
+    //     "",
+    //     "",
+    //     titleText: const SizedBox.shrink(),
+    //     messageText: Row(
+    //       children: [
+    //         Container(
+    //           width: 20,
+    //           height: 20,
+    //           clipBehavior: Clip.antiAlias,
+    //           decoration: BoxDecoration(
+    //               color: Color(0xFF262C60),
+    //               borderRadius: BorderRadius.circular(3),
+    //               image: DecorationImage(image: AssetImage('assets/logo.png'))),
+    //
+    //         ),
+    //         const SizedBox(width: 14),
+    //         const Text(
+    //           "Can't add more than 2 Via",
+    //           style: TextStyle(color: Colors.white, fontSize: 15),
+    //         ),
+    //       ],
+    //     ),
+    //     snackPosition: SnackPosition.BOTTOM,
+    //     backgroundColor: Colors.grey.shade900,
+    //     borderRadius: 10,
+    //     margin: const EdgeInsets.symmetric(horizontal: 60, vertical: 40),
+    //     padding: EdgeInsets.only(
+    //       left: 12,
+    //       right: 12,
+    //       bottom: 12,
+    //       top: 4,
+    //     ),
+    //     duration: const Duration(seconds: 2),
+    //   );
+    // }
+  }
+
+  void removeField(int index) {
+    controllers[index].dispose();
+
+    controllers.removeAt(index);
+        if (controllers.isEmpty) {
+      showInterchange.value = true;
     }
   }
 
-  void removeViaField(int index) {
-    viaControllers.removeAt(index);
-    update();
-  }
+
 }

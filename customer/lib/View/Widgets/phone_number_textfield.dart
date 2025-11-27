@@ -19,7 +19,7 @@ class PhoneNumber_TextField extends StatelessWidget {
               borderRadius: BorderRadius.circular(15),
             ),
                enabledBorder: OutlineInputBorder(
-              borderSide: const BorderSide(color: Color(0xFF4F46E5), width: 0.5), // unfocused
+              borderSide: const BorderSide(color: CustomColor.textfield_fill, width: 0.5), // unfocused
               borderRadius: BorderRadius.circular(15),
             ),
             focusedBorder: OutlineInputBorder(

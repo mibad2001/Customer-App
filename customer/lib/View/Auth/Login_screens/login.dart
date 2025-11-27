@@ -87,7 +87,6 @@ class _SigIn_ScreenState extends State<SigIn_Screen> {
                           color: CustomColor.textField_Icon_Color,
                         ),
                       ),
-
                       hintText: CustomText.hint_password,
                       FontSize: 14,
                       prefixIcon: Icon(
