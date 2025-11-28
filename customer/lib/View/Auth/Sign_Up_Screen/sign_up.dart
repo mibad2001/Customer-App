@@ -94,7 +94,8 @@ class _SigUp_ScreenState extends State<SigUp_Screen> {
 
                     SizedBox(height: 25),
                     Container(
-                      padding: EdgeInsets.symmetric(vertical: 4),
+                      height:70,
+                      //padding: EdgeInsets.symmetric(vertical: 7),
                       child: PhoneNumber_TextField(
                         hintText: CustomText.hint_text_phone_number,
                       ),
@@ -157,7 +158,7 @@ class _SigUp_ScreenState extends State<SigUp_Screen> {
 
               Center(
                 child:  SizedBox(
-                  height: 50,
+                  height: 55,
                   width: 250,
                   child: MyElevatedButton(
                     text: "Sign Up",

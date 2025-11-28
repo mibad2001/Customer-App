@@ -113,7 +113,7 @@ class _SigIn_ScreenState extends State<SigIn_Screen> {
                     ),
                     SizedBox(height: 10),
                     SizedBox(
-                      height: 50,
+                      height: 55,
                       width: 250,
                       child: MyElevatedButton(
                         text: "Log In",

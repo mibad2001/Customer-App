@@ -410,6 +410,7 @@ class HomeDriver extends StatelessWidget {
                                           "Address",
                                           style: AppTextStyles.small(
                                             weight: FontWeight.bold,
+                                            size: 11,
                                             color:
                                             homeC.selectedItem.value == 0
                                                 ? Colors.black
@@ -454,9 +455,8 @@ class HomeDriver extends StatelessWidget {
                                         Text(
                                           "Airport",
                                           style: AppTextStyles.small(
-                                            weight: FontWeight.bold,
-                                            color:
-                                            homeC.selectedItem.value == 1
+                                              weight: FontWeight.bold,
+                                            color: homeC.selectedItem.value == 1
                                                 ? Colors.black
                                                 : Colors.white,
                                           ),
@@ -653,7 +653,7 @@ class HomeDriver extends StatelessWidget {
                   Spacer(),
                   Container(
                     height:MediaQuery.of(context).size.height*0.15,
-                    padding: EdgeInsets.only(bottom: 25),
+                    padding: EdgeInsets.only(bottom: 20),
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
@@ -662,6 +662,7 @@ class HomeDriver extends StatelessWidget {
                           width: 250,
                           child: MyElevatedButton(
                             text: 'CONTINUE',
+                            fontSize: 18,
                             onPressed: () {
                               Get.dialog(
                                 Dialog(
@@ -671,7 +672,7 @@ class HomeDriver extends StatelessWidget {
                                       borderRadius: BorderRadius.circular(20),
                                     ),
                                     height: 320,
-                                    width: 300,
+                                    width: 350,
                                     child: Column(
                                       children: [
                                         const SizedBox(height: 25),
@@ -703,32 +704,70 @@ class HomeDriver extends StatelessWidget {
                                           ),
                                         ),
                                         //const SizedBox(height: 10),
+                                        // SizedBox(
+                                        //   height: 50,
+                                        //   width: 250,
+                                        //   child: MyElevatedButton(
+                                        //     text: 'Select Current location',
+                                        //     fontSize: 6,
+                                        //
+                                        //     onPressed: () {},
+                                        //
+                                        //   ),
+                                        // ),
                                         SizedBox(
                                           height: 50,
                                           width: 250,
                                           child: MyElevatedButton(
-                                            text: 'Select Current location',
+                                            text: 'Select Current Location',
+                                            fontSize: 14,          // increase size
                                             onPressed: () {},
+                                            textWidget: FittedBox(
+                                              fit: BoxFit.scaleDown,
+                                              child: Text(
+                                                'Select Current Location',
+                                                style: AppTextStyles.regular(size: 16),
+                                              ),
+                                            ),
                                           ),
                                         ),
+
                                         const SizedBox(height: 15),
                                         SizedBox(
                                           height: 50,
                                           width: 250,
                                           child: MyElevatedButton(
-                                            text: 'Select Pick Up location',
+                                            text: "",
                                             onPressed: () {
                                               Get.toNamed('/RideInfoScreen');
                                             },
+                                            textWidget: FittedBox(
+                                              fit: BoxFit.scaleDown,
+                                              child: Text(
+                                                "Select PickUp Location",
+                                                style: AppTextStyles.medium(size: 16),
+                                              ),
+                                            ),
                                           ),
                                         ),
+
+                                        // SizedBox(
+                                        //   height: 50,
+                                        //   width: 250,
+                                        //   child: MyElevatedButton(
+                                        //     text: 'Select PickUp location',
+                                        //     fontSize: 6,
+                                        //     onPressed: () {
+                                        //       Get.toNamed('/RideInfoScreen');
+                                        //     },
+                                        //   ),
+                                        // ),
                                       ],
                                     ),
                                   ),
                                 ),
                               );
                             },
-                            fontSize: 20,
                           ),
                         ),
 

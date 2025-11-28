@@ -19,7 +19,7 @@ class PhoneNumber_TextField extends StatelessWidget {
               borderRadius: BorderRadius.circular(15),
             ),
                enabledBorder: OutlineInputBorder(
-              borderSide: const BorderSide(color: CustomColor.textfield_fill, width: 0.5), // unfocused
+              borderSide: const BorderSide(color: CustomColor.blueGrey, width: 0.5), // unfocused
               borderRadius: BorderRadius.circular(15),
             ),
             focusedBorder: OutlineInputBorder(
@@ -31,7 +31,7 @@ class PhoneNumber_TextField extends StatelessWidget {
 
         labelText: hintText,
         prefixIcon: Icon(Icons.call, color: CustomColor.Text_Color, size: 50),
-        labelStyle: AppTextStyles.medium(color: CustomColor.blueGrey),
+        labelStyle: AppTextStyles.small(size:14,color: CustomColor.blueGrey),
         filled: true,
         fillColor: Colors.white70,
     

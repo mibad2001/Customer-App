@@ -48,173 +48,213 @@ class DeshBoard_Screen extends StatelessWidget {
             ),
           ),
 
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                Container(
-                  height: MediaQuery.of(context).size.height*0.6,
-                  child: Stack(
-                    children: [
-                      ///////////////////////////////////////// Map
-                      Container(
-                        height: MediaQuery.of(context).size.height*0.6,
-                        child: Image(image: AssetImage("assets/images/map2.png"),fit: BoxFit.cover,),
-                        //         child: OpenStreetMapWidget(),
-                      ),
+          child: Column(
+            children: [
+              Container(
+                height: MediaQuery.of(context).size.height*0.6,
+                child: Stack(
+                  children: [
+                    ///////////////////////////////////////// Map
+                    Container(
+                      height: MediaQuery.of(context).size.height*0.6,
+                      child: Image(image: AssetImage("assets/images/map2.png"),fit: BoxFit.cover,),
+                      //         child: OpenStreetMapWidget(),
+                    ),
 
 
-                      // =====================================================Profile buttom
-                      Positioned(
-                        left: 10,
-                        top: 20,
-                        child: Container(
-                          height: 60,
-                          width: 60,
-                          decoration: BoxDecoration(
-                              color: CustomColor.background,
-                              borderRadius: BorderRadius.all(Radius.circular(20))
-                          ),
-                          child:
-                          Center(
-                              child: IconButton(
-                                  onPressed: (){
-                                    _scaffoldkey.currentState!.openDrawer();
+                    // =====================================================Profile buttom
+                    Positioned(
+                      left: 10,
+                      top: 20,
+                      child: Container(
+                        height: 60,
+                        width: 60,
+                        decoration: BoxDecoration(
+                            color: CustomColor.background,
+                            borderRadius: BorderRadius.all(Radius.circular(20))
+                        ),
+                        child:
+                        Center(
+                            child: IconButton(
+                                onPressed: (){
+                                  _scaffoldkey.currentState!.openDrawer();
 
-                                    // Get.to(ProfileScreen());
-                                  },
-                                  icon: Icon(Icons.person,size: 30
-                                    ,color: Colors.grey,)
-                              )
-                          ),
+                                  // Get.to(ProfileScreen());
+                                },
+                                icon: Icon(Icons.person,size: 30
+                                  ,color: Colors.grey,)
+                            )
                         ),
                       ),
+                    ),
 
 
 
-                    ],
-                  ),
+                  ],
+                ),
+              ),
+              Spacer(),
+
+              Container(
+                height: MediaQuery.of(context).size.height*0.357,
+                decoration: BoxDecoration(
+                    color:Color(0xFF5E266F)
+                  // borderRadius: BorderRadius.only(topLeft: Radius.circular(30),topRight: Radius.circular(30)),
                 ),
 
-                Container(
-                  height: MediaQuery.of(context).size.height*0.4,
-                  decoration: BoxDecoration(
-                    color:Color(0xFF5E266F)
-                    // borderRadius: BorderRadius.only(topLeft: Radius.circular(30),topRight: Radius.circular(30)),
-                  ),
+                padding: const EdgeInsets.only(
+                    top: 30.0,
+                    left: 10.0,
+                    right: 10.0),
+                child: Column(
+                  // mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 8.0),
 
-                    padding: const EdgeInsets.only(
-                  top: 30.0,
-                  left: 10.0,
-                      right: 10.0),
-                    child: Column(
-                      // mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(left: 8.0),
+                      child: Row(
+                        children: [
+                          Icon(
+                            Icons.person_2_rounded,
+                            size: 27,
+                            color: CustomColor.textColor,
+                          ),
+                          SizedBox(width: 10),
+                          Text(
+                            "User Name",
+                            style: AppTextStyles.medium(
+                              weight: FontWeight.bold,),
 
+                          ),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      margin: const EdgeInsets.all(10),
+                      height: 50,
+
+                      // ⬇️ Width set here (40% of screen)
+                      width: MediaQuery.of(context).size.width * 0.9,
+
+                      // ⬇️ For fixed width, use this instead:
+                      // width: 150,
+
+                      decoration: BoxDecoration(
+                        color: const Color(0xFFB7D98F).withOpacity(0.2),
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 15.0, right: 5.0),
+                        child: InkWell(
+                          onTap: () {
+                            Get.to(HomeDriver());
+                          },
                           child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Icon(
-                                Icons.person_2_rounded,
-                                size: 27,
-                                color: CustomColor.textColor,
-                              ),
-                              SizedBox(width: 10),
                               Text(
-                                "User Name",
+                                "Where To",
                                 style: AppTextStyles.medium(
-                                weight: FontWeight.bold,),
-
+                                  weight: FontWeight.bold,
+                                ),
+                              ),
+                              Icon(
+                                Icons.arrow_right,
+                                size: 40,
+                                color: CustomColor.Icon_Color,
                               ),
                             ],
                           ),
                         ),
-                        //SizedBox(height: 10),
+                      ),
+                    ),
 
-                        Container(
-                          margin:EdgeInsets.all(10),
-                          height: 50,
-                          width: 350,
-                          decoration: BoxDecoration(
-                            color: Color(0xFFB7D98F).withOpacity(0.2),
-                            borderRadius: BorderRadius.circular(15),
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.only(left: 15.0, right: 5.0),
-                            child: InkWell(
-                              onTap: () {
-                                Get.to(HomeDriver());
-                              },
-                              child: Row(
-                                children: [
-                                  Text(
-                                     "Where To",style: AppTextStyles.medium(
-                                    weight: FontWeight.bold,),
+                    //SizedBox(height: 10),
 
-                                  ),
-                                  Spacer(),
-                                  Icon(Icons.arrow_right, size: 40,color: CustomColor.Icon_Color,),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                        // SizedBox(height: 10,),
-                        Column(
-                          children: [
-                            CustomTextButton(
-                              text: "Add Home",
-                              onPressed: () {
-                                Get.to(AddHomeScreen());
-                              },
-                              icon: Icon(
-                                  Icons.home, color: CustomColor.Icon_Color),
-                              fontWeight: FontWeight.bold,
-                              fontSize: 16,
-                            ),
-                            Obx(
-                                  () => Container(
-                                child: Text(
-                                  deshboard_controller.homeAddress.isEmpty
-                                      ? ''
-                                      : deshboard_controller.homeAddress.toString(),
-                                  style:  AppTextStyles.small(
-                                  size  : 12,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
+                    // Container(
+                    //   margin:EdgeInsets.all(10),
+                    //   height: 50,
+                    //    width:
+                    //    MediaQuery.of(context).size.width*0.33,
+                    //   decoration: BoxDecoration(
+                    //     color: Color(0xFFB7D98F).withOpacity(0.2),
+                    //     borderRadius: BorderRadius.circular(15),
+                    //   ),
+                    //   child: Padding(
+                    //     padding: const EdgeInsets.only(left: 15.0, right: 5.0),
+                    //     child: InkWell(
+                    //       onTap: () {
+                    //         Get.to(HomeDriver());
+                    //       },
+                    //       child: Row(
+                    //         children: [
+                    //           Text(
+                    //             "Where To",style: AppTextStyles.medium(
+                    //             weight: FontWeight.bold,),
+                    //
+                    //           ),
+                    //           Spacer(),
+                    //           Icon(Icons.arrow_right, size: 40,color: CustomColor.Icon_Color,),
+                    //         ],
+                    //       ),
+                    //     ),
+                    //   ),
+                    // ),
+                    // SizedBox(height: 10,),
+                    Column(
+                      children: [
                         CustomTextButton(
-                          text: "Add Work",
+                          text: "Add Home",
                           onPressed: () {
-                            Get.to(AddWork_Screen());
+                            Get.to(AddHomeScreen());
                           },
-                          icon: Icon(Icons.work, color: CustomColor.Icon_Color),
+                          icon: Icon(
+                              Icons.home, color: CustomColor.Icon_Color),
                           fontWeight: FontWeight.bold,
                           fontSize: 16,
                         ),
-                        SizedBox(height: 10,),
-                        CustomTextButton(
-                          text: "Previous trip",
-                          onPressed: () {
-                            Get.to(Yourtrip());
-                          },
-                          icon: Icon(Icons.picture_in_picture, color: CustomColor.Icon_Color),
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16,
+                        Obx(
+                              () => Container(
+                            child: Text(
+                              deshboard_controller.homeAddress.isEmpty
+                                  ? ''
+                                  : deshboard_controller.homeAddress.toString(),
+                              style:  AppTextStyles.small(
+                                size  : 12,
+                              ),
+                            ),
+                          ),
                         ),
                       ],
                     ),
-
-
+                    CustomTextButton(
+                      text: "Add Work",
+                      onPressed: () {
+                        Get.to(AddWork_Screen());
+                      },
+                      icon: Icon(Icons.work, color: CustomColor.Icon_Color),
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                    ),
+                    SizedBox(height: 10,),
+                    CustomTextButton(
+                      text: "Previous trip",
+                      onPressed: () {
+                        Get.to(Yourtrip());
+                      },
+                      icon: Icon(Icons.picture_in_picture, color: CustomColor.Icon_Color),
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                    ),
+                  ],
                 ),
 
 
-              ],
-            ),
+              ),
+
+
+            ],
           ),
         ),
       )

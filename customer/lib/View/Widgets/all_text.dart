@@ -11,7 +11,7 @@ class CustomText {
   static const String Login_text = 'Welcome Back';
   static const String Login_text_description = 'Enter your credential to login';
   static const String SigUp_TremsAndCondition = 'Trems & Condition';
-  static const String SigUp_Trems_Text = 'By creating an account, I accept the';
+  static const String SigUp_Trems_Text = 'Creating an account, I accept the';
   static const String Terms_text_1 = "Before  you create an account, please read and accept our Terms & Conditions";
   static const String Terms_Text_1_light = "Last updated: 15 February 2025";
   static const String Terms_Text_2 = "1. Conditions of use";
