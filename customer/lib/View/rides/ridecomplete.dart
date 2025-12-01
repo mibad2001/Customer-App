@@ -39,7 +39,7 @@ class RideCompleteScreen extends StatelessWidget {
               children: [
                 Container(
                   padding: EdgeInsets.symmetric(horizontal: 15),
-                  height: MediaQuery.of(context).size.height*0.9 ,
+                  height: MediaQuery.of(context).size.height*0.85,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -211,23 +211,35 @@ class RideCompleteScreen extends StatelessWidget {
                       SizedBox(height: 50,),
 
                       Center(
-                        child: SizedBox(
+                        child:  SizedBox(
                           height: 50,
                           width: 250  ,
                           child: MyElevatedButton(
-                            text: 'DONE',
+                            text: '',
                             onPressed: () {
-                              Get.to(ThanksScreen());
+                              Get.toNamed('/ThanksScreen');
                             },
-                            fontSize: 20,
+                            textWidget:
+                            FittedBox(
+                                fit: BoxFit.scaleDown,
+                                child: Text('Done',style: AppTextStyles.regular(size: 18,weight: FontWeight.bold),
+                                )
+                            ),
+
+
                           ),
                         ),
+
                       ),
+
+
+
 
 
                     ],
                   ),
                 ),
+                Spacer(),
 
                 Container(
                   padding: EdgeInsets.symmetric(vertical: 5),
@@ -235,7 +247,7 @@ class RideCompleteScreen extends StatelessWidget {
                    color: CustomColor.Container_Colors,
                    borderRadius: BorderRadius.only(topLeft: Radius.circular(20),topRight: Radius.circular(20))
                  ),
-                  height: MediaQuery.of(context).size.height*0.1,
+                  //height: MediaQuery.of(context).size.height*0.15,
                   child:   Row(
                     mainAxisAlignment:MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,

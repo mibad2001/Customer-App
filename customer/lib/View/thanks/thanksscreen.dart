@@ -19,7 +19,7 @@ class ThanksScreen extends StatelessWidget {
         body: Container(
           height:MediaQuery.of(context).size.height,
           width:MediaQuery.of(context).size.width,
-          padding: EdgeInsets.symmetric(horizontal: 15),
+          padding: EdgeInsets.symmetric(horizontal: 15,vertical: 15),
           decoration: BoxDecoration(
             gradient: LinearGradient(
               colors: [
@@ -160,6 +160,8 @@ class ThanksScreen extends StatelessWidget {
                         " Worrior Garden St.LEO TN36eb",
                         softWrap: true,
                         textAlign: TextAlign.center,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
                         style: AppTextStyles.medium(),
                       ),
                     ),
@@ -168,31 +170,36 @@ class ThanksScreen extends StatelessWidget {
               ),
 
               SizedBox(height: 5),
-
               Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  CustomText.Payments_Method,
-                  textAlign: TextAlign.center,
-                  style: AppTextStyles.medium(),
+                padding: const EdgeInsets.only(left: 7.0),
+                child: Row(
+                  children: [
+                    Text(
+                      CustomText.Payments_Method + " : ",
+                      textAlign: TextAlign.center,
+                      style: AppTextStyles.medium(),
+                    ),
+                    SizedBox(width: 5),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        "Cash",
+                        textAlign: TextAlign.center,
+                        style: AppTextStyles.medium(),
+                      ),
+                    ),
+                  ],
                 ),
               ),
 
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  "Cash",
-                  textAlign: TextAlign.center,
-                  style:AppTextStyles.medium(),
-                ),
-              ),
+
 
               Padding(
                 padding: const EdgeInsets.only(left: 7.0),
                 child: Row(
                   children: [
                     Text(
-                      CustomText.Status + "  ",
+                      CustomText.Status + " : ",
                       textAlign: TextAlign.center,
                       style: AppTextStyles.medium(),
                     ),
@@ -249,11 +256,12 @@ class ThanksScreen extends StatelessWidget {
                   width: 250,
                   child: MyElevatedButton(
                     text: 'DONE',
+                    textWidget: FittedBox(
+                      child: Text("DONE",style: AppTextStyles.regular(size: 16,weight: FontWeight.bold),),
+                    ),
                     onPressed: () {
                      Get.to(DeshBoard_Screen()) ;
                     },
-
-                    fontSize: 20,
                   ),
                 ),
               ),

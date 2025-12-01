@@ -1,6 +1,8 @@
 
+import 'package:customer/View/textstyle/apptextstyle.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get/get_connect/http/src/utils/utils.dart';
 
 import '../Widgets/color.dart';
 import '../Widgets/elevat_button.dart';
@@ -71,6 +73,9 @@ class PromoScreen extends StatelessWidget {
                 width: 250  ,
                 child: MyElevatedButton(
                   text: 'DONE',
+                  textWidget: FittedBox(
+                    child: Text("Done",style: AppTextStyles.medium(size: 18,weight: FontWeight.bold),),
+                  ),
                   onPressed: () {  },
                   fontSize: 20,
                 ),

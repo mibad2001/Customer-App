@@ -74,7 +74,7 @@ class appDrawer extends StatelessWidget {
                 SizedBox(height: 5),
                 ListTile(
                   leading: Icon(Icons.home, size: 20, color: Colors.white),
-                  title: Text("Home", style: AppTextStyles.small()),
+                  title: Text("Home", style: AppTextStyles.regular()),
                   onTap: () {
                     Get.toNamed('/Deshboard');
                   },
@@ -88,7 +88,7 @@ class appDrawer extends StatelessWidget {
                   ),
                   title: Text(
                     "Your Trip",
-                    style: AppTextStyles.small(),
+                    style: AppTextStyles.regular(),
                   ),
                   onTap: () {
                     Get.to(Yourtrip());
@@ -96,7 +96,7 @@ class appDrawer extends StatelessWidget {
                 ),
                 ListTile(
                   leading: Icon(Icons.payments, size: 20, color: Colors.white),
-                  title: Text("Payment",style:  AppTextStyles.small()),
+                  title: Text("Payment",style:  AppTextStyles.regular()),
                   onTap: () {
 
                     Get.to(PaymentScreen());
@@ -106,7 +106,7 @@ class appDrawer extends StatelessWidget {
                   leading: Icon(Icons.settings, size: 20, color: Colors.white),
                   title: Text(
                     "User Profile",
-                    style: AppTextStyles.small(),
+                    style: AppTextStyles.regular(),
                   ),
                   onTap: () {
                     Get.toNamed('/ProfileScreen');
@@ -120,21 +120,22 @@ class appDrawer extends StatelessWidget {
                   ),
                   title: Text(
                     "Invite your Friend",
-                    style: AppTextStyles.small(),
+                    style: AppTextStyles.regular(),
                   ),
                   onTap: () {},
                 ),
                 ListTile(
                   leading: Icon(Icons.person, size: 20, color: Colors.white),
-                  title: Text("About", style: AppTextStyles.small(),),
+                  title: Text("About", style: AppTextStyles.regular(),),
                   onTap: () {
                     Get.toNamed('/AboutScreen');
                   },
                 ),
                 SizedBox(height: 15),
+
                 ListTile(
                   leading: Icon(Icons.logout, size: 20, color: Colors.white),
-                  title: Text("Logout", style:AppTextStyles.small(),),
+                  title: Text("Logout", style:AppTextStyles.regular(),),
                   onTap: () {
                     Get.offAllNamed('/SigIn_Screen');
                   },

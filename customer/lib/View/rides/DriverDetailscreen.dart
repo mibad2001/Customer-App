@@ -32,7 +32,7 @@ class Driverdetailscreen extends StatelessWidget {
         child: Column(
           children: [
             Container(
-              height: MediaQuery.of(context).size.height*0.7,
+              height: MediaQuery.of(context).size.height*0.6,
               child: SingleChildScrollView(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -139,9 +139,11 @@ class Driverdetailscreen extends StatelessWidget {
                 ),
               ),
             ),
+            Spacer(),
 
             Container(
-              height: MediaQuery.of(context).size.height*0.3,
+              height: MediaQuery.of(context).size.height/3,
+              padding: EdgeInsets.only(bottom: 10),
               decoration: BoxDecoration(
                   color: CustomColor.Container_Colors,
                  // color: CustomColor.Button_background_Color.withOpacity(0.3),

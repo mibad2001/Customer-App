@@ -35,23 +35,21 @@ class ExtrasScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-
                 Container(
                   height: MediaQuery.of(context).size.height * 0.1,
                   padding: EdgeInsets.symmetric(horizontal: 8),
                   decoration: BoxDecoration(
-                    //color: CustomColor.Container_Colors,
                     borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(20),
                       bottomRight: Radius.circular(20),
                     ),
                   ),
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
+
                       IconButton(
-                        onPressed: () {
-                          Get.back();
-                        },
+                        onPressed: () => Get.back(),
                         icon: Icon(
                           Icons.arrow_back,
                           size: MediaQuery.of(context).size.width * 0.06,
@@ -59,7 +57,6 @@ class ExtrasScreen extends StatelessWidget {
                         ),
                       ),
 
-                      // SizedBox(width: 5),
 
                       Expanded(
                         child: Center(
@@ -67,16 +64,61 @@ class ExtrasScreen extends StatelessWidget {
                             "Extras",
                             style: AppTextStyles.heading(
                               size: MediaQuery.of(context).size.width * 0.06,
-
                             ),
                           ),
                         ),
                       ),
 
-
+                      // RIGHT SIDE DUMMY BOX
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width * 0.1,
+                      ),
                     ],
                   ),
                 ),
+
+
+                // Container(
+                //   height: MediaQuery.of(context).size.height * 0.1,
+                //   padding: EdgeInsets.symmetric(horizontal: 8),
+                //   decoration: BoxDecoration(
+                //     //color: CustomColor.Container_Colors,
+                //     borderRadius: BorderRadius.only(
+                //       bottomLeft: Radius.circular(20),
+                //       bottomRight: Radius.circular(20),
+                //     ),
+                //   ),
+                //   child: Row(
+                //     children: [
+                //       IconButton(
+                //         onPressed: () {
+                //           Get.back();
+                //         },
+                //         icon: Icon(
+                //           Icons.arrow_back,
+                //           size: MediaQuery.of(context).size.width * 0.06,
+                //           color: CustomColor.Icon_Color,
+                //         ),
+                //       ),
+                //
+                //       // SizedBox(width: 5),
+                //
+                //       Expanded(
+                //         child: Center(
+                //           child: Text(
+                //             "Extras",
+                //             style: AppTextStyles.heading(
+                //               size: MediaQuery.of(context).size.width * 0.06,
+                //
+                //             ),
+                //           ),
+                //         ),
+                //       ),
+                //
+                //
+                //     ],
+                //   ),
+                // ),
 
 
 
@@ -274,9 +316,11 @@ class ExtrasScreen extends StatelessWidget {
                         height: 50,
                         width: 250,
                         child: MyElevatedButton(
-                          text: 'DONE',
-                          onPressed: () {},
-                          fontSize: 20,
+                          text: '',
+                          textWidget: FittedBox(
+                            child: Text("Done",style: AppTextStyles.medium(size: 20,weight: FontWeight.bold),),
+                          ),
+                          onPressed: () {  },
                         ),
                       ),
                     ],

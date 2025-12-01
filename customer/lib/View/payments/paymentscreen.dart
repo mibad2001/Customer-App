@@ -86,6 +86,9 @@ class PaymentScreen extends StatelessWidget {
                width: 250  ,
                child: MyElevatedButton(
                  text: 'Done',
+                 textWidget: FittedBox(
+                   child: Text("Done",style: AppTextStyles.medium(size: 16,weight: FontWeight.bold),),
+                 ),
                  onPressed: () {
                    Get.toNamed("/SigIn_Screen");
                  },
@@ -132,18 +135,7 @@ class PaymentScreen extends StatelessWidget {
               Select_Payment,
               style: AppTextStyles.medium(),
             ),
-            const Spacer(),
-            Container(
-              height: 22,
-              width: 22,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                border: Border.all(color: Colors.white, width: 2),
-                color: controller.selectedMethod.value == index
-                    ? Colors.white
-                    : Colors.transparent,
-              ),
-            ),
+           
           ],
         ),
       ),

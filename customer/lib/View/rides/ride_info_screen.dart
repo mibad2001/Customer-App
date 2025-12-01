@@ -5,6 +5,7 @@ import 'package:customer/View/Widgets/color.dart';
 import 'package:customer/View/textstyle/apptextstyle.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 
 import '../../Controller/Ride/RideController.dart';
 import '../Widgets/elevat_button.dart';
@@ -585,6 +586,79 @@ class _RideInfoScreenState extends State<RideInfoScreen> {
                               const SizedBox(height: 25),
 
                               // ---------- Date & Time ----------
+                              // Center(
+                              //   child: Row(
+                              //     mainAxisAlignment: MainAxisAlignment.center,
+                              //     children: [
+                              //       // ----- Date Picker -----
+                              //       Obx(() => GestureDetector(
+                              //         onTap: () => reebookingController.pickDate(context),
+                              //         child: Container(
+                              //           width: 150,
+                              //           padding:
+                              //           const EdgeInsets.symmetric(horizontal: 10, vertical: 12),
+                              //           decoration: BoxDecoration(
+                              //             borderRadius: BorderRadius.circular(10),
+                              //             color: Colors.black,
+                              //           ),
+                              //           child: Row(
+                              //             mainAxisAlignment: MainAxisAlignment.center,
+                              //             children: [
+                              //               const Icon(Icons.calendar_today,
+                              //                   color: Colors.white, size: 18),
+                              //               const SizedBox(width: 6),
+                              //               Flexible(
+                              //                 child: Text(
+                              //                   reebookingController.formattedTime(context),
+                              //                   style: const TextStyle(
+                              //                     fontSize: 15,
+                              //                     fontWeight: FontWeight.bold,
+                              //                     color: Colors.white,
+                              //                   ),
+                              //                   overflow: TextOverflow.ellipsis,
+                              //                 ),
+                              //               ),
+                              //             ],
+                              //           ),
+                              //         ),
+                              //       )),
+                              //       const SizedBox(width: 15),
+                              //
+                              //       // ----- Time Picker -----
+                              //       Obx(() => GestureDetector(
+                              //         onTap: () => reebookingController.pickTime(context),
+                              //         child: Container(
+                              //           width: 150,
+                              //           padding:
+                              //           const EdgeInsets.symmetric(horizontal: 10, vertical: 12),
+                              //           decoration: BoxDecoration(
+                              //             borderRadius: BorderRadius.circular(10),
+                              //             color: Colors.black,
+                              //           ),
+                              //           child: Row(
+                              //             mainAxisAlignment: MainAxisAlignment.center,
+                              //             children: [
+                              //               const Icon(Icons.access_time,
+                              //                   color: Colors.white, size: 18),
+                              //               const SizedBox(width: 6),
+                              //               Flexible(
+                              //                 child: Text(
+                              //                   reebookingController.formattedTime(context),
+                              //                   style:  AppTextStyles.regular(
+                              //                     weight: FontWeight.bold,
+                              //                   ),
+                              //                   overflow: TextOverflow.ellipsis,
+                              //                 ),
+                              //               ),
+                              //             ],
+                              //           ),
+                              //         ),
+                              //       )),
+                              //     ],
+                              //   ),
+                              // ),
+
+                              // ---------- Date & Time ----------
                               Center(
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
@@ -594,8 +668,7 @@ class _RideInfoScreenState extends State<RideInfoScreen> {
                                       onTap: () => rideController.pickDate(context),
                                       child: Container(
                                         width: 150,
-                                        padding:
-                                        const EdgeInsets.symmetric(horizontal: 10, vertical: 12),
+                                        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 12),
                                         decoration: BoxDecoration(
                                           borderRadius: BorderRadius.circular(10),
                                           color: Colors.black,
@@ -603,12 +676,12 @@ class _RideInfoScreenState extends State<RideInfoScreen> {
                                         child: Row(
                                           mainAxisAlignment: MainAxisAlignment.center,
                                           children: [
-                                            const Icon(Icons.calendar_today,
-                                                color: Colors.white, size: 18),
+                                            const Icon(Icons.calendar_today, color: Colors.white, size: 18),
                                             const SizedBox(width: 6),
                                             Flexible(
                                               child: Text(
-                                                rideController.formattedDate,
+                                                DateFormat('yyyy-MM-dd')
+                                                    .format(rideController.selectedDate.value),
                                                 style: const TextStyle(
                                                   fontSize: 15,
                                                   fontWeight: FontWeight.bold,
@@ -623,13 +696,12 @@ class _RideInfoScreenState extends State<RideInfoScreen> {
                                     )),
                                     const SizedBox(width: 15),
 
-                                    // ----- Time Picker -----
+                                    // ----- Time Picker (24-hour format) -----
                                     Obx(() => GestureDetector(
                                       onTap: () => rideController.pickTime(context),
                                       child: Container(
                                         width: 150,
-                                        padding:
-                                        const EdgeInsets.symmetric(horizontal: 10, vertical: 12),
+                                        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 12),
                                         decoration: BoxDecoration(
                                           borderRadius: BorderRadius.circular(10),
                                           color: Colors.black,
@@ -637,15 +709,12 @@ class _RideInfoScreenState extends State<RideInfoScreen> {
                                         child: Row(
                                           mainAxisAlignment: MainAxisAlignment.center,
                                           children: [
-                                            const Icon(Icons.access_time,
-                                                color: Colors.white, size: 18),
+                                            const Icon(Icons.access_time, color: Colors.white, size: 18),
                                             const SizedBox(width: 6),
                                             Flexible(
                                               child: Text(
-                                                rideController.formattedTime(context),
-                                                style:  AppTextStyles.regular(
-                                                  weight: FontWeight.bold,
-                                                ),
+                                                rideController.formattedTime(context),  // FIXED: now 24-hour time
+                                                style: AppTextStyles.regular(weight: FontWeight.bold),
                                                 overflow: TextOverflow.ellipsis,
                                               ),
                                             ),
@@ -657,31 +726,28 @@ class _RideInfoScreenState extends State<RideInfoScreen> {
                                 ),
                               ),
 
+
                               const SizedBox(height: 35),
 
                               // ========================================================== Book Ride Button
                               SizedBox(
-                                  width: 220,
-                                  height: 50,
-                                  child:  SizedBox(
-                                    height: 50,
-                                    width: 350  ,
-                                    child: MyElevatedButton(
-                                      text: '',
-                                      onPressed: () {
-                                        Get.to(RideSearchScreen());
-                                      },
-                                      textWidget:
-                                      FittedBox(
-                                          fit: BoxFit.scaleDown,
-                                          child: Text("Book Ride",style: AppTextStyles.regular(size: 18),
-                                          )
-                                      ),
+                                height: 50,
+                                width: 250  ,
+                                child: MyElevatedButton(
+                                  text: '',
+                                  onPressed: () {
+                                    Get.to(RideSearchScreen());
+                                  },
+                                  textWidget:
+                                  FittedBox(
+                                      fit: BoxFit.scaleDown,
+                                      child: Text("Book Ride",style: AppTextStyles.regular(size: 18,weight: FontWeight.bold),
+                                      )
+                                  ),
 
-                                      fontSize: 20,
-                                    ),
-                                  )
-                              ),
+                                  fontSize: 20,
+                                ),
+                              )
                             ],
                           ),
                         ),

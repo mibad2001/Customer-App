@@ -78,8 +78,19 @@ class RideController extends GetxController {
   }
 
   // ===========================================      Format for Display
-  String get formattedDate {
-    return DateFormat('yyyy-MM-dd').format(selectedDate.value);
+  // String get formattedDate {
+  //   return DateFormat('yyyy-MM-dd').format(selectedDate.value);
+  // }
+  String formattedTime24() {
+    final now = DateTime.now();
+    final dt = DateTime(
+      now.year,
+      now.month,
+      now.day,
+      selectedTime.value.hour,
+      selectedTime.value.minute,
+    );
+    return DateFormat('HH:mm').format(dt); // 24-hour forma
   }
 
   String formattedTime(BuildContext context) {

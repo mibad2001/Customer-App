@@ -34,7 +34,7 @@ class PickupScreen extends StatelessWidget {
           child: Column(
             children: [
               Container(
-                height: MediaQuery.of(context).size.height*0.9,
+                height: MediaQuery.of(context).size.height*0.85,
                 decoration: BoxDecoration(
                   //color: CustomColor.background,
                   borderRadius: BorderRadius.only(bottomLeft: Radius.circular(20),bottomRight: Radius.circular(20)),
@@ -80,21 +80,41 @@ class PickupScreen extends StatelessWidget {
           ],
         ),
               ),
-              Container(
-                height: MediaQuery.of(context).size.height*0.1,
-                padding: const EdgeInsets.all(20.0),
-                child: SizedBox(
-                  height: 50,
-                  width: 250  ,
+
+                Container(
+                  height: MediaQuery.of(context).size.height*0.1,
+                  width: 250,
+                  padding: const EdgeInsets.all(20.0),
                   child: MyElevatedButton(
-                    text: 'DONE',
-                    onPressed: () {
-                      Get.to(DeshBoard_Screen());
-                    },
-                    fontSize: 20,
+                    text: 'Select Current Location',
+                    fontSize: 14,          // increase size
+                    onPressed: () {},
+                    textWidget: FittedBox(
+                      fit: BoxFit.scaleDown,
+                      child: Text(
+                        "DONE",
+                        style: AppTextStyles.regular(size: 16),
+                      ),
+                    ),
                   ),
                 ),
-              ),
+
+
+              // Container(
+              //   height: MediaQuery.of(context).size.height*0.1,
+              //   padding: const EdgeInsets.all(20.0),
+              //   child: SizedBox(
+              //     height: 50,
+              //     width: 250  ,
+              //     child: MyElevatedButton(
+              //       text: 'DONE',
+              //       onPressed: () {
+              //         Get.to(DeshBoard_Screen());
+              //       },
+              //       fontSize: 20,
+              //     ),
+              //   ),
+              // ),
 
 
 

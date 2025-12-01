@@ -157,88 +157,181 @@ class RideSearchScreen extends StatelessWidget {
               height: 50,
               width: 250  ,
               child: MyElevatedButton(
-                text: 'Cancel Ride',
+                text: '',
                 onPressed: () {
                   Get.dialog(
-                    Dialog(
-                      backgroundColor: CustomColor.Container_Colors,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(30)),
-                      ),
-                      child: SizedBox(
-                        height: 210,
-                        width: 100,
-                        child: Column(
-                          children: [
-                            const SizedBox(height: 15),
-                            const Icon(
-                              Icons.warning_amber,
-                              color: Colors.amberAccent,
-                              size: 60,
-                            ),
-                            SizedBox(height: 10,),
-                            Center(
-                              child: Container(
-                                padding: const EdgeInsets.only(left: 10),
-                                height: 80,
-                                width: 200,
-                                child: Text(
-                                  CustomText.Ride_Cancel_alert,
-                                  textAlign: TextAlign.center,
-                                  style: AppTextStyles.small(),
+                      Dialog(
+                        backgroundColor: CustomColor.Container_Colors,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(30)),
+                        ),
+                        child: SizedBox(
+                          height: 210,
+                          width: 100,
+                          child: Column(
+                            children: [
+                              const SizedBox(height: 15),
+                              const Icon(
+                                Icons.warning_amber,
+                                color: Colors.amberAccent,
+                                size: 60,
+                              ),
+                              SizedBox(height: 10,),
+                              Center(
+                                child: Container(
+                                  padding: const EdgeInsets.only(left: 10),
+                                  height: 80,
+                                  width: 200,
+                                  child: Text(
+                                    CustomText.Ride_Cancel_alert,
+                                    textAlign: TextAlign.center,
+                                    style: AppTextStyles.small(),
+                                  ),
                                 ),
                               ),
-                            ),
-                            Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                CustomTextButton(
-                                  text: 'Yes',
-                                  onPressed: () {
-                                    Get.to(DeshBoard_Screen());
-                                  },
-                                  backgroundColor: Colors.red,
-                                  textColor: CustomColor.Button_Text_Color,
-                                  borderRadius: 8,
-                                  elevation: 2,
-                                  fontSize: 10,
-                                  fontWeight: FontWeight.bold,
-                                  padding: const EdgeInsets.symmetric(
-                                    horizontal: 16,
-                                    vertical: 10,
+                              Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  CustomTextButton(
+                                    text: 'Yes',
+                                    onPressed: () {
+                                      Get.to(DeshBoard_Screen());
+                                    },
+                                    backgroundColor: Colors.red,
+                                    textColor: CustomColor.Button_Text_Color,
+                                    borderRadius: 8,
+                                    elevation: 2,
+                                    fontSize: 10,
+                                    fontWeight: FontWeight.bold,
+                                    padding: const EdgeInsets.symmetric(
+                                      horizontal: 16,
+                                      vertical: 10,
+                                    ),
                                   ),
-                                ),
-                                const SizedBox(width: 20),
+                                  const SizedBox(width: 20),
 
-                                CustomTextButton(
-                                  text: " No ",
-                                  onPressed: () {
-                                    Get.to(  Driverdetailscreen() );
-                                  },
-                                  backgroundColor: CustomColor.Button_background_Color,
-                                  textColor: Colors.white,
-                                  borderRadius: 8,
-                                  elevation: 2,
-                                  fontSize: 10,
-                                  fontWeight: FontWeight.bold,
-                                  padding: const EdgeInsets.symmetric(
-                                    horizontal: 16,
-                                    vertical: 10,
+                                  CustomTextButton(
+                                    text: " No ",
+                                    onPressed: () {
+                                      Get.to(  Driverdetailscreen() );
+                                    },
+                                    backgroundColor: CustomColor.Button_background_Color,
+                                    textColor: Colors.white,
+                                    borderRadius: 8,
+                                    elevation: 2,
+                                    fontSize: 10,
+                                    fontWeight: FontWeight.bold,
+                                    padding: const EdgeInsets.symmetric(
+                                      horizontal: 16,
+                                      vertical: 10,
+                                    ),
                                   ),
-                                ),
-                              ],
-                            ),
-                          ],
+                                ],
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
-                    )
+                      )
                   );
                 },
+                textWidget:
+                FittedBox(
+                    fit: BoxFit.scaleDown,
+                    child: Text('Cancel Ride',style: AppTextStyles.regular(size: 18,weight: FontWeight.bold),
+                    )
+                ),
 
                 fontSize: 20,
               ),
-            )
+            ),
+
+            // SizedBox(
+            //   height: 50,
+            //   width: 250  ,
+            //   child: MyElevatedButton(
+            //     text: 'Cancel Ride',
+            //     onPressed: () {
+            //       Get.dialog(
+            //         Dialog(
+            //           backgroundColor: CustomColor.Container_Colors,
+            //           shape: RoundedRectangleBorder(
+            //             borderRadius: BorderRadius.all(Radius.circular(30)),
+            //           ),
+            //           child: SizedBox(
+            //             height: 210,
+            //             width: 100,
+            //             child: Column(
+            //               children: [
+            //                 const SizedBox(height: 15),
+            //                 const Icon(
+            //                   Icons.warning_amber,
+            //                   color: Colors.amberAccent,
+            //                   size: 60,
+            //                 ),
+            //                 SizedBox(height: 10,),
+            //                 Center(
+            //                   child: Container(
+            //                     padding: const EdgeInsets.only(left: 10),
+            //                     height: 80,
+            //                     width: 200,
+            //                     child: Text(
+            //                       CustomText.Ride_Cancel_alert,
+            //                       textAlign: TextAlign.center,
+            //                       style: AppTextStyles.small(),
+            //                     ),
+            //                   ),
+            //                 ),
+            //                 Row(
+            //                   crossAxisAlignment: CrossAxisAlignment.center,
+            //                   mainAxisAlignment: MainAxisAlignment.center,
+            //                   children: [
+            //                     CustomTextButton(
+            //                       text: 'Yes',
+            //                       onPressed: () {
+            //                         Get.to(DeshBoard_Screen());
+            //                       },
+            //                       backgroundColor: Colors.red,
+            //                       textColor: CustomColor.Button_Text_Color,
+            //                       borderRadius: 8,
+            //                       elevation: 2,
+            //                       fontSize: 10,
+            //                       fontWeight: FontWeight.bold,
+            //                       padding: const EdgeInsets.symmetric(
+            //                         horizontal: 16,
+            //                         vertical: 10,
+            //                       ),
+            //                     ),
+            //                     const SizedBox(width: 20),
+            //
+            //                     CustomTextButton(
+            //                       text: " No ",
+            //                       onPressed: () {
+            //                         Get.to(  Driverdetailscreen() );
+            //                       },
+            //                       backgroundColor: CustomColor.Button_background_Color,
+            //                       textColor: Colors.white,
+            //                       borderRadius: 8,
+            //                       elevation: 2,
+            //                       fontSize: 10,
+            //                       fontWeight: FontWeight.bold,
+            //                       padding: const EdgeInsets.symmetric(
+            //                         horizontal: 16,
+            //                         vertical: 10,
+            //                       ),
+            //                     ),
+            //                   ],
+            //                 ),
+            //               ],
+            //             ),
+            //           ),
+            //         )
+            //       );
+            //     },
+            //
+            //     fontSize: 20,
+            //   ),
+            // )
 
 
 

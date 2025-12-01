@@ -221,22 +221,22 @@ class _YourtripState extends State<Yourtrip> {
                         children: [
                           Text(
                             "Ref: 123456",
-                            style: TextStyle(color: CustomColor.Button_Text_Color,),
+                            style: AppTextStyles.small(),
                           ),
                          Spacer(),
                           Icon(
                             Icons.access_time,
                             color: Colors.white,
-                            size: 15,
+                            size: 18,
                           ),
                           Text(
                             "00/00/2001",
-                            style: TextStyle(color:  CustomColor.Button_Text_Color,),
+                            style: AppTextStyles.small(),
                           ),
                           SizedBox(width: 10),
                           Text(
                             "00:00",
-                            style: TextStyle(color: CustomColor.Button_Text_Color,),
+                            style: AppTextStyles.small(),
                           ),
                         ],
                       ),
@@ -263,6 +263,7 @@ class _YourtripState extends State<Yourtrip> {
                                     " TN36eb",
                                 softWrap: true,
                                 maxLines: 3,
+                                textAlign: TextAlign.center,
                                 overflow: TextOverflow.ellipsis,
                                 style: AppTextStyles.small(),
                               ),
@@ -288,8 +289,9 @@ class _YourtripState extends State<Yourtrip> {
                               child: Text(
                                 "Flat  1 "
                                     "Bland fold"
-                                    " London Nw6",
+                                    "Nw6",
                                 softWrap: true,
+                                textAlign: TextAlign.center,
                                 maxLines: 3,
                                 overflow: TextOverflow.ellipsis,
                                 style: AppTextStyles.small(),
@@ -322,11 +324,7 @@ class _YourtripState extends State<Yourtrip> {
                                 Text(
                                   "&177.00",
                                   overflow: TextOverflow.ellipsis,
-                                  style: TextStyle(
-                                    fontSize: 25,
-                                    color: CustomColor.Text_Color,
-                                    fontWeight: FontWeight.bold,
-                                  ),
+                                  style: AppTextStyles.medium(size: 20),
                                 ),
                               ],
                             ),
@@ -356,6 +354,7 @@ class _YourtripState extends State<Yourtrip> {
                         ],
                       ),
                     ),
+                    Spacer(),
                     Container(
                       height: 48,
                       width: double.infinity,
@@ -368,24 +367,31 @@ class _YourtripState extends State<Yourtrip> {
                       child: Row(
                         children: [
                           Expanded(
-                            child: TextButton(
-                              onPressed: () {
-                                Get.to(ReebookingScreen());
-                              },
-                              child:  Text(
-                                "Rebook Now",
-                                style: AppTextStyles.medium(),
+                            child: Container(
+                              color: CustomColor.Container_Colors,
+                              child: TextButton(
+                                onPressed: () {
+                                  Get.to(ReebookingScreen());
+                                },
+                                child:  Text(
+                                  "Rebook Now",
+                                  style: AppTextStyles.medium(),
+                                ),
                               ),
                             ),
                           ),
+                          VerticalDivider(width: 2,color: Colors.white70,),
                           Expanded(
-                            child: TextButton(
-                              onPressed: () {
-                                Get.toNamed('/TripDetail');
-                              },
-                              child:  Text(
-                                "Show Detail",
-                                style: AppTextStyles.medium(),
+                            child: Container(
+                              color: CustomColor.Container_Colors,
+                              child: TextButton(
+                                onPressed: () {
+                                  Get.toNamed('/TripDetail');
+                                },
+                                child:  Text(
+                                  "Show Detail",
+                                  style: AppTextStyles.medium(),
+                                ),
                               ),
                             ),
                           ),

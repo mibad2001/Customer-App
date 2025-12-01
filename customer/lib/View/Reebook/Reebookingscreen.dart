@@ -1,6 +1,7 @@
 import 'package:customer/View/textstyle/apptextstyle.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 
 import '../../Controller/reebooking/reebookingcontroller.dart';
 import '../Widgets/color.dart';
@@ -38,7 +39,7 @@ class ReebookingScreen extends StatelessWidget {
             children: [
               Expanded(
                 child: Container(
-                  height: MediaQuery.of(context).size.height*0.85,
+                  height: MediaQuery.of(context).size.height*0.8,
                   child: Column(
                     children: [
                       // ============================================  Map
@@ -200,7 +201,7 @@ class ReebookingScreen extends StatelessWidget {
 
               Container(
                 padding: EdgeInsets.symmetric(vertical: 10),
-                height: MediaQuery.of(context).size.height*0.15,
+                height: MediaQuery.of(context).size.height*0.2,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.only(topRight: Radius.circular(20),topLeft: Radius.circular(15)),
                   color: CustomColor.Container_Colors,
@@ -225,6 +226,7 @@ class ReebookingScreen extends StatelessWidget {
                               child: BottomButton(icon: Icons.add_circle_outline, button_name: "Extras")),
                           InkWell(
                               onTap:(){
+
                                 Get.bottomSheet(
                                   Container(
                                     decoration: const BoxDecoration(
@@ -283,7 +285,7 @@ class ReebookingScreen extends StatelessWidget {
                                                 ),
                                                 child: Text(
                                                   "ASAP",
-                                                  style: AppTextStyles.regular(
+                                                  style: AppTextStyles.small(
 
                                                     weight: reebookingController.selectedTimeOption.value == "ASAP"
                                                         ? FontWeight.bold
@@ -312,7 +314,8 @@ class ReebookingScreen extends StatelessWidget {
                                                 ),
                                                 child: Text(
                                                   "15 min",
-                                                  style: AppTextStyles.regular(
+                                                  style: AppTextStyles.small(
+
                                                     weight: reebookingController.selectedTimeOption.value == "15 min"
                                                         ? FontWeight.bold
                                                         : FontWeight.normal,
@@ -340,8 +343,8 @@ class ReebookingScreen extends StatelessWidget {
                                                 ),
                                                 child: Text(
                                                   "30 min",
-                                                  style: AppTextStyles.regular(
-                                                    size: 14,
+                                                  style: AppTextStyles.small(
+
                                                     weight: reebookingController.selectedTimeOption.value == "30 min"
                                                         ? FontWeight.bold
                                                         : FontWeight.normal,
@@ -356,6 +359,79 @@ class ReebookingScreen extends StatelessWidget {
                                         const SizedBox(height: 25),
 
                                         // ---------- Date & Time ----------
+                                        // Center(
+                                        //   child: Row(
+                                        //     mainAxisAlignment: MainAxisAlignment.center,
+                                        //     children: [
+                                        //       // ----- Date Picker -----
+                                        //       Obx(() => GestureDetector(
+                                        //         onTap: () => reebookingController.pickDate(context),
+                                        //         child: Container(
+                                        //           width: 150,
+                                        //           padding:
+                                        //           const EdgeInsets.symmetric(horizontal: 10, vertical: 12),
+                                        //           decoration: BoxDecoration(
+                                        //             borderRadius: BorderRadius.circular(10),
+                                        //             color: Colors.black,
+                                        //           ),
+                                        //           child: Row(
+                                        //             mainAxisAlignment: MainAxisAlignment.center,
+                                        //             children: [
+                                        //               const Icon(Icons.calendar_today,
+                                        //                   color: Colors.white, size: 18),
+                                        //               const SizedBox(width: 6),
+                                        //               Flexible(
+                                        //                 child: Text(
+                                        //                   reebookingController.formattedTime(context),
+                                        //                   style: const TextStyle(
+                                        //                     fontSize: 15,
+                                        //                     fontWeight: FontWeight.bold,
+                                        //                     color: Colors.white,
+                                        //                   ),
+                                        //                   overflow: TextOverflow.ellipsis,
+                                        //                 ),
+                                        //               ),
+                                        //             ],
+                                        //           ),
+                                        //         ),
+                                        //       )),
+                                        //       const SizedBox(width: 15),
+                                        //
+                                        //       // ----- Time Picker -----
+                                        //       Obx(() => GestureDetector(
+                                        //         onTap: () => reebookingController.pickTime(context),
+                                        //         child: Container(
+                                        //           width: 150,
+                                        //           padding:
+                                        //           const EdgeInsets.symmetric(horizontal: 10, vertical: 12),
+                                        //           decoration: BoxDecoration(
+                                        //             borderRadius: BorderRadius.circular(10),
+                                        //             color: Colors.black,
+                                        //           ),
+                                        //           child: Row(
+                                        //             mainAxisAlignment: MainAxisAlignment.center,
+                                        //             children: [
+                                        //               const Icon(Icons.access_time,
+                                        //                   color: Colors.white, size: 18),
+                                        //               const SizedBox(width: 6),
+                                        //               Flexible(
+                                        //                 child: Text(
+                                        //                   reebookingController.formattedTime(context),
+                                        //                   style:  AppTextStyles.regular(
+                                        //                     weight: FontWeight.bold,
+                                        //                   ),
+                                        //                   overflow: TextOverflow.ellipsis,
+                                        //                 ),
+                                        //               ),
+                                        //             ],
+                                        //           ),
+                                        //         ),
+                                        //       )),
+                                        //     ],
+                                        //   ),
+                                        // ),
+
+                                        // ---------- Date & Time ----------
                                         Center(
                                           child: Row(
                                             mainAxisAlignment: MainAxisAlignment.center,
@@ -365,8 +441,7 @@ class ReebookingScreen extends StatelessWidget {
                                                 onTap: () => reebookingController.pickDate(context),
                                                 child: Container(
                                                   width: 150,
-                                                  padding:
-                                                  const EdgeInsets.symmetric(horizontal: 10, vertical: 12),
+                                                  padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 12),
                                                   decoration: BoxDecoration(
                                                     borderRadius: BorderRadius.circular(10),
                                                     color: Colors.black,
@@ -374,12 +449,12 @@ class ReebookingScreen extends StatelessWidget {
                                                   child: Row(
                                                     mainAxisAlignment: MainAxisAlignment.center,
                                                     children: [
-                                                      const Icon(Icons.calendar_today,
-                                                          color: Colors.white, size: 18),
+                                                      const Icon(Icons.calendar_today, color: Colors.white, size: 18),
                                                       const SizedBox(width: 6),
                                                       Flexible(
                                                         child: Text(
-                                                          reebookingController.formattedDate,
+                                                          DateFormat('yyyy-MM-dd')
+                                                              .format(reebookingController.selectedDate.value),
                                                           style: const TextStyle(
                                                             fontSize: 15,
                                                             fontWeight: FontWeight.bold,
@@ -394,13 +469,12 @@ class ReebookingScreen extends StatelessWidget {
                                               )),
                                               const SizedBox(width: 15),
 
-                                              // ----- Time Picker -----
+                                              // ----- Time Picker (24-hour format) -----
                                               Obx(() => GestureDetector(
                                                 onTap: () => reebookingController.pickTime(context),
                                                 child: Container(
                                                   width: 150,
-                                                  padding:
-                                                  const EdgeInsets.symmetric(horizontal: 10, vertical: 12),
+                                                  padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 12),
                                                   decoration: BoxDecoration(
                                                     borderRadius: BorderRadius.circular(10),
                                                     color: Colors.black,
@@ -408,15 +482,12 @@ class ReebookingScreen extends StatelessWidget {
                                                   child: Row(
                                                     mainAxisAlignment: MainAxisAlignment.center,
                                                     children: [
-                                                      const Icon(Icons.access_time,
-                                                          color: Colors.white, size: 18),
+                                                      const Icon(Icons.access_time, color: Colors.white, size: 18),
                                                       const SizedBox(width: 6),
                                                       Flexible(
                                                         child: Text(
-                                                          reebookingController.formattedTime(context),
-                                                          style:  AppTextStyles.regular(
-                                                            weight: FontWeight.bold,
-                                                          ),
+                                                          reebookingController.formattedTime24(),  // FIXED: now 24-hour time
+                                                          style: AppTextStyles.regular(weight: FontWeight.bold),
                                                           overflow: TextOverflow.ellipsis,
                                                         ),
                                                       ),
@@ -428,23 +499,28 @@ class ReebookingScreen extends StatelessWidget {
                                           ),
                                         ),
 
+
                                         const SizedBox(height: 35),
 
                                         // ========================================================== Book Ride Button
                                         SizedBox(
-                                            width: 220,
-                                            height: 50,
-                                            child:  SizedBox(
-                                              height: 50,
-                                              width: 350  ,
-                                              child: MyElevatedButton(
-                                                text: 'BOOK RIDE',
-                                                onPressed: () {},
+                                          height: 50,
+                                          width: 250  ,
+                                          child: MyElevatedButton(
+                                            text: '',
+                                            onPressed: () {
+                                              Get.to(RideSearchScreen());
+                                            },
+                                            textWidget:
+                                            FittedBox(
+                                                fit: BoxFit.scaleDown,
+                                                child: Text("Book Ride",style: AppTextStyles.regular(size: 18,weight: FontWeight.bold),
+                                                )
+                                            ),
 
-                                                fontSize: 20,
-                                              ),
-                                            )
-                                        ),
+                                            fontSize: 20,
+                                          ),
+                                        )
                                       ],
                                     ),
                                   ),
@@ -668,15 +744,17 @@ class ReebookingScreen extends StatelessWidget {
                     ),
 
                     Container(
-                      margin: EdgeInsets.only(top: 10),
+                      margin: EdgeInsets.only(top: 15),
                         // margin: EdgeInsets.symmetric(vertical: 8),
                       //color: CustomColor.Container_Colors,
-                      height: 40,
+                      height: 48,
                       width: 250  ,
                       child: MyElevatedButton(
-                        text: 'Confirm Booking',
+                        text: '',
+                        textWidget: FittedBox(
+                          child: Text("Confirm Booking",style: AppTextStyles.medium(size: 18,weight: FontWeight.bold),),
+                        ),
                         onPressed: () {  },
-                        fontSize: 20,
                       ),
                     ),
                   ],
