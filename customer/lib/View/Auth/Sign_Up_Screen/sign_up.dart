@@ -140,7 +140,10 @@ class _SigUp_ScreenState extends State<SigUp_Screen> {
                                 Get.to(TermsAndConditionsScreen());
                               },
                               child: Text(
-                              CustomText.SigUp_TremsAndCondition,style: AppTextStyles.small(
+                              CustomText.SigUp_TremsAndCondition,
+                                maxLines: 2,
+                                overflow: TextOverflow.ellipsis,
+                                style: AppTextStyles.small(
                                 color: CustomColor.trems,
                               ),
                               ),
@@ -175,6 +178,7 @@ class _SigUp_ScreenState extends State<SigUp_Screen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  SizedBox(width: 5,),
                   Text(
                     CustomText.Already_Account_Text,style: AppTextStyles.small(),
                   ),
@@ -184,7 +188,7 @@ class _SigUp_ScreenState extends State<SigUp_Screen> {
                     },
                     child: Text(
                       "Log In",
-                      style: AppTextStyles.small( weight: FontWeight.bold,
+                      style: AppTextStyles.regular( weight: FontWeight.bold,
                         color: CustomColor.Button_background_Color,)
 
                       ),

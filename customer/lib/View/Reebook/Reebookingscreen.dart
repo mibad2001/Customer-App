@@ -544,104 +544,106 @@ class ReebookingScreen extends StatelessWidget {
                                     width: double.infinity,
                                     height: MediaQuery.of(context).size.height * 0.45,
                                     padding: const EdgeInsets.symmetric(horizontal: 20),
-                                    child: Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      children: [
-                                        SizedBox(height: 8),
-                                        Center(
-                                          child: Container(
-                                            height: 5,
-                                            width: 40,
-                                            decoration: BoxDecoration(
-                                              color: CustomColor.Icon_Color,
-                                              borderRadius: BorderRadius.circular(10),
+                                    child: SingleChildScrollView(
+                                       child: Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                          SizedBox(height: 8),
+                                          Center(
+                                            child: Container(
+                                              height: 5,
+                                              width: 40,
+                                              decoration: BoxDecoration(
+                                                color: CustomColor.Icon_Color,
+                                                borderRadius: BorderRadius.circular(10),
+                                              ),
                                             ),
                                           ),
-                                        ),
-                                        SizedBox(height: 10),
-
-
-                                        Row(
-                                            children: [
-
-                                              SizedBox(width: 20,),
-
-                                              IconButton(
-                                                icon: Icon(Icons.cancel_outlined, color: CustomColor.Icon_Color),
-                                                iconSize: 35,
-                                                onPressed: () => Get.back(),
-                                              ),
-
-
-                                              Expanded(
-                                                child: Center(
-                                                  child: Text(
-                                                    "ADD ORDER DETAILS",
-                                                    style: const TextStyle(
-                                                      color: CustomColor.Text_Color,
-                                                      fontSize: 25,
-                                                      fontWeight: FontWeight.bold,
+                                          SizedBox(height: 10),
+                                      
+                                      
+                                          Row(
+                                              children: [
+                                      
+                                                SizedBox(width: 20,),
+                                      
+                                                IconButton(
+                                                  icon: Icon(Icons.cancel_outlined, color: Colors.red),
+                                                  iconSize: 35,
+                                                  onPressed: () => Get.back(),
+                                                ),
+                                       
+                                      
+                                                Expanded(
+                                                  child: Center(
+                                                    child: Text(
+                                                      "ADD ORDER DETAILS",
+                                                      style: const TextStyle(
+                                                        color: CustomColor.Text_Color,
+                                                        fontSize: 25,
+                                                        fontWeight: FontWeight.bold,
+                                                      ),
+                                                      textAlign: TextAlign.center,
                                                     ),
-                                                    textAlign: TextAlign.center,
                                                   ),
                                                 ),
-                                              ),
-
-
-                                              const SizedBox(width: 48),
-                                            ]
-                                        ),
-
-                                        SizedBox(height: MediaQuery.of(context).size.height * 0.03),
-
-
-                                        const Text(
-                                          "Order number",
-                                          style: TextStyle(
-                                            color: CustomColor.textColor,
-                                            fontSize: 18,
-                                            fontWeight: FontWeight.bold,
+                                      
+                                      
+                                                const SizedBox(width: 48),
+                                              ]
                                           ),
-                                        ),
-                                        const SizedBox(height: 3),
-                                        CustomTextField(
-                                          hintText: "Type your order number",
-                                          borderRadius: 15,
-                                          fillColor: CustomColor.textfield_fill,
-                                        ),
-
-                                        SizedBox(height: MediaQuery.of(context).size.height * 0.015),
-                                        const Text(
-                                          "Name on order",
-                                          style: TextStyle(
-                                            color: CustomColor.Text_Color,
-                                            fontSize: 18,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                        const SizedBox(height: 3),
-                                        CustomTextField(
-                                          hintText: "Type name on order",
-                                          borderRadius: 15,
-                                          fillColor: CustomColor.textfield_fill,
-                                        ),
-
-                                        SizedBox(height: MediaQuery.of(context).size.height * 0.025),
-
-
-                                        Center(
-                                          child: SizedBox(
-                                            height: MediaQuery.of(context).size.height * 0.053,
-                                            width: MediaQuery.of(context).size.width * 0.5,
-                                            child: MyElevatedButton(
-                                              text: 'DONE',
-                                              onPressed: () {},
-
-                                              fontSize: MediaQuery.of(context).size.width * 0.035,
+                                      
+                                          SizedBox(height: MediaQuery.of(context).size.height * 0.03),
+                                      
+                                      
+                                          const Text(
+                                            "Order number",
+                                            style: TextStyle(
+                                              color: CustomColor.textColor,
+                                              fontSize: 18,
+                                              fontWeight: FontWeight.bold,
                                             ),
                                           ),
-                                        ),
-                                      ],
+                                          const SizedBox(height: 3),
+                                          CustomTextField(
+                                            hintText: "Type your order number",
+                                            borderRadius: 15,
+                                            fillColor: CustomColor.textfield_fill,
+                                          ),
+                                      
+                                          SizedBox(height: MediaQuery.of(context).size.height * 0.015),
+                                          const Text(
+                                            "Name on order",
+                                            style: TextStyle(
+                                              color: CustomColor.Text_Color,
+                                              fontSize: 18,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                          const SizedBox(height: 3),
+                                          CustomTextField(
+                                            hintText: "Type name on order",
+                                            borderRadius: 15,
+                                            fillColor: CustomColor.textfield_fill,
+                                          ),
+                                      
+                                          SizedBox(height: MediaQuery.of(context).size.height * 0.025),
+                                      
+                                      
+                                          Center(
+                                            child: SizedBox(
+                                              height: MediaQuery.of(context).size.height * 0.053,
+                                              width: MediaQuery.of(context).size.width * 0.5,
+                                              child: MyElevatedButton(
+                                                text: 'DONE',
+                                                onPressed: () {},
+                                      
+                                                fontSize: MediaQuery.of(context).size.width * 0.035,
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
                                     ),
                                   ),
                                 );
@@ -747,12 +749,12 @@ class ReebookingScreen extends StatelessWidget {
                       margin: EdgeInsets.only(top: 15),
                         // margin: EdgeInsets.symmetric(vertical: 8),
                       //color: CustomColor.Container_Colors,
-                      height: 48,
+                      height: 55,
                       width: 250  ,
                       child: MyElevatedButton(
                         text: '',
                         textWidget: FittedBox(
-                          child: Text("Confirm Booking",style: AppTextStyles.medium(size: 18,weight: FontWeight.bold),),
+                          child: Text("Confirm Booking",style: AppTextStyles.medium(size: 25 ,weight: FontWeight.bold),),
                         ),
                         onPressed: () {  },
                       ),

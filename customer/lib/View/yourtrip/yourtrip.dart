@@ -78,7 +78,7 @@ class _YourtripState extends State<Yourtrip> {
 
                     IconButton(
                       onPressed: () {
-                        Get.back();
+                       //   Get.back();
                       },
                       icon: Icon(
                         Icons.edit_notifications_sharp,
@@ -334,6 +334,7 @@ class _YourtripState extends State<Yourtrip> {
                           Container(
                             height: 30,
                             width: 100,
+                            margin: EdgeInsets.only(left: 20),
                             decoration: BoxDecoration(
                               color: Colors.red,
                               borderRadius: BorderRadius.circular(
@@ -356,7 +357,7 @@ class _YourtripState extends State<Yourtrip> {
                     ),
                     Spacer(),
                     Container(
-                      height: 48,
+                      //height: 49,
                       width: double.infinity,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.only(bottomLeft: Radius.circular(15),bottomRight:Radius.circular(15)

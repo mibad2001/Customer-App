@@ -13,20 +13,20 @@ class RideController extends GetxController {
     "Seven seater Van"
   ];
   final List<String> seats = ["4", "3", "4", "6", "3", "4", "6"];
-  var selectedIndex = (-1).obs;
+  var selectedIndex = (0).obs;
 
   void selectItem(int index) {
     selectedIndex.value = index;
   }
 
-  // =============================================        Date & Time
+// ----------------- Date & Time -----------------
   var selectedDate = DateTime.now().obs;
   var selectedTime = TimeOfDay.now().obs;
 
-
+// Track which quick-time button is selected ("ASAP", "15 min", "30 min")
   var selectedTimeOption = ''.obs;
 
-  // ================================== Pick Date
+// ----------------- Pick Date -----------------
   Future<void> pickDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
       context: context,
@@ -37,15 +37,24 @@ class RideController extends GetxController {
 
     if (picked != null && picked != selectedDate.value) {
       selectedDate.value = picked;
-      selectedTimeOption.value = ''; 
+      selectedTimeOption.value = ''; // clear highlight when user picks manually
     }
   }
 
-  // ====================================================== Pick Time
+// ----------------- Pick Time -----------------
+
   Future<void> pickTime(BuildContext context) async {
     final TimeOfDay? picked = await showTimePicker(
       context: context,
       initialTime: selectedTime.value,
+
+      builder: (BuildContext context, Widget? child) {
+        return MediaQuery(
+          data: MediaQuery.of(context).copyWith(alwaysUse24HourFormat: true),
+          child: child!,
+        );
+      },
+
     );
 
     if (picked != null && picked != selectedTime.value) {
@@ -54,7 +63,19 @@ class RideController extends GetxController {
     }
   }
 
-  // ======================================      Add Minutes (15 / 30)
+//   Future<void> pickTime(BuildContext context) async {
+//     final TimeOfDay? picked = await showTimePicker(
+//       context: context,
+//       initialTime: selectedTime.value,
+//     );
+//
+//     if (picked != null && picked != selectedTime.value) {
+//       selectedTime.value = picked;
+//       selectedTimeOption.value = ''; // clear highlight when user picks manually
+//     }
+//   }
+
+// ----------------- Add Minutes (15 / 30) -----------------
   void addMinutes(int minutesToAdd) {
     final now = DateTime.now();
     final dateTime = DateTime(
@@ -68,19 +89,16 @@ class RideController extends GetxController {
     final newTime = dateTime.add(Duration(minutes: minutesToAdd));
     selectedTime.value = TimeOfDay(hour: newTime.hour, minute: newTime.minute);
 
-    selectedTimeOption.value = "$minutesToAdd min";
+    selectedTimeOption.value = "$minutesToAdd min"; // highlight selected
   }
 
-  // ==========================================        Set ASAP (Current Time)
+// ----------------- Set ASAP (Current Time) -----------------
   void setASAP() {
     selectedTime.value = TimeOfDay.now();
-    selectedTimeOption.value = "ASAP";
+    selectedTimeOption.value = "ASAP"; // highlight ASAP
   }
 
-  // ===========================================      Format for Display
-  // String get formattedDate {
-  //   return DateFormat('yyyy-MM-dd').format(selectedDate.value);
-  // }
+// ----------------- Format for Display -----------------
   String formattedTime24() {
     final now = DateTime.now();
     final dt = DateTime(
@@ -90,10 +108,24 @@ class RideController extends GetxController {
       selectedTime.value.hour,
       selectedTime.value.minute,
     );
-    return DateFormat('HH:mm').format(dt); // 24-hour forma
+    return DateFormat('HH:mm').format(dt); // 24-hour format
   }
+
+
+
+// String get formattedDate {
+//   return DateFormat('yyyy-MM-dd').format(selectedDate.value);
+// }
 
   String formattedTime(BuildContext context) {
     return selectedTime.value.format(context);
   }
+
+
+
+
+
+
+
+
 }

@@ -61,7 +61,13 @@ class DeshBoardAddHome_Controller extends GetxController {
     WorkAdressController.clear();
   }
 
-
+  void deleteWorkItem() {
+    workAddress.value = '';
+    if (editingIndex.value != null) {
+      HomeController.clear();
+      editingIndex.value = null;
+    }
+  }
 
 
 

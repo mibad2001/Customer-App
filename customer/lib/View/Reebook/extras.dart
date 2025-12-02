@@ -313,12 +313,12 @@ class ExtrasScreen extends StatelessWidget {
 
                       Container(
 
-                        height: 50,
+                        height: 55,
                         width: 250,
                         child: MyElevatedButton(
                           text: '',
                           textWidget: FittedBox(
-                            child: Text("Done",style: AppTextStyles.medium(size: 20,weight: FontWeight.bold),),
+                            child: Text("Done",style: AppTextStyles.medium(size:25,weight: FontWeight.bold),),
                           ),
                           onPressed: () {  },
                         ),

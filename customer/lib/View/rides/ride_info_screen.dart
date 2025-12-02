@@ -449,11 +449,13 @@ class _RideInfoScreenState extends State<RideInfoScreen> {
                 //   ),
                 // ),
                 SizedBox(
-                  height: 50,
+                  height: 55,
                   width: 250,
                   child: MyElevatedButton(
                     text: "", // ignored because we use textWidget
                     onPressed: () {
+
+                      //==============================================================================   bottom sheet
                       Get.bottomSheet(
                         Container(
                           decoration: const BoxDecoration(
@@ -500,7 +502,11 @@ class _RideInfoScreenState extends State<RideInfoScreen> {
                                     width: 100,
                                     height: 45,
                                     child: ElevatedButton(
-                                      onPressed: () => rideController.setASAP(),
+                                      onPressed: () {
+                                        rideController.setASAP();
+
+                                      },
+
                                       style: ElevatedButton.styleFrom(
                                         backgroundColor: rideController.selectedTimeOption.value == "ASAP"
                                             ? CustomColor.Button_background_Color
@@ -529,7 +535,9 @@ class _RideInfoScreenState extends State<RideInfoScreen> {
                                     width: 100,
                                     height: 45,
                                     child: ElevatedButton(
-                                      onPressed: () => rideController.addMinutes(15),
+                                      onPressed: (){ rideController.addMinutes(15);
+                                        print("yaha hm ma time dekh :${rideController.selectedTime}");
+                                        },
                                       style: ElevatedButton.styleFrom(
                                         backgroundColor: rideController.selectedTimeOption.value == "15 min"
                                             ?  CustomColor.Button_background_Color
@@ -713,7 +721,7 @@ class _RideInfoScreenState extends State<RideInfoScreen> {
                                             const SizedBox(width: 6),
                                             Flexible(
                                               child: Text(
-                                                rideController.formattedTime(context),  // FIXED: now 24-hour time
+                                                rideController.formattedTime24(),  // FIXED: now 24-hour time
                                                 style: AppTextStyles.regular(weight: FontWeight.bold),
                                                 overflow: TextOverflow.ellipsis,
                                               ),
@@ -757,7 +765,7 @@ class _RideInfoScreenState extends State<RideInfoScreen> {
                       fit: BoxFit.scaleDown,
                       child: Text(
                         "Schedule Booking",
-                        style: AppTextStyles.medium(size: 18,weight: FontWeight.w600),
+                        style: AppTextStyles.medium(size: 25,weight: FontWeight.w600),
                       ),
                     ),
                   ),

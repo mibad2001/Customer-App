@@ -82,12 +82,12 @@ class PaymentScreen extends StatelessWidget {
              // ---------- Done Button ----------
 
              SizedBox(
-               height: 50,
+               height: 55,
                width: 250  ,
                child: MyElevatedButton(
                  text: 'Done',
                  textWidget: FittedBox(
-                   child: Text("Done",style: AppTextStyles.medium(size: 16,weight: FontWeight.bold),),
+                   child: Text("Done",style: AppTextStyles.medium(size: 25,weight: FontWeight.bold),),
                  ),
                  onPressed: () {
                    Get.toNamed("/SigIn_Screen");

@@ -51,18 +51,25 @@ Future<void> pickDate(BuildContext context) async {
 }
 
 // ----------------- Pick Time -----------------
-Future<void> pickTime(BuildContext context) async {
-  final TimeOfDay? picked = await showTimePicker(
-    context: context,
-    initialTime: selectedTime.value,
-  );
+  Future<void> pickTime(BuildContext context) async {
+    final TimeOfDay? picked = await showTimePicker(
+      context: context,
+      initialTime: selectedTime.value,
 
-  if (picked != null && picked != selectedTime.value) {
-    selectedTime.value = picked;
-    selectedTimeOption.value = ''; // clear highlight when user picks manually
+      builder: (BuildContext context, Widget? child) {
+        return MediaQuery(
+          data: MediaQuery.of(context).copyWith(alwaysUse24HourFormat: true),
+          child: child!,
+        );
+      },
+
+    );
+
+    if (picked != null && picked != selectedTime.value) {
+      selectedTime.value = picked;
+      selectedTimeOption.value = '';
+    }
   }
-}
-
 // ----------------- Add Minutes (15 / 30) -----------------
 void addMinutes(int minutesToAdd) {
   final now = DateTime.now();

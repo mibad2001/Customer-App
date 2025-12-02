@@ -188,9 +188,11 @@ class AddWork_ScreenState extends State<AddWork_Screen> {
                                               text: 'Yes',
                                               onPressed: (){
 
-                                                mydeshcontroller.deleteItem();
+                                                mydeshcontroller.deleteWorkItem();
                                                 //print("yaha hm ma ");
                                                 Get.back();
+                                                mydeshcontroller.clearWorkField();
+
                                               },
                                               backgroundColor: Colors.red,
                                               textColor: Colors.white,
