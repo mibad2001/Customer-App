@@ -22,6 +22,9 @@ class routesName {
   static const String ThanksScreen = '/ThanksScreen';
   static const String RideCompleteScreen = '/RideCompleteScreen';
   static const String Driverdetailscreen = '/Driverdetailscreen';
+  static const String ForgotPassword = '/forgotPassword';
+  static const String ForgotOTPScreen = '/forgotOTPScreen';
+  static const String ResetPasswordScreen = '/resetPasswordScreen';
 
 
 
