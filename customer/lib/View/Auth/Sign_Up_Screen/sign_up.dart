@@ -21,7 +21,7 @@ class SigUp_Screen extends StatefulWidget {
 }
 
 class _SigUp_ScreenState extends State<SigUp_Screen> {
-  final SignUp_Controller controller = Get.find();
+  final  signupController = Get.put(SignUp_Controller());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -65,6 +65,7 @@ class _SigUp_ScreenState extends State<SigUp_Screen> {
                     CustomTextField(
                       FontSize: 14,
                       hintText: CustomText.hint_text_first_Name,
+                      maxlength: 20,
                       prefixIcon: Icon(
                         Icons.person,
                         color: CustomColor.textField_Icon_Color,
@@ -75,6 +76,7 @@ class _SigUp_ScreenState extends State<SigUp_Screen> {
                     SizedBox(height: 25),
                     CustomTextField(
                       FontSize: 14,
+                      maxlength: 20,
                       hintText: CustomText.hint_text_last_Name,
                       prefixIcon: Icon(
                         Icons.person,
@@ -87,6 +89,7 @@ class _SigUp_ScreenState extends State<SigUp_Screen> {
                     CustomTextField(
                       hintText: CustomText.hint_text_email,
                       FontSize: 14,
+                      maxlength: 20,
                       prefixIcon: Icon(Icons.email, color: CustomColor.textField_Icon_Color),
                       borderRadius: 15,
                      // fillColor: CustomColor.textfield_fill,
@@ -103,21 +106,23 @@ class _SigUp_ScreenState extends State<SigUp_Screen> {
                     SizedBox(height: 8),
 
                     CustomTextField(
-                      suffixIcon: IconButton(
-                        onPressed: () {},
-                        icon: Icon(
-                          Icons.remove_red_eye,
-                          color: CustomColor.textField_Icon_Color,
-                        ),
+                      maxlength: 15,
+                      suffixIcon: GestureDetector(
+
+                          onTap: (){
+                            setState (() {
+                              signupController.isPasswordVisible = !signupController.isPasswordVisible;
+                            });
+                          },
+                          child: Icon(signupController.isPasswordVisible ?Icons.remove_red_eye:Icons.visibility_off)
                       ),
+                      controller: signupController.Password,
+                      obscureText: !signupController.isPasswordVisible,
                       hintText: CustomText.hint_password,
                       FontSize: 14,
-                      prefixIcon: Icon(
-                        Icons.password,
-                        color: CustomColor.textField_Icon_Color,
-                      ),
+
+                      prefixIcon: const Icon(Icons.lock),
                       borderRadius: 15,
-                     // fillColor: CustomColor.textfield_fill,
                     ),
 
                     SizedBox(height: 8),
@@ -125,9 +130,9 @@ class _SigUp_ScreenState extends State<SigUp_Screen> {
                       () => Row(
                         children: [
                           Checkbox(
-                            value: controller.isCheckedBox.value,
+                            value: signupController.isCheckedBox.value,
                             onChanged: (value) {
-                              controller.checked_box(value);
+                              signupController.checked_box(value);
                             },
                             activeColor: CustomColor.textField_Icon_Color,
                           ),
@@ -165,16 +170,17 @@ class _SigUp_ScreenState extends State<SigUp_Screen> {
                   width: 250,
                   child: MyElevatedButton(
                     text: "Sign Up",
+                    textWidget: FittedBox(
+                      child: Text("Sign Up",style: AppTextStyles.medium(size: 25,weight: FontWeight.bold),),
+                    ),
                     onPressed: () {
                       Get.to(SigIn_Screen());
                     },
-                    backgroundColor: CustomColor.Button_background_Color,
-                    textColor: CustomColor.Button_Text_Color,
                   ),
                 ),
               ),
 
-              // ==============================================   ==============   Forget
+
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

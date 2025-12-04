@@ -118,7 +118,7 @@ class RideCompleteScreen extends StatelessWidget {
                                   style: AppTextStyles.medium(),
                                 ),
                                 SizedBox(height: 10),
-                                Icon(Icons.favorite,color: CustomColor.Icon_Color,),
+                                Icon(Icons.favorite,color: Colors.black,size: 25,),
                               ],
                             ),
                           ),
@@ -132,14 +132,14 @@ class RideCompleteScreen extends StatelessWidget {
                      Row(
                         children: [
                           Icon(Icons.location_on,size: 25,color: CustomColor.Icon_Color,),
-                          SizedBox(width: 3,),
+                          SizedBox(width: 10,),
 
                           Expanded(
                             child: Text(
                               "1A Worrior Garden St.LEO "
                                   " Worrior Garden St.LEO TN36eb",
                               softWrap: true,
-                              textAlign: TextAlign.center,
+                              textAlign: TextAlign.start,
                               style: AppTextStyles.medium(),
                             ),
                           ),
@@ -150,7 +150,7 @@ class RideCompleteScreen extends StatelessWidget {
                     Row(
                         children: [
                           Icon(Icons.money,size: 25,color: CustomColor.Icon_Color,),
-                          SizedBox(width: 3,),
+                          SizedBox(width: 10,),
 
                           Text(
                             "3.000",
@@ -212,7 +212,7 @@ class RideCompleteScreen extends StatelessWidget {
 
                       Center(
                         child:  SizedBox(
-                          height: 50,
+                          height: 55,
                           width: 250  ,
                           child: MyElevatedButton(
                             text: '',
@@ -222,7 +222,7 @@ class RideCompleteScreen extends StatelessWidget {
                             textWidget:
                             FittedBox(
                                 fit: BoxFit.scaleDown,
-                                child: Text('Done',style: AppTextStyles.regular(size: 18,weight: FontWeight.bold),
+                                child: Text('Done',style: AppTextStyles.medium(size: 25 ,weight: FontWeight.bold),
                                 )
                             ),
 

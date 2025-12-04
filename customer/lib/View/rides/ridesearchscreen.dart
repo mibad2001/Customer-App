@@ -166,17 +166,17 @@ class RideSearchScreen extends StatelessWidget {
                           borderRadius: BorderRadius.all(Radius.circular(30)),
                         ),
                         child: SizedBox(
-                          height: 210,
-                          width: 100,
+                          height: 250,
+                          width: 200,
                           child: Column(
                             children: [
-                              const SizedBox(height: 15),
+                              const SizedBox(height: 20),
                               const Icon(
                                 Icons.warning_amber,
                                 color: Colors.amberAccent,
                                 size: 60,
                               ),
-                              SizedBox(height: 10,),
+                              SizedBox(height: 15,),
                               Center(
                                 child: Container(
                                   padding: const EdgeInsets.only(left: 10),
@@ -238,7 +238,7 @@ class RideSearchScreen extends StatelessWidget {
                 textWidget:
                 FittedBox(
                     fit: BoxFit.scaleDown,
-                    child: Text('Cancel Ride',style: AppTextStyles.regular(size: 18,weight: FontWeight.bold),
+                    child: Text('Cancel Ride',style: AppTextStyles.medium(size: 25,weight: FontWeight.bold),
                     )
                 ),
 

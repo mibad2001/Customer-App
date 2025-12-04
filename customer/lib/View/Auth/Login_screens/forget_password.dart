@@ -1,5 +1,6 @@
 // ignore_for_file: camel_case_types
 
+import 'package:customer/View/Widgets/color.dart';
 import 'package:customer/View/Widgets/elevat_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -18,7 +19,7 @@ class forgotPassword extends StatefulWidget {
 final TextEditingController email = TextEditingController();
 
 class _forgotPasswordState extends State<forgotPassword> {
-  bool isLoading = false;
+ // bool isLoading = false;
   // SubmitEmail() async {
   //   String emailText = email.text.trim();
   //
@@ -149,13 +150,9 @@ class _forgotPasswordState extends State<forgotPassword> {
                       ),
                       SizedBox(height: screenHeight/10,),
                       Center(
-                        child: const Text(
+                        child:  Text(
                           "Forgot Password",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 35,
-                            fontWeight: FontWeight.bold,
-                          ),
+                          style: AppTextStyles.heading(),
                         ),
                       ),
                       SizedBox(height: 20,),
@@ -164,9 +161,6 @@ class _forgotPasswordState extends State<forgotPassword> {
                         child: CustomTextField(
                           hintText: "Enter your email",
                           borderRadius: 15,
-                          // fillColor: CustomColor.textfield_fill,
-                          //maxLines: 3,
-                          contentPadding: EdgeInsets.symmetric(vertical: 14, horizontal: 16),
                         ),
                       ),
 
@@ -193,7 +187,8 @@ class _forgotPasswordState extends State<forgotPassword> {
                         child: MyElevatedButton(
                           text: '',
                           textWidget: FittedBox(
-                            child: Text("Submit",style: AppTextStyles.medium(size: 25,weight: FontWeight.bold),),
+                            child: Text("Submit",
+                              style: AppTextStyles.medium(size: 25,weight: FontWeight.bold),),
                           ),
                           fontSize: 18,
                           onPressed: () {
@@ -233,9 +228,9 @@ class _forgotPasswordState extends State<forgotPassword> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          const Text("Have an account? ",
-                            style: TextStyle(
-                                fontSize: 15
+                          SizedBox(width: 8,),
+                           Text("Have an account? ",
+                            style: AppTextStyles.small(
                             ),),
                           TextButton(
                               onPressed: () {
@@ -248,11 +243,9 @@ class _forgotPasswordState extends State<forgotPassword> {
                                 //   _registerTextColor = Colors.lime;
                                 // });
                               },
-                              child: const Text("Sign Up", style: TextStyle(
-
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 15),)
+                              child:  Text("Sign Up", style: AppTextStyles.medium(
+                                weight: FontWeight.bold,color: CustomColor.Button_background_Color
+                              ),)
                           )
                         ],
                       )

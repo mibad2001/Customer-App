@@ -11,6 +11,8 @@ import 'package:get/get.dart';
 import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:get/get_core/src/get_main.dart';
 
+import '../../../Controller/Auth_Controller/login_controller.dart';
+
 class SigIn_Screen extends StatefulWidget {
   const SigIn_Screen({super.key});
 
@@ -23,6 +25,8 @@ class _SigIn_ScreenState extends State<SigIn_Screen> {
   Widget build(BuildContext context) {
     final hight = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
+
+    final loginController = Get.put(LoginController());
 
     return Scaffold(
       //backgroundColor: CustomColor.background,
@@ -70,39 +74,66 @@ class _SigIn_ScreenState extends State<SigIn_Screen> {
                     CustomTextField(
                       hintText: CustomText.hint_text_email,
                       FontSize: 14,
-                      prefixIcon: Icon(Icons.email,
+                      maxlength: 20,
+                      controller: loginController.emailController,
+                      prefixIcon: Icon(
+                          Icons.email,
                           color: CustomColor.textField_Icon_Color
                       ),
-                      borderRadius: 15,
-                      ////////////////////////////////////////////////////////////////////////////////////////
-                      //fillColor: CustomColor.textfield_fill,
+                     borderRadius: 15,
                     ),
 
                     SizedBox(height: 25),
+
+                    // ==================================================== password text field
+
                     CustomTextField(
-                      suffixIcon: IconButton(
-                        onPressed: () {},
-                        icon: Icon(
-                          Icons.remove_red_eye,
-                          color: CustomColor.textField_Icon_Color,
-                        ),
+
+                      suffixIcon: GestureDetector(
+
+                          onTap: (){
+                            setState (() {
+                              loginController.isPasswordVisible = !loginController.isPasswordVisible;
+                            });
+                          },
+                          child: Icon(loginController.isPasswordVisible ?Icons.remove_red_eye:Icons.visibility_off)
                       ),
+                      controller: loginController.passwordController,
+                      obscureText: !loginController.isPasswordVisible,
                       hintText: CustomText.hint_password,
                       FontSize: 14,
-                      prefixIcon: Icon(
-                        Icons.password,
-                       color: CustomColor.textField_Icon_Color,
-                      ),
+
+                      prefixIcon: const Icon(Icons.lock),
                       borderRadius: 15,
-                      /////////////////////////////////////////////////////////////////////////////////////
-                     // fillColor: CustomColor.textfield_fill,
                     ),
+
+
+                    // CustomTextField(
+                    //   suffixIcon: IconButton(
+                    //     onPressed: () {},
+                    //     icon: Icon(
+                    //       Icons.remove_red_eye,
+                    //       color: CustomColor.textField_Icon_Color,
+                    //     ),
+                    //   ),
+                    //   hintText: CustomText.hint_password,
+                    //   FontSize: 14,
+                    //   prefixIcon: Icon(
+                    //     Icons.password,
+                    //    color: CustomColor.textField_Icon_Color,
+                    //   ),
+                    //   borderRadius: 15,
+                    //   /////////////////////////////////////////////////////////////////////////////////////
+                    //  // fillColor: CustomColor.textfield_fill,
+                    // ),
                     SizedBox(height: 5),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Get.toNamed("/forgotPassword");
+                          },
                           child: Text("Forget Password"
                             ,style: AppTextStyles.regular(
                             color: CustomColor.black,
@@ -112,18 +143,39 @@ class _SigIn_ScreenState extends State<SigIn_Screen> {
                       ],
                     ),
                     SizedBox(height: 10),
-                    SizedBox(
-                      height: 55,
-                      width: 250,
-                      child: MyElevatedButton(
-                        text: "Log In",
-                        onPressed: () {
-                          Get.toNamed('/DeshBoard_Screen');
-                        },
-                        backgroundColor: CustomColor.Button_background_Color,
-                        textColor: CustomColor.Button_Text_Color,
-                      ),
-                    ),
+                   Obx((){
+                     return Container(
+                       decoration: BoxDecoration(
+                         borderRadius: BorderRadius.all(Radius.circular(15)
+                         ),
+                         color: CustomColor.Button_background_Color
+                       ),
+                       height: 55,
+                       width: 250,
+                       child: loginController.isLoading.value
+                           ?Center(
+                         child: CircularProgressIndicator(
+                           color:CustomColor.Icon_Color ,
+                           strokeWidth: 3,
+                         ),
+                       )
+                           : MyElevatedButton(
+                         text: "",
+                         textWidget: FittedBox(
+                           child: Text("Log In",style: AppTextStyles.medium(size: 25,weight: FontWeight.bold),),
+                         ),
+
+                         onPressed: () {
+
+                           loginController.login();
+                           loginController.clearFields();
+
+                           //Get.toNamed('/DeshBoard_Screen');
+                         },
+
+                       ),
+                     );
+                   }),
 
                     SizedBox(height: 5,),
                     Row(

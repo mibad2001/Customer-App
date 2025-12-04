@@ -121,12 +121,15 @@ class DeshBoard_Screen extends StatelessWidget {
                     fontSize: 16,
                   ),
                   Obx(
-                        () => Text(
-                      deshboard_controller.homeAddress.isEmpty
-                          ? ''
-                          : deshboard_controller.homeAddress.toString(),
-                      style: AppTextStyles.small(size: 12),
-                    ),
+                        () => Padding(
+                          padding: EdgeInsetsGeometry.only(left:20 ),
+                          child: Text(
+                                                deshboard_controller.homeAddress.isEmpty
+                            ? ''
+                            : deshboard_controller.homeAddress.toString(),
+                                                style: AppTextStyles.small(size: 12),
+                                              ),
+                        ),
                   ),
                   const SizedBox(height: 5),
 

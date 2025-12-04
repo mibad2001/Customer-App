@@ -98,11 +98,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   leading: Icon(Icons.person, size: 25, color: Colors.white),
                   title: Text(
                     CustomText.Name,
-                    style: AppTextStyles.regular(),
+                    style: AppTextStyles.medium(),
                   ),
                   subtitle: Text(
                     "Muhammad Faheem",
-                    style: AppTextStyles.regular(),
+                    style: AppTextStyles.medium(),
                   ),
                 ),
             
@@ -110,11 +110,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   leading: Icon(Icons.phone, size: 25, color: Colors.white),
                   title: Text(
                     CustomText.Mobile,
-                    style: AppTextStyles.regular(),
+                    style: AppTextStyles.medium(),
                   ),
                   subtitle: Text(
                     "+9234567896",
-                    style: AppTextStyles.regular(),
+                    style: AppTextStyles.medium(),
                   ),
                   trailing: Icon(Icons.edit, color: Colors.white),
                   onTap: () {
@@ -130,11 +130,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ),
                   title: Text(
                     CustomText.Email,
-                    style: AppTextStyles.regular(),
+                    style: AppTextStyles.medium(),
                   ),
                   subtitle: Text(
                     "abc@gmail.com",
-                    style: AppTextStyles.regular(),
+                    style: AppTextStyles.medium(),
                   ),
                 ),
             
@@ -142,11 +142,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   leading: Icon(Icons.password, size: 25, color: Colors.white),
                   title: Text(
                     CustomText.Change_password,
-                    style: AppTextStyles.regular(),
+                    style: AppTextStyles.medium(),
                   ),
                   subtitle: Text(
                     CustomText.Password_tab_Text,
-                    style: AppTextStyles.regular(),
+                    style: AppTextStyles.medium(),
                   ),
                   trailing: Icon(Icons.edit, size: 25, color: Colors.white),
                   onTap: () {
@@ -158,7 +158,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   leading: Icon(Icons.delete, size: 25, color: Colors.white),
                   title: Text(
                     CustomText.Delete_Account,
-                    style: AppTextStyles.regular(),
+                    style: AppTextStyles.medium(),
                   ),
                   onTap: () {
                     Get.dialog(
@@ -195,6 +195,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   width: 200,
                                   child: Text(
                                     CustomText.Delete_Alert,
+
                                     textAlign: TextAlign.center,
                                     style: AppTextStyles.small(),
                                   ),
@@ -225,7 +226,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   SizedBox(width: 20),
             
                                   CustomTextButton(
-                                    text: 'NO',
+                                    text: ' NO ',
                                     onPressed: () {
                                       Get.back();
                                     },
@@ -253,7 +254,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   leading: Icon(Icons.home, size: 25, color: Colors.white),
                   title: Text(
                     CustomText.Add_Home,
-                    style: AppTextStyles.small(),
+                    style: AppTextStyles.medium(),
                   ),
                   onTap: () {
                     Get.to(() => AddHomeScreen());
@@ -263,7 +264,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   leading: Icon(Icons.home_work, size: 25, color: Colors.white),
                   title: Text(
                     CustomText.Add_Work,
-                    style: AppTextStyles.small(),
+                    style: AppTextStyles.medium(),
                   ),
                   onTap: () {
                     Get.to(() => AddWork_Screen());

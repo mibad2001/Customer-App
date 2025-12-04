@@ -64,7 +64,7 @@ class AddWork_ScreenState extends State<AddWork_Screen> {
                               size: 25,
                             ),
                           ),
-                          SizedBox(width: MediaQuery.of(context).size.width*0.17,),
+                          SizedBox(width: MediaQuery.of(context).size.width*0.16,),
       
                           Text(
                             "Work Address",
@@ -135,7 +135,17 @@ class AddWork_ScreenState extends State<AddWork_Screen> {
                           // ================= Edit Button =================
                           IconButton(
                             icon: const Icon(Icons.edit, color: Colors.blue),
-                            onPressed: () {
+                            onPressed: () async{
+                              Get.dialog(
+                                Center(
+                                  child: CircularProgressIndicator(
+                                    color: CustomColor.Button_background_Color,
+                                  ),
+                                ),
+                                barrierDismissible: false
+                              );
+                              await Future.delayed(Duration(seconds: 1));
+                              Get.back();
                               mydeshcontroller.editWorkAddress();
                             },
                           ),
@@ -151,7 +161,7 @@ class AddWork_ScreenState extends State<AddWork_Screen> {
                                     decoration: BoxDecoration(
                                       borderRadius: BorderRadius.all(Radius.circular(30)),
                                     ),
-                                    height: 220,
+                                    height: 250,
                                     width: 100,
                                     child: Column(
                                       children: [
@@ -169,6 +179,7 @@ class AddWork_ScreenState extends State<AddWork_Screen> {
                                           color: Colors.amberAccent,
                                           size: 40,
                                         ),
+                                        SizedBox(height: 10),
                                         Center(
                                           child: Container(
                                             padding: EdgeInsets.only(left: 20),
@@ -176,14 +187,17 @@ class AddWork_ScreenState extends State<AddWork_Screen> {
                                             width: 200,
                                             child: Text(
                                               CustomText.Delete_home_address_Alert,
-                                              style: AppTextStyles.regular(),
+                                              textAlign: TextAlign.center,
+                                              style: AppTextStyles.small(),
                                             ),
                                           ),
                                         ),
 
                                         Row(
+                                          crossAxisAlignment: CrossAxisAlignment.center,
+                                          mainAxisAlignment: MainAxisAlignment.center,
                                           children: [
-                                            SizedBox(width: 70, height: 5),
+                                            //SizedBox(width: 70, height: 5),
                                             CustomTextButton(
                                               text: 'Yes',
                                               onPressed: (){
@@ -208,7 +222,7 @@ class AddWork_ScreenState extends State<AddWork_Screen> {
                                             SizedBox(width: 20),
 
                                             CustomTextButton(
-                                              text: 'NO',
+                                              text: '  NO  ',
                                               onPressed: () {
                                                 Get.back();
                                               },

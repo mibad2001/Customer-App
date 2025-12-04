@@ -29,7 +29,6 @@ class appDrawer extends StatelessWidget {
               children: [
                 SizedBox(height: 50),
                 CircleAvatar(
-                  backgroundColor: Colors.white60,
                   radius: 50,
                   child: Icon(
                     Icons.person_add_alt,

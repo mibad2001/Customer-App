@@ -739,7 +739,7 @@ class _RideInfoScreenState extends State<RideInfoScreen> {
 
                               // ========================================================== Book Ride Button
                               SizedBox(
-                                height: 50,
+                                height: 55,
                                 width: 250  ,
                                 child: MyElevatedButton(
                                   text: '',
@@ -749,7 +749,7 @@ class _RideInfoScreenState extends State<RideInfoScreen> {
                                   textWidget:
                                   FittedBox(
                                       fit: BoxFit.scaleDown,
-                                      child: Text("Book Ride",style: AppTextStyles.regular(size: 18,weight: FontWeight.bold),
+                                      child: Text("Book Ride",style: AppTextStyles.medium(size: 25,weight: FontWeight.bold),
                                       )
                                   ),
 

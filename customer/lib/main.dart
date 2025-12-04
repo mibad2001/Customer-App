@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Customer App',
-      initialRoute:  routesName.ForgotPassword,
+      initialRoute:  routesName.Splash_Screen,
       //transitionDuration: Duration(seconds: ),
       defaultTransition: Transition.leftToRight,
 

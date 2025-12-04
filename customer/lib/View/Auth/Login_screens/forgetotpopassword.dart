@@ -7,6 +7,7 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 
+import '../../Widgets/color.dart';
 import '../../Widgets/elevat_button.dart';
 import '../../textstyle/apptextstyle.dart';
 
@@ -170,26 +171,20 @@ class _EmailVerificationScreenState extends State<ForgotOTPScreen> {
                         children: [
                           const SizedBox(height: 30), // Adjust spacing
                           // Heading
-                          const Text("Email Verification",
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 30,
-                                  fontWeight: FontWeight.bold)),
+                           Text("Email Verification",
+                              style: AppTextStyles.heading(
+                                ),),
                           const SizedBox(height: 40), // Reduced spacing
                           // Verification Message
-                          const Text(
+                           Text(
                               "We have sent you a verification code on your email address",
                               textAlign: TextAlign.center,
-                              style: TextStyle(
-                                  color: Colors.white70, fontSize: 25)),
+                              style: AppTextStyles.medium()),
                           const SizedBox(height: 20), // Reduced spacing
                           // Email Address
                           Text("info@gmail.com",
                               textAlign: TextAlign.center,
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 25,
-                                  fontWeight: FontWeight.w500)),
+                              style: AppTextStyles.regular()),
                           const SizedBox(height: 40), // Reduced spacing
                           // Code Input Boxes
                           Row(
@@ -280,19 +275,17 @@ class _EmailVerificationScreenState extends State<ForgotOTPScreen> {
 
                           const SizedBox(height: 25), // Reduced spacing
                           // Divider
-                          const Divider(
-                            color: Colors.white,
-                            thickness: 2,
-                          ),
-                          const SizedBox(height: 30),
+                          // const Divider(
+                          //   color: Colors.white,
+                          //   thickness: 2,
+                          // ),
+                          const SizedBox(height: 20),
                           // Resend Timer Text
                           Text(
                               "Resend code after ${formatTime(_remainingTimeInSeconds)}",
                               textAlign: TextAlign.center,
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w600,
-                                  color: Colors.grey[800],
-                                  fontSize: 24)),
+                              style: AppTextStyles.medium(
+                                  color: Colors.black45,)),
                           const SizedBox(height: 40), // Reduced spacing
                           // Confirm Button
                           Padding(

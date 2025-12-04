@@ -252,12 +252,12 @@ class ThanksScreen extends StatelessWidget {
               SizedBox(height: 5),
               Center(
                 child: SizedBox(
-                  height: 50,
+                  height: 55,
                   width: 250,
                   child: MyElevatedButton(
                     text: 'DONE',
                     textWidget: FittedBox(
-                      child: Text("DONE",style: AppTextStyles.regular(size: 16,weight: FontWeight.bold),),
+                      child: Text("DONE",style: AppTextStyles.medium(size: 25,weight: FontWeight.bold),),
                     ),
                     onPressed: () {
                      Get.to(DeshBoard_Screen()) ;

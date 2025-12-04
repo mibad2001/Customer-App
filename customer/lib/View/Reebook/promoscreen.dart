@@ -69,12 +69,12 @@ class PromoScreen extends StatelessWidget {
             SizedBox(height: 10,),
             Center(
               child: Container(
-                height: 50,
+                height: 55,
                 width: 250  ,
                 child: MyElevatedButton(
                   text: 'DONE',
                   textWidget: FittedBox(
-                    child: Text("Done",style: AppTextStyles.medium(size: 18,weight: FontWeight.bold),),
+                    child: Text("Done",style: AppTextStyles.medium(size: 25,weight: FontWeight.bold),),
                   ),
                   onPressed: () {  },
                   fontSize: 20,

@@ -157,6 +157,7 @@ class ExtrasScreen extends StatelessWidget {
                           hintText: "Enter ",
                           borderRadius: 15,
                          // fillColor: CustomColor.textfield_fill,
+                          maxlength: 30,
                           maxLines: 3,
                           contentPadding: EdgeInsets.symmetric(vertical: 25, horizontal: 15),
                         ),

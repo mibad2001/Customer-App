@@ -504,7 +504,7 @@ class ReebookingScreen extends StatelessWidget {
 
                                         // ========================================================== Book Ride Button
                                         SizedBox(
-                                          height: 50,
+                                          height: 55,
                                           width: 250  ,
                                           child: MyElevatedButton(
                                             text: '',
@@ -514,7 +514,7 @@ class ReebookingScreen extends StatelessWidget {
                                             textWidget:
                                             FittedBox(
                                                 fit: BoxFit.scaleDown,
-                                                child: Text("Book Ride",style: AppTextStyles.regular(size: 18,weight: FontWeight.bold),
+                                                child: Text("Book Ride",style: AppTextStyles.medium(size: 25,weight: FontWeight.bold),
                                                 )
                                             ),
 
@@ -578,10 +578,8 @@ class ReebookingScreen extends StatelessWidget {
                                                   child: Center(
                                                     child: Text(
                                                       "ADD ORDER DETAILS",
-                                                      style: const TextStyle(
-                                                        color: CustomColor.Text_Color,
-                                                        fontSize: 25,
-                                                        fontWeight: FontWeight.bold,
+                                                      style:  AppTextStyles.medium(
+
                                                       ),
                                                       textAlign: TextAlign.center,
                                                     ),
@@ -612,13 +610,9 @@ class ReebookingScreen extends StatelessWidget {
                                           ),
                                       
                                           SizedBox(height: MediaQuery.of(context).size.height * 0.015),
-                                          const Text(
+                                           Text(
                                             "Name on order",
-                                            style: TextStyle(
-                                              color: CustomColor.Text_Color,
-                                              fontSize: 18,
-                                              fontWeight: FontWeight.bold,
-                                            ),
+                                            style: AppTextStyles.medium(),
                                           ),
                                           const SizedBox(height: 3),
                                           CustomTextField(
@@ -632,13 +626,14 @@ class ReebookingScreen extends StatelessWidget {
                                       
                                           Center(
                                             child: SizedBox(
-                                              height: MediaQuery.of(context).size.height * 0.053,
-                                              width: MediaQuery.of(context).size.width * 0.5,
+                                              height:55,
+                                              width:250,
                                               child: MyElevatedButton(
                                                 text: 'DONE',
+                                                textWidget: FittedBox(
+                                                  child: Text("Done",style: AppTextStyles.medium(size:25,weight: FontWeight.bold),),
+                                                ),
                                                 onPressed: () {},
-                                      
-                                                fontSize: MediaQuery.of(context).size.width * 0.035,
                                               ),
                                             ),
                                           ),

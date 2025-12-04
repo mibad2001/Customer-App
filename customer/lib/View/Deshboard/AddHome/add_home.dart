@@ -147,7 +147,23 @@ class AddHomeScreenState extends State<AddHomeScreen> {
                           children: [
                             IconButton(
                               icon: const Icon(Icons.edit, color: Colors.blue),
-                              onPressed: mydeshcontroller.editItem,
+                                onPressed: () async {
+
+                                  Get.dialog(
+                                    Center(
+                                      child: CircularProgressIndicator(
+                                        color: CustomColor.Button_background_Color,
+                                      ),
+                                    ),
+                                    barrierDismissible: false,
+                                  );
+                                  await Future.delayed(Duration(seconds: 1));
+                                  Get.back();
+                                  mydeshcontroller.editItem();
+
+                                }
+
+                              // mydeshcontroller.editItem,
                             ),
                             IconButton(
                                 icon: const Icon(Icons.delete, color: Colors.red),
@@ -159,7 +175,7 @@ class AddHomeScreenState extends State<AddHomeScreen> {
                                         decoration: BoxDecoration(
                                           borderRadius: BorderRadius.all(Radius.circular(30)),
                                         ),
-                                        height: 220,
+                                        height: 250,
                                         width: 100,
                                         child: Column(
                                           children: [
@@ -177,6 +193,7 @@ class AddHomeScreenState extends State<AddHomeScreen> {
                                               color: Colors.amberAccent,
                                               size: 40,
                                             ),
+                                            SizedBox(height: 10),
                                             Center(
                                               child: Container(
                                                 padding: EdgeInsets.only(left: 20),
@@ -184,14 +201,19 @@ class AddHomeScreenState extends State<AddHomeScreen> {
                                                 width: 200,
                                                 child: Text(
                                                   CustomText.Delete_home_address_Alert,
-                                                  style: AppTextStyles.regular(),
+                                                  textAlign: TextAlign.center,
+                                                  style: AppTextStyles.small(),
                                                 ),
                                               ),
                                             ),
 
                                             Row(
+                                              crossAxisAlignment: CrossAxisAlignment.center,
+                                              mainAxisAlignment: MainAxisAlignment.center,
                                               children: [
-                                                SizedBox(width: 70, height: 5),
+
+
+
                                                 CustomTextButton(
                                                   text: 'Yes',
                                                   onPressed: (){
@@ -214,7 +236,7 @@ class AddHomeScreenState extends State<AddHomeScreen> {
                                                 SizedBox(width: 20),
 
                                                 CustomTextButton(
-                                                  text: 'NO',
+                                                  text: '  No  ',
                                                   onPressed: () {
                                                     Get.back();
                                                   },

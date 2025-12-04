@@ -5,6 +5,8 @@ import 'package:customer/View/Widgets/textformfield.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../textstyle/apptextstyle.dart';
+
 
 class Changepassword extends StatelessWidget {
   const Changepassword({super.key});
@@ -154,17 +156,24 @@ class Changepassword extends StatelessWidget {
 
               Center(
                 child: SizedBox(
-                  height: 50,
-                  width: 250  ,
+                  height: 55,
+                  width: 250,
                   child: MyElevatedButton(
-                    text: 'Next',
+                    text: "",
                     onPressed: () {
-
+                      Get.toNamed('/RideInfoScreen');
                     },
-                    fontSize: 20,
+                    textWidget: FittedBox(
+                      fit: BoxFit.scaleDown,
+                      child: Text(
+                        "Next",
+                        style: AppTextStyles.medium(size: 25,weight: FontWeight.bold),
+                      ),
+                    ),
                   ),
                 ),
-              ),
+                ),
+
             ],
           ),
         ),
