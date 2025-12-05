@@ -135,6 +135,7 @@ class _forgotPasswordState extends State<forgotPassword> {
                         children: [
                           GestureDetector(
                             onTap: (){
+                              Get.back();
                               // Navigator.pushReplacement(
                               //     context,
                               //     MaterialPageRoute(
@@ -233,7 +234,9 @@ class _forgotPasswordState extends State<forgotPassword> {
                             style: AppTextStyles.small(
                             ),),
                           TextButton(
+
                               onPressed: () {
+                                Get.toNamed("/SigUp_Screen");
                                 // Navigator.pushReplacement(
                                 //     context,
                                 //     MaterialPageRoute(

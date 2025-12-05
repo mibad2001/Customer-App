@@ -140,6 +140,7 @@ class _EmailVerificationScreenState extends State<ForgotOTPScreen> {
           backgroundColor: Color.fromARGB(255, 30, 1, 44),
           leading: GestureDetector(
               onTap: () {
+                Get.back();
                 // Navigator.pushReplacement(
                 //     context,
                 //     MaterialPageRoute(
@@ -148,7 +149,7 @@ class _EmailVerificationScreenState extends State<ForgotOTPScreen> {
               child: Padding(
                   padding: const EdgeInsets.only(left: 15),
                   child:
-                  Icon(Icons.arrow_back, color: Colors.white, size: 40)))),
+                  Icon(Icons.arrow_back, color: Colors.white, size: 30)))),
       body: SingleChildScrollView(
         child: Container(
           width: MediaQuery.of(context).size.width,

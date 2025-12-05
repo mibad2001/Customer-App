@@ -65,7 +65,7 @@ class RideSearchScreen extends StatelessWidget {
                   Expanded(
                     child: Center(
                       child: Text(
-                        CustomText.Seaching,
+                        CustomText.Searching,
                         style: AppTextStyles.heading(
                           size: MediaQuery.of(context).size.width * 0.06, // responsive font
                           //weight: FontWeight.bold,
@@ -124,7 +124,8 @@ class RideSearchScreen extends StatelessWidget {
             Row(
               children: [
                 SizedBox(width: 25,),
-                Icon(Icons.location_on,size: 25,color: CustomColor.Icon_Color,),
+                Icon(Icons.location_on,size: 25,color: Colors.red),
+                //CustomColor.Icon_Color,),
                 SizedBox(width: 10,),
                 Text(
                   CustomText.Seaching_Text,
@@ -146,15 +147,15 @@ class RideSearchScreen extends StatelessWidget {
             SizedBox(height: 10,),
 
             Text(
-              "Thanks for your patience please wait",
-              style: AppTextStyles.regular(
+              "Thanks For Your Patience Please Wait",
+              style: AppTextStyles.medium(
                   weight: FontWeight.bold,
                   ),
             ),
             SizedBox(height: 20,),
 
             SizedBox(
-              height: 50,
+              height: 55,
               width: 250  ,
               child: MyElevatedButton(
                 text: '',
@@ -212,7 +213,7 @@ class RideSearchScreen extends StatelessWidget {
                                   const SizedBox(width: 20),
 
                                   CustomTextButton(
-                                    text: " No ",
+                                    text: "  No   ",
                                     onPressed: () {
                                       Get.to(  Driverdetailscreen() );
                                     },
@@ -237,12 +238,10 @@ class RideSearchScreen extends StatelessWidget {
                 },
                 textWidget:
                 FittedBox(
-                    fit: BoxFit.scaleDown,
+                    //fit: BoxFit.scaleDown,
                     child: Text('Cancel Ride',style: AppTextStyles.medium(size: 25,weight: FontWeight.bold),
                     )
                 ),
-
-                fontSize: 20,
               ),
             ),
 

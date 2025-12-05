@@ -2,6 +2,7 @@
 import 'package:customer/View/textstyle/apptextstyle.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../Controller/payment/paymentcontroller.dart';
 import '../Widgets/all_text.dart';
@@ -125,13 +126,16 @@ class RideCompleteScreen extends StatelessWidget {
                         ),
                       ),
 
-                      SizedBox(height: 20,),
+                      SizedBox(height: 30,),
 
 
 
                      Row(
+                       crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          Icon(Icons.location_on,size: 25,color: CustomColor.Icon_Color,),
+                          Icon(Icons.location_on,size: 25,color: Colors.red),
+                          //CustomColor.Icon_Color,),
                           SizedBox(width: 10,),
 
                           Expanded(
@@ -140,17 +144,18 @@ class RideCompleteScreen extends StatelessWidget {
                                   " Worrior Garden St.LEO TN36eb",
                               softWrap: true,
                               textAlign: TextAlign.start,
+                              maxLines: 2,
                               style: AppTextStyles.medium(),
                             ),
                           ),
                         ],
                       ),
-                      SizedBox(height: 10,),
+                      SizedBox(height: 15,),
 
                     Row(
                         children: [
                           Icon(Icons.money,size: 25,color: CustomColor.Icon_Color,),
-                          SizedBox(width: 10,),
+                          SizedBox(width: 15,),
 
                           Text(
                             "3.000",
@@ -162,7 +167,7 @@ class RideCompleteScreen extends StatelessWidget {
 
                         ],
                       ),
-                      SizedBox(height: 10,),
+                      SizedBox(height: 15,),
 
                       Text(
                         "Payment Method",
@@ -221,7 +226,7 @@ class RideCompleteScreen extends StatelessWidget {
                             },
                             textWidget:
                             FittedBox(
-                                fit: BoxFit.scaleDown,
+                                //fit: BoxFit.scaleDown,
                                 child: Text('Done',style: AppTextStyles.medium(size: 25 ,weight: FontWeight.bold),
                                 )
                             ),
@@ -254,9 +259,25 @@ class RideCompleteScreen extends StatelessWidget {
                     children: [
                       Center(
                         child: TextButton(
-                          onPressed: (){},
+                          onPressed: () async {
+                            const phone = "tel://03001234567";
+                            final Uri phoneUri = Uri.parse(phone);
+
+                            try {
+                              bool launched = await launchUrl(
+                                phoneUri,
+                                mode: LaunchMode.externalApplication,
+                              );
+
+                              if (!launched) {
+                                print("Dialer app not found");
+                              }
+                            } catch (e) {
+                              print("Error: $e");
+                            }
+                          },
                           child: Text(
-                            "Help and Support please call",
+                            "Help And Support Please Call",
                             textAlign: TextAlign.center,
                             style: AppTextStyles.medium(),
                           ),

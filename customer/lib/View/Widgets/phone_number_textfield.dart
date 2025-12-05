@@ -29,7 +29,7 @@ class PhoneNumber_TextField extends StatelessWidget {
           
         prefixIconColor: CustomColor.Text_Color,
 
-        labelText: hintText,
+        hintText: hintText,
         prefixIcon: Icon(Icons.call, color: CustomColor.Text_Color, size: 50),
         labelStyle: AppTextStyles.small(size:14,color: CustomColor.blueGrey),
         filled: true,

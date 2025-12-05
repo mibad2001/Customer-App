@@ -146,20 +146,22 @@ class ThanksScreen extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Icon(
                       Icons.location_on,
                       size: 25,
-                      color: CustomColor.Icon_Color,
+                      color: Colors.red //CustomColor.Icon_Color,
                     ),
-                    SizedBox(width: 5),
+                    SizedBox(width: 10),
 
                     Expanded(
                       child: Text(
                         "1A Worrior Garden St.LEO "
                         " Worrior Garden St.LEO TN36eb",
                         softWrap: true,
-                        textAlign: TextAlign.center,
+                        textAlign: TextAlign.start,
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                         style: AppTextStyles.medium(),
@@ -255,9 +257,9 @@ class ThanksScreen extends StatelessWidget {
                   height: 55,
                   width: 250,
                   child: MyElevatedButton(
-                    text: 'DONE',
+                    text: '',
                     textWidget: FittedBox(
-                      child: Text("DONE",style: AppTextStyles.medium(size: 25,weight: FontWeight.bold),),
+                      child: Text("Done",style: AppTextStyles.medium(size: 25,weight: FontWeight.bold),),
                     ),
                     onPressed: () {
                      Get.to(DeshBoard_Screen()) ;

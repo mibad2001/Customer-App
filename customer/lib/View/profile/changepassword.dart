@@ -5,11 +5,19 @@ import 'package:customer/View/Widgets/textformfield.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../Controller/change_password/change_password_controller.dart';
 import '../textstyle/apptextstyle.dart';
 
 
-class Changepassword extends StatelessWidget {
-  const Changepassword({super.key});
+class Changepassword extends StatefulWidget {
+   Changepassword({super.key});
+
+  @override
+  State<Changepassword> createState() => _ChangepasswordState();
+}
+
+class _ChangepasswordState extends State<Changepassword> {
+  final chnagePassController = Get.put(changePasswordController());
 
   @override
   Widget build(BuildContext context) {
@@ -55,22 +63,26 @@ class Changepassword extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 20),
-              CustomTextField(
-                suffixIcon: IconButton(
-                  onPressed: () {},
-                  icon: Icon(
-                    Icons.remove_red_eye,
-                    color: CustomColor.textField_Icon_Color,
+              Obx(
+                  ()=> CustomTextField(
+
+                  suffixIcon: GestureDetector(
+
+                      onTap: (){
+                        chnagePassController.isCurrentPasswordVisible.value =
+                        !chnagePassController.isCurrentPasswordVisible.value;
+
+                      },
+                      child: Icon(chnagePassController.isCurrentPasswordVisible.value ?Icons.remove_red_eye:Icons.visibility_off)
                   ),
+                  controller: chnagePassController.CurrentpasswordtlController,
+                  obscureText: !chnagePassController.isCurrentPasswordVisible.value,
+                  hintText: CustomText.Chng_Curr_pass,
+                  FontSize: 14,
+
+                  prefixIcon: const Icon(Icons.lock),
+                  borderRadius: 15,
                 ),
-                hintText: CustomText.Chng_Curr_pass,
-                FontSize: 14,
-                prefixIcon: Icon(
-                  Icons.password,
-                  color: CustomColor.textField_Icon_Color,
-                ),
-                borderRadius: 15,
-                // fillColor: CustomColor.textfield_fill,
               ),
 
 
@@ -87,71 +99,77 @@ class Changepassword extends StatelessWidget {
               // ),
               SizedBox(height: 10),
 
-              CustomTextField(
-                suffixIcon: IconButton(
-                  onPressed: () {},
-                  icon: Icon(
-                    Icons.remove_red_eye,
-                    color: CustomColor.textField_Icon_Color,
+              Obx(
+                    ()=> CustomTextField(
+
+                  suffixIcon: GestureDetector(
+
+                      onTap: (){
+                        chnagePassController.isnewPasswordVisible.value =
+                        !chnagePassController.isnewPasswordVisible.value;
+
+                      },
+                      child: Icon(chnagePassController.isnewPasswordVisible.value ?Icons.remove_red_eye:Icons.visibility_off)
                   ),
+                  controller: chnagePassController.newpasswordController,
+                  obscureText: !chnagePassController.isnewPasswordVisible.value,
+                  hintText: CustomText.Chng_New_pass,
+                  FontSize: 14,
+
+                  prefixIcon: const Icon(Icons.lock),
+                  borderRadius: 15,
                 ),
-                hintText: CustomText.Chng_New_pass,
-                FontSize: 14,
-                prefixIcon: Icon(
-                  Icons.password,
-                  color: CustomColor.textField_Icon_Color,
-                ),
-                borderRadius: 15,
-                // fillColor: CustomColor.textfield_fill,
               ),
-          
+
+
+
+
               // CustomTextField(
               //   suffixIcon: IconButton(
               //     onPressed: () {},
-              //     icon: Icon(Icons.remove_red_eye, color: CustomColor.textColor),
+              //     icon: Icon(
+              //       Icons.remove_red_eye,
+              //       color: CustomColor.textField_Icon_Color,
+              //     ),
               //   ),
               //   hintText: CustomText.Chng_New_pass,
               //   FontSize: 14,
-              //   prefixIcon: Icon(Icons.lock, color: CustomColor.textColor),
+              //   prefixIcon: Icon(
+              //     Icons.password,
+              //     color: CustomColor.textField_Icon_Color,
+              //   ),
               //   borderRadius: 15,
-              //   fillColor: CustomColor.textfield_fill,
+              //   // fillColor: CustomColor.textfield_fill,
               // ),
               //
+
               SizedBox(height: 10),
 
 
-              CustomTextField(
-                suffixIcon: IconButton(
-                  onPressed: () {},
-                  icon: Icon(
-                    Icons.remove_red_eye,
-                    color: CustomColor.textField_Icon_Color,
+              Obx(
+                    ()=> CustomTextField(
+
+                  suffixIcon: GestureDetector(
+
+                      onTap: (){
+                        chnagePassController.isConfirmPasswordVisible.value =
+                        !chnagePassController.isConfirmPasswordVisible.value;
+
+                      },
+                      child: Icon(chnagePassController.isConfirmPasswordVisible.value ?Icons.remove_red_eye:Icons.visibility_off)
                   ),
+                  controller: chnagePassController.ConfirmpasswordController,
+                  obscureText: !chnagePassController.isConfirmPasswordVisible.value,
+                  hintText: CustomText.Chng_Confirm_pass,
+                  FontSize: 14,
+
+                  prefixIcon: const Icon(Icons.lock),
+                  borderRadius: 15,
                 ),
-                hintText: CustomText.Chng_Confirm_pass,
-                FontSize: 14,
-                prefixIcon: Icon(
-                  Icons.password,
-                  color: CustomColor.textField_Icon_Color,
-                ),
-                borderRadius: 15,
-                // fillColor: CustomColor.textfield_fill,
               ),
 
 
-          
-              // CustomTextField(
-              //   suffixIcon: IconButton(
-              //     onPressed: () {},
-              //     icon: Icon(Icons.remove_red_eye, color: CustomColor.textColor),
-              //   ),
-              //   hintText: CustomText.Chng_Confirm_pass,
-              //   FontSize: 14,
-              //  // prefixIcon: Icon(Icons.lock, color: CustomColor.textColor),
-              //   borderRadius: 15,
-              //   //fillColor: CustomColor.textfield_fill,
-              // ),
-              //
+
               SizedBox(height: 15),
 
               Center(
@@ -164,7 +182,7 @@ class Changepassword extends StatelessWidget {
                       Get.toNamed('/RideInfoScreen');
                     },
                     textWidget: FittedBox(
-                      fit: BoxFit.scaleDown,
+                     // fit: BoxFit.scaleDown,
                       child: Text(
                         "Next",
                         style: AppTextStyles.medium(size: 25,weight: FontWeight.bold),

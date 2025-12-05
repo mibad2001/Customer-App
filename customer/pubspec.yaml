@@ -49,6 +49,7 @@ dependencies:
   intl:
   stepper_touch: ^1.0.0
   flutter_emoji_feedback:
+  url_launcher: ^6.3.0
 
 
 

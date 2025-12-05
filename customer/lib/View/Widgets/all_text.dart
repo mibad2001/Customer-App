@@ -30,7 +30,7 @@ class CustomText {
   static const String Add_Home =  "Add Home";
   static const String Add_Work =  "Add Work";
   static const String Password_tab_Text =  "Tap here to change password ";
-  static const String Delete_Alert =  "This will permanently delete your account."
+  static const String Delete_Alert =  "This will permanently delete your account. "
                            "All your data will be erased .Do you really want to continue?";
   static const String Chng_Curr_pass =  "Enter Current Password";
   static const String Chng_New_pass =  "Enter Current Password";
@@ -43,15 +43,15 @@ class CustomText {
   static const String Pickup =  "Pick Up";
   static const String Delete_address = "Delete Address";
   static const String Delete_home_address_Alert =  "This will  delete your address."
-                                                    ".Do you really want to continue?";
+                                                    " Do you really want to continue?";
   static const String Pick_Up_Location = "Select Pick up Location";
   static const String Pick_Up_Dialog_Text = "You can choose which is your pick up location";
   static const String Ride_Info =  "Ride Info";
-  static const String Slect_Suitable_Ride =  "Slect Suitable Ride";
+  static const String Select_Suitable_Ride =  "Select Suitable Ride";
   static const String Schedule_Ride =  "Schedule Ride";
-  static const String Ride_Cancel_alert =  "Are you sure , Do you want to Cancel ride ? ";
-  static const String Seaching =  "Seaching....";
-  static const String Seaching_Text =  "Your ride is being searched";
+  static const String Ride_Cancel_alert =  "Are you sure, Do you want to cancel ride ? ";
+  static const String Searching =  "Searching....";
+  static const String Seaching_Text =  "Your Ride Is Being Searched";
   static const String Seaching_Thnks_Note =  "Thanks for your patience please wait";
   static const String Payments = "Payments" ;
   static const String Payments_Method_Choose =  "Choose a payment method" ;

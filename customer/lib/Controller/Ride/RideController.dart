@@ -4,12 +4,12 @@ import 'package:intl/intl.dart';
 
 class RideController extends GetxController {
   final List<String> CarName = [
-    "Any car",
-    "Saloon car",
-    "Estate car",
-    "Seven seater Van",
-    "Saloon car",
-    "Estate car",
+    "Any Car",
+    "Saloon Car",
+    "Estate Car",
+    "Seven Seater Van",
+    "Saloon Car",
+    "Estate Car",
     "Seven seater Van"
   ];
   final List<String> seats = ["4", "3", "4", "6", "3", "4", "6"];

@@ -281,7 +281,9 @@ class ExtrasScreen extends StatelessWidget {
                             ],
                           ),
                           const SizedBox(width: 10),
-                          Icon(Icons.add, size: 30, color: CustomColor.Icon_Color),
+                          Padding(
+                            padding: EdgeInsetsGeometry.only(top: 20),
+                              child: Icon(Icons.add, size: 25, color: CustomColor.Icon_Color)),
                           const SizedBox(width: 10),
                           Column(
                             children: const [
@@ -298,13 +300,16 @@ class ExtrasScreen extends StatelessWidget {
                               ),
                             ],
                           ),
-                          const SizedBox(width: 10),
-                          const Text(
-                            "=   34.00",
-                            style: TextStyle(
-                                color: CustomColor.Text_Color,
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold),
+                          const SizedBox(width: 15),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 15.0),
+                            child: const Text(
+                              "=   34.00",
+                              style: TextStyle(
+                                  color: CustomColor.Text_Color,
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold),
+                            ),
                           ),
                         ],
                       ),

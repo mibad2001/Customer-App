@@ -125,6 +125,8 @@ class AddWork_ScreenState extends State<AddWork_Screen> {
                     child: ListTile(
                       title: Text(
                         mydeshcontroller.workAddress.value,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
                         style: AppTextStyles.medium(
                         ),
                       ),

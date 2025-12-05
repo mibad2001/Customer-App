@@ -11,6 +11,18 @@
     <!-- (Optional) Background Location (Android 10+) -->
     <!-- <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/> -->
 
+
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
+    <!-- REQUIRED for Dialer intent -->
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.DIAL" />
+            <data android:scheme="tel" />
+        </intent>
+    </queries>
+
+
     <application
         android:label="customer"
         android:name="${applicationName}"

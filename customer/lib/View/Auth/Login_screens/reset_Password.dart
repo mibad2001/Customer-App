@@ -4,6 +4,7 @@ import 'dart:convert';
 import 'package:customer/View/Widgets/textformfield.dart';
 import 'package:customer/View/textstyle/apptextstyle.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
@@ -251,6 +252,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
 
                       onPressed: () {
                        // Get.toNamed('/DeshBoard_Screen');
+                        Get.toNamed("/SigIn_Screen");
                       },
 
                     ),

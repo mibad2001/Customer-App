@@ -87,24 +87,24 @@ class _SigIn_ScreenState extends State<SigIn_Screen> {
 
                     // ==================================================== password text field
 
-                    CustomTextField(
+                    Obx(
+                        ()=> CustomTextField(
 
-                      suffixIcon: GestureDetector(
+                        suffixIcon: GestureDetector(
 
-                          onTap: (){
-                            setState (() {
-                              loginController.isPasswordVisible = !loginController.isPasswordVisible;
-                            });
-                          },
-                          child: Icon(loginController.isPasswordVisible ?Icons.remove_red_eye:Icons.visibility_off)
+                            onTap: (){
+                              loginController.isPasswordVisible.value = !loginController.isPasswordVisible.value;
+                            },
+                            child: Icon(loginController.isPasswordVisible.value ?Icons.remove_red_eye:Icons.visibility_off)
+                        ),
+                        controller: loginController.passwordController,
+                        obscureText: !loginController.isPasswordVisible.value,
+                        hintText: CustomText.hint_password,
+                        FontSize: 14,
+
+                        prefixIcon: const Icon(Icons.lock),
+                        borderRadius: 15,
                       ),
-                      controller: loginController.passwordController,
-                      obscureText: !loginController.isPasswordVisible,
-                      hintText: CustomText.hint_password,
-                      FontSize: 14,
-
-                      prefixIcon: const Icon(Icons.lock),
-                      borderRadius: 15,
                     ),
 
 

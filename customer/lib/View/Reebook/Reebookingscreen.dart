@@ -595,7 +595,7 @@ class ReebookingScreen extends StatelessWidget {
                                       
                                       
                                           const Text(
-                                            "Order number",
+                                            "Order Number",
                                             style: TextStyle(
                                               color: CustomColor.textColor,
                                               fontSize: 18,

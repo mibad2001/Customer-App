@@ -2,6 +2,7 @@
 import 'package:customer/View/Widgets/color.dart';
 import 'package:customer/View/textstyle/apptextstyle.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class TermsAndConditionsScreen extends StatelessWidget {
   const TermsAndConditionsScreen({super.key});
@@ -46,7 +47,10 @@ class TermsAndConditionsScreen extends StatelessWidget {
                 children: [
                   IconButton(
                       icon: Icon(Icons.arrow_back, color: Colors.white),
-                      onPressed:(){}
+                      onPressed:(){
+
+                        Get.back();
+                      }
                   ),
                   SizedBox(height: 10),
                   Text(

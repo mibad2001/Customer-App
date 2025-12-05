@@ -9,6 +9,7 @@ import 'package:customer/View/textstyle/apptextstyle.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../Controller/Deshboard/deshboard_cont.dart';
 import '../Deshboard/AddWork/add_work.dart';
 import '../Widgets/elevat_button.dart';
 
@@ -17,9 +18,13 @@ class HomeDriver extends StatelessWidget {
 
   final homeC = Get.put(SwapController());
 
+  final deshboardController = Get.put(DeshBoardAddHome_Controller());
+
   @override
   Widget build(BuildContext context) {
     // final DeshBoardAddHome_Controller hdeshboard_controller = Get.find();
+
+
 
     return SafeArea(
       child: Scaffold(
@@ -564,10 +569,19 @@ class HomeDriver extends StatelessWidget {
                                           "Home",
                                           style: AppTextStyles.medium(),
                                         ),
-                                        subtitle: Text(
-                                          "Address",
-                                          style: AppTextStyles.regular(),
+                                        subtitle:    Obx(
+                                              () =>Text(
+                                                deshboardController.homeAddress.isEmpty
+                                                    ? 'Address'
+                                                    : deshboardController.homeAddress.toString(),
+                                                style: AppTextStyles.regular(),
+                                              ),
+
                                         ),
+                                        // Text(
+                                        //   "Address",
+                                        //   style: AppTextStyles.regular(),
+                                        // ),
                                         leading: Icon(
                                           controller.iconItems[controller
                                               .selectedIndex
@@ -589,7 +603,7 @@ class HomeDriver extends StatelessWidget {
                                           Get.to(AddWork_Screen());
                                         },
                                         title: Text(
-                                          "Add_Work",
+                                          "Add Work",
                                           style: AppTextStyles.medium(),
                                         ),
                                         subtitle: Text(
@@ -682,7 +696,7 @@ class HomeDriver extends StatelessWidget {
                             child: MyElevatedButton(
                               text: '',
                               textWidget: FittedBox(
-                                child: Text("CONTINUE",style: AppTextStyles.medium(size: 25,weight: FontWeight.bold),),
+                                child: Text("Continue",style: AppTextStyles.medium(size: 25,weight: FontWeight.bold),),
                               ),
                               fontSize: 18,
                               onPressed: () {
@@ -802,10 +816,11 @@ class HomeDriver extends StatelessWidget {
                               children: [
                                 const Icon(
                                   Icons.location_on,
-                                  size: 20,
-                                  color: CustomColor.Icon_Color,
+                                  size: 25,
+                                  color:Colors.red
+                                  //CustomColor.Icon_Color,
                                 ),
-                                const SizedBox(width: 10),
+                                const SizedBox(width: 5),
                                 TextButton(
                                   onPressed: () {
                                     Get.toNamed('/PickupScreen');

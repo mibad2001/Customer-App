@@ -108,7 +108,7 @@ class _RideInfoScreenState extends State<RideInfoScreen> {
 
                     //SizedBox(height: 10,),
                     Text(
-                      CustomText.Slect_Suitable_Ride,
+                      CustomText.Select_Suitable_Ride,
                       style: AppTextStyles.heading(
                           weight: FontWeight.bold,
                       ),
@@ -517,10 +517,10 @@ class _RideInfoScreenState extends State<RideInfoScreen> {
                                         ),
                                       ),
                                       child: Text(
-                                        "ASAP",
+                                        "Asap",
                                         style: AppTextStyles.small(
 
-                                          weight: rideController.selectedTimeOption.value == "ASAP"
+                                          weight: rideController.selectedTimeOption.value == "Asap"
                                               ? FontWeight.bold
                                               : FontWeight.normal,
 
@@ -536,7 +536,7 @@ class _RideInfoScreenState extends State<RideInfoScreen> {
                                     height: 45,
                                     child: ElevatedButton(
                                       onPressed: (){ rideController.addMinutes(15);
-                                        print("yaha hm ma time dekh :${rideController.selectedTime}");
+                                       // print("yaha hm ma time dekh :${rideController.selectedTime}");
                                         },
                                       style: ElevatedButton.styleFrom(
                                         backgroundColor: rideController.selectedTimeOption.value == "15 min"
@@ -762,10 +762,10 @@ class _RideInfoScreenState extends State<RideInfoScreen> {
                       );
                     },
                     textWidget: FittedBox(
-                      fit: BoxFit.scaleDown,
+                     // fit: BoxFit.scaleDown,
                       child: Text(
                         "Schedule Booking",
-                        style: AppTextStyles.medium(size: 25,weight: FontWeight.w600),
+                        style: AppTextStyles.medium(size: 25,weight: FontWeight.bold),
                       ),
                     ),
                   ),
