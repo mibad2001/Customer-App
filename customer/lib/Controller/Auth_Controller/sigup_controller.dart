@@ -5,10 +5,14 @@ class SignUp_Controller extends GetxController {
   TextEditingController FirstName = TextEditingController();
   TextEditingController LastName = TextEditingController();
   TextEditingController Email = TextEditingController();
-  bool isPasswordVisible = false;
+  var isPasswordVisible = false.obs;
   TextEditingController Password = TextEditingController();
 
   var isCheckedBox = false.obs;
+
+  void togglePasswordVisibility() {
+    isPasswordVisible.value = !isPasswordVisible.value;
+  }
 
   void checked_box(bool? value) {
     isCheckedBox.value = value ?? false;

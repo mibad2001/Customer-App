@@ -7,11 +7,13 @@ import 'package:customer/View/Widgets/elevat_button.dart';
 import 'package:customer/View/Widgets/phone_number_textfield.dart';
 import 'package:customer/View/Widgets/textformfield.dart';
 import 'package:customer/View/Widgets/textstyle.dart';
-import 'package:customer/View/textstyle/apptextstyle.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:get/get_core/src/get_main.dart';
+
+import '../../../Binding/auth_binding.dart';
+import '../../textstyle/apptextstyle.dart';
 
 class SigUp_Screen extends StatefulWidget {
   const SigUp_Screen({super.key});
@@ -21,7 +23,10 @@ class SigUp_Screen extends StatefulWidget {
 }
 
 class _SigUp_ScreenState extends State<SigUp_Screen> {
-  final  signupController = Get.put(SignUp_Controller());
+
+  final signupController = Get.find<SignUp_Controller>();
+  //final  signupController = Get.put(SignUp_Controller());
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -105,25 +110,32 @@ class _SigUp_ScreenState extends State<SigUp_Screen> {
                     ),
                     SizedBox(height: 8),
 
-                    CustomTextField(
-                      maxlength: 15,
-                      suffixIcon: GestureDetector(
 
-                          onTap: (){
-                            setState (() {
-                              signupController.isPasswordVisible = !signupController.isPasswordVisible;
-                            });
-                          },
-                          child: Icon(signupController.isPasswordVisible ?Icons.remove_red_eye:Icons.visibility_off)
+
+                    Obx(
+                      ()=> CustomTextField(
+                        maxlength: 15,
+                        suffixIcon: GestureDetector(
+                            onTap: (){
+                              signupController.isPasswordVisible.value = !signupController.isPasswordVisible.value;
+                              // signupController.togglePasswordVisibility();
+                            },
+                            child: Icon(signupController.isPasswordVisible.value ?Icons.remove_red_eye:Icons.visibility_off)
+                        ),
+                        controller: signupController.Password,
+                        obscureText: !signupController.isPasswordVisible.value,
+                        hintText: CustomText.hint_password,
+                        FontSize: 14,
+                        prefixIcon: const Icon(Icons.lock),
+                        borderRadius: 15,
                       ),
-                      controller: signupController.Password,
-                      obscureText: !signupController.isPasswordVisible,
-                      hintText: CustomText.hint_password,
-                      FontSize: 14,
-
-                      prefixIcon: const Icon(Icons.lock),
-                      borderRadius: 15,
                     ),
+
+
+
+
+
+
 
                     SizedBox(height: 8),
                     Obx(

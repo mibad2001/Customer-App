@@ -54,8 +54,9 @@ class PickupScreen extends StatelessWidget {
                   padding: const EdgeInsets.all(8.0),
                   child: Icon(
                     Icons.location_on,
-                    size: 15,
-                    color: CustomColor.Icon_Color,
+                    size: 20,
+                    color: Colors.red
+                    //CustomColor.Icon_Color,
                   ),
                 ),
                 Text(CustomText.Pickup,style: AppTextStyles.medium(
@@ -64,10 +65,12 @@ class PickupScreen extends StatelessWidget {
             ),
 
             Container(
-              padding: const EdgeInsets.only(left: 20.0,right: 10),
+              padding: const EdgeInsets.symmetric(horizontal: 15),
               child: Text("123 Green Valley Street""Springfield, IL 62704 United States",
-                style: AppTextStyles.medium(
-                ),),
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+                style: AppTextStyles.medium(),
+              ),
             ),
 
             SizedBox(height: 10,),
@@ -82,18 +85,16 @@ class PickupScreen extends StatelessWidget {
               ),
 
                 Container(
-                  height: MediaQuery.of(context).size.height*0.1,
+                  height: 55,
                   width: 250,
-                  padding: const EdgeInsets.all(20.0),
                   child: MyElevatedButton(
-                    text: 'Select Current Location',
+                    text: '',
                     fontSize: 14,          // increase size
                     onPressed: () {},
                     textWidget: FittedBox(
-                      fit: BoxFit.scaleDown,
                       child: Text(
                         "DONE",
-                        style: AppTextStyles.regular(size: 16),
+                        style: AppTextStyles.regular(size: 25,weight: FontWeight.bold),
                       ),
                     ),
                   ),

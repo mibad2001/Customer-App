@@ -16,13 +16,19 @@ import '../Widgets/elevat_button.dart';
 class HomeDriver extends StatelessWidget {
   HomeDriver({super.key});
 
-  final homeC = Get.put(SwapController());
+  final homeC = Get.isRegistered<SwapController>()
+  ? Get.find<SwapController>()
+  :  Get.put(SwapController());
 
-  final deshboardController = Get.put(DeshBoardAddHome_Controller());
+ // final homeC = Get.find<SwapController>();
+ // final homeC = Get.put(SwapController());
+
+  //final deshboardController = Get.put(DeshBoardAddHome_Controller());
+  final deshboardController = Get.find<DeshBoardAddHome_Controller>();
 
   @override
   Widget build(BuildContext context) {
-    // final DeshBoardAddHome_Controller hdeshboard_controller = Get.find();
+   //  final DeshBoardAddHome_Controller hdeshboard_controller = Get.find();
 
 
 
@@ -92,6 +98,7 @@ class HomeDriver extends StatelessWidget {
                                               controller: homeC.pickUp,
                                               hintText: "Pick Up",
                                               borderRadius: 20,
+                                              prefixIcon: Icon(Icons.circle,size: 15,color: CustomColor.textField_Icon_Color,),
                                             ),
                                             //   ],
                                             // ),
@@ -99,7 +106,7 @@ class HomeDriver extends StatelessWidget {
 
                                           const SizedBox(height: 12),
 
-                                          /// ---------- ADD STOP(S) ----------
+                                          // ---------- ADD STOP(S) ----------
                                           Obx(
                                                 () => Column(
                                               children: [
@@ -120,6 +127,7 @@ class HomeDriver extends StatelessWidget {
                                                               ? "1st Stop"
                                                               : "${index + 1}nd Stop",
                                                           borderRadius: 20,
+                                                          prefixIcon: Icon(Icons.wb_sunny_outlined,size: 20,color: CustomColor.textField_Icon_Color,),
                                                         ),
                                                       ),
 
@@ -156,6 +164,7 @@ class HomeDriver extends StatelessWidget {
                                               controller: homeC.dropOff,
                                               hintText: "Destination",
                                               borderRadius: 20,
+                                              prefixIcon: Icon(Icons.location_pin,size: 20,color: CustomColor.textField_Icon_Color,),
                                             ),
                                             //   ],
                                             // ),
