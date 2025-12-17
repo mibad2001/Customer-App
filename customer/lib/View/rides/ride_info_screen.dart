@@ -92,7 +92,7 @@ class _RideInfoScreenState extends State<RideInfoScreen> {
 
                           IconButton(
                             onPressed: () {
-                              Get.back();
+                              //Get.back();
                             },
                             icon: Icon(
                               Icons.edit_notifications_sharp,
@@ -457,6 +457,8 @@ class _RideInfoScreenState extends State<RideInfoScreen> {
 
                       //==============================================================================   bottom sheet
                       Get.bottomSheet(
+                          //ScheduleRideBottomSheet(),
+
                         Container(
                           decoration: const BoxDecoration(
                             color: CustomColor.Container_Colors,
@@ -717,7 +719,7 @@ class _RideInfoScreenState extends State<RideInfoScreen> {
                                         child: Row(
                                           mainAxisAlignment: MainAxisAlignment.center,
                                           children: [
-                                            const Icon(Icons.access_time, color: Colors.white, size: 18),
+                                            const Icon(Icons.access_time_outlined, color: Colors.white, size: 20),
                                             const SizedBox(width: 6),
                                             Flexible(
                                               child: Text(
@@ -740,7 +742,7 @@ class _RideInfoScreenState extends State<RideInfoScreen> {
                               // ========================================================== Book Ride Button
                               SizedBox(
                                 height: 55,
-                                width: 250  ,
+                                width: 180  ,
                                 child: MyElevatedButton(
                                   text: '',
                                   onPressed: () {

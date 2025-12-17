@@ -1,4 +1,4 @@
-import 'package:get/get.dart';
+import  'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -18,6 +18,10 @@ class RideController extends GetxController {
   void selectItem(int index) {
     selectedIndex.value = index;
   }
+
+
+
+
 
 // ----------------- Date & Time -----------------
   var selectedDate = DateTime.now().obs;
@@ -63,17 +67,6 @@ class RideController extends GetxController {
     }
   }
 
-//   Future<void> pickTime(BuildContext context) async {
-//     final TimeOfDay? picked = await showTimePicker(
-//       context: context,
-//       initialTime: selectedTime.value,
-//     );
-//
-//     if (picked != null && picked != selectedTime.value) {
-//       selectedTime.value = picked;
-//       selectedTimeOption.value = ''; // clear highlight when user picks manually
-//     }
-//   }
 
 // ----------------- Add Minutes (15 / 30) -----------------
   void addMinutes(int minutesToAdd) {
@@ -117,9 +110,9 @@ class RideController extends GetxController {
 //   return DateFormat('yyyy-MM-dd').format(selectedDate.value);
 // }
 
-  String formattedTime(BuildContext context) {
-    return selectedTime.value.format(context);
-  }
+  // String formattedTime(BuildContext context) {
+  //   return selectedTime.value.format(context);
+  // }
 
 
 

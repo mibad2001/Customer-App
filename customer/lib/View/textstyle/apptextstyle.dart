@@ -10,6 +10,7 @@ class AppTextStyles {
       fontSize: size ?? 24,
       fontWeight: weight ?? FontWeight.w600,
       color: color ?? CustomColor.Text_Color,
+        decoration:TextDecoration.none
     );
   }
 
@@ -20,6 +21,7 @@ class AppTextStyles {
       fontSize: size ?? 18,
       fontWeight: weight ?? FontWeight.w500,
       color: color ?? CustomColor.Text_Color,
+      decoration:TextDecoration.none
     );
   }
 
@@ -30,6 +32,7 @@ class AppTextStyles {
       fontSize: size ?? 15,
       fontWeight: weight ?? FontWeight.w400,
       color: color ?? CustomColor.Text_Color,
+        decoration:TextDecoration.none
     );
   }
 
@@ -40,6 +43,7 @@ class AppTextStyles {
       fontSize: size ?? 12,
       fontWeight: weight ?? FontWeight.w400,
       color: color ?? CustomColor.Text_Color,
+        decoration:TextDecoration.none
     );
   }
 

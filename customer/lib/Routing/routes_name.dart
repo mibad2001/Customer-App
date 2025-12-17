@@ -25,6 +25,7 @@ class routesName {
   static const String ForgotPassword = '/forgotPassword';
   static const String ForgotOTPScreen = '/forgotOTPScreen';
   static const String ResetPasswordScreen = '/resetPasswordScreen';
+  static const String chatScreen = '/chatScreen';
 
 
 

@@ -12,8 +12,11 @@ class DeshBoardAddHome_Controller extends GetxController {
   final TextEditingController WorkAdressController = TextEditingController();
  //========================================= add Home address
   void saveItem() {
-    homeAddress.value = HomeController.text;
-    editingIndex.value = null;
+    if(HomeController.text.isNotEmpty) {
+      homeAddress.value = HomeController.text;
+      editingIndex.value = null;
+      HomeController.clear();
+    }
   }
   void editItem() {
     HomeController.text = homeAddress.value;

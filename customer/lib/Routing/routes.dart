@@ -14,6 +14,7 @@ import '../View/Reebook/Reebookingscreen.dart';
 import '../View/Reebook/extras.dart';
 import '../View/Reebook/promoscreen.dart';
 import '../View/about/aboutscreen.dart';
+import '../View/chatscreen.dart';
 import '../View/payments/paymentscreen.dart';
 import '../View/profile/profilescreen.dart';
 import '../View/rides/DriverDetailscreen.dart';
@@ -37,6 +38,11 @@ class AppRoutes{
     GetPage(
       name: routesName.ResetPasswordScreen,
       page: () =>ResetPasswordScreen(),
+      // binding: Splash_Screen(),
+    ),
+    GetPage(
+      name: routesName.chatScreen,
+      page: () => ChatScreen(),
       // binding: Splash_Screen(),
     ),
     GetPage(

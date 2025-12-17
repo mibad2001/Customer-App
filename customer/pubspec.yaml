@@ -50,6 +50,8 @@ dependencies:
   stepper_touch: ^1.0.0
   flutter_emoji_feedback:
   url_launcher: ^6.3.0
+  flutter_time_picker_spinner: ^2.0.0
+  dio: ^5.9.0
 
 
 

@@ -163,11 +163,11 @@ class AddWork_ScreenState extends State<AddWork_Screen> {
                                     decoration: BoxDecoration(
                                       borderRadius: BorderRadius.all(Radius.circular(30)),
                                     ),
-                                    height: 250,
+                                    height: 200,
                                     width: 100,
                                     child: Column(
                                       children: [
-                                        SizedBox(height: 10),
+                                        SizedBox(height: 15),
 
                                         Text(
                                           CustomText.Delete_address,
@@ -175,18 +175,16 @@ class AddWork_ScreenState extends State<AddWork_Screen> {
 
                                           ),
                                         ),
-                                        SizedBox(height: 10),
+                                        SizedBox(height: 5),
                                         Icon(
                                           Icons.warning_amber,
                                           color: Colors.amberAccent,
                                           size: 40,
                                         ),
-                                        SizedBox(height: 10),
+                                        SizedBox(height: 5),
                                         Center(
-                                          child: Container(
-                                            padding: EdgeInsets.only(left: 20),
-                                            height: 80,
-                                            width: 200,
+                                          child: Padding(
+                                            padding: EdgeInsets.symmetric(horizontal: 10),
                                             child: Text(
                                               CustomText.Delete_home_address_Alert,
                                               textAlign: TextAlign.center,
@@ -194,6 +192,7 @@ class AddWork_ScreenState extends State<AddWork_Screen> {
                                             ),
                                           ),
                                         ),
+                                        SizedBox(height: 15,),
 
                                         Row(
                                           crossAxisAlignment: CrossAxisAlignment.center,

@@ -93,7 +93,7 @@ class AddHomeScreenState extends State<AddHomeScreen> {
                                   ),
                                   onPressed:()
                                   {
-                                    FocusScope.of(context).unfocus();
+
                                     mydeshcontroller.saveItem();
                                     mydeshcontroller.clearfield();
 
@@ -175,11 +175,11 @@ class AddHomeScreenState extends State<AddHomeScreen> {
                                         decoration: BoxDecoration(
                                           borderRadius: BorderRadius.all(Radius.circular(30)),
                                         ),
-                                        height: 250,
+                                        height: 220,
                                         width: 100,
                                         child: Column(
                                           children: [
-                                            SizedBox(height: 10),
+                                            SizedBox(height: 15),
 
                                             Text(
                                               CustomText.Delete_address,
@@ -187,25 +187,25 @@ class AddHomeScreenState extends State<AddHomeScreen> {
 
                                               ),
                                             ),
-                                            SizedBox(height: 10),
+                                            SizedBox(height: 5),
                                             Icon(
                                               Icons.warning_amber,
                                               color: Colors.amberAccent,
                                               size: 40,
                                             ),
-                                            SizedBox(height: 10),
+                                            SizedBox(height: 5),
                                             Center(
-                                              child: Container(
-                                                padding: EdgeInsets.only(left: 20),
-                                                height: 80,
-                                                width: 200,
+                                              child:  Padding(
+                                                padding: const EdgeInsets.symmetric(horizontal: 10.0),
                                                 child: Text(
                                                   CustomText.Delete_home_address_Alert,
                                                   textAlign: TextAlign.center,
+
                                                   style: AppTextStyles.small(),
                                                 ),
                                               ),
                                             ),
+                                            SizedBox(height: 15,),
 
                                             Row(
                                               crossAxisAlignment: CrossAxisAlignment.center,

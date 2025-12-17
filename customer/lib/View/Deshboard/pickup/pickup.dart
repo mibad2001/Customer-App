@@ -42,12 +42,39 @@ class PickupScreen extends StatelessWidget {
                 child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            IconButton(
-              onPressed: () {
-                Get.back();
-              },
-              icon: Icon(Icons.arrow_back, color: CustomColor.Icon_Color),
-            ),
+            SizedBox(height: 15,),
+                  Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+
+                    IconButton(
+                      onPressed: () => Get.back(),
+                      icon: Icon(
+                        Icons.arrow_back,
+                        size: MediaQuery.of(context).size.width * 0.06,
+                        color: CustomColor.Icon_Color,
+                      ),
+                    ),
+
+
+                    Expanded(
+                      child: Center(
+                        child: Text(
+                          "Set Location",
+                          style: AppTextStyles.heading(
+                            size: MediaQuery.of(context).size.width * 0.06,
+                          ),
+                        ),
+                      ),
+                    ),
+
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width * 0.1,
+                    ),
+                  ],
+                ),
+            SizedBox(height: 70,),
+
             Row(
               children: [
                 Container(
@@ -84,12 +111,12 @@ class PickupScreen extends StatelessWidget {
         ),
               ),
 
-                Container(
+                SizedBox(
                   height: 55,
                   width: 250,
                   child: MyElevatedButton(
                     text: '',
-                    fontSize: 14,          // increase size
+                    fontSize: 14,
                     onPressed: () {},
                     textWidget: FittedBox(
                       child: Text(

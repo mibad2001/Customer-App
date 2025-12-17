@@ -201,7 +201,7 @@ class HomeDriver extends StatelessWidget {
 
                                 /// ---------- +ADD(VIA) BUTTON ----------
                                 Padding(
-                                  padding: const EdgeInsets.only(right: 15),
+                                  padding: const EdgeInsets.only(right: 45),
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.end,
                                     children: [
