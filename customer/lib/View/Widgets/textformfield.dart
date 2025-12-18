@@ -19,6 +19,7 @@ class CustomTextField extends StatelessWidget {
   final Color fillColor;
   final double borderRadius;
   final bool enabled;
+  final dynamic inputFormatters;
 
   const CustomTextField({
     super.key,
@@ -43,6 +44,7 @@ class CustomTextField extends StatelessWidget {
     this.fillColor = Colors.white70,
     this.borderRadius = 5,
     this.enabled = true,
+    this.inputFormatters
   });
 
   @override
@@ -63,6 +65,7 @@ class CustomTextField extends StatelessWidget {
       obscureText: obscureText,
       keyboardType: keyboardType,
       maxLines: obscureText ? 1 : maxLines,
+      inputFormatters: [],
       style: AppTextStyles.regular(color: Colors.black),
 
       decoration: InputDecoration(

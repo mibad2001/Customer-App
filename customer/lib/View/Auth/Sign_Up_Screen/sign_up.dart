@@ -8,6 +8,7 @@ import 'package:customer/View/Widgets/phone_number_textfield.dart';
 import 'package:customer/View/Widgets/textformfield.dart';
 import 'package:customer/View/Widgets/textstyle.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -67,19 +68,29 @@ class _SigUp_ScreenState extends State<SigUp_Screen> {
                         style: AppTextStyles.medium(),
                     ),
                     SizedBox(height: 40),
-                    CustomTextField(
-                      FontSize: 14,
-                      hintText: CustomText.hint_text_first_Name,
-                      maxlength: 20,
-                      prefixIcon: Icon(
-                        Icons.person,
-                        color: CustomColor.textField_Icon_Color,
-                      ),
-                      borderRadius: 15,
-                      //: CustomColor.textfield_fill,
-                    ),
+
+                    /// first name
+                CustomTextField(
+                  controller: signupController.firstNameController,
+                  FontSize: 14,
+                  maxlength: 20,
+                  hintText: CustomText.hint_text_first_Name,
+                  prefixIcon: Icon(
+                    Icons.person,
+                    color: CustomColor.textField_Icon_Color,
+                  ),
+                  borderRadius: 15,
+
+
+                ),
+
+
+
+
                     SizedBox(height: 25),
+                    /// last name
                     CustomTextField(
+                      controller: signupController.lastNameController,
                       FontSize: 14,
                       maxlength: 20,
                       hintText: CustomText.hint_text_last_Name,
@@ -88,11 +99,16 @@ class _SigUp_ScreenState extends State<SigUp_Screen> {
                         color: CustomColor.textField_Icon_Color,
                       ),
                       borderRadius: 15,
-                     // fillColor: CustomColor.textfield_fill,
+
+
                     ),
-                    SizedBox(height: 25),
+
+
+                  SizedBox(height: 25),
+                    /// email
                     CustomTextField(
                       hintText: CustomText.hint_text_email,
+                      controller: signupController.emailController,
                       FontSize: 14,
                       maxlength: 20,
                       prefixIcon: Icon(Icons.email, color: CustomColor.textField_Icon_Color),
@@ -101,17 +117,19 @@ class _SigUp_ScreenState extends State<SigUp_Screen> {
                     ),
 
                     SizedBox(height: 25),
+                    /// phone no
                     Container(
                       height:70,
                       //padding: EdgeInsets.symmetric(vertical: 7),
                       child: PhoneNumber_TextField(
                         hintText: CustomText.hint_text_phone_number,
+                        controller: signupController.phoneNoControllre,
+
                       ),
                     ),
-                    SizedBox(height: 8),
+                    SizedBox(height: 25),
 
-
-
+                    /// password controller
                     Obx(
                       ()=> CustomTextField(
                         maxlength: 15,
@@ -122,7 +140,7 @@ class _SigUp_ScreenState extends State<SigUp_Screen> {
                             },
                             child: Icon(signupController.isPasswordVisible.value ?Icons.remove_red_eye:Icons.visibility_off)
                         ),
-                        controller: signupController.Password,
+                        controller: signupController.passwordController,
                         obscureText: !signupController.isPasswordVisible.value,
                         hintText: CustomText.hint_password,
                         FontSize: 14,
@@ -130,12 +148,6 @@ class _SigUp_ScreenState extends State<SigUp_Screen> {
                         borderRadius: 15,
                       ),
                     ),
-
-
-
-
-
-
 
                     SizedBox(height: 8),
                     Obx(
@@ -186,7 +198,8 @@ class _SigUp_ScreenState extends State<SigUp_Screen> {
                       child: Text("Sign Up",style: AppTextStyles.medium(size: 25,weight: FontWeight.bold),),
                     ),
                     onPressed: () {
-                      Get.to(SigIn_Screen());
+                      signupController.registerUser();
+                      //Get.to(SigIn_Screen());
                     },
                   ),
                 ),

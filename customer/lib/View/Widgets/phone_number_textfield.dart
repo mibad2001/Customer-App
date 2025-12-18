@@ -5,7 +5,8 @@ import 'package:intl_phone_field/intl_phone_field.dart';
 
 class PhoneNumber_TextField extends StatelessWidget {
   final String hintText;
-  const PhoneNumber_TextField({super.key, required this.hintText});
+   PhoneNumber_TextField({super.key, required this.hintText, required this.controller   });
+  TextEditingController controller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +29,6 @@ class PhoneNumber_TextField extends StatelessWidget {
             ),
           
         prefixIconColor: CustomColor.Text_Color,
-
         hintText: hintText,
         prefixIcon: Icon(Icons.call, color: CustomColor.Text_Color, size: 50),
         labelStyle: AppTextStyles.small(size:14,color: CustomColor.blueGrey),
@@ -37,7 +37,9 @@ class PhoneNumber_TextField extends StatelessWidget {
     
       ),
       initialCountryCode: 'GB',
-      onChanged: (phone) {},
+      onChanged: (phone) {
+        controller.text= phone.completeNumber;
+      },
     );
   }
 }

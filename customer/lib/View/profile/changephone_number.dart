@@ -67,27 +67,7 @@ class ChangPhoneNumber extends StatelessWidget {
 
                 ],
               ),
-              // Row(
-              //   children: [
-              //     Padding(
-              //       padding: EdgeInsets.only(left: 15),
-              //       child:       IconButton(
-              //         onPressed: () {
-              //           Get.back();
-              //         },
-              //         icon: Icon(
-              //           Icons.arrow_back,
-              //           size: MediaQuery.of(context).size.width * 0.06,
-              //           color: CustomColor.Icon_Color,
-              //         ),
-              //       ),
-              //     ),
-              //
-              //     SizedBox(width:MediaQuery.of(context).size.width*0.15,),
-              //
-              //     Text(CustomText.Chng_Phone_Num,style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold,color: CustomColor.Text_Color),),
-              //   ],
-              // ),
+
 
 
               SizedBox(height: 15,),
@@ -104,7 +84,9 @@ class ChangPhoneNumber extends StatelessWidget {
 
               Padding(
                 padding: EdgeInsetsGeometry.all(10),
-                child: PhoneNumber_TextField( hintText: CustomText.Mobile_Num,
+                child: PhoneNumber_TextField(
+                  controller : TextEditingController(),
+                  hintText: CustomText.Mobile_Num,
                 ),
               ),
               SizedBox(height: 10,),
