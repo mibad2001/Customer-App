@@ -12,6 +12,7 @@ import 'package:customer/View/yourtrip/yourtrip.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'Routing/routes.dart';
+import 'package:bot_toast/bot_toast.dart';
 import 'View/Deshboard/pickup/pickup.dart';
 import 'View/Reebook/extras.dart';
 import 'View/Reebook/promoscreen.dart';
@@ -37,6 +38,9 @@ class MyApp extends StatelessWidget {
       initialRoute:  routesName.Splash_Screen,
       //transitionDuration: Duration(seconds: ),
       defaultTransition: Transition.leftToRight,
+      builder: BotToastInit(),
+      navigatorObservers: [BotToastNavigatorObserver()],
+
 
       getPages: AppRoutes.appRoutes(),
 

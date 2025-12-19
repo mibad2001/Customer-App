@@ -40,11 +40,11 @@ class AppRoutes{
       page: () =>ResetPasswordScreen(),
       // binding: Splash_Screen(),
     ),
-    GetPage(
-      name: routesName.chatScreen,
-      page: () => ChatScreen(),
-      // binding: Splash_Screen(),
-    ),
+    // GetPage(
+    //   name: routesName.chatScreen,
+    //   page: () => ChatScreen(),
+    //   // binding: Splash_Screen(),
+    // ),
     GetPage(
       name: routesName.ForgotOTPScreen,
       page: () =>ForgotOTPScreen(),

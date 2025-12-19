@@ -76,12 +76,7 @@ class _SigIn_ScreenState extends State<SigIn_Screen> {
                       FontSize: 14,
                       maxlength: 20,
                       controller: loginController.emailController,
-                      validator:  (value) {
-                        if (!GetUtils.isEmail(value!)) {
-                          return "Email is not valid";
-                        }
-                        return null; // Return null if the email is valid
-                      },
+
                       prefixIcon: Icon(
                           Icons.email,
                           color: CustomColor.textField_Icon_Color
@@ -173,8 +168,10 @@ class _SigIn_ScreenState extends State<SigIn_Screen> {
 
                          onPressed: () {
 
-                           loginController.login();
-                           loginController.clearFields();
+                           loginController.userLoginApi();
+
+                           // loginController.login();
+                           // loginController.clearFields();
 
                            //Get.toNamed('/DeshBoard_Screen');
                          },
