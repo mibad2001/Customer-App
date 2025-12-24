@@ -12,7 +12,7 @@ class SignUp_Controller extends GetxController {
   TextEditingController firstNameController = TextEditingController();
   TextEditingController lastNameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
-  TextEditingController phoneNoControllre = TextEditingController();
+  TextEditingController phoneNoController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
 
@@ -27,89 +27,19 @@ class SignUp_Controller extends GetxController {
   }
   void clearFields(){
 
+    lastNameController.clear();
+    firstNameController.clear();
     emailController.clear();
+    phoneNoController.clear();
     passwordController.clear();
 
   }
 
-  Future<void> registerUser() async {
-    FormData formData = FormData.fromMap({
-      "first_name": firstNameController.text,
-      "last_name": lastNameController.text,
-      "email": emailController.text,
-      "phone_number": phoneNoControllre.text,
-      "password": passwordController.text,
-    });
-
-    Response? response = await ApiService.post(
-      formData,
-      "auth/register",
-      multiPart: true,
-      auth: false,
-    );
 
 
-
-    // ✅ SUCCESS
-    if (response!.statusCode == 200 ) {
-      BotToast.showText(text: "Registered Successfully ✅");
-      Get.toNamed(
-        "/forgotOTPScreen",
-        arguments: {
-          "email": emailController.text,
-        },
-      );
-      clearFields();
-      print("====================================================== ............. >>>>>>>>>>>>>>>>>>>>>>    ${response.data}");
-      return;
-    }
-
-    // ❌ ERROR (SAFE HANDLING)
-    String errorMessage = "Register Failed ❌";
-
-    if (response.data is Map) {
-      errorMessage = response.data['message']?.toString() ?? errorMessage;
-    } else if (response.data is String) {
-      errorMessage = response.data;
-    }
-
-    BotToast.showText(text: errorMessage);
-    print("FAILED => ${response.data}");
-  }
+  /// ===================================================================================== >>>  Email Validation
 
 
-
-
-////////////////////////////////////////////////////////////////////////////  without response on ui
-  // Future<void> registerUser() async {
-  //   FormData formData = FormData.fromMap({
-  //     "first_name": firstNameController.text,
-  //     "last_name": lastNameController.text,
-  //     "email": emailController.text,
-  //     "phone_number": phoneNoControllre.text,
-  //     "password": passwordController.text,
-  //   });
-  //
-  //   // Debug
-  //   print("/////////////////////////////////////////////////////////////////                                    nnn   ${formData.fields}");
-  //
-  //   Response? response = await ApiService.post(
-  //     formData,
-  //     "auth/register",
-  //     multiPart: true,
-  //     auth: false,
-  //   );
-  //
-  //   if (response != null && response.statusCode == 200) {
-  //     print("SUCCESS ================================================================================================   => ${response.data}");
-  //   } else {
-  //     print("FAILED => ${response?.data}");
-  //     BotToast.showText(text: "Register Failed ❌");
-  //   }
-  // }
-////////////////////////////  direct call api
-
-// Email Validation
   // bool isValidEmail(String email) {
   //   return GetUtils.isEmail(email);
   // }
@@ -128,6 +58,91 @@ class SignUp_Controller extends GetxController {
   // bool isValidNumber(String number) {
   //   return GetUtils.isPhoneNumber(number);
   // }
+
+
+
+  Future<void> registerUser() async {
+    FormData formData = FormData.fromMap({
+      "first_name": firstNameController.text,
+      "last_name": lastNameController.text,
+      "email": emailController.text,
+      "phone_number": phoneNoController.text,
+      "password": passwordController.text,
+    });
+
+    Response? response = await ApiService.post(
+      formData,
+      "auth/register",
+      multiPart: true,
+      auth: false,
+    );
+
+
+
+    // SUCCESS
+    if (response!.statusCode == 200 ) {
+      BotToast.showText(text: "Registered Successfully ✅");
+      Get.toNamed(
+        "/SignupOtpoPassword",
+        arguments: {
+          "email": emailController.text,
+        },
+      );
+      clearFields();
+      print("====================================================== ............. >>>>>>>>>>>>>>>>>>>>>>    ${response.data}");
+      return;
+    }
+
+    //  ERROR (SAFE HANDLING)
+    String errorMessage = "Register Failed ";
+
+    if (response.data is Map) {
+      errorMessage = response.data['message']?.toString() ?? errorMessage;
+    } else if (response.data is String) {
+      errorMessage = response.data;
+    }
+
+    BotToast.showText(text: errorMessage);
+    print("FAILED => ${response.data}");
+  }
+
+
+
+
+////////////////////////////////////////////////////////////////////////////  without response on ui
+
+
+  // Future<void> registerUser() async {
+  //   FormData formData = FormData.fromMap({
+  //     "first_name": firstNameController.text,
+  //     "last_name": lastNameController.text,
+  //     "email": emailController.text,
+  //     "phone_number": phoneNoControllre.text,
+  //     "password": passwordController.text,
+  //   });
+  //
+  //   // Debug
+  //   print("///////////////////////////////////////////////////////////////// nnn   ${formData.fields}");
+  //
+  //   Response? response = await ApiService.post(
+  //     formData,
+  //     "auth/register",
+  //     multiPart: true,
+  //     auth: false,
+  //   );
+  //
+  //   if (response != null && response.statusCode == 200) {
+  //     print("SUCCESS ================================================================================================   => ${response.data}");
+  //   } else {
+  //     print("FAILED => ${response?.data}");
+  //     BotToast.showText(text: "Register Failed ");
+  //   }
+  // }
+
+
+
+////////////////////////////  direct call api
+
 
   // Future<void> registerUser() async {
   //   final dio = Dio();

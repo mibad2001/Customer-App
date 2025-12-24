@@ -12,7 +12,6 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:get/get_core/src/get_main.dart';
-
 import '../../../Binding/auth_binding.dart';
 import '../../textstyle/apptextstyle.dart';
 
@@ -110,7 +109,7 @@ class _SigUp_ScreenState extends State<SigUp_Screen> {
                       hintText: CustomText.hint_text_email,
                       controller: signupController.emailController,
                       FontSize: 14,
-                      maxlength: 20,
+                      maxlength: 30,
                       prefixIcon: Icon(Icons.email, color: CustomColor.textField_Icon_Color),
                       borderRadius: 15,
                      // fillColor: CustomColor.textfield_fill,
@@ -123,7 +122,7 @@ class _SigUp_ScreenState extends State<SigUp_Screen> {
                       //padding: EdgeInsets.symmetric(vertical: 7),
                       child: PhoneNumber_TextField(
                         hintText: CustomText.hint_text_phone_number,
-                        controller: signupController.phoneNoControllre,
+                        controller: signupController.phoneNoController,
 
                       ),
                     ),

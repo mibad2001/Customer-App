@@ -2,7 +2,8 @@ import 'package:customer/Routing/routes_name.dart';
 import 'package:get/get.dart';
 import '../Binding/auth_binding.dart';
 import '../View/Auth/Login_screens/forget_password.dart';
-import '../View/Auth/Login_screens/forgetotpopassword.dart';
+import '../View/Auth/Login_screens/forget_password_otp.dart';
+import '../View/Auth/Sign_Up_Screen/signup_otpo_password.dart';
 import '../View/Auth/Login_screens/login.dart';
 import '../View/Auth/Login_screens/reset_Password.dart';
 import '../View/Auth/Sign_Up_Screen/sign_up.dart';
@@ -45,11 +46,23 @@ class AppRoutes{
     //   page: () => ChatScreen(),
     //   // binding: Splash_Screen(),
     // ),
+    //
+
     GetPage(
-      name: routesName.ForgotOTPScreen,
-      page: () =>ForgotOTPScreen(),
-      // binding: Splash_Screen(),
+      name: routesName.SignupOtpoPassword,
+      page: () => SignupOtpoPassword(),
     ),
+
+
+
+
+      GetPage(
+      name: routesName.ForgetPasswordOtp,
+      page: () => ForgetPasswordOtp(),
+    ),
+
+
+
     GetPage(
       name: routesName.ForgotPassword,
       page: () =>forgotPassword(),

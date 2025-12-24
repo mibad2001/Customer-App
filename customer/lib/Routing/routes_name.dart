@@ -23,8 +23,11 @@ class routesName {
   static const String RideCompleteScreen = '/RideCompleteScreen';
   static const String Driverdetailscreen = '/Driverdetailscreen';
   static const String ForgotPassword = '/forgotPassword';
-  static const String ForgotOTPScreen = '/forgotOTPScreen';
+  static const String SignupOtpoPassword = '/SignupOtpoPassword';
   static const String ResetPasswordScreen = '/resetPasswordScreen';
+  static const String ForgetPasswordOtp = '/ForgetPasswordOtp';
+
+
  // static const String chatScreen = '/chatScreen';
 
 

@@ -74,7 +74,7 @@ class _SigIn_ScreenState extends State<SigIn_Screen> {
                     CustomTextField(
                       hintText: CustomText.hint_text_email,
                       FontSize: 14,
-                      maxlength: 20,
+                      maxlength: 30,
                       controller: loginController.emailController,
 
                       prefixIcon: Icon(
@@ -168,12 +168,12 @@ class _SigIn_ScreenState extends State<SigIn_Screen> {
 
                          onPressed: () {
 
-                           loginController.userLoginApi();
+                           //loginController.userLoginApi();
 
                            // loginController.login();
                            // loginController.clearFields();
 
-                           //Get.toNamed('/DeshBoard_Screen');
+                           Get.toNamed('/DeshBoard_Screen');
                          },
 
                        ),

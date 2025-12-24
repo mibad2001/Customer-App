@@ -2,9 +2,10 @@ import 'dart:async';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:bot_toast/bot_toast.dart';
-import '../../api_servies/api_servies.dart';
+import '../../../api_servies/api_servies.dart';
 
-class OtpController extends GetxController {
+
+class forgetOtpController extends GetxController {
   final String email = Get.arguments['email'];
 
   final List<TextEditingController> otpControllers =
@@ -53,7 +54,7 @@ class OtpController extends GetxController {
     return "$m:$s";
   }
 
-  Future<void> verifySignUpOtp() async {
+  Future<void> verifyforgetOtp() async {
     final otp = getOtp();
 
     if (otp.length != 4) {
@@ -73,9 +74,11 @@ class OtpController extends GetxController {
       auth: false,
     );
 
+
+
       if (response!.statusCode == 200) {
         BotToast.showText(text: "OTP Verified ✅");
-        Get.offAllNamed("/SigIn_Screen");
+        Get.offAllNamed("/resetPasswordScreen", arguments: email);
         return;
       }
 

@@ -15,15 +15,15 @@ class _Splash_ScreenState extends State<Splash_Screen> {
     void initState() {
     super.initState();
 
-    Future.delayed(const Duration(seconds: 5), () {
-     Get.toNamed('/SigIn_Screen');
+    Future.delayed(const Duration(seconds: 2), () {
+     Get.offAllNamed('/SigIn_Screen');
     });
   }
   @override
   Widget build(BuildContext context) {
 
     return Scaffold(
-      backgroundColor: CustomColor.background,
+      //backgroundColor: CustomColor.background,
       body: Container(
         height:MediaQuery.of(context).size.height,
         width:MediaQuery.of(context).size.width,

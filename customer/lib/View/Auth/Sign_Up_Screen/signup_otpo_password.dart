@@ -6,10 +6,13 @@ import '../../textstyle/apptextstyle.dart';
 import '../../Widgets/color.dart';
 
 
-class ForgotOTPScreen extends StatelessWidget {
-  ForgotOTPScreen({super.key});
+class SignupOtpoPassword extends StatelessWidget {
 
-  final OtpController controller = Get.put(OtpController());
+
+  SignupOtpoPassword({super.key});
+
+  final OtpController controller = Get.put(OtpController()); 
+
 
   @override
   Widget build(BuildContext context) {
@@ -88,7 +91,9 @@ class ForgotOTPScreen extends StatelessWidget {
                 height: 50,
                 child: MyElevatedButton(
                   text: "Verify",
-                  onPressed: controller.verifyOtp,
+                  onPressed: (){
+                     controller.verifySignUpOtp();
+                    },
                 ),
               )),
             ],
