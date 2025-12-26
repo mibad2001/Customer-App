@@ -102,9 +102,19 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     ),
                   ),
 
-                  SizedBox(height: 40),
+                  SizedBox(height: 20),
 
-                  CircleAvatar(radius: 45, backgroundColor: Colors.blue),
+                  Center(
+                    child: CircleAvatar(
+                      radius: 50,
+                      child: Icon(
+                        Icons.person_add_alt,
+                        color: Colors.white,
+                        size: 50,
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 10),
 
                   ListTile(
                     leading: Icon(Icons.person, size: 25, color: Colors.white),

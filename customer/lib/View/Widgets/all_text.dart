@@ -33,8 +33,8 @@ class CustomText {
   static const String Delete_Alert =  "This will permanently delete your account. "
                            "All your data will be erased .Do you really want to continue?";
   static const String Chng_Curr_pass =  "Enter Current Password";
-  static const String Chng_New_pass =  "Enter Current Password";
-  static const String Chng_Confirm_pass =  "Enter Current Password";
+  static const String Chng_New_pass =  "Enter new Password";
+  static const String Chng_Confirm_pass =  "Enter Confirm Password";
   static const String Chng_Phone_Num =  "UPDATE NUMBER";
   static const String Mobile_Num =  "Mobile Number";
   static const String About =  "About";

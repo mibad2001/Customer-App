@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
+import '../../../api_servies/session.dart';
+
 class Splash_Screen extends StatefulWidget {
   const Splash_Screen({super.key});
 
@@ -16,7 +18,13 @@ class _Splash_ScreenState extends State<Splash_Screen> {
     super.initState();
 
     Future.delayed(const Duration(seconds: 2), () {
-     Get.offAllNamed('/SigIn_Screen');
+
+      if (TokenManager.isLogin) {
+        Get.offAllNamed('/DeshBoard_Screen');   // already logged in
+      } else {
+        Get.offAllNamed('/SigIn_Screen');       // not logged in
+      }
+     //Get.offAllNamed('/SigIn_Screen');
     });
   }
   @override

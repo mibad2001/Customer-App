@@ -3,42 +3,34 @@ import 'package:customer/View/profile/model/get_profile_model.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 import '../../../api_servies/api_servies.dart';
+import '../../../api_servies/session.dart';
 
 class profileModelController extends GetxController{
 
-   late GetProfileModel getProfileModel ;
-
+  RxBool loading = true.obs;
   Rx<GetProfileModel?> profileData = Rx<GetProfileModel?>(null);
 
+  @override
+  void onInit() {
+    super.onInit();
+    getuserProfile();
 
-   @override
-   void onInit() {
-     super.onInit();
-     fetchProfile();
-   }
+  }
+///--------------------------------------------------------------  user profile api
+  Future<void> getuserProfile() async{
+    ApiService.get(
+      "auth/customer-profile/${TokenManager.userId}",
+      auth: true,
+    ).then((response) {
+      if (response!.statusCode == 200) {
+        profileData.value = GetProfileModel.fromJson(response.data);
+      } else {
+        profileData.value = null;
+      }
 
-   Future<void> fetchProfile() async {
-     loading.value = true;
-     profileData.value = await getProfileApi();
-     loading.value = false;
-   }
-   RxBool loading = false.obs;
-   Future<GetProfileModel?> getProfileApi() async {
-     loading(true);
-     final response = await ApiService.get(
-       "auth/customer-profile/4",
-       auth: true,
-     );
-
-     if (response!.statusCode == 200) {
-       return GetProfileModel.fromJson(response.data);
-     } else {
-       BotToast.showText(text: "Profile load failed");
-       return null;
-     }
-
-   }
-
+      loading.value = false;
+    });
+  }
 
 
 }

@@ -1,3 +1,4 @@
+import 'package:customer/api_servies/session.dart';
 import 'package:dio/dio.dart';
 import 'package:bot_toast/bot_toast.dart';
 
@@ -144,22 +145,22 @@ class ApiService {
   }
 }
 
-class TokenManager {
-  static String? _token;
-
-  // Set token
-  static void setToken(String token) {
-    _token = token;
-  }
-
-  // Get token
-  static String? get token => _token;
-
-  // Remove token
-  static void clearToken() {
-    _token = null;
-  }
-}
+// class TokenManager {
+//   static String? _token;
+//
+//   // Set token
+//   static void setToken(String token) {
+//     _token = token;
+//   }
+//
+//   // Get token
+//   static String? get token => _token;
+//
+//   // Remove token
+//   static void clearToken() {
+//     _token = null;
+//   }
+// }
 
 
 

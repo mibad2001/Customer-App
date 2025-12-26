@@ -1,27 +1,22 @@
-// import 'package:shared_preferences/shared_preferences.dart';
-//
-// class SessionManager {
-//   static const String _tokenKey = "token";
-//   static const String _loginKey = "isLoggedIn";
-//
-//   static Future<void> saveSession(String token) async {
-//     final prefs = await SharedPreferences.getInstance();
-//     await prefs.setString(_tokenKey, token);
-//     await prefs.setBool(_loginKey, true);
-//   }
-//
-//   static Future<String?> getToken() async {
-//     final prefs = await SharedPreferences.getInstance();
-//     return prefs.getString(_tokenKey);
-//   }
-//
-//   static Future<bool> isLoggedIn() async {
-//     final prefs = await SharedPreferences.getInstance();
-//     return prefs.getBool(_loginKey) ?? false;
-//   }
-//
-//   static Future<void> clearSession() async {
-//     final prefs = await SharedPreferences.getInstance();
-//     await prefs.clear();
-//   }
-// }
+import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
+
+class TokenManager {
+  static final _box = GetStorage();
+
+  static String get token => _box.read("token") ?? "";
+
+  static int get userId => _box.read("user_id") ?? 0;
+
+  static bool get isLogin => token.isNotEmpty;
+
+  static saveSession({required String token, required int userId}) {
+    _box.write("token", token);
+    _box.write("user_id", userId);
+  }
+
+  static clearSession() {
+    _box.erase();
+    Get.offAllNamed('/SigIn_Screen');
+  }
+}

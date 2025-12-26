@@ -51,7 +51,8 @@ dependencies:
   url_launcher: ^6.3.0
   flutter_time_picker_spinner: ^2.0.0
   dio: ^5.9.0
-  shared_preferences: ^2.5.4
+  get_storage: ^2.1.1
+  marquee: ^2.3.0
 
 
 
