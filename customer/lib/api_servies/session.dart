@@ -19,4 +19,9 @@ class TokenManager {
     _box.erase();
     Get.offAllNamed('/SigIn_Screen');
   }
+
+  static clearAfterDelete() {
+    _box.remove("token");
+    _box.remove("user_id");
+  }
 }

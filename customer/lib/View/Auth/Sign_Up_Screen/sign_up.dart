@@ -197,6 +197,7 @@ class _SigUp_ScreenState extends State<SigUp_Screen> {
                       child: Text("Sign Up",style: AppTextStyles.medium(size: 25,weight: FontWeight.bold),),
                     ),
                     onPressed: () {
+
                       signupController.registerUser();
                       //Get.to(SigIn_Screen());
                     },

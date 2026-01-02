@@ -4,8 +4,7 @@ import 'package:customer/View/Widgets/elevat_button.dart';
 import 'package:customer/View/Widgets/textformfield.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import '../../Controller/change_password/change_password_controller.dart';
+import '../../Controller/change_password_number/change_password_controller.dart';
 import '../textstyle/apptextstyle.dart';
 
 
@@ -40,6 +39,7 @@ class _ChangepasswordState extends State<Changepassword> {
           ),
           child: SingleChildScrollView(
             child  : Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
                   //padding: const EdgeInsets.all(15.0),
@@ -47,7 +47,7 @@ class _ChangepasswordState extends State<Changepassword> {
                     onPressed: () {
                       Get.back();
                     },
-                    icon: Icon(Icons.arrow_back, color: CustomColor.Icon_Color),
+                    icon: Icon(Icons.arrow_back, color: CustomColor.Icon_Color,size: 30,),
                   ),
 
                 ),

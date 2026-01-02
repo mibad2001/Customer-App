@@ -12,6 +12,7 @@ import 'package:get/get.dart';
 import '../../Controller/Deshboard/deshboard_cont.dart';
 import '../Deshboard/AddWork/add_work.dart';
 import '../Widgets/elevat_button.dart';
+import '../profile/controller/profile_controller.dart';
 
 class HomeDriver extends StatelessWidget {
   HomeDriver({super.key});
@@ -25,11 +26,15 @@ class HomeDriver extends StatelessWidget {
 
   //final deshboardController = Get.put(DeshBoardAddHome_Controller());
   final deshboardController = Get.find<DeshBoardAddHome_Controller>();
+  final profileController = Get.isRegistered<profileModelController>()
+      ? Get.find<profileModelController>()
+      :  Get.put(profileModelController());
+
+
 
   @override
   Widget build(BuildContext context) {
    //  final DeshBoardAddHome_Controller hdeshboard_controller = Get.find();
-
 
 
     return SafeArea(
@@ -578,14 +583,9 @@ class HomeDriver extends StatelessWidget {
                                           "Home",
                                           style: AppTextStyles.medium(),
                                         ),
-                                        subtitle:    Obx(
-                                              () =>Text(
-                                                deshboardController.homeAddress.isEmpty
-                                                    ? 'Address'
-                                                    : deshboardController.homeAddress.toString(),
-                                                style: AppTextStyles.regular(),
-                                              ),
-
+                                        subtitle:   Text(
+                                          profileController.profileData?.addhomeAddress ?? 'Address',
+                                          style: AppTextStyles.regular(),
                                         ),
                                         // Text(
                                         //   "Address",

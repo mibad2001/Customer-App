@@ -1,6 +1,7 @@
 import 'package:customer/Controller/Deshboard/deshboard_cont.dart';
 import 'package:customer/View/Widgets/color.dart';
 import 'package:customer/View/Widgets/textformfield.dart';
+import 'package:customer/View/profile/controller/profile_controller.dart';
 import 'package:customer/View/textstyle/apptextstyle.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -9,30 +10,50 @@ import '../../Widgets/all_text.dart';
 import '../../Widgets/text_button.dart';
 
 class AddHomeScreen extends StatefulWidget {
-  const AddHomeScreen({super.key});
+  AddHomeScreen({super.key});
 
   @override
-  State<AddHomeScreen> createState() => AddHomeScreenState();
+  State<AddHomeScreen> createState() => _AddHomeScreenState();
 }
 
-class AddHomeScreenState extends State<AddHomeScreen> {
-  final DeshBoardAddHome_Controller mydeshcontroller = Get.put(DeshBoardAddHome_Controller());
+class _AddHomeScreenState extends State<AddHomeScreen> {
 
+  // final DeshBoardAddHome_Controller mydeshcontroller = Get.put(DeshBoardAddHome_Controller());
+
+
+  final mydeshcontroller = Get.isRegistered<DeshBoardAddHome_Controller>()
+      ? Get.find<DeshBoardAddHome_Controller>()
+      :  Get.put(DeshBoardAddHome_Controller());
+
+
+    final gethomeaddress = Get.isRegistered<profileModelController>()
+        ? Get.find<profileModelController>()
+        :  Get.put(profileModelController());
+
+  // final DeshBoardAddHome_Controller mydeshcontroller = Get.put(DeshBoardAddHome_Controller());
+  //
+  // final profileModelController gethomeaddress =
+  // Get.put(profileModelController());
+@override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    gethomeaddress.profileData?.addhomeAddress;
+  }
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
-        //backgroundColor: CustomColor.background,
-        body:  Container(
-          padding: EdgeInsets.symmetric(horizontal: 15),
-          height:MediaQuery.of(context).size.height,
-          width:MediaQuery.of(context).size.width,
-          decoration: BoxDecoration(
+        body: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 15),
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
+          decoration: const BoxDecoration(
             gradient: LinearGradient(
               colors: [
                 Color.fromARGB(255, 30, 1, 44),
-                Color.fromARGB(255, 227, 194, 242)
+                Color.fromARGB(255, 227, 194, 242),
               ],
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
@@ -41,232 +62,245 @@ class AddHomeScreenState extends State<AddHomeScreen> {
           child: SingleChildScrollView(
             child: Column(
               children: [
+                /// HEADER
                 Container(
-                  height: MediaQuery.of(context).size.height*0.25,
-                  decoration: BoxDecoration(
-                    // color: CustomColor.textfield_fill,
-                    borderRadius: const BorderRadius.only(
-                      bottomLeft: Radius.circular(30),
-                      bottomRight: Radius.circular(30),
-                    ),
-                  ),
-                  child: Container(
-                    //padding: const EdgeInsets.only(top: 20, left: 10,right: 15 ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-                          children: [
-                            IconButton(
-                              onPressed: () => Get.back(),
-                              icon: const Icon(
-                                Icons.arrow_back,
-                                color: Colors.white,
-                                size: 25,
-                              ),
-                            ),
-                            SizedBox(width: MediaQuery.of(context).size.width*0.17,),
-
-                            Text(
-                              "Home Address",
-                              style: TextStyle(color: Colors.white, fontSize: 25,fontWeight: FontWeight.bold),
-                            ),
-                          ],
-                        ),
-                        SizedBox(height: 60),
-                        Row(
-                          children: [
-                            Expanded(
-                              child: CustomTextField(
-                                controller: mydeshcontroller.HomeController,
-                                hintText: "Add Your Home Address",
-                                borderRadius: 15,
-                                fillColor: CustomColor.textfield_fill,
-                              ),
-                            ),
-                            Obx(() {
-                              final isEditing = mydeshcontroller.editingIndex.value != null;
-                              return IconButton(
-                                  icon: Icon(
-                                    isEditing ? Icons.check : Icons.add,
+                  height: MediaQuery.of(context).size.height * .25,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                   // mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Row(
+                        children: [
+                          IconButton(
+                            onPressed: Get.back,
+                            icon: const Icon(Icons.arrow_back,
+                                color: Colors.white),
+                          ),
+                          SizedBox(width: MediaQuery.of(context).size.width * .17),
+                          Center(
+                            child: const Text("Home Address",
+                                style: TextStyle(
                                     color: Colors.white,
-                                  ),
-                                  onPressed:()
-                                  {
+                                    fontSize: 25,
+                                    fontWeight: FontWeight.bold)),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 60),
+                      Row(
+                        children: [
+                          Expanded(
+                            child: CustomTextField(
+                              controller: mydeshcontroller.HomeController,
+                              hintText: "Add Your Home Address",
+                              borderRadius: 15,
+                              fillColor: CustomColor.textfield_fill,
+                            ),
+                          ),
 
-                                    mydeshcontroller.saveItem();
-                                    mydeshcontroller.clearfield();
-
-                                  }
-                              );
-                            }),
-                          ],
-                        ),
-                      ],
-                    ),
+                          /// BUTTON (reactive)
+                          Obx(() {
+                            final isEditing =
+                                mydeshcontroller.editingIndex.value != null;
+                            return IconButton(
+                              icon: Icon(
+                                  isEditing ? Icons.check : Icons.add,
+                                  color: Colors.white),
+                              onPressed: mydeshcontroller.AddhomeApi,
+                            );
+                          }),
+                        ],
+                      ),
+                    ],
                   ),
                 ),
 
-                const SizedBox(height: 10),
+                const SizedBox(height: 20),
 
+                /// ADDRESS CARD (reactive)
+                GetBuilder<profileModelController>(
+                  builder: (pController) {
+                    final address = pController.profileData?.addhomeAddress;
 
-                Obx(() {
-                  final address = mydeshcontroller.homeAddress.value;
+                    if (address == null || address.isEmpty) {
+                      return Padding(
+                        padding: EdgeInsets.all(40),
+                        child: Text("No data", style: AppTextStyles.heading()),
+                      );
+                    }
 
-                  if (address.isEmpty) {
-                    return  Center(
-                      child: Padding(
-                        padding: EdgeInsets.all(40.0),
-                        child: Text(
-                          "No data",
-                          style: AppTextStyles.heading(),
-                        ),
-                      ),
-                    );
-                  }
-
-                  return Container(
-                    //padding: const EdgeInsets.symmetric(horizontal: 10),
-                    child: Card(
+                    return Card(
                       color: CustomColor.Container_Colors,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15),
-                      ),
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
                       child: ListTile(
-                        title: Text(
-                          address,
-                          style: TextStyle(
-                            color: CustomColor.Text_Color,
-                            fontSize: 20,
-                          ),
-                        ),
-                        leading:
-                        const Icon(Icons.home, color: CustomColor.textColor),
+                        title: Text(address,
+                            style: AppTextStyles.medium()),
+                        leading: Icon(Icons.home),
                         trailing: Row(
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             IconButton(
-                              icon: const Icon(Icons.edit, color: Colors.blue),
-                                onPressed: () async {
+                              icon: Icon(Icons.edit, color: Colors.blue),
+                              onPressed:
+                              () async {
+                                Get.dialog(
+                                        Center(
+                                          child: CircularProgressIndicator(
+                                            color: CustomColor.Button_background_Color,
+                                          ),
+                                        ),
+                                        barrierDismissible: false,
+                                      );
+                                      await Future.delayed(Duration(seconds: 1));
+                                      Get.back();
+                                      mydeshcontroller.editItem();
 
-                                  Get.dialog(
-                                    Center(
-                                      child: CircularProgressIndicator(
-                                        color: CustomColor.Button_background_Color,
-                                      ),
-                                    ),
-                                    barrierDismissible: false,
-                                  );
-                                  await Future.delayed(Duration(seconds: 1));
-                                  Get.back();
-                                  mydeshcontroller.editItem();
+                                    }
 
-                                }
-
-                              // mydeshcontroller.editItem,
                             ),
                             IconButton(
-                                icon: const Icon(Icons.delete, color: Colors.red),
-                                onPressed:(){
-                                  Get.dialog(
-                                    Dialog(
-                                      backgroundColor: CustomColor.Container_Colors,
-                                      child: Container(
-                                        decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.all(Radius.circular(30)),
-                                        ),
-                                        height: 220,
-                                        width: 100,
-                                        child: Column(
-                                          children: [
-                                            SizedBox(height: 15),
+                              icon: Icon(Icons.delete, color: Colors.red),
+                              onPressed:
+                              //mydeshcontroller.deleteItem,
+                              (){
+                                Get.dialog(
+                                  Dialog(
+                                    backgroundColor: CustomColor.Container_Colors,
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.all(Radius.circular(30)),
+                                      ),
+                                      height: 220,
+                                      width: 100,
+                                      child: Column(
+                                        children: [
+                                          SizedBox(height: 15),
 
-                                            Text(
-                                              CustomText.Delete_address,
-                                              style: AppTextStyles.heading(
+                                          Text(
+                                            CustomText.Delete_address,
+                                            style: AppTextStyles.heading(
 
+                                            ),
+                                          ),
+                                          SizedBox(height: 5),
+                                          Icon(
+                                            Icons.warning_amber,
+                                            color: Colors.amberAccent,
+                                            size: 40,
+                                          ),
+                                          SizedBox(height: 5),
+                                          Center(
+                                            child:  Padding(
+                                              padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                                              child: Text(
+                                                CustomText.Delete_home_address_Alert,
+                                                textAlign: TextAlign.center,
+
+                                                style: AppTextStyles.small(),
                                               ),
                                             ),
-                                            SizedBox(height: 5),
-                                            Icon(
-                                              Icons.warning_amber,
-                                              color: Colors.amberAccent,
-                                              size: 40,
-                                            ),
-                                            SizedBox(height: 5),
-                                            Center(
-                                              child:  Padding(
-                                                padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                                                child: Text(
-                                                  CustomText.Delete_home_address_Alert,
-                                                  textAlign: TextAlign.center,
+                                          ),
+                                          SizedBox(height: 15,),
 
-                                                  style: AppTextStyles.small(),
+                                          Row(
+                                            crossAxisAlignment: CrossAxisAlignment.center,
+                                            mainAxisAlignment: MainAxisAlignment.center,
+                                            children: [
+
+
+
+                                              CustomTextButton(
+                                                text: 'Yes',
+                                                onPressed: (){
+
+                                                  mydeshcontroller.deleteItem();
+                                                  //print("yaha hm ma ");
+                                                  Get.back();
+                                                },
+                                                backgroundColor: Colors.red,
+                                                textColor: Colors.white,
+                                                borderRadius: 8,
+                                                elevation: 2,
+                                                fontSize: 10,
+                                                fontWeight: FontWeight.bold,
+                                                padding: EdgeInsets.symmetric(
+                                                  horizontal: 16,
+                                                  vertical: 10,
                                                 ),
                                               ),
-                                            ),
-                                            SizedBox(height: 15,),
+                                              SizedBox(width: 20),
 
-                                            Row(
-                                              crossAxisAlignment: CrossAxisAlignment.center,
-                                              mainAxisAlignment: MainAxisAlignment.center,
-                                              children: [
-
-
-
-                                                CustomTextButton(
-                                                  text: 'Yes',
-                                                  onPressed: (){
-
-                                                    mydeshcontroller.deleteItem();
-                                                    //print("yaha hm ma ");
-                                                    Get.back();
-                                                  },
-                                                  backgroundColor: Colors.red,
-                                                  textColor: Colors.white,
-                                                  borderRadius: 8,
-                                                  elevation: 2,
-                                                  fontSize: 10,
-                                                  fontWeight: FontWeight.bold,
-                                                  padding: EdgeInsets.symmetric(
-                                                    horizontal: 16,
-                                                    vertical: 10,
-                                                  ),
+                                              CustomTextButton(
+                                                text: '  No  ',
+                                                onPressed: () {
+                                                  Get.back();
+                                                },
+                                                backgroundColor: CustomColor.Button_background_Color,
+                                                textColor: Colors.white,
+                                                borderRadius: 8,
+                                                elevation: 2,
+                                                fontSize: 10,
+                                                fontWeight: FontWeight.bold,
+                                                padding: EdgeInsets.symmetric(
+                                                  horizontal: 16,
+                                                  vertical: 10,
                                                 ),
-                                                SizedBox(width: 20),
-
-                                                CustomTextButton(
-                                                  text: '  No  ',
-                                                  onPressed: () {
-                                                    Get.back();
-                                                  },
-                                                  backgroundColor: CustomColor.Button_background_Color,
-                                                  textColor: Colors.white,
-                                                  borderRadius: 8,
-                                                  elevation: 2,
-                                                  fontSize: 10,
-                                                  fontWeight: FontWeight.bold,
-                                                  padding: EdgeInsets.symmetric(
-                                                    horizontal: 16,
-                                                    vertical: 10,
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ],
-                                        ),
+                                              ),
+                                            ],
+                                          ),
+                                        ],
                                       ),
                                     ),
-                                  );
-                                }
-                              //mydeshcontroller.deleteItem,
+                                  ),
+                                );
+                              }
                             ),
                           ],
                         ),
                       ),
-                    ),
-                  );
-                }),
+                    );
+                  },
+                )
+
+                // Obx(() {
+                //   final address =
+                //       gethomeaddress.profileData?.addhomeAddress;
+                //
+                //   if (address == null || address.isEmpty) {
+                //     return Padding(
+                //       padding: const EdgeInsets.all(40),
+                //       child: Text("No data", style: AppTextStyles.heading()),
+                //     );
+                //   }
+                //
+                //   return Card(
+                //     color: CustomColor.Container_Colors,
+                //     shape: RoundedRectangleBorder(
+                //         borderRadius: BorderRadius.circular(15)),
+                //     child: ListTile(
+                //       leading:
+                //       const Icon(Icons.home, color: CustomColor.textColor),
+                //       title: Text(address,
+                //           style: const TextStyle(
+                //               color: CustomColor.Text_Color, fontSize: 20)),
+                //       trailing: Row(
+                //         mainAxisSize: MainAxisSize.min,
+                //         children: [
+                //           IconButton(
+                //             icon:
+                //             const Icon(Icons.edit, color: Colors.blue),
+                //             onPressed: mydeshcontroller.editItem,
+                //           ),
+                //           IconButton(
+                //             icon:
+                //             const Icon(Icons.delete, color: Colors.red),
+                //             onPressed: () => mydeshcontroller.deleteItem(),
+                //           ),
+                //         ],
+                //       ),
+                //     ),
+                //   );
+                // }),
               ],
             ),
           ),
@@ -275,3 +309,296 @@ class AddHomeScreenState extends State<AddHomeScreen> {
     );
   }
 }
+
+//
+// import 'package:customer/Controller/Deshboard/deshboard_cont.dart';
+// import 'package:customer/View/Widgets/color.dart';
+// import 'package:customer/View/Widgets/textformfield.dart';
+// import 'package:customer/View/profile/controller/profile_controller.dart';
+// import 'package:customer/View/textstyle/apptextstyle.dart';
+// import 'package:flutter/material.dart';
+// import 'package:get/get.dart';
+//
+// import '../../Widgets/all_text.dart';
+// import '../../Widgets/text_button.dart';
+//
+// class AddHomeScreen extends StatefulWidget {
+//   const AddHomeScreen({super.key});
+//
+//   @override
+//   State<AddHomeScreen> createState() => AddHomeScreenState();
+// }
+//
+// class AddHomeScreenState extends State<AddHomeScreen> {
+//   final DeshBoardAddHome_Controller mydeshcontroller = Get.put(DeshBoardAddHome_Controller());
+//   //final gethomeaddress = Get.find<profileModelController>();
+//
+//   final gethomeaddress = Get.isRegistered<profileModelController>()
+//       ? Get.find<profileModelController>()
+//       :  Get.put(profileModelController());
+//
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return GetBuilder<profileModelController>(
+//       builder: (controller) {
+//         return SafeArea(
+//           child: Scaffold(
+//             resizeToAvoidBottomInset: false,
+//             //backgroundColor: CustomColor.background,
+//             body:  Container(
+//               padding: EdgeInsets.symmetric(horizontal: 15),
+//               height:MediaQuery.of(context).size.height,
+//               width:MediaQuery.of(context).size.width,
+//               decoration: BoxDecoration(
+//                 gradient: LinearGradient(
+//                   colors: [
+//                     Color.fromARGB(255, 30, 1, 44),
+//                     Color.fromARGB(255, 227, 194, 242)
+//                   ],
+//                   begin: Alignment.topCenter,
+//                   end: Alignment.bottomCenter,
+//                 ),
+//               ),
+//               child: SingleChildScrollView(
+//                 child: Column(
+//                   children: [
+//                     Container(
+//                       height: MediaQuery.of(context).size.height*0.25,
+//                       decoration: BoxDecoration(
+//                         // color: CustomColor.textfield_fill,
+//                         borderRadius: const BorderRadius.only(
+//                           bottomLeft: Radius.circular(30),
+//                           bottomRight: Radius.circular(30),
+//                         ),
+//                       ),
+//                       child: Container(
+//                         //padding: const EdgeInsets.only(top: 20, left: 10,right: 15 ),
+//                         child: Column(
+//                           crossAxisAlignment: CrossAxisAlignment.start,
+//                           children: [
+//                             Row(
+//                               children: [
+//                                 IconButton(
+//                                   onPressed: () => Get.back(),
+//                                   icon: const Icon(
+//                                     Icons.arrow_back,
+//                                     color: Colors.white,
+//                                     size: 25,
+//                                   ),
+//                                 ),
+//                                 SizedBox(width: MediaQuery.of(context).size.width*0.17,),
+//
+//                                 Text(
+//                                   "Home Address",
+//                                   style: TextStyle(color: Colors.white, fontSize: 25,fontWeight: FontWeight.bold),
+//                                 ),
+//                               ],
+//                             ),
+//                             SizedBox(height: 60),
+//                             Row(
+//                               children: [
+//                                 Expanded(
+//                                   child: CustomTextField(
+//                                     controller: mydeshcontroller.HomeController,
+//                                     hintText: "Add Your Home Address",
+//                                     borderRadius: 15,
+//                                     fillColor: CustomColor.textfield_fill,
+//                                   ),
+//                                 ),
+//                                 Obx(() {
+//                                   final isEditing = mydeshcontroller.editingIndex.value != null;
+//                                   return IconButton(
+//                                       icon: Icon(
+//                                         isEditing ? Icons.check : Icons.add,
+//                                         color: Colors.white,
+//                                       ),
+//                                       onPressed:()
+//                                       {
+//                                         mydeshcontroller.AddhomeApi();
+//                                        // mydeshcontroller.saveItem();
+//                                       }
+//                                   );
+//                                 }),
+//                               ],
+//                             ),
+//                           ],
+//                         ),
+//                       ),
+//                     ),
+//
+//                     const SizedBox(height: 10),
+//
+//
+//                     Obx(() {
+//                      // final address = mydeshcontroller.homeAddress.value;
+//                      //final gethomeaddress =mydeshcontroller.profileData?.addhomeAddress;
+//
+//                       if (gethomeaddress.profileData?.addhomeAddress== null
+//                           //&& address.isEmpty
+//                       ) {
+//                         return  Center(
+//                           child: Padding(
+//                             padding: EdgeInsets.all(40.0),
+//                             child: Text(
+//                               "No data",
+//                               style: AppTextStyles.heading(),
+//                             ),
+//                           ),
+//                         );
+//                       }
+//
+//                       return Container(
+//                         //padding: const EdgeInsets.symmetric(horizontal: 10),
+//                         child: Card(
+//                           color: CustomColor.Container_Colors,
+//                           shape: RoundedRectangleBorder(
+//                             borderRadius: BorderRadius.circular(15),
+//                           ),
+//                           child: ListTile(
+//                             title: Text(
+//                               gethomeaddress.profileData!.addhomeAddress
+//                                //   ?? address
+//                               ,
+//                               style: TextStyle(
+//                                 color: CustomColor.Text_Color,
+//                                 fontSize: 20,
+//                               ),
+//                             ),
+//                             leading:
+//                             const Icon(Icons.home, color: CustomColor.textColor),
+//                             trailing: Row(
+//                               mainAxisSize: MainAxisSize.min,
+//                               children: [
+//                                 IconButton(
+//                                   icon: const Icon(Icons.edit, color: Colors.blue),
+//                                     onPressed: () async {
+//
+//                                       Get.dialog(
+//                                         Center(
+//                                           child: CircularProgressIndicator(
+//                                             color: CustomColor.Button_background_Color,
+//                                           ),
+//                                         ),
+//                                         barrierDismissible: false,
+//                                       );
+//                                       await Future.delayed(Duration(seconds: 1));
+//                                       Get.back();
+//                                       mydeshcontroller.editItem();
+//
+//                                     }
+//
+//                                   // mydeshcontroller.editItem,
+//                                 ),
+//                                 IconButton(
+//                                     icon: const Icon(Icons.delete, color: Colors.red),
+//                                     onPressed:(){
+//                                       Get.dialog(
+//                                         Dialog(
+//                                           backgroundColor: CustomColor.Container_Colors,
+//                                           child: Container(
+//                                             decoration: BoxDecoration(
+//                                               borderRadius: BorderRadius.all(Radius.circular(30)),
+//                                             ),
+//                                             height: 220,
+//                                             width: 100,
+//                                             child: Column(
+//                                               children: [
+//                                                 SizedBox(height: 15),
+//
+//                                                 Text(
+//                                                   CustomText.Delete_address,
+//                                                   style: AppTextStyles.heading(
+//
+//                                                   ),
+//                                                 ),
+//                                                 SizedBox(height: 5),
+//                                                 Icon(
+//                                                   Icons.warning_amber,
+//                                                   color: Colors.amberAccent,
+//                                                   size: 40,
+//                                                 ),
+//                                                 SizedBox(height: 5),
+//                                                 Center(
+//                                                   child:  Padding(
+//                                                     padding: const EdgeInsets.symmetric(horizontal: 10.0),
+//                                                     child: Text(
+//                                                       CustomText.Delete_home_address_Alert,
+//                                                       textAlign: TextAlign.center,
+//
+//                                                       style: AppTextStyles.small(),
+//                                                     ),
+//                                                   ),
+//                                                 ),
+//                                                 SizedBox(height: 15,),
+//
+//                                                 Row(
+//                                                   crossAxisAlignment: CrossAxisAlignment.center,
+//                                                   mainAxisAlignment: MainAxisAlignment.center,
+//                                                   children: [
+//
+//
+//
+//                                                     CustomTextButton(
+//                                                       text: 'Yes',
+//                                                       onPressed: (){
+//
+//                                                         mydeshcontroller.deleteItem();
+//                                                         //print("yaha hm ma ");
+//                                                         Get.back();
+//                                                       },
+//                                                       backgroundColor: Colors.red,
+//                                                       textColor: Colors.white,
+//                                                       borderRadius: 8,
+//                                                       elevation: 2,
+//                                                       fontSize: 10,
+//                                                       fontWeight: FontWeight.bold,
+//                                                       padding: EdgeInsets.symmetric(
+//                                                         horizontal: 16,
+//                                                         vertical: 10,
+//                                                       ),
+//                                                     ),
+//                                                     SizedBox(width: 20),
+//
+//                                                     CustomTextButton(
+//                                                       text: '  No  ',
+//                                                       onPressed: () {
+//                                                         Get.back();
+//                                                       },
+//                                                       backgroundColor: CustomColor.Button_background_Color,
+//                                                       textColor: Colors.white,
+//                                                       borderRadius: 8,
+//                                                       elevation: 2,
+//                                                       fontSize: 10,
+//                                                       fontWeight: FontWeight.bold,
+//                                                       padding: EdgeInsets.symmetric(
+//                                                         horizontal: 16,
+//                                                         vertical: 10,
+//                                                       ),
+//                                                     ),
+//                                                   ],
+//                                                 ),
+//                                               ],
+//                                             ),
+//                                           ),
+//                                         ),
+//                                       );
+//                                     }
+//                                   //mydeshcontroller.deleteItem,
+//                                 ),
+//                               ],
+//                             ),
+//                           ),
+//                         ),
+//                       );
+//                     }),
+//                   ],
+//                 ),
+//               ),
+//             ),
+//           ),
+//         );
+//       }
+//     );
+//   }
+// }

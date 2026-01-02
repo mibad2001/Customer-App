@@ -91,7 +91,7 @@ class AppRoutes{
     GetPage(
         name: routesName.DeshBoard_Screen,
       page: () => DeshBoard_Screen(),
-      binding: DeshboardBinding(),
+      // binding: DeshboardBinding(),
     ),
     GetPage(
       name: routesName.AboutScreen,

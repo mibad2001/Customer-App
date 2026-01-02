@@ -16,7 +16,11 @@ import 'drawer/drawer.dart';
 class DeshBoard_Screen extends StatelessWidget {
   DeshBoard_Screen({super.key});
 
-  final DeshBoardAddHome_Controller deshboard_controller = Get.find();
+ // final DeshBoardAddHome_Controller deshboard_controller = Get.find();
+  final deshboard_controller = Get.isRegistered<DeshBoardAddHome_Controller>()
+      ? Get.find<DeshBoardAddHome_Controller>()
+      :  Get.put(DeshBoardAddHome_Controller());
+
 
   @override
   Widget build(BuildContext context) {
@@ -136,17 +140,17 @@ class DeshBoard_Screen extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                       fontSize: 16,
                     ),
-                    Obx(
-                          () => Padding(
-                            padding: EdgeInsetsGeometry.only(left:20 ),
-                            child: Text(
-                                                  deshboard_controller.homeAddress.isEmpty
-                              ? ''
-                              : deshboard_controller.homeAddress.toString(),
-                                                  style: AppTextStyles.small(size: 12),
-                                                ),
-                          ),
-                    ),
+                    // Obx(
+                    //       () => Padding(
+                    //         padding: EdgeInsetsGeometry.only(left:20 ),
+                    //         child: Text(
+                    //                               deshboard_controller.homeAddress.isEmpty
+                    //           ? ''
+                    //           : deshboard_controller.homeAddress.toString(),
+                    //                               style: AppTextStyles.small(size: 12),
+                    //                             ),
+                    //       ),
+                    // ),
                     const SizedBox(height: 5),
 
                     // Add Work

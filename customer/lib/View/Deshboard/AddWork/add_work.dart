@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 
 import '../../Widgets/all_text.dart';
 import '../../Widgets/text_button.dart';
+import '../../profile/controller/profile_controller.dart';
 import '../../textstyle/apptextstyle.dart';
 
 class AddWork_Screen extends StatefulWidget {
@@ -16,7 +17,17 @@ class AddWork_Screen extends StatefulWidget {
 }
 
 class AddWork_ScreenState extends State<AddWork_Screen> {
-  final DeshBoardAddHome_Controller mydeshcontroller = Get.put(DeshBoardAddHome_Controller());
+  // final DeshBoardAddHome_Controller mydeshcontroller = Get.put(DeshBoardAddHome_Controller());
+
+  final mydeshcontroller = Get.isRegistered<DeshBoardAddHome_Controller>()
+      ? Get.find<DeshBoardAddHome_Controller>()
+      :  Get.put(DeshBoardAddHome_Controller());
+
+  final getworkaddress = Get.isRegistered<profileModelController>()
+      ? Get.find<profileModelController>()
+      :  Get.put(profileModelController());
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -91,7 +102,7 @@ class AddWork_ScreenState extends State<AddWork_Screen> {
                               color: Colors.white,
                             ),
                             onPressed: () {
-                              mydeshcontroller.saveWorkAddress();
+                              mydeshcontroller.AddworkApi();
                             },
                           )),
                         ],
@@ -101,157 +112,318 @@ class AddWork_ScreenState extends State<AddWork_Screen> {
                 ),
       
                 const SizedBox(height: 20),
-      
-                // ===================== Address Display Section =====================
-                Obx(() {
-                  if (mydeshcontroller.workAddress.value.isEmpty) {
-                    return  Center(
-                      child: Padding(
-                        padding: EdgeInsets.only(top: 60),
-                        child: Text(
-                          "No data",
-                          style: AppTextStyles.heading(),
-                        ),
-                      ),
-                    );
-                  }
-      
-                  return Container(
-                    margin: const EdgeInsets.only(top: 20),
-                    decoration: BoxDecoration(
+
+                /// ADDRESS CARD (reactive)
+                GetBuilder<profileModelController>(
+                  builder: (pController) {
+                    final address = pController.profileData?.addworkAddress;
+
+                    if (address == null || address.isEmpty) {
+                      return Padding(
+                        padding: EdgeInsets.all(40),
+                        child: Text("No data", style: AppTextStyles.heading()),
+                      );
+                    }
+
+                    return Card(
                       color: CustomColor.Container_Colors,
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                    child: ListTile(
-                      title: Text(
-                        mydeshcontroller.workAddress.value,
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                        style: AppTextStyles.medium(
-                        ),
-                      ),
-                      leading: const Icon(Icons.work, color: Colors.white),
-                      trailing: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          // ================= Edit Button =================
-                          IconButton(
-                            icon: const Icon(Icons.edit, color: Colors.blue),
-                            onPressed: () async{
-                              Get.dialog(
-                                Center(
-                                  child: CircularProgressIndicator(
-                                    color: CustomColor.Button_background_Color,
-                                  ),
-                                ),
-                                barrierDismissible: false
-                              );
-                              await Future.delayed(Duration(seconds: 1));
-                              Get.back();
-                              mydeshcontroller.editWorkAddress();
-                            },
-                          ),
-      
-                          // ================= Delete Button =================
-                          IconButton(
-                            icon: const Icon(Icons.delete, color: Colors.red),
-                            onPressed: () {
-                              Get.dialog(
-                                Dialog(
-                                  backgroundColor: CustomColor.Container_Colors,
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.all(Radius.circular(30)),
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+                      child: ListTile(
+                        title: Text(address,
+                            style: AppTextStyles.medium()),
+                        leading: Icon(Icons.work,),
+                        trailing: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            IconButton(
+                                icon: Icon(Icons.edit, color: Colors.blue),
+                                onPressed:
+                                    () async {
+                                  Get.dialog(
+                                    Center(
+                                      child: CircularProgressIndicator(
+                                        color: CustomColor.Button_background_Color,
+                                      ),
                                     ),
-                                    height: 200,
-                                    width: 100,
-                                    child: Column(
-                                      children: [
-                                        SizedBox(height: 15),
+                                    barrierDismissible: false,
+                                  );
+                                  await Future.delayed(Duration(seconds: 1));
+                                  Get.back();
+                                  mydeshcontroller.editItem();
 
-                                        Text(
-                                          CustomText.Delete_address,
-                                          style: AppTextStyles.heading(
+                                }
 
-                                          ),
+                            ),
+                            IconButton(
+                                icon: Icon(Icons.delete, color: Colors.red),
+                                onPressed:
+                                //mydeshcontroller.deleteItem,
+                                    (){
+                                  Get.dialog(
+                                    Dialog(
+                                      backgroundColor: CustomColor.Container_Colors,
+                                      child: Container(
+                                        decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.all(Radius.circular(30)),
                                         ),
-                                        SizedBox(height: 5),
-                                        Icon(
-                                          Icons.warning_amber,
-                                          color: Colors.amberAccent,
-                                          size: 40,
-                                        ),
-                                        SizedBox(height: 5),
-                                        Center(
-                                          child: Padding(
-                                            padding: EdgeInsets.symmetric(horizontal: 10),
-                                            child: Text(
-                                              CustomText.Delete_home_address_Alert,
-                                              textAlign: TextAlign.center,
-                                              style: AppTextStyles.small(),
-                                            ),
-                                          ),
-                                        ),
-                                        SizedBox(height: 15,),
-
-                                        Row(
-                                          crossAxisAlignment: CrossAxisAlignment.center,
-                                          mainAxisAlignment: MainAxisAlignment.center,
+                                        height: 220,
+                                        width: 100,
+                                        child: Column(
                                           children: [
-                                            //SizedBox(width: 70, height: 5),
-                                            CustomTextButton(
-                                              text: 'Yes',
-                                              onPressed: (){
+                                            SizedBox(height: 15),
 
-                                                mydeshcontroller.deleteWorkItem();
-                                                //print("yaha hm ma ");
-                                                Get.back();
-                                                mydeshcontroller.clearWorkField();
+                                            Text(
+                                              CustomText.Delete_address,
+                                              style: AppTextStyles.heading(
 
-                                              },
-                                              backgroundColor: Colors.red,
-                                              textColor: Colors.white,
-                                              borderRadius: 8,
-                                              elevation: 2,
-                                              fontSize: 10,
-                                              fontWeight: FontWeight.bold,
-                                              padding: EdgeInsets.symmetric(
-                                                horizontal: 16,
-                                                vertical: 10,
                                               ),
                                             ),
-                                            SizedBox(width: 20),
+                                            SizedBox(height: 5),
+                                            Icon(
+                                              Icons.warning_amber,
+                                              color: Colors.amberAccent,
+                                              size: 40,
+                                            ),
+                                            SizedBox(height: 5),
+                                            Center(
+                                              child:  Padding(
+                                                padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                                                child: Text(
+                                                  CustomText.Delete_home_address_Alert,
+                                                  textAlign: TextAlign.center,
 
-                                            CustomTextButton(
-                                              text: '  NO  ',
-                                              onPressed: () {
-                                                Get.back();
-                                              },
-                                              backgroundColor: CustomColor.Button_background_Color,
-                                              textColor: Colors.white,
-                                              borderRadius: 8,
-                                              elevation: 2,
-                                              fontSize: 10,
-                                              fontWeight: FontWeight.bold,
-                                              padding: EdgeInsets.symmetric(
-                                                horizontal: 16,
-                                                vertical: 10,
+                                                  style: AppTextStyles.small(),
+                                                ),
                                               ),
+                                            ),
+                                            SizedBox(height: 15,),
+
+                                            Row(
+                                              crossAxisAlignment: CrossAxisAlignment.center,
+                                              mainAxisAlignment: MainAxisAlignment.center,
+                                              children: [
+
+
+
+                                                CustomTextButton(
+                                                  text: 'Yes',
+                                                  onPressed: () async {
+
+                                                      Get.dialog(
+                                                        Center(
+                                                          child: CircularProgressIndicator(
+                                                            color: CustomColor.Button_background_Color,
+                                                          ),
+                                                        ),
+                                                        barrierDismissible: false,
+                                                      );
+                                                      await Future.delayed(
+                                                          Duration(seconds: 1));
+                                                      Get.back();
+                                                      mydeshcontroller.deleteWorkapi();
+                                                   // mydeshcontroller.deleteWorkapi();
+
+
+
+                                                    // //print("yaha hm ma ");
+                                                    // Get.back();
+                                                  },
+                                                  backgroundColor: Colors.red,
+                                                  textColor: Colors.white,
+                                                  borderRadius: 8,
+                                                  elevation: 2,
+                                                  fontSize: 10,
+                                                  fontWeight: FontWeight.bold,
+                                                  padding: EdgeInsets.symmetric(
+                                                    horizontal: 16,
+                                                    vertical: 10,
+                                                  ),
+                                                ),
+                                                SizedBox(width: 20),
+
+                                                CustomTextButton(
+                                                  text: '  No  ',
+                                                  onPressed: () {
+                                                    Get.back();
+                                                  },
+                                                  backgroundColor: CustomColor.Button_background_Color,
+                                                  textColor: Colors.white,
+                                                  borderRadius: 8,
+                                                  elevation: 2,
+                                                  fontSize: 10,
+                                                  fontWeight: FontWeight.bold,
+                                                  padding: EdgeInsets.symmetric(
+                                                    horizontal: 16,
+                                                    vertical: 10,
+                                                  ),
+                                                ),
+                                              ],
                                             ),
                                           ],
                                         ),
-                                      ],
+                                      ),
                                     ),
-                                  ),
-                                ),
-                              );
-                            },
-                          ),
-                        ],
+                                  );
+                                }
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                  );
-                }),
+                    );
+                  },
+                )
+
+
+                // ===================== Address Display Section =====================
+                // Obx(() {
+                //   if (mydeshcontroller.workAddress.value.isEmpty) {
+                //     return  Center(
+                //       child: Padding(
+                //         padding: EdgeInsets.only(top: 60),
+                //         child: Text(
+                //           "No data",
+                //           style: AppTextStyles.heading(),
+                //         ),
+                //       ),
+                //     );
+                //   }
+                //
+                //   return Container(
+                //     margin: const EdgeInsets.only(top: 20),
+                //     decoration: BoxDecoration(
+                //       color: CustomColor.Container_Colors,
+                //       borderRadius: BorderRadius.circular(15),
+                //     ),
+                //     child: ListTile(
+                //       title: Text(
+                //         mydeshcontroller.workAddress.value,
+                //         maxLines: 2,
+                //         overflow: TextOverflow.ellipsis,
+                //         style: AppTextStyles.medium(
+                //         ),
+                //       ),
+                //       leading: const Icon(Icons.work, color: Colors.white),
+                //       trailing: Row(
+                //         mainAxisSize: MainAxisSize.min,
+                //         children: [
+                //           // ================= Edit Button =================
+                //           IconButton(
+                //             icon: const Icon(Icons.edit, color: Colors.blue),
+                //             onPressed: () async{
+                //               Get.dialog(
+                //                 Center(
+                //                   child: CircularProgressIndicator(
+                //                     color: CustomColor.Button_background_Color,
+                //                   ),
+                //                 ),
+                //                 barrierDismissible: false
+                //               );
+                //               await Future.delayed(Duration(seconds: 1));
+                //               Get.back();
+                //               mydeshcontroller.editWorkAddress();
+                //             },
+                //           ),
+                //
+                //           // ================= Delete Button =================
+                //           IconButton(
+                //             icon: const Icon(Icons.delete, color: Colors.red),
+                //             onPressed: () {
+                //               Get.dialog(
+                //                 Dialog(
+                //                   backgroundColor: CustomColor.Container_Colors,
+                //                   child: Container(
+                //                     decoration: BoxDecoration(
+                //                       borderRadius: BorderRadius.all(Radius.circular(30)),
+                //                     ),
+                //                     height: 200,
+                //                     width: 100,
+                //                     child: Column(
+                //                       children: [
+                //                         SizedBox(height: 15),
+                //
+                //                         Text(
+                //                           CustomText.Delete_address,
+                //                           style: AppTextStyles.heading(
+                //
+                //                           ),
+                //                         ),
+                //                         SizedBox(height: 5),
+                //                         Icon(
+                //                           Icons.warning_amber,
+                //                           color: Colors.amberAccent,
+                //                           size: 40,
+                //                         ),
+                //                         SizedBox(height: 5),
+                //                         Center(
+                //                           child: Padding(
+                //                             padding: EdgeInsets.symmetric(horizontal: 10),
+                //                             child: Text(
+                //                               CustomText.Delete_home_address_Alert,
+                //                               textAlign: TextAlign.center,
+                //                               style: AppTextStyles.small(),
+                //                             ),
+                //                           ),
+                //                         ),
+                //                         SizedBox(height: 15,),
+                //
+                //                         Row(
+                //                           crossAxisAlignment: CrossAxisAlignment.center,
+                //                           mainAxisAlignment: MainAxisAlignment.center,
+                //                           children: [
+                //                             //SizedBox(width: 70, height: 5),
+                //                             CustomTextButton(
+                //                               text: 'Yes',
+                //                               onPressed: (){
+                //
+                //                                 mydeshcontroller.deleteWorkItem();
+                //                                 //print("yaha hm ma ");
+                //                                 Get.back();
+                //                                 mydeshcontroller.clearWorkField();
+                //
+                //                               },
+                //                               backgroundColor: Colors.red,
+                //                               textColor: Colors.white,
+                //                               borderRadius: 8,
+                //                               elevation: 2,
+                //                               fontSize: 10,
+                //                               fontWeight: FontWeight.bold,
+                //                               padding: EdgeInsets.symmetric(
+                //                                 horizontal: 16,
+                //                                 vertical: 10,
+                //                               ),
+                //                             ),
+                //                             SizedBox(width: 20),
+                //
+                //                             CustomTextButton(
+                //                               text: '  NO  ',
+                //                               onPressed: () {
+                //                                 Get.back();
+                //                               },
+                //                               backgroundColor: CustomColor.Button_background_Color,
+                //                               textColor: Colors.white,
+                //                               borderRadius: 8,
+                //                               elevation: 2,
+                //                               fontSize: 10,
+                //                               fontWeight: FontWeight.bold,
+                //                               padding: EdgeInsets.symmetric(
+                //                                 horizontal: 16,
+                //                                 vertical: 10,
+                //                               ),
+                //                             ),
+                //                           ],
+                //                         ),
+                //                       ],
+                //                     ),
+                //                   ),
+                //                 ),
+                //               );
+                //             },
+                //           ),
+                //         ],
+                //       ),
+                //     ),
+                //   );
+                // }),
               ],
             ),
       

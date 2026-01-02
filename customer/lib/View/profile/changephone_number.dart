@@ -1,4 +1,4 @@
-
+import 'package:customer/Controller/change_password_number/change_password_controller.dart';
 import 'package:customer/View/Widgets/all_text.dart';
 import 'package:customer/View/Widgets/color.dart';
 import 'package:customer/View/Widgets/elevat_button.dart';
@@ -6,11 +6,12 @@ import 'package:customer/View/Widgets/phone_number_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
-
 import '../textstyle/apptextstyle.dart';
 
+
 class ChangPhoneNumber extends StatelessWidget {
-  const ChangPhoneNumber({super.key});
+   ChangPhoneNumber({super.key});
+   final controller = Get.put(changePasswordController());
 
   @override
   Widget build(BuildContext context) {
@@ -85,7 +86,7 @@ class ChangPhoneNumber extends StatelessWidget {
               Padding(
                 padding: EdgeInsetsGeometry.all(10),
                 child: PhoneNumber_TextField(
-                  controller : TextEditingController(),
+                  controller : controller.chnagePhoneNoController,
                   hintText: CustomText.Mobile_Num,
                 ),
               ),
@@ -93,12 +94,12 @@ class ChangPhoneNumber extends StatelessWidget {
 
               Center(
                 child: SizedBox(
-                  height: 50,
+                  height: 55,
                   width: 250  ,
                   child: MyElevatedButton(
                     text: 'Next',
                     onPressed: () {
-
+                      controller.changeNumberApi();
                     },
                     fontSize: 20,
                   ),
