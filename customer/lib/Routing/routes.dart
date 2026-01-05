@@ -81,12 +81,12 @@ class AppRoutes{
     GetPage(
       name: routesName.SigUp_Screen,
       page: () => SigUp_Screen(),
-      binding: SingUpBinding(),
+     // binding: SingUpBinding(),
     ),
     GetPage(
       name: routesName.SigIn_Screen,
       page: () => SigIn_Screen(),
-      binding: SingUpBinding(),
+    //  binding: SingUpBinding(),
     ),
     GetPage(
         name: routesName.DeshBoard_Screen,

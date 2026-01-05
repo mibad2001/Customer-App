@@ -213,7 +213,7 @@ class _AddHomeScreenState extends State<AddHomeScreen> {
                                                 text: 'Yes',
                                                 onPressed: (){
 
-                                                  mydeshcontroller.deleteItem();
+                                                  mydeshcontroller.deleteHomeApi();
                                                   //print("yaha hm ma ");
                                                   Get.back();
                                                 },

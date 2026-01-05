@@ -1,6 +1,8 @@
+import 'package:customer/View/Widgets/text_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../Controller/Auth_Controller/otp_controller.dart';
+import '../../../Controller/Auth_Controller/sigup_controller.dart';
 import '../../Widgets/elevat_button.dart';
 import '../../textstyle/apptextstyle.dart';
 import '../../Widgets/color.dart';
@@ -11,7 +13,15 @@ class SignupOtpoPassword extends StatelessWidget {
 
   SignupOtpoPassword({super.key});
 
-  final OtpController controller = Get.put(OtpController()); 
+  //final OtpController controller = Get.put(OtpController());
+  final controller = Get.isRegistered<OtpController>()
+      ? Get.find<OtpController>()
+      :  Get.put(OtpController ());
+
+
+  final signupController = Get.isRegistered<SignUp_Controller>()
+      ? Get.find<SignUp_Controller>()
+      :  Get.put(SignUp_Controller());
 
 
   @override
@@ -84,8 +94,13 @@ class SignupOtpoPassword extends StatelessWidget {
               const SizedBox(height: 30),
 
               Obx(() => controller.isOtpExpired.value
-                  ? Text("OTP Expired ❌",
-                  style: AppTextStyles.medium(color: Colors.red))
+                  ? TextButton(
+                    child: Text("OTP Expired ❌",
+                    style: AppTextStyles.medium(color: Colors.red)),
+                onPressed: () {
+
+                },
+                  )
                   : SizedBox(
                 width: 200,
                 height: 50,
@@ -96,6 +111,7 @@ class SignupOtpoPassword extends StatelessWidget {
                     },
                 ),
               )),
+
             ],
           ),
         ),

@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
+import '../../api_servies/api_servies.dart';
+import '../../api_servies/session.dart';
+import 'model/pickuplocationmodel.dart';
+
 class SwapController extends GetxController {
   // final firstController = TextEditingController();
   // final secondController = TextEditingController();
@@ -152,6 +156,27 @@ class SwapController extends GetxController {
         if (controllers.isEmpty) {
       showInterchange.value = true;
     }
+  }
+
+  ///============================= ======================== ================ ============pick Up location search
+  RxBool searchloading = false.obs;
+  PickUpLocationModel? pickUpLocationModel ;
+  Result? result;
+  Future<void> pickupLocation() async {
+
+    searchloading.value = true;
+    update();
+    var response = await ApiService.get(
+     '',
+fullUrl: 'http://192.168.110.3:5000/api/services/search?search=${pickUp.text}',
+      auth: true,
+    );
+
+    if (response!.statusCode == 200) {
+     pickUpLocationModel= PickUpLocationModel.fromJson(response.data);
+    }
+    searchloading.value = false;
+    update();
   }
 
 

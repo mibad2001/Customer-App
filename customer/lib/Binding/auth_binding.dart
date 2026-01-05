@@ -4,12 +4,12 @@ import 'package:customer/Controller/Home/home-controller.dart';
 import 'package:get/get.dart';
 import '../View/profile/controller/profile_controller.dart';
 
-class SingUpBinding extends Bindings {
-  @override
-  void dependencies() {
-    Get.lazyPut(() => SignUp_Controller());
-  }
-}
+// class SingUpBinding extends Bindings {
+//   @override
+//   void dependencies() {
+//     Get.lazyPut(() => SignUp_Controller());
+//   }
+// }
 
 // class DeshboardBinding extends Bindings {
 //   @override

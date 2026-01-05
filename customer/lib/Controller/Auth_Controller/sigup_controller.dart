@@ -37,7 +37,7 @@ class SignUp_Controller extends GetxController {
 
 
 
-  /// ===================================================================================== >>>  Email Validation
+  /// ===================================================================================== >>> Validation
 
 
   // bool isValidEmail(String email) {
@@ -82,13 +82,12 @@ class SignUp_Controller extends GetxController {
     // SUCCESS
     if (response!.statusCode == 200 ) {
       BotToast.showText(text: "Registered Successfully ✅");
-      Get.toNamed(
-        "/SignupOtpoPassword",
+      Get.toNamed("/SignupOtpoPassword",
         arguments: {
           "email": emailController.text,
         },
       );
-      clearFields();
+      //clearFields();
       print("====================================================== ............. >>>>>>>>>>>>>>>>>>>>>>    ${response.data}");
       return;
     }

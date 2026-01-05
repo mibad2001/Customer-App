@@ -22,7 +22,7 @@ class DeshBoardAddHome_Controller extends GetxController {
   //late var homeAddress =HomeController.text;
   var workAddress = ''.obs;
 
- //========================================= add Home address
+ ///=====================================  ===========  =============================================== add Home address
 
   //
   // void saveItem() {
@@ -44,12 +44,12 @@ class DeshBoardAddHome_Controller extends GetxController {
     HomeController.text =profileController.profileData?.addhomeAddress;
     editingIndex.value = 0;
   }
-
-    void deleteItem() {
-      profileController.profileData!.addhomeAddress = "";
-      profileController.update();
-
-  }
+  //
+  //   void deleteItem() {
+  //     profileController.profileData!.addhomeAddress = "";
+  //     profileController.update();
+  //
+  // }
   void clearfield(){
     HomeController.clear();
   }
@@ -95,8 +95,34 @@ class DeshBoardAddHome_Controller extends GetxController {
     }
   }
 
+  /// delete api
 
-///======================================= ================================= ============================
+  Future<void> deleteHomeApi() async {
+
+    var data = {
+      "addhome_address": " ",
+    };
+
+    var response = await ApiService.put(
+      data,
+      "auth/customer/home-address/${TokenManager.userId}",
+      auth: true,
+    );
+
+    if (response!.statusCode == 200) {
+
+      profileController.profileData!.addhomeAddress = "";
+
+      profileController.update();   // 🔥 THIS refreshes GetBuilder UI
+
+      BotToast.showText(text: "Address Delete Successfully");
+      clearWorkField();
+
+    }
+  }
+
+
+///======================================= ================================= add work  ============================
 
   // void saveWorkAddress() {
   //   if (WorkAdressController.text.isNotEmpty) {
@@ -121,10 +147,10 @@ class DeshBoardAddHome_Controller extends GetxController {
     WorkAdressController.clear();
   }
 
-  void deleteWorkItem() {
-    profileController.profileData!.addhomeAddress = "";
-    profileController.update();
-  }
+  // void deleteWorkItem() {
+  //   profileController.profileData!.addhomeAddress = "";
+  //   profileController.update();
+  // }
 
 
   Future<void> AddworkApi() async {

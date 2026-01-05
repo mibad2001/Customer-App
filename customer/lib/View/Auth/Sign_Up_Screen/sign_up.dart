@@ -24,7 +24,12 @@ class SigUp_Screen extends StatefulWidget {
 
 class _SigUp_ScreenState extends State<SigUp_Screen> {
 
-  final signupController = Get.find<SignUp_Controller>();
+  //final signupController = Get.find<SignUp_Controller>();
+
+  final signupController = Get.isRegistered<SignUp_Controller>()
+      ? Get.find<SignUp_Controller>()
+      :  Get.put(SignUp_Controller());
+
   //final  signupController = Get.put(SignUp_Controller());
 
   @override

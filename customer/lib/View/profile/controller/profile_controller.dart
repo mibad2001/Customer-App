@@ -14,11 +14,7 @@ import '../model/picture_model.dart';
 class profileModelController extends GetxController {
   RxBool loading = true.obs; // Remove Rx, will call update()
   GetProfileModel? profileData;
-  //Rxn<GetProfileModel> profileData = Rxn<GetProfileModel>();
 
-
-  // ImageModel? profileImg;
-  // FilePickerResult? profileImgss;
 
   @override
   void onInit() {
@@ -27,6 +23,8 @@ class profileModelController extends GetxController {
   }
 
   ///--------------------------------------------------------------  user profile api
+
+
   Future<void> getuserProfile() async {
     loading.value = true;
     update();

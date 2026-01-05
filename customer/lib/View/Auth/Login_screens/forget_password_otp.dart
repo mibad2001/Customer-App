@@ -85,8 +85,13 @@ class ForgetPasswordOtp extends StatelessWidget {
               const SizedBox(height: 30),
 
               Obx(() => controller.isOtpExpired.value
-                  ? Text("OTP Expired ❌",
-                  style: AppTextStyles.medium(color: Colors.red))
+                  ? TextButton(
+                    child: Text("OTP Expired ❌",
+                    style: AppTextStyles.medium(color: Colors.red)),
+                onPressed: (){
+
+                },
+                  )
                   : SizedBox(
                 width: 200,
                 height: 50,

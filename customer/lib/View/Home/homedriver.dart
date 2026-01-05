@@ -8,6 +8,7 @@ import 'package:customer/View/Widgets/textformfield.dart';
 import 'package:customer/View/textstyle/apptextstyle.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get/get_connect/http/src/utils/utils.dart';
 
 import '../../Controller/Deshboard/deshboard_cont.dart';
 import '../Deshboard/AddWork/add_work.dart';
@@ -104,10 +105,14 @@ class HomeDriver extends StatelessWidget {
                                               hintText: "Pick Up",
                                               borderRadius: 20,
                                               prefixIcon: Icon(Icons.circle,size: 15,color: CustomColor.textField_Icon_Color,),
+                                              onChanged: (v){
+                                                homeC.pickupLocation();
+                                              },
                                             ),
                                             //   ],
                                             // ),
                                           ),
+
 
                                           const SizedBox(height: 12),
 
@@ -565,7 +570,18 @@ class HomeDriver extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 controller.selectedIndex.value == 0
-                                    ? Container(
+                                    ?
+                                // homeC.searchloading.value == true
+                                //     ?Container(
+                                //   child: ListView.builder(
+                                //     itemCount: homeC.result.l,
+                                //       itemBuilder: ListTile(
+                                //         leading: Icon(Icons.location_pin),
+                                //       )),
+                                // )
+                                //
+                                //     :
+                                Container(
                                   height: 150,
 
                                   //color: Colors.grey,

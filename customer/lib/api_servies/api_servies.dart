@@ -42,31 +42,79 @@ class ApiService {
   }
 
   // ---------------- GET ----------------
+
+///
+  // static Future<Response?> get(String url,
+  //     {bool auth = false,
+  //       bool isProgressShow = false,
+  //       bool noCloseLoading = false,
+  //       Map<String, dynamic>? queryParameters,
+  //       String? fullUrl}) async {
+  //   if (!isProgressShow) BotToast.showLoading();
+  //
+  //   try {
+  //     Response response = await Dio().get(fullUrl ?? apiUrl + url,
+  //         queryParameters: queryParameters,
+  //         options: Options(
+  //           headers: {
+  //             "Connection": "keep-alive",
+  //             "accept": "application/json",
+  //             if (auth) "Authorization": "Bearer ${TokenManager.token}"
+  //
+  //           },
+  //         ));
+  //
+  //     if (!isProgressShow && !noCloseLoading) BotToast.closeAllLoading();
+  //     return response;
+  //   } on DioException catch (e) {
+  //     if (!isProgressShow) BotToast.closeAllLoading();
+  //     if (e.type == DioExceptionType.unknown) {
+  //       BotToast.showText(text: 'No Internet connection');
+  //     } else {
+  //       return e.response;
+  //     }
+  //   }
+  //   return null;
+  // }
+
   static Future<Response?> get(String url,
       {bool auth = false,
         bool isProgressShow = false,
         bool noCloseLoading = false,
         Map<String, dynamic>? queryParameters,
         String? fullUrl}) async {
+
     if (!isProgressShow) BotToast.showLoading();
 
     try {
-      Response response = await Dio().get(fullUrl ?? apiUrl + url,
-          queryParameters: queryParameters,
-          options: Options(
-            headers: {
-              "Connection": "keep-alive",
-              "accept": "application/json",
-              if (auth) "Authorization": "Bearer ${TokenManager.token}"
+      Dio dio = Dio();
+      dio.options.connectTimeout = const Duration(seconds: 10);
+      dio.options.receiveTimeout = const Duration(seconds: 10);
+      dio.options.sendTimeout = const Duration(seconds: 10);
 
-            },
-          ));
+      Response response = await dio.get(
+        fullUrl ?? apiUrl + url,
+        queryParameters: queryParameters,
+        options: Options(
+          headers: {
+            "Connection": "keep-alive",
+            "accept": "application/json",
+            if (auth) "Authorization": "Bearer ${TokenManager.token}"
+          },
+        ),
+      );
 
       if (!isProgressShow && !noCloseLoading) BotToast.closeAllLoading();
       return response;
+
     } on DioException catch (e) {
       if (!isProgressShow) BotToast.closeAllLoading();
-      if (e.type == DioExceptionType.unknown) {
+
+      if (e.type == DioExceptionType.connectionTimeout ||
+          e.type == DioExceptionType.receiveTimeout ||
+          e.type == DioExceptionType.sendTimeout) {
+        BotToast.showText(text: 'Server not responding');
+      } else if (e.type == DioExceptionType.unknown) {
         BotToast.showText(text: 'No Internet connection');
       } else {
         return e.response;
@@ -75,6 +123,9 @@ class ApiService {
     return null;
   }
 
+
+
+  ///
   // ---------------- PUT / UPDATE ----------------
   static Future<Response?> put(dynamic data, String url,
       {bool auth = false,

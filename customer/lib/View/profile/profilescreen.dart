@@ -16,24 +16,51 @@ class ProfileScreen extends StatelessWidget {
   ProfileScreen({Key? key}) : super(key: key);
 
   //final profileController = Get.put(profileModelController());
-  final profileController = Get.isRegistered<profileModelController>()
-      ? Get.find<profileModelController>()
-      :  Get.put(profileModelController());
+    final profileController = Get.isRegistered<profileModelController>()
+        ? Get.find<profileModelController>()
+        :  Get.put(profileModelController());
 
   @override
   Widget build(BuildContext context) {
     return GetBuilder<profileModelController>(
       builder: (controller) {
         if (controller.loading.value) {
-          return const Scaffold(
-            body: Center(child: CircularProgressIndicator()),
+          return Scaffold(
+            body: Container(
+              width: double.infinity,
+              height: MediaQuery.of(context).size.height,
+              decoration: const BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [
+                    Color.fromARGB(255, 30, 1, 44),
+                    Color.fromARGB(255, 227, 194, 242),
+                  ],
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                ),
+              ),
+              child: const Center(
+                  child: CircularProgressIndicator()),
+            ),
           );
         }
-
         final user = controller.profileData;
         if (user == null) {
           return Scaffold(
-            body: Center(child: Text("No Data",style: AppTextStyles.heading(),)),
+            body: Container(
+                width: double.infinity,
+                height: MediaQuery.of(context).size.height,
+                decoration: const BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: [
+                      Color.fromARGB(255, 30, 1, 44),
+                      Color.fromARGB(255, 227, 194, 242),
+                    ],
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                  ),
+                ),
+                child: Center(child: Text("Server Not Responding",style: AppTextStyles.heading(),))),
           );
         }
 
