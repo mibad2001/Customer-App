@@ -20,6 +20,7 @@ class CustomTextField extends StatelessWidget {
   final double borderRadius;
   final bool enabled;
   final dynamic inputFormatters;
+  final FocusNode? focusNode;
 
   const CustomTextField({
     super.key,
@@ -44,7 +45,9 @@ class CustomTextField extends StatelessWidget {
     this.fillColor = Colors.white70,
     this.borderRadius = 5,
     this.enabled = true,
-    this.inputFormatters
+    this.inputFormatters,
+    this.focusNode,
+
   });
 
   @override

@@ -84,7 +84,7 @@ class ApiService {
         Map<String, dynamic>? queryParameters,
         String? fullUrl}) async {
 
-    if (!isProgressShow) BotToast.showLoading();
+    if (isProgressShow) BotToast.showLoading();
 
     try {
       Dio dio = Dio();

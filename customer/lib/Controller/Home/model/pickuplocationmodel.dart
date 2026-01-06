@@ -49,6 +49,7 @@ class Result {
     this.lon,
   });
 
+
   factory Result.fromJson(Map<String, dynamic> json) => Result(
     name: json["name"],
     postcode: json["postcode"],

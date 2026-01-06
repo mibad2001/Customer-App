@@ -89,7 +89,18 @@ class SwapController extends GetxController {
   final TextEditingController dropOff = TextEditingController(); // observable list
 
 
-
+  // FocusNode
+  // FocusNode pickUpFocus = FocusNode();
+  //
+  // @override
+  // void onInit() {
+  //   super.onInit();
+  //
+  //   pickUpFocus.addListener(() {
+  //     update(); // rebuild Obx when focus changes
+  //   });
+  // }
+  //
 
 
   void selectedContainer(int index) {
@@ -158,26 +169,99 @@ class SwapController extends GetxController {
     }
   }
 
-  ///============================= ======================== ================ ============pick Up location search
+///   ///============================= ======================== ================ ============  Pick Up location search
+
   RxBool searchloading = false.obs;
-  PickUpLocationModel? pickUpLocationModel ;
-  Result? result;
-  Future<void> pickupLocation() async {
+  RxList<Result> searchList = <Result>[].obs;
+
+
+  Future<void> pickupLocation(String text) async {
+    if (text.isEmpty) {
+      searchList.clear();
+      return;
+    }
+
 
     searchloading.value = true;
-    update();
+
     var response = await ApiService.get(
-     '',
-fullUrl: 'http://192.168.110.3:5000/api/services/search?search=${pickUp.text}',
+      '',
+      fullUrl: 'http://192.168.110.4:5000/api/services/search?search=${pickUp.text.toUpperCase()}',
       auth: true,
+      isProgressShow: false,
+    );
+
+    if ( response!.statusCode == 200) {
+      PickUpLocationModel model = PickUpLocationModel.fromJson(response.data);
+
+      searchList.value = model.result ?? [];
+    }
+
+    searchloading.value = false;
+
+  }
+
+
+  ///   ///============================= ======================== ================ ============   drop off location search
+// DropOff related
+  RxBool dropSearchLoading = false.obs;
+  RxList<Result> dropSearchList = <Result>[].obs;
+
+// ================= LIVE SEARCH API FOR DROPOFF =================
+  Future<void> dropOffLocation(String text) async {
+    // Agar text field empty ho toh list clear karo
+    if (text.isEmpty) {
+      dropSearchList.clear();
+      return;
+    }
+
+    // Loader ON
+    dropSearchLoading.value = true;
+
+    // API call
+    var response = await ApiService.get(
+      '',
+      fullUrl: 'http://192.168.110.4:5000/api/services/search?search=${text.toUpperCase()}',
+      auth: true,
+      isProgressShow: false, // User loader nahi chahiye
     );
 
     if (response!.statusCode == 200) {
-     pickUpLocationModel= PickUpLocationModel.fromJson(response.data);
+      PickUpLocationModel model = PickUpLocationModel.fromJson(response.data);
+
+      // Result ko update karo
+      dropSearchList.value = model.result ?? [];
     }
-    searchloading.value = false;
-    update();
+
+    // Loader OFF
+    dropSearchLoading.value = false;
   }
+
+
+
+
+
+
+
+//   RxBool searchloading = false.obs;
+//   PickUpLocationModel? pickUpLocationModel ;
+//   Result? result;
+//   Future<void> pickupLocation() async {
+//
+//     searchloading.value = true;
+//     update();
+//     var response = await ApiService.get(
+//      '',
+// fullUrl: 'http://192.168.110.3:5000/api/services/search?search=${pickUp.text}',
+//       auth: true,
+//     );
+//
+//     if (response!.statusCode == 200) {
+//      pickUpLocationModel= PickUpLocationModel.fromJson(response.data);
+//     }
+//     searchloading.value = false;
+//     update();
+//   }
 
 
 }

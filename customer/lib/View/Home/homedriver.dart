@@ -1,15 +1,12 @@
-import 'package:bot_toast/bot_toast.dart';
 import 'package:customer/Controller/Home/home-controller.dart';
 import 'package:customer/View/Deshboard/AddHome/add_home.dart';
+import 'package:customer/View/Home/widget.dart';
 import 'package:customer/View/Widgets/all_text.dart';
 import 'package:customer/View/Widgets/color.dart';
-import 'package:customer/View/Widgets/text_button.dart';
 import 'package:customer/View/Widgets/textformfield.dart';
 import 'package:customer/View/textstyle/apptextstyle.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_connect/http/src/utils/utils.dart';
-
 import '../../Controller/Deshboard/deshboard_cont.dart';
 import '../Deshboard/AddWork/add_work.dart';
 import '../Widgets/elevat_button.dart';
@@ -26,7 +23,7 @@ class HomeDriver extends StatelessWidget {
  // final homeC = Get.put(SwapController());
 
   //final deshboardController = Get.put(DeshBoardAddHome_Controller());
-  final deshboardController = Get.find<DeshBoardAddHome_Controller>();
+  //final deshboardController = Get.find<DeshBoardAddHome_Controller>();
   final profileController = Get.isRegistered<profileModelController>()
       ? Get.find<profileModelController>()
       :  Get.put(profileModelController());
@@ -81,7 +78,7 @@ class HomeDriver extends StatelessWidget {
 
                                 const SizedBox(height: 20),
 
-                                /// ===== MAIN AREA with Equal Padding =====
+                                ///======================================================== ================= MAIN AREA with Equal Padding
                                 Padding(
                                   padding: const EdgeInsets.symmetric(
                                     horizontal: 15,
@@ -102,11 +99,12 @@ class HomeDriver extends StatelessWidget {
                                             // SizedBox(width: 3,),
                                             CustomTextField(
                                               controller: homeC.pickUp,
+                                              //focusNode: homeC.pickUpFocus,
                                               hintText: "Pick Up",
                                               borderRadius: 20,
                                               prefixIcon: Icon(Icons.circle,size: 15,color: CustomColor.textField_Icon_Color,),
                                               onChanged: (v){
-                                                homeC.pickupLocation();
+                                                homeC.pickupLocation(v);
                                               },
                                             ),
                                             //   ],
@@ -116,7 +114,7 @@ class HomeDriver extends StatelessWidget {
 
                                           const SizedBox(height: 12),
 
-                                          // ---------- ADD STOP(S) ----------
+                                          /// ---------- ADD STOP(S) ----------
                                           Obx(
                                                 () => Column(
                                               children: [
@@ -138,6 +136,9 @@ class HomeDriver extends StatelessWidget {
                                                               : "${index + 1}nd Stop",
                                                           borderRadius: 20,
                                                           prefixIcon: Icon(Icons.wb_sunny_outlined,size: 20,color: CustomColor.textField_Icon_Color,),
+                                                          onChanged: (v){
+                                                            homeC.pickupLocation(v);
+                                                          },
                                                         ),
                                                       ),
 
@@ -175,6 +176,9 @@ class HomeDriver extends StatelessWidget {
                                               hintText: "Destination",
                                               borderRadius: 20,
                                               prefixIcon: Icon(Icons.location_pin,size: 20,color: CustomColor.textField_Icon_Color,),
+                                              onChanged: (v){
+                                                homeC.dropOffLocation(v);
+                                              },
                                             ),
                                             //   ],
                                             // ),
@@ -235,473 +239,425 @@ class HomeDriver extends StatelessWidget {
                             ),
                           ),
 
-                          // ===============================================  fields
-                          //  Container(
-                          //    height:  homeC.viaControllers.length == 0
-                          //        ? MediaQuery.of(context).size.height * 0.3
-                          //        : homeC.viaControllers.length == 1
-                          //        ? MediaQuery.of(context).size.height * 0.35
-                          //        : MediaQuery.of(context).size.height * 0.4,
-                          //    width: MediaQuery.of(context).size.height * 0.7    ,
-                          //    decoration: BoxDecoration(
-                          //      borderRadius: const BorderRadius.only(
-                          //        bottomLeft: Radius.circular(30),
-                          //        bottomRight: Radius.circular(30),
-                          //      ),
-                          //    ),
-                          //
-                          //    child: Container(
-                          //      //padding: const EdgeInsets.all(12.0),
-                          //
-                          //      child: Column(
-                          //        crossAxisAlignment: CrossAxisAlignment.start,
-                          //        children: [
-                          //          IconButton(
-                          //            onPressed: () {
-                          //              Get.back();
-                          //            },
-                          //
-                          //            icon: Icon(
-                          //              Icons.arrow_back,
-                          //              color: CustomColor.Icon_Color,
-                          //              size: 30,
-                          //            ),
-                          //          ),
-                          //          SizedBox(height: 2),
-                          //
-                          //          Row(
-                          //            children: [
-                          //              Container(
-                          //                width:MediaQuery.of(context).size.width*0.88,
-                          //
-                          //                child: Column(
-                          //                  children: [
-                          //                    Padding(
-                          //                      padding: const EdgeInsets.only(left: 30),
-                          //                      child: Container(width: MediaQuery.of(context).size.width*0.75,
-                          //                        child: CustomTextField(
-                          //                          controller: homeC.firstController,
-                          //                          hintText: "pick up",
-                          //
-                          //                          borderRadius: 20,
-                          //                        ),
-                          //                      ),
-                          //                    ),
-                          //                    SizedBox(height: 15),
-                          //                    Column(
-                          //                      children: List.generate(homeC.viaControllers.length, (index) {
-                          //                        return Container(
-                          //                          //color: Colors.blueGrey,
-                          //                          padding: const EdgeInsets.only(left: 38,bottom: 10),
-                          //                          child: Row(
-                          //                            children: [
-                          //                              Expanded(
-                          //                                child: CustomTextField(
-                          //                                  controller: homeC.viaControllers[index],
-                          //                                  hintText: index == 0
-                          //                                      ? "1st Stop"
-                          //                                      : "2nd Stop",
-                          //
-                          //                                  borderRadius: 20,
-                          //                                ),
-                          //                              ),
-                          //                              const SizedBox(width: 8),
-                          //                              IconButton(
-                          //                                icon: const Icon(Icons.remove_circle, color: Colors.red),
-                          //                                onPressed: () {
-                          //                                  homeC.removeViaField(index);
-                          //                                },
-                          //                              ),
-                          //                            ],
-                          //                          ),
-                          //                        );
-                          //                      }
-                          //                      ),
-                          //                    ),
-                          //
-                          //                    Padding(
-                          //                      padding:  EdgeInsets.only(left: 30),
-                          //                      child: SizedBox(
-                          //                        width: MediaQuery.of(context).size.width *0.75,
-                          //                        child: CustomTextField(
-                          //                          controller: homeC.secondController,
-                          //                          hintText: "Destination",
-                          //
-                          //                          borderRadius: 20,
-                          //                        ),
-                          //                      ),
-                          //                    ),
-                          //                  ],
-                          //                ),
-                          //              ),
-                          //
-                          //              // -----------swap Button-------------------
-                          //
-                          //              Obx(
-                          //                    () => homeC.showInterchange.value
-                          //                    ? GestureDetector(
-                          //                  onTap: (){
-                          //                    homeC.swapValues();
-                          //                  },
-                          //                  child: Icon(
-                          //                    Icons.compare_arrows,
-                          //                    color: Colors.white,
-                          //                    size: 28,
-                          //                  ),
-                          //                )
-                          //                     : SizedBox.shrink(),
-                          //              ),
-                          //
-                          //
-                          //
-                          //                ],
-                          //          ),
-                          //
-                          //          SizedBox(height: 5,),
-                          //
-                          //
-                          //
-                          //
-                          //
-                          //
-                          //          // ------------------------------- --------------------      VIA button
-                          //          Row(
-                          //            children: [
-                          //              //SizedBox(width: MediaQuery.of(context).size.width*0.67,),
-                          //              Spacer(),
-                          //              Padding(
-                          //                padding: EdgeInsets.only(right: 8.0),
-                          //                child: TextButton.icon(
-                          //                  onPressed: () {
-                          //                    homeC.addViaField();
-                          //                    homeC.showInterchange.value= false;
-                          //                  },
-                          //                  icon:  Icon(Icons.add, color: CustomColor.Icon_Color),
-                          //                  label:  Text(
-                          //                    "Add Via",
-                          //                    style: AppTextStyles.regular(
-                          //                        weight: FontWeight.bold
-                          //                    ),
-                          //                  ),
-                          //                ),
-                          //              ),],
-                          //          ),
-                          //
-                          //          // ---------------------------     add fields
-                          //
-                          //
-                          //
-                          //
-                          //        ],
-                          //      ),
-                          //    ),
-                          //  ),
 
-                          //========================================  ================== ================ ============== khalid
+                          ///
+                          Obx(() {
+
+
+                          if  (homeC.searchloading.value || homeC.dropSearchLoading.value){
+                          return Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 20),
+                          child: LinearProgressIndicator(
+                          minHeight: 3,
+                          color: Colors.white,
+                          backgroundColor: Colors.white24,
+                          ),
+                          );
+                          }
+                          if (homeC.dropSearchLoading.value) {
+                            return Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 20),
+                              child: LinearProgressIndicator(
+                                minHeight: 3,
+                                color: Colors.white,
+                                backgroundColor: Colors.white24,
+                              ),
+                            );
+                          }
+
+                          if ((homeC.pickUp.text.isEmpty)&&(homeC.dropOff.text.isEmpty))
+                            {
+                            return containerWidget();
+
+
+                              //Container(height: 200,),;
+                            }
+                          ///
+
+
+                          if (homeC.searchList.isNotEmpty && homeC.pickUp.text.isNotEmpty){
+                            return Container(
+                              margin: const EdgeInsets.symmetric(horizontal: 20),
+                              height: homeC.controllers.length==2
+                                  ?MediaQuery.of(context).size.height*0.2
+                                  :homeC.controllers.length==1
+                                  ?MediaQuery.of(context).size.height*0.25
+                                  :MediaQuery.of(context).size.height*0.45,
+                              // decoration: BoxDecoration(
+                              // color: Colors.white,
+                              // borderRadius: BorderRadius.circular(15),
+                              // ),
+                              child: ListView.builder(
+                                itemCount: homeC.searchList.length,
+                                itemBuilder: (context, index) {
+                                  final item = homeC.searchList[index];
+                                  return ListTile(
+                                    leading: Icon(Icons.location_on, color: CustomColor.Icon_Color),
+                                    title: Text("${item.name?? ""} ${item.postcode ?? ""}" , style: AppTextStyles.regular(),),
+                                    //subtitle: Text(item.postcode ?? "", style: AppTextStyles.regular()),
+                                    onTap: () {
+                                      homeC.pickUp.text = item.name ?? "";
+                                      homeC.searchList.clear();
+                                    },
+                                  );
+                                },
+                              ),
+                            );
+                          }
+                          if (homeC.dropSearchList.isNotEmpty && homeC.dropOff.text.isNotEmpty){
+                            return Container(
+                              margin: const EdgeInsets.symmetric(horizontal: 20),
+                              height: homeC.controllers.length==2
+                                  ?MediaQuery.of(context).size.height*0.2
+                                  :homeC.controllers.length==1
+                                  ?MediaQuery.of(context).size.height*0.25
+                                  :MediaQuery.of(context).size.height*0.45,
+                              // decoration: BoxDecoration(
+                              // color: Colors.white,
+                              // borderRadius: BorderRadius.circular(15),
+                              // ),
+                              child: ListView.builder(
+                                itemCount: homeC.dropSearchList.length,
+                                itemBuilder: (context, index) {
+                                  final item = homeC.dropSearchList[index];
+                                  return ListTile(
+                                    leading: Icon(Icons.location_on, color: CustomColor.Icon_Color),
+                                    title: Text("${item.name?? ""} ${item.postcode ?? ""}" , style: AppTextStyles.regular(),),
+                                   // subtitle: Text(item.postcode ?? "", style: AppTextStyles.small()),
+                                    onTap: () {
+                                      homeC.dropOff.text = item.name ?? "";
+                                      homeC.dropSearchList.clear();
+                                    },
+                                  );
+                                },
+                              ),
+                            );
+                          }
+
+                        return  containerWidget();
+
+                          }
+                          ),
+
+                          ///==================================================================================================
+
+
+
+
+
+
 
 
                           SizedBox(height: 15),
+                         ///==== /////////////////////////////////////========================////////////==================================================/////
+                         //  Container(
+                         //    child: Column(
+                         //      children: [
+                         //
+                         //        // ================================================ Address / Airoplane / Train  Coloum
+                         //        Container(
+                         //          margin: EdgeInsets.symmetric(horizontal: 15),
+                         //          height: 100,
+                         //          width: MediaQuery.of(context).size.width * 0.93,
+                         //          decoration: BoxDecoration(
+                         //            border: Border.all(color: Colors.white),
+                         //            // color: const Color.fromARGB(255, 54, 54, 54),
+                         //            color: CustomColor.Button_background_Color,
+                         //            borderRadius: BorderRadius.circular(10),
+                         //          ),
+                         //          child: Row(
+                         //            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                         //            crossAxisAlignment: CrossAxisAlignment.center,
+                         //            children: [
+                         //              // ==========================================================       Address
+                         //              Obx(
+                         //                    () => GestureDetector(
+                         //                  onTap: () {
+                         //                    homeC.selectedItem(0);
+                         //                    homeC.changeIndex(0);
+                         //                  },
+                         //                  child: Container(
+                         //                    height: 70,
+                         //                    width: 70,
+                         //                    padding: const EdgeInsets.symmetric(
+                         //                      vertical: 8,
+                         //                      horizontal: 5,
+                         //                    ),
+                         //                    decoration: BoxDecoration(
+                         //                      borderRadius: BorderRadius.circular(10),
+                         //                      color: homeC.selectedItem.value == 0
+                         //                          ? Colors.white
+                         //                          : Colors.white10,
+                         //                    ),
+                         //                    child: Column(
+                         //                      mainAxisAlignment:
+                         //                      MainAxisAlignment.center,
+                         //                      children: [
+                         //                        Icon(
+                         //                          Icons.location_on,
+                         //                          size: 25,
+                         //                          color: homeC.selectedItem.value == 0
+                         //                              ? Colors.black
+                         //                              : Colors.white,
+                         //                        ),
+                         //                        const SizedBox(height: 5),
+                         //                        Text(
+                         //                          "Address",
+                         //                          style: AppTextStyles.small(
+                         //                            weight: FontWeight.bold,
+                         //                            size: 11,
+                         //                            color:
+                         //                            homeC.selectedItem.value == 0
+                         //                                ? Colors.black
+                         //                                : Colors.white,
+                         //                          ),
+                         //                        ),
+                         //                      ],
+                         //                    ),
+                         //                  ),
+                         //                ),
+                         //              ),
+                         //
+                         //              // =================== Airport ===================
+                         //              Obx(
+                         //                    () => GestureDetector(
+                         //                  onTap: () {
+                         //                    homeC.selectedItem(1);
+                         //                    homeC.changeIndex(1);
+                         //                  },
+                         //                  child: Container(
+                         //                    height: 70,
+                         //                    width: 70,
+                         //
+                         //                    decoration: BoxDecoration(
+                         //                      borderRadius: BorderRadius.circular(10),
+                         //                      color: homeC.selectedItem.value == 1
+                         //                          ? Colors.white
+                         //                          : Colors.white10,
+                         //                    ),
+                         //                    child: Column(
+                         //                      mainAxisAlignment:
+                         //                      MainAxisAlignment.center,
+                         //                      children: [
+                         //                        Icon(
+                         //                          Icons.airplanemode_active,
+                         //                          size: 25,
+                         //                          color: homeC.selectedItem.value == 1
+                         //                              ? Colors.black
+                         //                              : Colors.white,
+                         //                        ),
+                         //                        const SizedBox(height: 5),
+                         //                        Text(
+                         //                          "Airport",
+                         //                          style: AppTextStyles.small(
+                         //                            weight: FontWeight.bold,
+                         //                            color: homeC.selectedItem.value == 1
+                         //                                ? Colors.black
+                         //                                : Colors.white,
+                         //                          ),
+                         //                        ),
+                         //                      ],
+                         //                    ),
+                         //                  ),
+                         //                ),
+                         //              ),
+                         //
+                         //              // =================== Train ===================
+                         //              Obx(
+                         //                    () => GestureDetector(
+                         //                  onTap: () {
+                         //                    homeC.selectedItem(2);
+                         //                    homeC.changeIndex(2);
+                         //                  },
+                         //                  child: Container(
+                         //                    height: 70,
+                         //                    width: 70,
+                         //                    padding: EdgeInsets.symmetric(
+                         //                      vertical: 8,
+                         //                      horizontal: 5,
+                         //                    ),
+                         //                    decoration: BoxDecoration(
+                         //                      borderRadius: BorderRadius.circular(10),
+                         //                      color: homeC.selectedItem.value == 2
+                         //                          ? Colors.white
+                         //                          : Colors.white10,
+                         //                    ),
+                         //                    child: Column(
+                         //                      mainAxisAlignment:
+                         //                      MainAxisAlignment.center,
+                         //                      children: [
+                         //                        Icon(
+                         //                          Icons.train_outlined,
+                         //                          size: 25,
+                         //                          color: homeC.selectedItem.value == 2
+                         //                              ? Colors.black
+                         //                              : Colors.white,
+                         //                        ),
+                         //                        const SizedBox(height: 5),
+                         //                        Text(
+                         //                          "Train",
+                         //                          style: AppTextStyles.small(
+                         //                            weight: FontWeight.bold,
+                         //
+                         //                            color:
+                         //                            homeC.selectedItem.value == 2
+                         //                                ? Colors.black
+                         //                                : Colors.white,
+                         //                          ),
+                         //                        ),
+                         //                      ],
+                         //                    ),
+                         //                  ),
+                         //                ),
+                         //              ),
+                         //            ],
+                         //          ),
+                         //        ),
+                         //
+                         //        SizedBox(height: 20),
+                         //
+                         //        //===========================-========================  list show addresses
+                         //        Obx(
+                         //              () => Column(
+                         //            crossAxisAlignment: CrossAxisAlignment.start,
+                         //            children: [
+                         //              controller.selectedIndex.value == 0
+                         //                  ?
+                         //              // homeC.searchloading.value == true
+                         //              //     ?Container(
+                         //              //   child: ListView.builder(
+                         //              //     itemCount: homeC.result.l,
+                         //              //       itemBuilder: ListTile(
+                         //              //         leading: Icon(Icons.location_pin),
+                         //              //       )),
+                         //              // )
+                         //              //
+                         //              //     :
+                         //              Container(
+                         //                height: 150,
+                         //
+                         //                //color: Colors.grey,
+                         //                child: Column(
+                         //                  crossAxisAlignment:
+                         //                  CrossAxisAlignment.start,
+                         //                  mainAxisAlignment:
+                         //                  MainAxisAlignment.start,
+                         //                  children: [
+                         //                    ListTile(
+                         //                      onTap: () {
+                         //                        Get.to(AddHomeScreen());
+                         //                      },
+                         //                      title: Text(
+                         //                        "Home",
+                         //                        style: AppTextStyles.medium(),
+                         //                      ),
+                         //                      subtitle:   Text(
+                         //                        profileController.profileData?.addhomeAddress ?? 'Address',
+                         //                        style: AppTextStyles.regular(),
+                         //                      ),
+                         //                      // Text(
+                         //                      //   "Address",
+                         //                      //   style: AppTextStyles.regular(),
+                         //                      // ),
+                         //                      leading: Icon(
+                         //                        controller.iconItems[controller
+                         //                            .selectedIndex
+                         //                            .value]["icon"],
+                         //                        color: CustomColor.textColor,
+                         //                        size: 25,
+                         //                      ),
+                         //                      // trailing: IconButton(
+                         //                      //   icon: Icon(
+                         //                      //     Icons.delete,
+                         //                      //     color: Colors.redAccent,
+                         //                      //     size: 25,
+                         //                      //   ),
+                         //                      //   onPressed: () {},
+                         //                      //  ),
+                         //                    ),
+                         //                    ListTile(
+                         //                      onTap: () {
+                         //                        Get.to(AddWork_Screen());
+                         //                      },
+                         //                      title: Text(
+                         //                        "Add Work",
+                         //                        style: AppTextStyles.medium(),
+                         //                      ),
+                         //                      subtitle: Text(
+                         //                        "Work Address",
+                         //                        style: AppTextStyles.regular(),
+                         //                      ),
+                         //                      leading: Icon(
+                         //                        controller.iconItems[controller
+                         //                            .selectedIndex
+                         //                            .value]["icon"],
+                         //                        color: CustomColor.textColor,
+                         //                        size: 25,
+                         //                      ),
+                         //
+                         //                      // trailing: IconButton(
+                         //                      //   icon: Icon(
+                         //                      //     Icons.delete,
+                         //                      //     color: Colors.redAccent,
+                         //                      //     size: 25,
+                         //                      //   ),
+                         //                      //   onPressed: () {},
+                         //                      // ),
+                         //                    ),
+                         //                  ],
+                         //                ),
+                         //              )
+                         //                  : Container(
+                         //                height: homeC.controllers.length==2
+                         //                    ?MediaQuery.of(context).size.height*0.2
+                         //                    :homeC.controllers.length==1
+                         //                    ?MediaQuery.of(context).size.height*0.25
+                         //                    :MediaQuery.of(context).size.height*0.35,
+                         //                child: ListView.builder(
+                         //                  itemCount: homeC.busStops.length,
+                         //                  itemBuilder: (context, index) {
+                         //                    return ListTile(
+                         //                      title: Text(
+                         //                        homeC.busStops[index],
+                         //                        style: AppTextStyles.regular(),
+                         //                      ),
+                         //                      // subtitle: Text(
+                         //                      //   controller.Address[controller
+                         //                      //       .selectedIndex
+                         //                      //       .value],
+                         //                      //   style: TextStyle(
+                         //                      //     color: CustomColor.textColor,
+                         //                      //     fontSize: 15,
+                         //                      //   ),
+                         //                      // ),
+                         //                      leading: Icon(
+                         //                        controller.iconItems[controller
+                         //                            .selectedIndex
+                         //                            .value]["icon"],
+                         //                        color: CustomColor.textColor,
+                         //                        size: 25,
+                         //                      ),
+                         //
+                         //                      // trailing: IconButton(
+                         //                      //   icon: Icon(
+                         //                      //     Icons.delete,
+                         //                      //     color: Colors.redAccent,
+                         //                      //     size: 25,
+                         //                      //   ),
+                         //                      //   onPressed: () {},
+                         //                      // ),
+                         //                      //
+                         //                    );
+                         //                  },
+                         //                ),
+                         //              ),
+                         //            ],
+                         //          ),
+                         //        ),
+                         //      ],
+                         //    ),
+                         //  ),
 
-                          // ================================================ Address / Airoplane / Train  Coloum
-                          Container(
-                            margin: EdgeInsets.symmetric(horizontal: 15),
-                            height: 100,
-                            width: MediaQuery.of(context).size.width * 0.93,
-                            decoration: BoxDecoration(
-                              border: Border.all(color: Colors.white),
-                              // color: const Color.fromARGB(255, 54, 54, 54),
-                              color: CustomColor.Button_background_Color,
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                // ==========================================================       Address
-                                Obx(
-                                      () => GestureDetector(
-                                    onTap: () {
-                                      homeC.selectedItem(0);
-                                      homeC.changeIndex(0);
-                                    },
-                                    child: Container(
-                                      height: 70,
-                                      width: 70,
-                                      padding: const EdgeInsets.symmetric(
-                                        vertical: 8,
-                                        horizontal: 5,
-                                      ),
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(10),
-                                        color: homeC.selectedItem.value == 0
-                                            ? Colors.white
-                                            : Colors.white10,
-                                      ),
-                                      child: Column(
-                                        mainAxisAlignment:
-                                        MainAxisAlignment.center,
-                                        children: [
-                                          Icon(
-                                            Icons.location_on,
-                                            size: 25,
-                                            color: homeC.selectedItem.value == 0
-                                                ? Colors.black
-                                                : Colors.white,
-                                          ),
-                                          const SizedBox(height: 5),
-                                          Text(
-                                            "Address",
-                                            style: AppTextStyles.small(
-                                              weight: FontWeight.bold,
-                                              size: 11,
-                                              color:
-                                              homeC.selectedItem.value == 0
-                                                  ? Colors.black
-                                                  : Colors.white,
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                ),
-
-                                // =================== Airport ===================
-                                Obx(
-                                      () => GestureDetector(
-                                    onTap: () {
-                                      homeC.selectedItem(1);
-                                      homeC.changeIndex(1);
-                                    },
-                                    child: Container(
-                                      height: 70,
-                                      width: 70,
-
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(10),
-                                        color: homeC.selectedItem.value == 1
-                                            ? Colors.white
-                                            : Colors.white10,
-                                      ),
-                                      child: Column(
-                                        mainAxisAlignment:
-                                        MainAxisAlignment.center,
-                                        children: [
-                                          Icon(
-                                            Icons.airplanemode_active,
-                                            size: 25,
-                                            color: homeC.selectedItem.value == 1
-                                                ? Colors.black
-                                                : Colors.white,
-                                          ),
-                                          const SizedBox(height: 5),
-                                          Text(
-                                            "Airport",
-                                            style: AppTextStyles.small(
-                                              weight: FontWeight.bold,
-                                              color: homeC.selectedItem.value == 1
-                                                  ? Colors.black
-                                                  : Colors.white,
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                ),
-
-                                // =================== Train ===================
-                                Obx(
-                                      () => GestureDetector(
-                                    onTap: () {
-                                      homeC.selectedItem(2);
-                                      homeC.changeIndex(2);
-                                    },
-                                    child: Container(
-                                      height: 70,
-                                      width: 70,
-                                      padding: EdgeInsets.symmetric(
-                                        vertical: 8,
-                                        horizontal: 5,
-                                      ),
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(10),
-                                        color: homeC.selectedItem.value == 2
-                                            ? Colors.white
-                                            : Colors.white10,
-                                      ),
-                                      child: Column(
-                                        mainAxisAlignment:
-                                        MainAxisAlignment.center,
-                                        children: [
-                                          Icon(
-                                            Icons.train_outlined,
-                                            size: 25,
-                                            color: homeC.selectedItem.value == 2
-                                                ? Colors.black
-                                                : Colors.white,
-                                          ),
-                                          const SizedBox(height: 5),
-                                          Text(
-                                            "Train",
-                                            style: AppTextStyles.small(
-                                              weight: FontWeight.bold,
-
-                                              color:
-                                              homeC.selectedItem.value == 2
-                                                  ? Colors.black
-                                                  : Colors.white,
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-
-                          SizedBox(height: 20),
-
-                          //===========================  list show addresses
-                          Obx(
-                                () => Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                controller.selectedIndex.value == 0
-                                    ?
-                                // homeC.searchloading.value == true
-                                //     ?Container(
-                                //   child: ListView.builder(
-                                //     itemCount: homeC.result.l,
-                                //       itemBuilder: ListTile(
-                                //         leading: Icon(Icons.location_pin),
-                                //       )),
-                                // )
-                                //
-                                //     :
-                                Container(
-                                  height: 150,
-
-                                  //color: Colors.grey,
-                                  child: Column(
-                                    crossAxisAlignment:
-                                    CrossAxisAlignment.start,
-                                    mainAxisAlignment:
-                                    MainAxisAlignment.start,
-                                    children: [
-                                      ListTile(
-                                        onTap: () {
-                                          Get.to(AddHomeScreen());
-                                        },
-                                        title: Text(
-                                          "Home",
-                                          style: AppTextStyles.medium(),
-                                        ),
-                                        subtitle:   Text(
-                                          profileController.profileData?.addhomeAddress ?? 'Address',
-                                          style: AppTextStyles.regular(),
-                                        ),
-                                        // Text(
-                                        //   "Address",
-                                        //   style: AppTextStyles.regular(),
-                                        // ),
-                                        leading: Icon(
-                                          controller.iconItems[controller
-                                              .selectedIndex
-                                              .value]["icon"],
-                                          color: CustomColor.textColor,
-                                          size: 25,
-                                        ),
-                                        // trailing: IconButton(
-                                        //   icon: Icon(
-                                        //     Icons.delete,
-                                        //     color: Colors.redAccent,
-                                        //     size: 25,
-                                        //   ),
-                                        //   onPressed: () {},
-                                        //  ),
-                                      ),
-                                      ListTile(
-                                        onTap: () {
-                                          Get.to(AddWork_Screen());
-                                        },
-                                        title: Text(
-                                          "Add Work",
-                                          style: AppTextStyles.medium(),
-                                        ),
-                                        subtitle: Text(
-                                          "Work Address",
-                                          style: AppTextStyles.regular(),
-                                        ),
-                                        leading: Icon(
-                                          controller.iconItems[controller
-                                              .selectedIndex
-                                              .value]["icon"],
-                                          color: CustomColor.textColor,
-                                          size: 25,
-                                        ),
-
-                                        // trailing: IconButton(
-                                        //   icon: Icon(
-                                        //     Icons.delete,
-                                        //     color: Colors.redAccent,
-                                        //     size: 25,
-                                        //   ),
-                                        //   onPressed: () {},
-                                        // ),
-                                      ),
-                                    ],
-                                  ),
-                                )
-                                    : Container(
-                                  height: homeC.controllers.length==2
-                                      ?MediaQuery.of(context).size.height*0.2
-                                      :homeC.controllers.length==1
-                                      ?MediaQuery.of(context).size.height*0.25
-                                      :MediaQuery.of(context).size.height*0.35,
-                                  child: ListView.builder(
-                                    itemCount: homeC.busStops.length,
-                                    itemBuilder: (context, index) {
-                                      return ListTile(
-                                        title: Text(
-                                          homeC.busStops[index],
-                                          style: AppTextStyles.regular(),
-                                        ),
-                                        // subtitle: Text(
-                                        //   controller.Address[controller
-                                        //       .selectedIndex
-                                        //       .value],
-                                        //   style: TextStyle(
-                                        //     color: CustomColor.textColor,
-                                        //     fontSize: 15,
-                                        //   ),
-                                        // ),
-                                        leading: Icon(
-                                          controller.iconItems[controller
-                                              .selectedIndex
-                                              .value]["icon"],
-                                          color: CustomColor.textColor,
-                                          size: 25,
-                                        ),
-
-                                        // trailing: IconButton(
-                                        //   icon: Icon(
-                                        //     Icons.delete,
-                                        //     color: Colors.redAccent,
-                                        //     size: 25,
-                                        //   ),
-                                        //   onPressed: () {},
-                                        // ),
-                                        //
-                                      );
-                                    },
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
 
                           //Container(height: 200,),
                         ],
@@ -709,6 +665,7 @@ class HomeDriver extends StatelessWidget {
                     ),
 
                     //Spacer(),
+                    /// ==============================================================  BOTTOM BUTTONS+=> CONTINUE / SET LOCATION ON MAP
                     Container(
                       height:MediaQuery.of(context).size.height*0.15,
                       padding: EdgeInsets.only(bottom: 20),
@@ -721,9 +678,9 @@ class HomeDriver extends StatelessWidget {
                             child: MyElevatedButton(
                               text: '',
                               textWidget: FittedBox(
-                                child: Text("Continue",style: AppTextStyles.medium(size: 25,weight: FontWeight.bold),),
+                                child: Text("Continue",
+                                  style: AppTextStyles.medium(size: 25,weight: FontWeight.bold),),
                               ),
-                              fontSize: 18,
                               onPressed: () {
                                 Get.dialog(
                                   Dialog(
