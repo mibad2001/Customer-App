@@ -18,13 +18,14 @@ class _Splash_ScreenState extends State<Splash_Screen> {
     super.initState();
 
     Future.delayed(const Duration(seconds: 2), () {
-
-      if (TokenManager.isLogin) {
-        Get.offAllNamed('/DeshBoard_Screen');   // already logged in
-      } else {
-        Get.offAllNamed('/SigIn_Screen');       // not logged in
-      }
+      //
+      // if (TokenManager.isLogin) {
+      //   Get.offAllNamed('/DeshBoard_Screen');   // already logged in
+      // } else {
+      //   Get.offAllNamed('/SigIn_Screen');       // not logged in
+      // }
      //Get.offAllNamed('/SigIn_Screen');
+      Get.offAllNamed('/DeshBoard_Screen');
     });
   }
   @override

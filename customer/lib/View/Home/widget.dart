@@ -1,7 +1,6 @@
+///===================================================== === >>   (Address/ Airport / station) container and list hai ini teeno ki
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-
 import '../../Controller/Home/home-controller.dart';
 import '../Deshboard/AddHome/add_home.dart';
 import '../Deshboard/AddWork/add_work.dart';
@@ -290,9 +289,9 @@ class _containerWidgetState extends State<containerWidget> {
                       ),
                     )
                         : Container(
-                      height: homeC.controllers.length==2
+                      height: homeC.viaControllers.length==2
                           ?MediaQuery.of(context).size.height*0.2
-                          :homeC.controllers.length==1
+                          :homeC.viaControllers.length==1
                           ?MediaQuery.of(context).size.height*0.25
                           :MediaQuery.of(context).size.height*0.35,
                       child: ListView.builder(
@@ -343,3 +342,5 @@ class _containerWidgetState extends State<containerWidget> {
     );
   }
 }
+
+

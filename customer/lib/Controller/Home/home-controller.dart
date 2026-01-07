@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-
 import '../../api_servies/api_servies.dart';
-import '../../api_servies/session.dart';
 import 'model/pickuplocationmodel.dart';
 
 class SwapController extends GetxController {
+
   // final firstController = TextEditingController();
   // final secondController = TextEditingController();
+
   var selectedItem = (0).obs;
   RxInt selectedIndex = 0.obs;
 
@@ -51,56 +51,12 @@ class SwapController extends GetxController {
     selectedIndex.value = index;
   }
 
-  // swapValues() {
-  //   final temp = firstController.text;
-  //   firstController.text = secondController.text;
-  //   secondController.text = temp;
-  //
-  //   update();
-  // }
 
-
-  //
-  // @override
-  // void onClose() {
-  //   firstController.dispose();
-  //   secondController.dispose();
-  //   super.onClose();
-  // }
-
-
-  // void addViaField() {
-  //   if (viaControllers.length < 2) {    // max 2 via stops
-  //     viaControllers.add(TextEditingController());
-  //     update();
-  //   }
-  // }
-  //
-  // void removeViaField(int index) {
-  //   viaControllers.removeAt(index);
-  //   update();
-  // }
-
-
-  //var selectedItem =(0).obs;
   var showInterchange = true.obs;
-  var controllers = <TextEditingController>[].obs;
+  var viaControllers = <TextEditingController>[].obs;
   final TextEditingController pickUp = TextEditingController(); // observable list
   final TextEditingController dropOff = TextEditingController(); // observable list
 
-
-  // FocusNode
-  // FocusNode pickUpFocus = FocusNode();
-  //
-  // @override
-  // void onInit() {
-  //   super.onInit();
-  //
-  //   pickUpFocus.addListener(() {
-  //     update(); // rebuild Obx when focus changes
-  //   });
-  // }
-  //
 
 
   void selectedContainer(int index) {
@@ -115,59 +71,55 @@ class SwapController extends GetxController {
   }
 
 
+  TextEditingController viaController1 = TextEditingController();
+  TextEditingController viaController2 = TextEditingController();
+
+  // Swap button show/hide logic
+  bool get canShowSwap => !showVia1.value && !showVia2.value;
+
+
+  // Show/hide fields
+  var showVia1 = false.obs;
+  var showVia2 = false.obs;
+
+  // Add via field
   void addField() {
-    showInterchange.value = false;
-    if (controllers.length < 2) {
-      controllers.add(TextEditingController());
-
-    }
-    //else {
-    //   Get.snackbar(
-    //     "",
-    //     "",
-    //     titleText: const SizedBox.shrink(),
-    //     messageText: Row(
-    //       children: [
-    //         Container(
-    //           width: 20,
-    //           height: 20,
-    //           clipBehavior: Clip.antiAlias,
-    //           decoration: BoxDecoration(
-    //               color: Color(0xFF262C60),
-    //               borderRadius: BorderRadius.circular(3),
-    //               image: DecorationImage(image: AssetImage('assets/logo.png'))),
-    //
-    //         ),
-    //         const SizedBox(width: 14),
-    //         const Text(
-    //           "Can't add more than 2 Via",
-    //           style: TextStyle(color: Colors.white, fontSize: 15),
-    //         ),
-    //       ],
-    //     ),
-    //     snackPosition: SnackPosition.BOTTOM,
-    //     backgroundColor: Colors.grey.shade900,
-    //     borderRadius: 10,
-    //     margin: const EdgeInsets.symmetric(horizontal: 60, vertical: 40),
-    //     padding: EdgeInsets.only(
-    //       left: 12,
-    //       right: 12,
-    //       bottom: 12,
-    //       top: 4,
-    //     ),
-    //     duration: const Duration(seconds: 2),
-    //   );
-    // }
-  }
-
-  void removeField(int index) {
-    controllers[index].dispose();
-
-    controllers.removeAt(index);
-        if (controllers.isEmpty) {
-      showInterchange.value = true;
+    if (!showVia1.value) {
+      showVia1.value = true;
+    } else if (!showVia2.value) {
+      showVia2.value = true;
     }
   }
+
+  // Remove via field
+  void removeField(int fieldNumber) {
+    if (fieldNumber == 1) {
+      viaController1.clear();
+      showVia1.value = false;
+    } else if (fieldNumber == 2) {
+      viaController2.clear();
+      showVia2.value = false;
+    }
+  }
+
+
+  // void addField() {
+  //   showInterchange.value = false;
+  //   if (viaControllers.length < 2) {
+  //     viaControllers.add(TextEditingController());
+  //
+  //   }
+  //
+  // }
+  //
+  // void removeField(int index) {
+  //   viaControllers[index].dispose();
+  //
+  //   viaControllers.removeAt(index);
+  //       if (viaControllers.isEmpty) {
+  //     showInterchange.value = true;
+  //   }
+  // }
 
 ///   ///============================= ======================== ================ ============  Pick Up location search
 
@@ -236,6 +188,45 @@ class SwapController extends GetxController {
     // Loader OFF
     dropSearchLoading.value = false;
   }
+
+
+  ///   ///============================= ======================== ================ ============   via location search
+
+
+//   var viaSearchLists = <int, List<Result>>{}.obs;
+//   var viaLoading = <int, bool>{}.obs;
+//   RxInt activeViaIndex = (-1).obs;
+//   RxList<Result> activeViaList = <Result>[].obs;
+//
+//
+// // ================= LIVE SEARCH API FOR via =================
+//   Future<void> viaLocation(String text, int index) async {
+//     if (text.isEmpty) {
+//       viaSearchLists[index] = [];
+//       viaSearchLists.refresh();
+//       return;
+//     }
+//
+//     viaLoading[index] = true;
+//     viaLoading.refresh();
+//
+//     var response = await ApiService.get(
+//       '',
+//       fullUrl: 'http://192.168.110.4:5000/api/services/search?search=${text.toUpperCase()}',
+//       auth: true,
+//       isProgressShow: false,
+//     );
+//
+//     if (response?.statusCode == 200) {
+//       PickUpLocationModel model = PickUpLocationModel.fromJson(response!.data);
+//       viaSearchLists[index] = model.result ?? [];
+//     }
+//
+//     viaLoading[index] = false;
+//     viaSearchLists.refresh();
+//     viaLoading.refresh();
+//   }
+//
 
 
 

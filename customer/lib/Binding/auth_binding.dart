@@ -18,12 +18,12 @@ import '../View/profile/controller/profile_controller.dart';
 //   }
 // }
 
-class HomeController extends Bindings {
-  @override
-  void dependencies() {
-    Get.lazyPut(() => SwapController());
-  }
-}
+// class HomeController extends Bindings {
+//   @override
+//   void dependencies() {
+//     Get.lazyPut(() => SwapController());
+//   }
+// }
 
 // class profileController extends Bindings {
 //   @override
