@@ -204,16 +204,7 @@ class _containerWidgetState extends State<containerWidget> {
                   children: [
                     controller.selectedIndex.value == 0
                         ?
-                    // homeC.searchloading.value == true
-                    //     ?Container(
-                    //   child: ListView.builder(
-                    //     itemCount: homeC.result.l,
-                    //       itemBuilder: ListTile(
-                    //         leading: Icon(Icons.location_pin),
-                    //       )),
-                    // )
-                    //
-                    //     :
+
                     Container(
                       height: 150,
 
@@ -236,10 +227,7 @@ class _containerWidgetState extends State<containerWidget> {
                               profileController.profileData?.addhomeAddress ?? 'Address',
                               style: AppTextStyles.regular(),
                             ),
-                            // Text(
-                            //   "Address",
-                            //   style: AppTextStyles.regular(),
-                            // ),
+
                             leading: Icon(
                               controller.iconItems[controller
                                   .selectedIndex
@@ -247,14 +235,7 @@ class _containerWidgetState extends State<containerWidget> {
                               color: CustomColor.textColor,
                               size: 25,
                             ),
-                            // trailing: IconButton(
-                            //   icon: Icon(
-                            //     Icons.delete,
-                            //     color: Colors.redAccent,
-                            //     size: 25,
-                            //   ),
-                            //   onPressed: () {},
-                            //  ),
+
                           ),
                           ListTile(
                             onTap: () {
@@ -276,24 +257,17 @@ class _containerWidgetState extends State<containerWidget> {
                               size: 25,
                             ),
 
-                            // trailing: IconButton(
-                            //   icon: Icon(
-                            //     Icons.delete,
-                            //     color: Colors.redAccent,
-                            //     size: 25,
-                            //   ),
-                            //   onPressed: () {},
-                            // ),
                           ),
                         ],
                       ),
                     )
                         : Container(
-                      height: homeC.viaControllers.length==2
-                          ?MediaQuery.of(context).size.height*0.2
-                          :homeC.viaControllers.length==1
-                          ?MediaQuery.of(context).size.height*0.25
-                          :MediaQuery.of(context).size.height*0.35,
+                      height: (homeC.showVia1.value && homeC.showVia2.value)
+                          ? MediaQuery.of(context).size.height * 0.21   // 2 VIA → smallest
+                          : (homeC.showVia1.value)
+                          ? MediaQuery.of(context).size.height * 0.28   // 1 VIA → medium
+                          : MediaQuery.of(context).size.height * 0.35,  // 0 VIA → large
+
                       child: ListView.builder(
                         itemCount: homeC.busStops.length,
                         itemBuilder: (context, index) {
@@ -302,15 +276,7 @@ class _containerWidgetState extends State<containerWidget> {
                               homeC.busStops[index],
                               style: AppTextStyles.regular(),
                             ),
-                            // subtitle: Text(
-                            //   controller.Address[controller
-                            //       .selectedIndex
-                            //       .value],
-                            //   style: TextStyle(
-                            //     color: CustomColor.textColor,
-                            //     fontSize: 15,
-                            //   ),
-                            // ),
+
                             leading: Icon(
                               controller.iconItems[controller
                                   .selectedIndex
@@ -319,15 +285,6 @@ class _containerWidgetState extends State<containerWidget> {
                               size: 25,
                             ),
 
-                            // trailing: IconButton(
-                            //   icon: Icon(
-                            //     Icons.delete,
-                            //     color: Colors.redAccent,
-                            //     size: 25,
-                            //   ),
-                            //   onPressed: () {},
-                            // ),
-                            //
                           );
                         },
                       ),

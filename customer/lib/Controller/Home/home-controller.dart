@@ -1,20 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import '../../api_servies/api_servies.dart';
 import 'model/pickuplocationmodel.dart';
 
 class SwapController extends GetxController {
 
-  // final firstController = TextEditingController();
-  // final secondController = TextEditingController();
+
 
   var selectedItem = (0).obs;
   RxInt selectedIndex = 0.obs;
 
-  // // var showInterchange = true.obs;
-  //   RxList<TextEditingController> viaControllers = <TextEditingController>[].obs;
-  //
+
+
 
 
   List<Map<String, dynamic>> iconItems = [
@@ -52,16 +49,16 @@ class SwapController extends GetxController {
   }
 
 
-  var showInterchange = true.obs;
+
   var viaControllers = <TextEditingController>[].obs;
   final TextEditingController pickUp = TextEditingController(); // observable list
   final TextEditingController dropOff = TextEditingController(); // observable list
 
 
-
-  void selectedContainer(int index) {
-    selectedItem.value = index;
-  }
+  //
+  // void selectedContainer(int index) {
+  //   selectedItem.value = index;
+  // }
 
 
   void swapField() {
@@ -103,23 +100,6 @@ class SwapController extends GetxController {
   }
 
 
-  // void addField() {
-  //   showInterchange.value = false;
-  //   if (viaControllers.length < 2) {
-  //     viaControllers.add(TextEditingController());
-  //
-  //   }
-  //
-  // }
-  //
-  // void removeField(int index) {
-  //   viaControllers[index].dispose();
-  //
-  //   viaControllers.removeAt(index);
-  //       if (viaControllers.isEmpty) {
-  //     showInterchange.value = true;
-  //   }
-  // }
 
 ///   ///============================= ======================== ================ ============  Pick Up location search
 
@@ -190,69 +170,70 @@ class SwapController extends GetxController {
   }
 
 
-  ///   ///============================= ======================== ================ ============   via location search
+  ///   ///============================= ======================== ================ ============   via 1 location search
 
 
-//   var viaSearchLists = <int, List<Result>>{}.obs;
-//   var viaLoading = <int, bool>{}.obs;
-//   RxInt activeViaIndex = (-1).obs;
-//   RxList<Result> activeViaList = <Result>[].obs;
-//
-//
-// // ================= LIVE SEARCH API FOR via =================
-//   Future<void> viaLocation(String text, int index) async {
-//     if (text.isEmpty) {
-//       viaSearchLists[index] = [];
-//       viaSearchLists.refresh();
-//       return;
-//     }
-//
-//     viaLoading[index] = true;
-//     viaLoading.refresh();
-//
-//     var response = await ApiService.get(
-//       '',
-//       fullUrl: 'http://192.168.110.4:5000/api/services/search?search=${text.toUpperCase()}',
-//       auth: true,
-//       isProgressShow: false,
-//     );
-//
-//     if (response?.statusCode == 200) {
-//       PickUpLocationModel model = PickUpLocationModel.fromJson(response!.data);
-//       viaSearchLists[index] = model.result ?? [];
-//     }
-//
-//     viaLoading[index] = false;
-//     viaSearchLists.refresh();
-//     viaLoading.refresh();
-//   }
-//
+  RxBool viaSearchloading1 = false.obs;
+  RxList<Result> viaSearchList1 = <Result>[].obs;
 
 
+  Future<void> viaLocation1(String text) async {
+    if (text.isEmpty) {
+      viaSearchList1.clear();
+      return;
+    }
 
 
+    viaSearchloading1.value = true;
+
+    var response = await ApiService.get(
+      '',
+      fullUrl: 'http://192.168.110.4:5000/api/services/search?search=${viaController1.text.toUpperCase()}',
+      auth: true,
+      isProgressShow: false,
+    );
+
+    if ( response!.statusCode == 200) {
+      PickUpLocationModel model = PickUpLocationModel.fromJson(response.data);
+
+      viaSearchList1.value = model.result ?? [];
+    }
+
+    viaSearchloading1.value = false;
+
+  }
+
+  ///   ///============================= ======================== ================ ============   via 1 location search
 
 
+  RxBool viaSearchloading2 = false.obs;
+  RxList<Result> viaSearchList2 = <Result>[].obs;
 
-//   RxBool searchloading = false.obs;
-//   PickUpLocationModel? pickUpLocationModel ;
-//   Result? result;
-//   Future<void> pickupLocation() async {
-//
-//     searchloading.value = true;
-//     update();
-//     var response = await ApiService.get(
-//      '',
-// fullUrl: 'http://192.168.110.3:5000/api/services/search?search=${pickUp.text}',
-//       auth: true,
-//     );
-//
-//     if (response!.statusCode == 200) {
-//      pickUpLocationModel= PickUpLocationModel.fromJson(response.data);
-//     }
-//     searchloading.value = false;
-//     update();
-//   }
 
+  Future<void> viaLocation2(String text) async {
+    if (text.isEmpty) {
+      viaSearchList2.clear();
+      return;
+    }
+
+
+    viaSearchloading2.value = true;
+
+    var response = await ApiService.get(
+      '',
+      fullUrl: 'http://192.168.110.4:5000/api/services/search?search=${viaController2.text.toUpperCase()}',
+      auth: true,
+      isProgressShow: false,
+    );
+
+    if ( response!.statusCode == 200) {
+      PickUpLocationModel model = PickUpLocationModel.fromJson(response.data);
+
+      viaSearchList2.value = model.result ?? [];
+    }
+
+    viaSearchloading2.value = false;
+
+  }
 
 }
