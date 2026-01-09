@@ -3,7 +3,6 @@ import 'package:customer/View/Widgets/color.dart';
 import 'package:customer/View/Widgets/textformfield.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../../Widgets/all_text.dart';
 import '../../Widgets/text_button.dart';
 import '../../profile/controller/profile_controller.dart';
@@ -13,152 +12,143 @@ class AddWork_Screen extends StatefulWidget {
   const AddWork_Screen({super.key});
 
   @override
-  State<AddWork_Screen> createState() => AddWork_ScreenState();
+  State<AddWork_Screen> createState() => _AddWork_ScreenState();
 }
 
-class AddWork_ScreenState extends State<AddWork_Screen> {
-  // final DeshBoardAddHome_Controller mydeshcontroller = Get.put(DeshBoardAddHome_Controller());
+class _AddWork_ScreenState extends State<AddWork_Screen> {
 
   final mydeshcontroller = Get.isRegistered<DeshBoardAddHome_Controller>()
       ? Get.find<DeshBoardAddHome_Controller>()
-      :  Get.put(DeshBoardAddHome_Controller());
+      : Get.put(DeshBoardAddHome_Controller());
 
-  final getworkaddress = Get.isRegistered<profileModelController>()
+  final profileC = Get.isRegistered<profileModelController>()
       ? Get.find<profileModelController>()
-      :  Get.put(profileModelController());
-
-
+      : Get.put(profileModelController());
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: CustomColor.background,
+        resizeToAvoidBottomInset: false,
         body: Container(
-          padding: EdgeInsets.symmetric(horizontal: 15),
-          height:MediaQuery.of(context).size.height,
-          width:MediaQuery.of(context).size.width,
-          decoration: BoxDecoration(
+          padding: const EdgeInsets.symmetric(horizontal: 15),
+          decoration: const BoxDecoration(
             gradient: LinearGradient(
-              colors: [
-                Color.fromARGB(255, 30, 1, 44),
-                Color.fromARGB(255, 227, 194, 242)
-              ],
+              colors: [Color.fromARGB(255, 30, 1, 44), Color.fromARGB(255, 227, 194, 242)],
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
             ),
           ),
           child: SingleChildScrollView(
-            child:Column(
+            child: Column(
               children: [
-                // ===================== Header Section =====================
-                Container(
-                  height: MediaQuery.of(context).size.height*0.25,
-                  decoration: BoxDecoration(
-                    //color: CustomColor.textfield_fill,
-                    borderRadius: const BorderRadius.only(
-                      bottomLeft: Radius.circular(30),
-                      bottomRight: Radius.circular(30),
-                    ),
-                  ),
-                  //padding: const EdgeInsets.only(top: 20, bottom: 30, left: 8, right: 10),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        children: [
-                          IconButton(
-                            onPressed: () => Get.back(),
-                            icon: const Icon(
-                              Icons.arrow_back,
-                              color: Colors.white,
-                              size: 25,
-                            ),
-                          ),
-                          SizedBox(width: MediaQuery.of(context).size.width*0.16,),
-      
-                          Text(
-                            "Work Address",
-                            style: AppTextStyles.heading(),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 60),
-                      Row(
-                        children: [
-                          Expanded(
-                            child: CustomTextField(
-                              controller: mydeshcontroller.WorkAdressController,
-                              hintText: "Add Your Work Address",
-                              borderRadius: 15,
-                              fillColor: CustomColor.textfield_fill,
-                            ),
-                          ),
-                          Obx(() => IconButton(
-                            icon: Icon(
-                              mydeshcontroller.editingIndex.value == null
-                                  ? Icons.add
-                                  : Icons.check,
-                              color: Colors.white,
-                            ),
-                            onPressed: () {
-                              mydeshcontroller.AddworkApi();
-                            },
-                          )),
-                        ],
-                      ),
-                    ],
-                  ),
+
+                const SizedBox(height: 30),
+                Row(
+                  children: [
+                    IconButton(onPressed: Get.back,
+                        icon: const Icon(Icons.arrow_back, color: Colors.white)),
+                    const Spacer(),
+                    Text("Work Address",
+                        style:AppTextStyles.heading()),
+                    const Spacer(),
+                  ],
                 ),
-      
-                const SizedBox(height: 20),
 
-                /// ADDRESS CARD (reactive)
-                GetBuilder<profileModelController>(
-                  builder: (pController) {
-                    final address = pController.profileData?.addworkAddress;
+                const SizedBox(height: 40),
 
-                    if (address == null || address.isEmpty) {
+                /// 🔍 WORK SEARCH FIELD
+                Row(
+                  children: [
+                    Expanded(
+                      child: CustomTextField(
+                        controller: mydeshcontroller.WorkAdressController,
+                        hintText: "Search Work Address",
+                        borderRadius: 15,
+                        onChanged: mydeshcontroller.addworkLocation,
+                      ),
+                    ),
+                    Obx(() => IconButton(
+                      icon: Icon(mydeshcontroller.editingIndex.value != null
+                          ? Icons.check : Icons.add, color: Colors.white),
+                      onPressed: mydeshcontroller.AddworkApi,
+                    )),
+                  ],
+                ),
+
+                /// 🔍 LIVE SEARCH LIST
+                Obx(() {
+                  if (mydeshcontroller.workSearchloading.value) {
+                    return const Padding(
+                      padding: EdgeInsets.all(15),
+                      child: LinearProgressIndicator(
+                        minHeight: 3,
+                        color: CustomColor.Icon_Color,
+                        backgroundColor: Colors.white24,
+                      ),
+                    );
+                  }
+
+                  if (mydeshcontroller.workSearchList.isNotEmpty) {
+                    return commonSearchContainer(
+                      context: context,
+                      list: mydeshcontroller.workSearchList,
+                      onTap: (item) {
+                        mydeshcontroller.WorkAdressController.text =
+                        "${item.name} ${item.postcode}";
+                        mydeshcontroller.workSearchList.clear();
+                      },
+                    );
+                  }
+                  return const SizedBox();
+                }),
+
+                /// 🏢 SAVED WORK CARD
+                Obx(() {
+                  if (mydeshcontroller.workSearchList.isNotEmpty ||
+                      mydeshcontroller.workSearchloading.value) {
+                    return const SizedBox();
+                  }
+
+                  return GetBuilder<profileModelController>(builder: (c) {
+                    final address = c.profileData?.addworkAddress;
+                    if (address == null || address.trim().isEmpty) {
                       return Padding(
-                        padding: EdgeInsets.all(40),
-                        child: Text("No data", style: AppTextStyles.heading()),
+                        padding: const EdgeInsets.all(40),
+                        child: Center(child: Text("No data", style: AppTextStyles.heading())),
                       );
                     }
 
                     return Card(
+                      margin: const EdgeInsets.only(top: 50),
                       color: CustomColor.Container_Colors,
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
                       child: ListTile(
-                        title: Text(address,
-                            style: AppTextStyles.medium()),
-                        leading: Icon(Icons.work,),
+                        leading: const Icon(Icons.work),
+                        title: Text(address, style: AppTextStyles.small()),
                         trailing: Row(
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             IconButton(
-                                icon: Icon(Icons.edit, color: Colors.blue),
-                                onPressed:
-                                    () async {
-                                  Get.dialog(
-                                    Center(
-                                      child: CircularProgressIndicator(
-                                        color: CustomColor.Button_background_Color,
-                                      ),
+                              icon: Icon(Icons.edit, color: Colors.blue),
+                              onPressed: () async {
+                                Get.dialog(
+                                  Center(
+                                    child: CircularProgressIndicator(
+                                      color: CustomColor.Icon_Color,
+                                      backgroundColor: Colors.white24,
                                     ),
-                                    barrierDismissible: false,
-                                  );
-                                  await Future.delayed(Duration(seconds: 1));
-                                  Get.back();
-                                  mydeshcontroller.editItem();
-
-                                }
-
+                                  ),
+                                  barrierDismissible: false,
+                                );
+                                await Future.delayed(Duration(seconds: 1));
+                                Get.back();
+                                mydeshcontroller.editWorkAddress();
+                              },
                             ),
-                            IconButton(
-                                icon: Icon(Icons.delete, color: Colors.red),
-                                onPressed:
-                                //mydeshcontroller.deleteItem,
-                                    (){
+
+                            IconButton(icon: const Icon(Icons.delete, color: Colors.red),
+                                onPressed: () {
                                   Get.dialog(
                                     Dialog(
                                       backgroundColor: CustomColor.Container_Colors,
@@ -202,31 +192,14 @@ class AddWork_ScreenState extends State<AddWork_Screen> {
                                               crossAxisAlignment: CrossAxisAlignment.center,
                                               mainAxisAlignment: MainAxisAlignment.center,
                                               children: [
-
-
-
                                                 CustomTextButton(
                                                   text: 'Yes',
                                                   onPressed: () async {
-
-                                                      Get.dialog(
-                                                        Center(
-                                                          child: CircularProgressIndicator(
-                                                            color: CustomColor.Button_background_Color,
-                                                          ),
-                                                        ),
-                                                        barrierDismissible: false,
-                                                      );
-                                                      await Future.delayed(
-                                                          Duration(seconds: 1));
-                                                      Get.back();
-                                                      mydeshcontroller.deleteWorkapi();
-                                                   // mydeshcontroller.deleteWorkapi();
+                                                    mydeshcontroller.deleteWorkapi();
+                                                    Get.back();
 
 
 
-                                                    // //print("yaha hm ma ");
-                                                    // Get.back();
                                                   },
                                                   backgroundColor: Colors.red,
                                                   textColor: Colors.white,
@@ -270,166 +243,45 @@ class AddWork_ScreenState extends State<AddWork_Screen> {
                         ),
                       ),
                     );
-                  },
-                )
-
-
-                // ===================== Address Display Section =====================
-                // Obx(() {
-                //   if (mydeshcontroller.workAddress.value.isEmpty) {
-                //     return  Center(
-                //       child: Padding(
-                //         padding: EdgeInsets.only(top: 60),
-                //         child: Text(
-                //           "No data",
-                //           style: AppTextStyles.heading(),
-                //         ),
-                //       ),
-                //     );
-                //   }
-                //
-                //   return Container(
-                //     margin: const EdgeInsets.only(top: 20),
-                //     decoration: BoxDecoration(
-                //       color: CustomColor.Container_Colors,
-                //       borderRadius: BorderRadius.circular(15),
-                //     ),
-                //     child: ListTile(
-                //       title: Text(
-                //         mydeshcontroller.workAddress.value,
-                //         maxLines: 2,
-                //         overflow: TextOverflow.ellipsis,
-                //         style: AppTextStyles.medium(
-                //         ),
-                //       ),
-                //       leading: const Icon(Icons.work, color: Colors.white),
-                //       trailing: Row(
-                //         mainAxisSize: MainAxisSize.min,
-                //         children: [
-                //           // ================= Edit Button =================
-                //           IconButton(
-                //             icon: const Icon(Icons.edit, color: Colors.blue),
-                //             onPressed: () async{
-                //               Get.dialog(
-                //                 Center(
-                //                   child: CircularProgressIndicator(
-                //                     color: CustomColor.Button_background_Color,
-                //                   ),
-                //                 ),
-                //                 barrierDismissible: false
-                //               );
-                //               await Future.delayed(Duration(seconds: 1));
-                //               Get.back();
-                //               mydeshcontroller.editWorkAddress();
-                //             },
-                //           ),
-                //
-                //           // ================= Delete Button =================
-                //           IconButton(
-                //             icon: const Icon(Icons.delete, color: Colors.red),
-                //             onPressed: () {
-                //               Get.dialog(
-                //                 Dialog(
-                //                   backgroundColor: CustomColor.Container_Colors,
-                //                   child: Container(
-                //                     decoration: BoxDecoration(
-                //                       borderRadius: BorderRadius.all(Radius.circular(30)),
-                //                     ),
-                //                     height: 200,
-                //                     width: 100,
-                //                     child: Column(
-                //                       children: [
-                //                         SizedBox(height: 15),
-                //
-                //                         Text(
-                //                           CustomText.Delete_address,
-                //                           style: AppTextStyles.heading(
-                //
-                //                           ),
-                //                         ),
-                //                         SizedBox(height: 5),
-                //                         Icon(
-                //                           Icons.warning_amber,
-                //                           color: Colors.amberAccent,
-                //                           size: 40,
-                //                         ),
-                //                         SizedBox(height: 5),
-                //                         Center(
-                //                           child: Padding(
-                //                             padding: EdgeInsets.symmetric(horizontal: 10),
-                //                             child: Text(
-                //                               CustomText.Delete_home_address_Alert,
-                //                               textAlign: TextAlign.center,
-                //                               style: AppTextStyles.small(),
-                //                             ),
-                //                           ),
-                //                         ),
-                //                         SizedBox(height: 15,),
-                //
-                //                         Row(
-                //                           crossAxisAlignment: CrossAxisAlignment.center,
-                //                           mainAxisAlignment: MainAxisAlignment.center,
-                //                           children: [
-                //                             //SizedBox(width: 70, height: 5),
-                //                             CustomTextButton(
-                //                               text: 'Yes',
-                //                               onPressed: (){
-                //
-                //                                 mydeshcontroller.deleteWorkItem();
-                //                                 //print("yaha hm ma ");
-                //                                 Get.back();
-                //                                 mydeshcontroller.clearWorkField();
-                //
-                //                               },
-                //                               backgroundColor: Colors.red,
-                //                               textColor: Colors.white,
-                //                               borderRadius: 8,
-                //                               elevation: 2,
-                //                               fontSize: 10,
-                //                               fontWeight: FontWeight.bold,
-                //                               padding: EdgeInsets.symmetric(
-                //                                 horizontal: 16,
-                //                                 vertical: 10,
-                //                               ),
-                //                             ),
-                //                             SizedBox(width: 20),
-                //
-                //                             CustomTextButton(
-                //                               text: '  NO  ',
-                //                               onPressed: () {
-                //                                 Get.back();
-                //                               },
-                //                               backgroundColor: CustomColor.Button_background_Color,
-                //                               textColor: Colors.white,
-                //                               borderRadius: 8,
-                //                               elevation: 2,
-                //                               fontSize: 10,
-                //                               fontWeight: FontWeight.bold,
-                //                               padding: EdgeInsets.symmetric(
-                //                                 horizontal: 16,
-                //                                 vertical: 10,
-                //                               ),
-                //                             ),
-                //                           ],
-                //                         ),
-                //                       ],
-                //                     ),
-                //                   ),
-                //                 ),
-                //               );
-                //             },
-                //           ),
-                //         ],
-                //       ),
-                //     ),
-                //   );
-                // }),
+                  });
+                }),
               ],
             ),
-      
           ),
         ),
       ),
     );
   }
+
+
+
+  //======================================================   list widget
+  Widget commonSearchContainer({
+    required BuildContext context,
+    required List list,
+    required Function(dynamic) onTap,
+  }) {
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+      height: MediaQuery.of(context).size.height * 0.8,
+      child: ListView.builder(
+        itemCount: list.length,
+        itemBuilder: (context, index) {
+          final item = list[index];
+          return ListTile(
+            leading: const Icon(
+              Icons.location_on,
+              color: CustomColor.Icon_Color,
+            ),
+            title: Text(
+              "${item.name ?? ""} ${item.postcode ?? ""}",
+              style: AppTextStyles.regular(),
+            ),
+            onTap: () => onTap(item),
+          );
+        },
+      ),
+    );
+  }
 }
+

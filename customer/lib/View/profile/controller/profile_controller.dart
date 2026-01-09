@@ -19,7 +19,7 @@ class profileModelController extends GetxController {
     getuserProfile();
   }
 
-  ///--------------------------------------------------------------  user profile api
+  ///--------------------------------------------------------------  user get profile api
 
 
   Future<void> getuserProfile() async {

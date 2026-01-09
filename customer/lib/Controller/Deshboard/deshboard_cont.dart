@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import '../../View/profile/controller/profile_controller.dart';
 import '../../api_servies/api_servies.dart';
 import '../../api_servies/session.dart';
+import '../Home/model/pickuplocationmodel.dart';
 
 class DeshBoardAddHome_Controller extends GetxController {
 
@@ -16,10 +17,10 @@ class DeshBoardAddHome_Controller extends GetxController {
 
   final RxnInt editingIndex = RxnInt();
 
-  // TextField controller
+  // TextField
   final TextEditingController HomeController = TextEditingController();
   final TextEditingController WorkAdressController = TextEditingController();
-  //late var homeAddress =HomeController.text;
+
   var workAddress = ''.obs;
 
  ///=====================================  ===========  =============================================== add Home address
@@ -54,7 +55,7 @@ class DeshBoardAddHome_Controller extends GetxController {
     HomeController.clear();
   }
 
-  /// Add home api
+  /// ========================================================================================================   Add home api
 
 
   Future<void> AddhomeApi() async {
@@ -95,7 +96,7 @@ class DeshBoardAddHome_Controller extends GetxController {
     }
   }
 
-  /// delete api
+  /// =====================================================================================================      delete api
 
   Future<void> deleteHomeApi() async {
 
@@ -122,7 +123,44 @@ class DeshBoardAddHome_Controller extends GetxController {
   }
 
 
-///======================================= ================================= add work  ============================
+  ///   ///============================= ======================== ================ ============  Add home location search
+
+  RxBool homeSearchloading = false.obs;
+  RxList<Result> homeSearchList = <Result>[].obs;
+
+
+  Future<void> addhomeLocation(String text) async {
+    if (text.isEmpty) {
+      homeSearchList.clear();
+      return;
+    }
+
+
+    homeSearchloading.value = true;
+
+    var response = await ApiService.get(
+      //'services/search',
+      '',
+      fullUrl: 'http://192.168.110.4:5000/api/services/search?search=${HomeController.text.toUpperCase()}',
+      auth: true,
+      isProgressShow: false,
+      // queryParameters: {
+      //   'search':HomeController.text
+      // }
+    );
+
+    if ( response!.statusCode == 200) {
+      LocationModel model = LocationModel.fromJson(response.data);
+
+      homeSearchList.value = model.result ?? [];
+    }
+
+    homeSearchloading.value = false;
+
+  }
+
+
+///======================================= ================================= =================================    add work  ================================  ============================
 
   // void saveWorkAddress() {
   //   if (WorkAdressController.text.isNotEmpty) {
@@ -205,6 +243,43 @@ class DeshBoardAddHome_Controller extends GetxController {
       clearWorkField();
 
     }
+  }
+
+
+  ///   ///============================= ======================== ================ ============  Add home location search
+
+  RxBool workSearchloading = false.obs;
+  RxList<Result> workSearchList = <Result>[].obs;
+
+
+  Future<void> addworkLocation(String text) async {
+    if (text.isEmpty) {
+      workSearchList.clear();
+      return;
+    }
+
+
+    workSearchloading.value = true;
+
+    var response = await ApiService.get(
+      //'services/search',
+      '',
+      fullUrl: 'http://192.168.110.4:5000/api/services/search?search=${WorkAdressController.text.toUpperCase()}',
+      auth: true,
+      isProgressShow: false,
+      // queryParameters: {
+      //   'search':WorkAdressController.text
+      // }
+    );
+
+    if ( response!.statusCode == 200) {
+      LocationModel model = LocationModel.fromJson(response.data);
+
+      workSearchList.value = model.result ?? [];
+    }
+
+    workSearchloading.value = false;
+
   }
 
 

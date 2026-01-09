@@ -204,9 +204,8 @@ class _containerWidgetState extends State<containerWidget> {
                   children: [
                     controller.selectedIndex.value == 0
                         ?
-
-                    Container(
-                      height: 150,
+                    SizedBox(
+                      height:MediaQuery.of(context).size.height*0.2,
 
                       //color: Colors.grey,
                       child: Column(
@@ -246,13 +245,11 @@ class _containerWidgetState extends State<containerWidget> {
                               style: AppTextStyles.medium(),
                             ),
                             subtitle: Text(
-                              "Work Address",
+                              profileController.profileData?.addworkAddress ?? 'Address',
                               style: AppTextStyles.regular(),
                             ),
                             leading: Icon(
-                              controller.iconItems[controller
-                                  .selectedIndex
-                                  .value]["icon"],
+                              controller.iconItems[controller.selectedIndex.value]["icon"],
                               color: CustomColor.textColor,
                               size: 25,
                             ),

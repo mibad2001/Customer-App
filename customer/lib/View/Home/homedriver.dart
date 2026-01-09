@@ -187,8 +187,9 @@ class HomeDriver extends StatelessWidget {
                                               color: CustomColor
                                                   .textField_Icon_Color,
                                             ),
-                                            onChanged: (v) =>
-                                                homeC.dropOffLocation(v),
+                                            onChanged: (v) {
+                                                homeC.dropOffLocation(v);
+                                            }
                                           ),
                                         ),
                                         const SizedBox(height: 20),
@@ -262,7 +263,7 @@ class HomeDriver extends StatelessWidget {
                                 ),
                                 child: LinearProgressIndicator(
                                   minHeight: 3,
-                                  color: Colors.white,
+                                  color: CustomColor.Icon_Color,
                                   backgroundColor: Colors.white24,
                                 ),
                               );

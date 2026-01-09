@@ -5,6 +5,7 @@ import 'package:bot_toast/bot_toast.dart';
 
 class ApiService {
   static String apiUrl = "http://192.168.18.16:5000/api/";
+ // static String apiUrl = "http://192.168.110.4:5000/api/";  // taj
 
   // ---------------- POST ----------------
   static Future<Response?> post(dynamic data, String url,

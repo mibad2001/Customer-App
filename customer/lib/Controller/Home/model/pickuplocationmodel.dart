@@ -4,24 +4,24 @@
 
 import 'dart:convert';
 
-PickUpLocationModel pickUpLocationModelFromJson(String str) => PickUpLocationModel.fromJson(json.decode(str));
+LocationModel pickUpLocationModelFromJson(String str) => LocationModel.fromJson(json.decode(str));
 
-String pickUpLocationModelToJson(PickUpLocationModel data) => json.encode(data.toJson());
+String pickUpLocationModelToJson(LocationModel data) => json.encode(data.toJson());
 
-class PickUpLocationModel {
+class LocationModel {
   bool? status;
   String? source;
   int? count;
   List<Result>? result;
 
-  PickUpLocationModel({
+  LocationModel({
     this.status,
     this.source,
     this.count,
     this.result,
   });
 
-  factory PickUpLocationModel.fromJson(Map<String, dynamic> json) => PickUpLocationModel(
+  factory LocationModel.fromJson(Map<String, dynamic> json) => LocationModel(
     status: json["status"],
     source: json["source"],
     count: json["count"],

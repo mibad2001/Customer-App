@@ -124,7 +124,7 @@ class SwapController extends GetxController {
     );
 
     if ( response!.statusCode == 200) {
-      PickUpLocationModel model = PickUpLocationModel.fromJson(response.data);
+      LocationModel model = LocationModel.fromJson(response.data);
 
       searchList.value = model.result ?? [];
     }
@@ -159,7 +159,7 @@ class SwapController extends GetxController {
     );
 
     if (response!.statusCode == 200) {
-      PickUpLocationModel model = PickUpLocationModel.fromJson(response.data);
+      LocationModel model = LocationModel.fromJson(response.data);
 
       // Result ko update karo
       dropSearchList.value = model.result ?? [];
@@ -194,7 +194,7 @@ class SwapController extends GetxController {
     );
 
     if ( response!.statusCode == 200) {
-      PickUpLocationModel model = PickUpLocationModel.fromJson(response.data);
+      LocationModel model = LocationModel.fromJson(response.data);
 
       viaSearchList1.value = model.result ?? [];
     }
@@ -203,7 +203,7 @@ class SwapController extends GetxController {
 
   }
 
-  ///   ///============================= ======================== ================ ============   via 1 location search
+  ///   ///============================= ======================== ================ ============   via 2 location search
 
 
   RxBool viaSearchloading2 = false.obs;
@@ -227,7 +227,7 @@ class SwapController extends GetxController {
     );
 
     if ( response!.statusCode == 200) {
-      PickUpLocationModel model = PickUpLocationModel.fromJson(response.data);
+    LocationModel model = LocationModel.fromJson(response.data);
 
       viaSearchList2.value = model.result ?? [];
     }
